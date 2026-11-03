@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+[11/4/2026 12:15 AM] پـانـیـذ: <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طنین‌فای | Taninfy Music</title>
-    <!-- فونت وزیر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     
     <style>
@@ -18,10 +17,9 @@
             --tagline-color: #94a3b8;
             --btn-bg: rgba(88, 28, 135, 0.15);
             --btn-border: rgba(167, 139, 250, 0.4);
-            --menu-bg: rgba(15, 23, 42, 0.95);
+            --menu-bg: rgba(15, 23, 42, 0.98);
         }
 
-        /* تم روشن */
         body.light-theme {
             --bg-color: #f3e8ff;
             --grad-1: rgba(192, 132, 252, 0.3);
@@ -32,7 +30,7 @@
             --tagline-color: #6b21a8;
             --btn-bg: rgba(168, 85, 247, 0.15);
             --btn-border: rgba(126, 34, 206, 0.4);
-            --menu-bg: rgba(255, 255, 255, 0.95);
+            --menu-bg: rgba(255, 255, 255, 0.98);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -55,7 +53,7 @@
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* هدر بالا */
+        /* هدر بالا (تنظیم جایگاه موج صوتی در چپ و منو در راست) */
         .top-bar {
             position: absolute;
             top: 30px;
@@ -97,7 +95,7 @@
             transition: 0.3s;
         }
 
-        /* استایل منوی کشویی */
+        /* منوی کشویی از سمت راست */
         .side-menu {
             position: fixed;
             top: 0;
@@ -106,14 +104,14 @@
             height: 100%;
             background: var(--menu-bg);
             backdrop-filter: blur(15px);
-            box-shadow: -5px 0 25px rgba(0,0,0,0.4);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             padding: 40px 30px;
             transition: 0.4s ease-in-out;
             z-index: 100;
             text-align: right;
-            }
+[11/4/2026 12:15 AM] پـانـیـذ: }
         .side-menu.active {
             right: 0;
         }
@@ -208,7 +206,7 @@
 </head>
 <body>
 
-    <!-- هدر بالا و دکمه منو -->
+    <!-- هدر بالا: موج صوتی در سمت چپ، دکمه منو در سمت راست -->
     <div class="top-bar">
         <div class="icon-wave">
             <span></span><span></span><span></span><span></span>
@@ -244,8 +242,7 @@
             Enter <span>→</span>
         </a>
     </div>
-    <!-- اسکریپت‌ها برای کنترل منو و تغییر تم -->
-    <script>
+[11/4/2026 12:15 AM] پـانـیـذ: <script>
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
             menu.classList.toggle('active');
