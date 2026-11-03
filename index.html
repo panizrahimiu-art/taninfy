@@ -381,10 +381,11 @@
         .auth-card {
             background: rgba(18, 10, 32, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 40px 16px 40px 16px;
+            /* انحنای نامتقارن و دفورمه (ارگانیک و حباب‌مانند) */
+            border-radius: 42% 58% 65% 35% / 40% 45% 55% 60%;
             width: 90%;
             max-width: 360px;
-            padding: 35px 28px;
+            padding: 40px 30px;
             position: relative;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 
                         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -393,6 +394,10 @@
             display: flex;
             flex-direction: column;
             transition: all 0.4s ease;
+        }
+
+        .auth-card:hover {
+            border-color: rgba(167, 139, 250, 0.2);
         }
 
         .auth-card:hover {
