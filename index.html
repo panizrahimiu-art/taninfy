@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طنین‌فای | Taninfy </title>
+    <title>طنین‌فای | Taninfy Music</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     
     <style>
@@ -17,8 +17,8 @@
             --tagline-color: #94a3b8;
             --btn-bg: rgba(88, 28, 135, 0.15);
             --btn-border: rgba(167, 139, 250, 0.4);
-            /* بک‌گراند بنفش با Opacity 40% */
             --menu-bg: rgba(30, 15, 50, 0.50);
+            --modal-bg: rgba(20, 10, 35, 0.85);
         }
 
         body.light-theme {
@@ -32,6 +32,7 @@
             --btn-bg: rgba(168, 85, 247, 0.15);
             --btn-border: rgba(126, 34, 206, 0.4);
             --menu-bg: rgba(243, 232, 255, 0.50);
+            --modal-bg: rgba(255, 255, 255, 0.90);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -54,7 +55,7 @@
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* هدر بالا (منو در راست، موج صوتی در چپ) */
+        /* هدر بالا */
         .top-bar {
             position: absolute;
             top: 30px;
@@ -96,7 +97,7 @@
             transition: 0.3s;
         }
 
-        /* منوی کشویی از سمت چپ با Opacity 50% */
+        /* منوی کشویی */
         .side-menu {
             position: fixed;
             top: 0;
@@ -147,7 +148,6 @@
             padding-right: 8px;
         }
 
-        /* خطوط جداکننده زیر تمام آیتم‌های منو */
         .menu-divider {
             width: 100%;
             height: 1px;
@@ -195,7 +195,7 @@
             letter-spacing: 1px;
         }
 
-        /* بخش جستجوی آهنگ جایگزین دکمه اینتر */
+        /* جستجو */
         .search-box {
             position: relative;
             width: 100%;
@@ -208,7 +208,7 @@
             border: 1px solid var(--btn-border);
             border-radius: 30px;
             color: var(--text-main);
-            font-size: 0.95srem;
+            font-size: 0.95rem;
             outline: none;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
@@ -229,6 +229,129 @@
             font-size: 1rem;
             pointer-events: none;
         }
+
+        /* مدال پروفایل (Profile Modal) */
+        .profile-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 200;
+        }
+        .profile-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .profile-card {
+            background: var(--modal-bg);
+            border: 1px solid var(--btn-border);
+            border-radius: 24px;
+            width: 90%;
+            max-width: 400px;
+            padding: 35px 25px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .profile-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .profile-avatar-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 2px solid var(--text-sub);
+            object-fit: cover;
+            background: #2a1b4e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+        .profile-badge {
+            font-size: 0.75rem;
+            background: linear-gradient(45deg, #7e22ce, #a78bfa);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .profile-name {
+            font-size: 1.4rem;
+            color: var(--title-color);
+            margin-bottom: 2px;
+        }
+        .profile-email {
+            font-size: 0.85rem;
+            color: var(--tagline-color);
+            margin-bottom: 25px;
+        }
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            border-top: 1px solid rgba(167, 139, 250, 0.15);
+            border-bottom: 1px solid rgba(167, 139, 250, 0.15);
+            padding: 15px 0;
+            margin-bottom: 25px;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-sub);
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--tagline-color);
+        }
+        .profile-actions {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+        .profile-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid var(--btn-border);
+            background: var(--btn-bg);
+            color: var(--text-main);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .profile-btn:hover {
+            border-color: var(--text-sub);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -243,11 +366,11 @@
         </div>
     </div>
 
-    <!-- منوی کشویی با خط جداکننده زیر هر آیتم و Opacity 50% -->
+    <!-- منوی کشویی -->
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">×</button>
         <ul>
-            <li><a href="#"> Profile</a></li>
+            <li><a onclick="openProfile()"> Profile</a></li>
             <div class="menu-divider"></div>
             <li><a href="#"> Favorite</a></li>
             <div class="menu-divider"></div>
@@ -259,8 +382,7 @@
             <div class="menu-divider"></div>
         </ul>
     </div>
-
-    <!-- محتوای صفحه با باکس جستجوی آهنگ -->
+    <!-- محتوای اصلی -->
     <div class="content">
         <svg class="audio-wave-top" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -270,10 +392,42 @@
         <div class="brand-sub">M U S I C</div>
         <p class="tagline">Feel the Music. Live the Mood.</p>
 
-        <!-- کادر جستجو -->
         <div class="search-box">
             <input type="text" class="search-input" placeholder="جستجوی آهنگ، هنرمند یا سبک...">
             <span class="search-icon">🔍</span>
+        </div>
+    </div>
+
+    <!-- کارت مدال پروفایل -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-card">
+            <button class="profile-close" onclick="closeProfile()">×</button>
+            <div class="profile-avatar-container">
+                <div class="profile-avatar">👤</div>
+            </div>
+            <span class="profile-badge">VIP Member</span>
+            <h3 class="profile-name">کاربر طنین‌فای</h3>
+            <p class="profile-email">user@taninfy.com</p>
+
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <span class="stat-value">۱۲۴</span>
+                    <span class="stat-label">علاقه‌مندی‌ها</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">۸</span>
+                    <span class="stat-label">پلی‌لیست‌ها</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">۴۸ ساعت</span>
+                    <span class="stat-label">پخش موزیک</span>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="profile-btn">ویرایش پروفایل</button>
+                <button class="profile-btn" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">خروج</button>
+            </div>
         </div>
     </div>
 
@@ -285,6 +439,15 @@
 
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
+        }
+
+        function openProfile() {
+            toggleMenu(); // بستن منوی جانبی
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').classList.remove('active');
         }
     </script>
 
