@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طنین‌فای | پلتفرم پخش و دانلود موسیقی</title>
+    <!-- اضافه کردن فونت‌های زیبا از کتابخانه فونت وب فارسی -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/Lalezar-font@v3.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+    
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
         body {
             background: linear-gradient(135deg, #0f172a, #1e1b4b);
             color: #ffffff;
@@ -27,10 +31,19 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        /* استایل خاص برای نام طنین‌فای با فونت هنری‌تر */
+        .brand-title {
+            font-family: 'Lalezar', cursive, sans-serif;
+            font-size: 3.2rem;
+            margin-bottom: 10px;
             color: #a855f7;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #f3e8ff;
         }
         p {
             font-size: 1.1rem;
@@ -80,8 +93,9 @@
 <body>
 
     <div class="container">
-        <span class="badge">🎧 طنین‌فای | Taninfy</span>
-        <h1>موجِ تازه موسیقی</h1>
+        <span class="badge">🎧 پلتفرم تخصصی موزیک</span>
+        <div class="brand-title">طنین‌فای</div>
+        <h2>موجِ تازه موسیقی</h2>
         <p>به زودی بزرگترین پلتفرم پخش آنلاین و دانلود موزیک با بالاترین کیفیت در کنار شما خواهیم بود.</p>
         
         <div class="search-box">
