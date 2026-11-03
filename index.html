@@ -569,5 +569,57 @@
         }
     </script>
 
+    <!-- کارت مدال پروفایل -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-card">
+            <button class="profile-close" onclick="closeProfile()">×</button>
+            <div class="profile-avatar-container">
+                <div class="profile-avatar">👤</div>
+            </div>
+            <span class="profile-badge">VIP Member</span>
+            <h3 class="profile-name">کاربر طنین‌فای</h3>
+            <p class="profile-email">user@taninfy.com</p>
+
+            <div class="profile-stats">
+                <div class="stat-item">
+                    <span class="stat-value">۱۲۴</span>
+                    <span class="stat-label">علاقه‌مندی‌ها</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">۸</span>
+                    <span class="stat-label">پلی‌لیست‌ها</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">۴۸ ساعت</span>
+                    <span class="stat-label">پخش موزیک</span>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button class="profile-btn">ویرایش پروفایل</button>
+                <button class="profile-btn" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">خروج</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+
+        function openProfile() {
+            toggleMenu();
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function closeProfile() {
+            document.getElementById('profileModal').classList.remove('active');
+        }
+    </script>
 </body>
 </html>
