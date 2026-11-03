@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طنین‌فای | پلتفرم پخش و دانلود موسیقی</title>
-    <!-- اضافه کردن فونت‌های زیبا از کتابخانه فونت وب فارسی -->
+    <title>طنین‌فای | Taninfy Music</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/Lalezar-font@v3.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
-    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
         body {
-            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            background-color: #0b0710;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(88, 28, 135, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(76, 29, 149, 0.2) 0%, transparent 40%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -20,89 +20,132 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
-        .container {
-            max-width: 600px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
-        /* استایل خاص برای نام طنین‌فای با فونت هنری‌تر */
-        .brand-title {
-            font-family: 'Lalezar', cursive, sans-serif;
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-            color: #a855f7;
-            letter-spacing: 1px;
-            text-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
-        }
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #f3e8ff;
-        }
-        p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        .search-box {
+        /* آیکون منو و صدا در بالا */
+        .top-bar {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            right: 40px;
             display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+            justify-content: space-between;
+            align-items: center;
         }
-        input {
-            flex: 1;
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            font-size: 1rem;
+        .icon-wave {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 20px;
         }
-        input::placeholder { color: #94a3b8; }
-        button {
-            padding: 12px 25px;
-            background: #a855f7;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
+        .icon-wave span {
+            width: 3px;
+            background: #a78bfa;
+            animation: pulse 1.2s infinite ease-in-out;
+        }
+        .icon-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+        .icon-wave span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
+        .icon-wave span:nth-child(3) { height: 14px; animation-delay: 0.2s; }
+        .icon-wave span:nth-child(4) { height: 8px; animation-delay: 0.4s; }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
             cursor: pointer;
-            transition: 0.3s;
         }
-        button:hover {
-            background: #9333ea;
+        .menu-icon span {
+            width: 24px;
+            height: 2px;
+            background: #d8b4fe;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(168, 85, 247, 0.2);
-            color: #d8b4fe;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+
+        /* بخش اصلی هدر و نام */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+        }
+        .audio-wave-top {
+            width: 150px;
+            height: 35px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        .brand-title {
+            font-family: 'Times New Roman', Times, serif, Tahoma;
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #f3e8ff;
+            text-transform: uppercase;
+            margin-bottom: -5px;
+            text-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
+        }
+        .brand-sub {
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            color: #a78bfa;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .tagline {
+            font-style: italic;
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+        /* دکمه ورود */
+        .enter-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 12px 45px;
+            border: 1px solid rgba(167, 139, 250, 0.4);
+            border-radius: 30px;
+            color: #e9d5ff;
+            text-decoration: none;
+            font-size: 1rem;
+            background: rgba(88, 28, 135, 0.15);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .enter-btn:hover {
+            background: rgba(126, 34, 206, 0.3);
+            border-color: rgba(167, 139, 250, 0.8);
+            box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <span class="badge">🎧 پلتفرم تخصصی موزیک</span>
-        <div class="brand-title">طنین‌فای</div>
-        <h2>موجِ تازه موسیقی</h2>
-        <p>به زودی بزرگترین پلتفرم پخش آنلاین و دانلود موزیک با بالاترین کیفیت در کنار شما خواهیم بود.</p>
-        
-        <div class="search-box">
-            <input type="text" placeholder="نام خواننده یا آهنگ مورد نظر...">
-            <button>جستجو</button>
+   <div class="top-bar">
+        <div class="icon-wave">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="menu-icon">
+            <span></span><span></span><span></span>
         </div>
     </div>
 
+    <div class="content">
+        <!-- خط موج صوتی بالای نام -->
+        <svg class="audio-wave-top" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <h1 class="brand-title">TANINFY</h1>
+        <div class="brand-sub">M U S I C</div>
+        <p class="tagline">Feel the Music. Live the Mood.</p>
+
+        <a href="#" class="enter-btn">
+            Enter <span>→</span>
+        </a>
+    </div>
+
 </body>
-</html>
+</html> 
