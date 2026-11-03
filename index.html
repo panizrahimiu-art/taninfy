@@ -119,10 +119,69 @@
             background: rgba(126, 34, 206, 0.3);
             border-color: rgba(167, 139, 250, 0.8);
             box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
+        }/* استایل منوی کشویی جدید */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 30px;
+            transition: 0.4s ease-in-out;
+            z-index: 100;
+            text-align: right;
+        }
+        .side-menu.active {
+            right: 0;
+        }
+        .close-btn {
+            align-self: flex-start;
+            font-size: 2rem;
+            color: #a78bfa;
+            cursor: pointer;
+            margin-bottom: 30px;
+            background: none;
+            border: none;
+        }
+        .side-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .side-menu ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .side-menu ul li a:hover {
+            color: #a78bfa;
+            padding-right: 8px;
         }
     </style>
 </head>
 <body>
+    <!-- منوی کشویی -->
+    <div class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <ul>
+            <li><a href="#">👤 Profile</a></li>
+            <li><a href="#">❤️ Favorite</a></li>
+            <li><a href="#">🎶 Playlist</a></li>
+            <li><a onclick="toggleTheme()">🎨 Theme</a></li>
+            <li><a href="#">📩 Contact us</a></li>
+        </ul>
+    </div>
    <div class="top-bar">
         <div class="icon-wave">
             <span></span><span></span><span></span><span></span>
@@ -148,4 +207,14 @@
     </div>
 
 </body>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('sideMenu');
+            menu.classList.toggle('active');
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+        }
+    </script>
 </html> 
