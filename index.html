@@ -17,8 +17,8 @@
             --tagline-color: #94a3b8;
             --btn-bg: rgba(88, 28, 135, 0.15);
             --btn-border: rgba(167, 139, 250, 0.4);
-            /* بک‌گراند بنفش با Opacity 65% */
-            --menu-bg: rgba(30, 15, 50, 0.65);
+            /* بک‌گراند بنفش با Opacity 50% */
+            --menu-bg: rgba(30, 15, 50, 0.50);
         }
 
         body.light-theme {
@@ -31,7 +31,7 @@
             --tagline-color: #6b21a8;
             --btn-bg: rgba(168, 85, 247, 0.15);
             --btn-border: rgba(126, 34, 206, 0.4);
-            --menu-bg: rgba(243, 232, 255, 0.65);
+            --menu-bg: rgba(243, 232, 255, 0.50);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -96,11 +96,11 @@
             transition: 0.3s;
         }
 
-        /* منوی کشویی از سمت چپ */
+        /* منوی کشویی از سمت چپ با Opacity 50% */
         .side-menu {
             position: fixed;
             top: 0;
-            left: -320px; /* مخفی در سمت چپ */
+            left: -320px;
             width: 300px;
             height: 100%;
             background: var(--menu-bg);
@@ -115,7 +115,7 @@
             text-align: right;
         }
         .side-menu.active {
-            left: 0; /* باز شدن به سمت داخل از چپ */
+            left: 0;
         }
         .close-btn {
             align-self: flex-start;
@@ -130,7 +130,7 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
         .side-menu ul li a {
             color: var(--text-main);
@@ -147,12 +147,12 @@
             padding-right: 8px;
         }
 
-        /* خط جداکننده بین Profile و Favorite */
+        /* خطوط جداکننده زیر تمام آیتم‌های منو */
         .menu-divider {
             width: 100%;
             height: 1px;
-            background: rgba(167, 139, 250, 0.25);
-            margin: 5px 0;
+            background: rgba(167, 139, 250, 0.2);
+            margin: 2px 0;
         }
 
         /* محتوای اصلی */
@@ -161,6 +161,7 @@
             flex-direction: column;
             align-items: center;
             max-width: 600px;
+            width: 100%;
         }
         .audio-wave-top {
             width: 150px;
@@ -190,33 +191,49 @@
             font-style: italic;
             color: var(--tagline-color);
             font-size: 1rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             letter-spacing: 1px;
         }
-        .enter-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 12px 45px;
+
+        /* بخش جستجوی آهنگ جایگزین دکمه اینتر */
+        .search-box {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            background: var(--btn-bg);
             border: 1px solid var(--btn-border);
             border-radius: 30px;
-            color: var(--title-color);
-            text-decoration: none;
-            font-size: 1rem;
-            background: var(--btn-bg);
+            color: var(--text-main);
+            font-size: 0.95srem;
+            outline: none;
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
         }
-        .enter-btn:hover {
+        .search-input::placeholder {
+            color: var(--tagline-color);
+        }
+        .search-input:focus {
             border-color: var(--text-sub);
             box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+        }
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-sub);
+            font-size: 1rem;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- هدر بالا: دکمه منو در چپ، موج صوتی در راست -->
+    <!-- هدر بالا -->
     <div class="top-bar">
         <div class="menu-icon" onclick="toggleMenu()">
             <span></span><span></span><span></span>
@@ -226,19 +243,24 @@
         </div>
     </div>
 
-    <!-- منوی کشویی از سمت چپ با بک‌گراند بنفش (Opacity 65%) -->
+    <!-- منوی کشویی با خط جداکننده زیر هر آیتم و Opacity 50% -->
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">×</button>
         <ul>
             <li><a href="#">👤 Profile</a></li>
             <div class="menu-divider"></div>
             <li><a href="#">❤️ Favorite</a></li>
+            <div class="menu-divider"></div>
             <li><a href="#">🎶 Playlist</a></li>
+            <div class="menu-divider"></div>
             <li><a onclick="toggleTheme()">🎨 Theme</a></li>
+            <div class="menu-divider"></div>
             <li><a href="#">📩 Contact us</a></li>
+            <div class="menu-divider"></div>
         </ul>
     </div>
-    <!-- محتوای اصلی صفحه -->
+
+    <!-- محتوای صفحه با باکس جستجوی آهنگ -->
     <div class="content">
         <svg class="audio-wave-top" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -248,9 +270,11 @@
         <div class="brand-sub">M U S I C</div>
         <p class="tagline">Feel the Music. Live the Mood.</p>
 
-        <a href="#" class="enter-btn">
-            Enter <span>→</span>
-        </a>
+        <!-- کادر جستجو -->
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="جستجوی آهنگ، هنرمند یا سبک...">
+            <span class="search-icon">🔍</span>
+        </div>
     </div>
 
     <script>
