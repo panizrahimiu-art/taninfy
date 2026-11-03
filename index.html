@@ -4,15 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طنین‌فای | Taninfy Music</title>
+    <!-- فونت وزیر -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    
     <style>
+        :root {
+            --bg-color: #0b0710;
+            --grad-1: rgba(88, 28, 135, 0.25);
+            --grad-2: rgba(76, 29, 149, 0.2);
+            --text-main: #ffffff;
+            --text-sub: #a78bfa;
+            --title-color: #f3e8ff;
+            --tagline-color: #94a3b8;
+            --btn-bg: rgba(88, 28, 135, 0.15);
+            --btn-border: rgba(167, 139, 250, 0.4);
+            --menu-bg: rgba(15, 23, 42, 0.95);
+        }
+
+        /* تم روشن */
+        body.light-theme {
+            --bg-color: #f3e8ff;
+            --grad-1: rgba(192, 132, 252, 0.3);
+            --grad-2: rgba(216, 180, 254, 0.4);
+            --text-main: #2e1065;
+            --text-sub: #7e22ce;
+            --title-color: #3b0764;
+            --tagline-color: #6b21a8;
+            --btn-bg: rgba(168, 85, 247, 0.15);
+            --btn-border: rgba(126, 34, 206, 0.4);
+            --menu-bg: rgba(255, 255, 255, 0.95);
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        
         body {
-            background-color: #0b0710;
+            background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 80% 20%, rgba(88, 28, 135, 0.25) 0%, transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(76, 29, 149, 0.2) 0%, transparent 40%);
-            color: #ffffff;
+                radial-gradient(circle at 80% 20%, var(--grad-1) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, var(--grad-2) 0%, transparent 40%);
+            color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -21,9 +51,11 @@
             text-align: center;
             padding: 20px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
         }
-        /* آیکون منو و صدا در بالا */
+
+        /* هدر بالا */
         .top-bar {
             position: absolute;
             top: 30px;
@@ -32,7 +64,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 10;
         }
+
         .icon-wave {
             display: flex;
             align-items: flex-end;
@@ -41,7 +75,7 @@
         }
         .icon-wave span {
             width: 3px;
-            background: #a78bfa;
+            background: var(--text-sub);
             animation: pulse 1.2s infinite ease-in-out;
         }
         .icon-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
@@ -54,14 +88,66 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            padding: 10px;
         }
         .menu-icon span {
             width: 24px;
             height: 2px;
-            background: #d8b4fe;
+            background: var(--text-sub);
+            transition: 0.3s;
         }
 
-        /* بخش اصلی هدر و نام */
+        /* استایل منوی کشویی */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100%;
+            background: var(--menu-bg);
+            backdrop-filter: blur(15px);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 30px;
+            transition: 0.4s ease-in-out;
+            z-index: 100;
+            text-align: right;
+            }
+        .side-menu.active {
+            right: 0;
+        }
+        .close-btn {
+            align-self: flex-start;
+            font-size: 2rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            margin-bottom: 30px;
+            background: none;
+            border: none;
+        }
+        .side-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .side-menu ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .side-menu ul li a:hover {
+            color: var(--text-sub);
+            padding-right: 8px;
+        }
+
+        /* محتوای اصلی */
         .content {
             display: flex;
             flex-direction: column;
@@ -79,7 +165,7 @@
             font-size: 4rem;
             font-weight: 300;
             letter-spacing: 6px;
-            color: #f3e8ff;
+            color: var(--title-color);
             text-transform: uppercase;
             margin-bottom: -5px;
             text-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
@@ -87,90 +173,51 @@
         .brand-sub {
             font-size: 1.1rem;
             letter-spacing: 5px;
-            color: #a78bfa;
+            color: var(--text-sub);
             text-transform: uppercase;
             margin-bottom: 25px;
             font-weight: 400;
         }
         .tagline {
             font-style: italic;
-            color: #94a3b8;
+            color: var(--tagline-color);
             font-size: 1rem;
             margin-bottom: 40px;
             letter-spacing: 1px;
         }
-        /* دکمه ورود */
         .enter-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             padding: 12px 45px;
-            border: 1px solid rgba(167, 139, 250, 0.4);
+            border: 1px solid var(--btn-border);
             border-radius: 30px;
-            color: #e9d5ff;
+            color: var(--title-color);
             text-decoration: none;
             font-size: 1rem;
-            background: rgba(88, 28, 135, 0.15);
+            background: var(--btn-bg);
             backdrop-filter: blur(5px);
             transition: all 0.3s ease;
         }
         .enter-btn:hover {
-            background: rgba(126, 34, 206, 0.3);
-            border-color: rgba(167, 139, 250, 0.8);
-            box-shadow: 0 0 20px rgba(167, 139, 250, 0.2);
-        }/* استایل منوی کشویی جدید */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            right: -320px;
-            width: 300px;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(15px);
-            box-shadow: -5px 0 25px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-            padding: 40px 30px;
-            transition: 0.4s ease-in-out;
-            z-index: 100;
-            text-align: right;
-        }
-        .side-menu.active {
-            right: 0;
-        }
-        .close-btn {
-            align-self: flex-start;
-            font-size: 2rem;
-            color: #a78bfa;
-            cursor: pointer;
-            margin-bottom: 30px;
-            background: none;
-            border: none;
-        }
-        .side-menu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .side-menu ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .side-menu ul li a:hover {
-            color: #a78bfa;
-            padding-right: 8px;
+            border-color: var(--text-sub);
+            box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
         }
     </style>
 </head>
 <body>
+
+    <!-- هدر بالا و دکمه منو -->
+    <div class="top-bar">
+        <div class="icon-wave">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
     <!-- منوی کشویی -->
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">×</button>
@@ -182,19 +229,11 @@
             <li><a href="#">📩 Contact us</a></li>
         </ul>
     </div>
-   <div class="top-bar">
-        <div class="icon-wave">
-            <span></span><span></span><span></span><span></span>
-        </div>
-        <div class="menu-icon">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
 
+    <!-- محتوای اصلی صفحه -->
     <div class="content">
-        <!-- خط موج صوتی بالای نام -->
         <svg class="audio-wave-top" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
         <h1 class="brand-title">TANINFY</h1>
@@ -205,8 +244,7 @@
             Enter <span>→</span>
         </a>
     </div>
-
-</body>
+    <!-- اسکریپت‌ها برای کنترل منو و تغییر تم -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('sideMenu');
@@ -217,4 +255,6 @@
             document.body.classList.toggle('light-theme');
         }
     </script>
-</html> 
+
+</body>
+</html>
