@@ -2519,10 +2519,8 @@ function playRandomTrack() {
   setPlayerTrack(randomIndex, true);
 }
 
-/* Clicking the mini-player body opens the large player */
-player.addEventListener("click", function(event) {
-  if (event.target.closest("button") || event.target.closest("input")) return;
-
+/* Clicking anywhere on the mini-player opens the large player */
+player.addEventListener("click", function() {
   if (currentTrackIndex >= 0 && songCatalog[currentTrackIndex]) {
     openFullPlayer(songCatalog[currentTrackIndex]);
   }
