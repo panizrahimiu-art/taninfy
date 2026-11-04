@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>طنین‌فای | Taninfy Music</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
@@ -13,9 +14,9 @@
             --text-main: #ffffff;
             --text-sub: #c084fc;
             --text-muted: #94a3b8;
-            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-bg: rgba(255, 255, 255, 0.06);
             --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-hover: rgba(255, 255, 255, 0.09);
+            --glass-hover: rgba(255, 255, 255, 0.1);
             --modal-bg: rgba(18, 10, 28, 0.92);
         }
 
@@ -36,8 +37,8 @@
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(147, 51, 234, 0.22) 0%, transparent 45%),
-                radial-gradient(circle at 85% 80%, rgba(88, 28, 135, 0.25) 0%, transparent 50%);
+                radial-gradient(circle at 15% 20%, rgba(147, 51, 234, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(88, 28, 135, 0.28) 0%, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
@@ -48,20 +49,20 @@
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* هدر بالا مطابق تصویر */
+        /* هدر بالای صفحه */
         .top-bar {
             width: 100%;
-            max-width: 950px;
+            max-width: 900px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .menu-icon {
@@ -72,83 +73,84 @@
             padding: 8px;
         }
         .menu-icon span {
-            width: 20px;
+            width: 22px;
             height: 2px;
-            background: var(--text-sub);
+            background: var(--text-main);
             border-radius: 2px;
         }
 
         .brand-badge {
             font-size: 0.9rem;
             color: #ffffff;
-            font-weight: 400;
+            font-weight: 300;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             padding: 6px 18px;
             border-radius: 20px;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(15px);
         }
 
-        /* بخش اصلی و لوگو */
+        /* بخش لوگو و عنوان */
         .hero-container {
             width: 100%;
             max-width: 750px;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             position: relative;
         }
 
-        /* موج صوتی پشت متن */
         .hero-wave-bg {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
-            transform: translate(-50%, -60%);
+            transform: translate(-50%, -50%);
             width: 100%;
-            max-width: 650px;
-            height: 120px;
-            opacity: 0.18;
+            max-width: 600px;
+            height: 100px;
+            opacity: 0.2;
             pointer-events: none;
             color: var(--text-sub);
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 2px;
+            margin-bottom: 0px;
             position: relative;
+            letter-spacing: -1px;
         }
 
         .hero-subtitle {
             font-family: 'Times New Roman', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--text-main);
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             margin-bottom: 25px;
             font-weight: 300;
             text-transform: uppercase;
             position: relative;
         }
 
-        /* کادر سرچ بیضی */
+        /* سرچ‌بار */
         .search-box {
             position: relative;
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             margin: 0 auto;
         }
         .search-input {
             width: 100%;
-            padding: 12px 20px 12px 45px;
-            background: rgba(255, 255, 255, 0.04);
+            padding: 10px 20px 10px 45px;
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
             border-radius: 30px;
             color: var(--text-main);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             outline: none;
             backdrop-filter: blur(15px);
             transition: all 0.3s ease;
+            text-align: right;
         }
         .search-input::placeholder { color: var(--text-muted); }
         .search-input:focus {
@@ -161,13 +163,13 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* گرید دو ستونه طبق تصویر */
+        /* گرید کارت‌ها */
         .main-grid {
             width: 100%;
-            max-width: 900px;
+            max-width: 850px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -175,48 +177,47 @@
 
         @media (max-width: 768px) {
             .main-grid { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.8rem; }
-            .hero-subtitle { font-size: 1.3rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.2rem; }
         }
 
         .section-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 22px;
+            padding: 20px;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 500;
             color: var(--text-main);
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
             gap: 8px;
         }
 
-        /* سطر آهنگ‌ها و پلی‌لیست‌ها */
         .item-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 16px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             cursor: pointer;
             transition: all 0.25s ease;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .item-row:last-child { margin-bottom: 0; }
         .item-row:hover {
             background: var(--glass-hover);
             border-color: rgba(192, 132, 252, 0.3);
-            transform: translateY(-2px);
         }
 
         .item-left {
@@ -226,38 +227,38 @@
         }
 
         .item-icon {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 10px;
-            background: rgba(168, 85, 247, 0.15);
-            border: 1px solid rgba(168, 85, 247, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: var(--text-sub);
+            font-size: 1rem;
+            color: var(--text-main);
         }
 
         .item-info { text-align: right; }
-        .item-info h4 { font-size: 0.92rem; font-weight: 500; margin-bottom: 2px; }
-        .item-info p { font-size: 0.78rem; color: var(--text-muted); }
+        .item-info h4 { font-size: 0.9rem; font-weight: 500; margin-bottom: 2px; }
+        .item-info p { font-size: 0.75rem; color: var(--text-muted); }
 
         .play-action-btn {
             background: none;
             border: none;
             color: #ffffff;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             cursor: pointer;
             opacity: 0.8;
             transition: 0.2s;
         }
-        .item-row:hover .play-action-btn { opacity: 1; color: var(--text-sub); transform: scale(1.15); }
+        .item-row:hover .play-action-btn { opacity: 1; color: var(--text-sub); }
 
         /* منوی کشویی */
         .side-menu {
             position: fixed;
             top: 0; right: -320px;
-            width: 290px;
+            width: 280px;
             height: 100%;
             background: var(--modal-bg);
             backdrop-filter: blur(25px);
@@ -284,7 +285,7 @@
         .side-menu ul li a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -293,24 +294,24 @@
         }
         .side-menu ul li a:hover { color: var(--text-sub); padding-right: 6px; }
 
-        /* پلیر شناور کاملاً تطبیق داده شده با تصویر */
+        /* پلیر شناور پایین */
         .music-player-bar {
             position: fixed;
             bottom: -120px;
             left: 50%;
             transform: translateX(-50%);
-            width: 88%;
-            max-width: 780px;
-            height: 70px;
-            background: rgba(22, 14, 34, 0.85);
+            width: 85%;
+            max-width: 750px;
+            height: 65px;
+            background: rgba(22, 14, 34, 0.88);
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 22px;
+            padding: 0 20px;
             z-index: 1000;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -321,31 +322,31 @@
             display: flex;
             flex-direction: column;
             text-align: right;
-            width: 140px;
+            width: 130px;
         }
-        .player-right-info h4 { font-size: 0.88rem; font-weight: 500; color: #fff; }
-        .player-right-info p { font-size: 0.75rem; color: var(--text-muted); }
+        .player-right-info h4 { font-size: 0.85rem; font-weight: 500; color: #fff; }
+        .player-right-info p { font-size: 0.72rem; color: var(--text-muted); }
 
         .player-center {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             flex: 1;
-            max-width: 360px;
+            max-width: 340px;
         }
         .player-controls {
             display: flex;
             align-items: center;
             gap: 16px;
         }
-        .control-btn { background: none; border: none; color: #fff; font-size: 14px; cursor: pointer; transition: 0.2s; }
-        .control-btn:hover { color: var(--text-sub); transform: scale(1.1); }
+        .control-btn { background: none; border: none; color: #fff; font-size: 13px; cursor: pointer; transition: 0.2s; }
+        .control-btn:hover { color: var(--text-sub); }
 
         .progress-container {
             width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.12);
             border-radius: 10px;
             cursor: pointer;
             overflow: hidden;
@@ -353,14 +354,14 @@
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #c084fc, #e879f9);
+            background: #ffffff;
             border-radius: 10px;
         }
 
         .player-time {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-muted);
-            width: 80px;
+            width: 75px;
             text-align: left;
             direction: ltr;
         }
@@ -376,49 +377,49 @@
         
         .profile-card, .auth-card {
             background: var(--modal-bg); border: 1px solid var(--glass-border);
-            border-radius: 24px; width: 90%; max-width: 350px; padding: 28px;
+            border-radius: 20px; width: 90%; max-width: 340px; padding: 25px;
             position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.7);
             display: flex; flex-direction: column; align-items: center;
         }
         .profile-close {
-            position: absolute; top: 15px; left: 18px; font-size: 1.4rem;
+            position: absolute; top: 12px; left: 15px; font-size: 1.3rem;
             color: var(--text-sub); cursor: pointer; background: none; border: none;
         }
         .profile-avatar {
-            width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--text-sub);
+            width: 65px; height: 65px; border-radius: 50%; border: 2px solid var(--text-sub);
             background: var(--glass-bg); display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; margin-bottom: 10px;
+            font-size: 1.6rem; margin-bottom: 8px;
         }
-        .profile-badge { font-size: 0.7rem; background: var(--text-sub); color: var(--bg-color); padding: 3px 10px; border-radius: 10px; margin-bottom: 8px; font-weight: bold; }
-        .profile-name { font-size: 1.1rem; margin-bottom: 2px; }
-        .profile-email { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 18px; }
+        .profile-badge { font-size: 0.68rem; background: var(--text-sub); color: var(--bg-color); padding: 2px 8px; border-radius: 10px; margin-bottom: 6px; font-weight: bold; }
+        .profile-name { font-size: 1.05rem; margin-bottom: 2px; }
+        .profile-email { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 15px; }
         
         .profile-stats {
             display: flex; justify-content: space-around; width: 100%;
             border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
-            padding: 10px 0; margin-bottom: 18px;
+            padding: 8px 0; margin-bottom: 15px;
         }
         .stat-item { display: flex; flex-direction: column; align-items: center; }
-        .stat-value { font-size: 0.95rem; font-weight: bold; color: var(--text-sub); }
-        .stat-label { font-size: 0.7rem; color: var(--text-muted); }
+        .stat-value { font-size: 0.9rem; font-weight: bold; color: var(--text-sub); }
+        .stat-label { font-size: 0.68rem; color: var(--text-muted); }
 
-        .profile-actions { display: flex; gap: 10px; width: 100%; }
+        .profile-actions { display: flex; gap: 8px; width: 100%; }
         .profile-btn {
-            flex: 1; padding: 9px; border-radius: 14px; border: 1px solid var(--glass-border);
-            background: var(--glass-bg); color: var(--text-main); font-size: 0.8rem; cursor: pointer; transition: 0.3s;
+            flex: 1; padding: 8px; border-radius: 12px; border: 1px solid var(--glass-border);
+            background: var(--glass-bg); color: var(--text-main); font-size: 0.78rem; cursor: pointer; transition: 0.3s;
         }
 
-        .auth-tabs { display: flex; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid var(--glass-border); width: 100%; padding-bottom: 8px; }
-        .auth-tab { flex: 1; background: none; border: none; color: var(--text-muted); font-size: 0.9rem; cursor: pointer; transition: 0.3s; }
+        .auth-tabs { display: flex; gap: 8px; margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); width: 100%; padding-bottom: 6px; }
+        .auth-tab { flex: 1; background: none; border: none; color: var(--text-muted); font-size: 0.85rem; cursor: pointer; transition: 0.3s; }
         .auth-tab.active { color: var(--text-sub); font-weight: bold; }
-        .auth-form { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+        .auth-form { display: flex; flex-direction: column; gap: 10px; width: 100%; }
         .auth-input {
-            width: 100%; padding: 10px 14px; background: var(--glass-bg);
-            border: 1px solid var(--glass-border); border-radius: 12px;
-            color: var(--text-main); font-size: 0.85rem; outline: none;
+            width: 100%; padding: 9px 12px; background: var(--glass-bg);
+            border: 1px solid var(--glass-border); border-radius: 10px;
+            color: var(--text-main); font-size: 0.82rem; outline: none;
         }
         .auth-submit-btn {
-            padding: 10px; border-radius: 14px; border: none;
+            padding: 9px; border-radius: 12px; border: none;
             background: var(--text-sub); color: var(--bg-color);
             font-weight: bold; cursor: pointer; margin-top: 5px;
         }
@@ -426,7 +427,7 @@
 </head>
 <body>
 
-    <!-- هدر بالا -->
+    <!-- هدر بالای صفحه -->
     <div class="top-bar">
         <div class="header-left">
             <div class="menu-icon" onclick="toggleMenu()">
@@ -440,16 +441,16 @@
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">×</button>
         <ul>
-            <li><a onclick="openProfile()">👤 حساب کاربری</a></li>
-            <li><a href="#">❤️ علاقه‌مندی‌ها</a></li>
-            <li><a href="#">🎵 پلی‌لیست‌ها</a></li>
-            <li><a onclick="toggleTheme()">☀️ / 🌙 تغییر تم</a></li>
-            <li><a href="#">📩 تماس با ما</a></li>
-            <li><a onclick="openAuthModal()">🔑 ورود / ثبت‌نام</a></li>
+            <li><a onclick="openProfile()"><i class="fa-regular fa-user"></i> حساب کاربری</a></li>
+            <li><a href="#"><i class="fa-regular fa-heart"></i> علاقه‌مندی‌ها</a></li>
+            <li><a href="#"><i class="fa-solid fa-list-ul"></i> پلی‌لیست‌ها</a></li>
+            <li><a onclick="toggleTheme()"><i class="fa-regular fa-moon"></i> تغییر تم</a></li>
+            <li><a href="#"><i class="fa-regular fa-envelope"></i> تماس با ما</a></li>
+            <li><a onclick="openAuthModal()"><i class="fa-solid fa-right-to-bracket"></i> ورود / ثبت‌نام</a></li>
         </ul>
     </div>
 
-    <!-- بخش معرفی اصلی -->
+    <!-- هیرو سنتر -->
     <div class="hero-container">
         <svg class="hero-wave-bg" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 20H40L50 5L60 35L70 10L80 30L90 15L100 25L110 8L120 32L130 18L140 22L150 10L160 30L170 20H198" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -460,56 +461,56 @@
 
         <div class="search-box">
             <input type="text" class="search-input" placeholder="جستجوی قطعه، هنرمند...">
-            <span class="search-icon">🔍</span>
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
         </div>
     </div>
 
-    <!-- گرید اصلی دقیقاً مطابق تصویر -->
+    <!-- بخش اصلی کارت‌ها -->
     <div class="main-grid">
         
-        <!-- ستون پلی‌لیست‌های منتخب -->
+        <!-- پلی‌لیست‌های منتخب -->
         <div class="section-card">
             <div class="card-header">
                 <span>✨ پلی‌لیست‌های منتخب</span>
             </div>
             
             <div class="item-row" onclick="playTrack(0)">
-                <button class="play-action-btn">◀</button>
+                <button class="play-action-btn"><i class="fa-solid fa-play"></i></button>
                 <div class="item-left">
                     <div class="item-info">
                         <h4>شب‌های آرام</h4>
                         <p>Quiet Nights</p>
                     </div>
-                    <div class="item-icon">🎙️</div>
+                    <div class="item-icon"><i class="fa-solid fa-microphone"></i></div>
                 </div>
             </div>
 
             <div class="item-row" onclick="playTrack(0)">
-                <button class="play-action-btn">◀</button>
+                <button class="play-action-btn"><i class="fa-solid fa-play"></i></button>
                 <div class="item-left">
                     <div class="item-info">
                         <h4>پالس الکترونیک</h4>
                         <p>Electronic Pulse</p>
                     </div>
-                    <div class="item-icon">🌐</div>
+                    <div class="item-icon"><i class="fa-solid fa-wave-square"></i></div>
                 </div>
             </div>
         </div>
 
-        <!-- ستون جدیدترین انتشارها -->
+        <!-- جدیدترین انتشارها -->
         <div class="section-card">
             <div class="card-header">
                 <span>🔥 جدیدترین انتشارها</span>
             </div>
 
             <div class="item-row" onclick="playTrack(0)">
-                <button class="play-action-btn">◀</button>
+                <button class="play-action-btn"><i class="fa-solid fa-play"></i></button>
                 <div class="item-left">
                     <div class="item-info">
                         <h4>شب زنده‌داری</h4>
                         <p>Hayedeh</p>
                     </div>
-                    <div class="item-icon">📻</div>
+                    <div class="item-icon"><i class="fa-solid fa-music"></i></div>
                 </div>
             </div>
         </div>
@@ -520,7 +521,7 @@
     <div class="profile-modal" id="profileModal">
         <div class="profile-card">
            <button class="profile-close" onclick="closeProfile()">×</button>
-            <div class="profile-avatar">👤</div>
+            <div class="profile-avatar"><i class="fa-regular fa-user"></i></div>
             <span class="profile-badge">VIP Member</span>
             <h3 class="profile-name">مهمان</h3>
             <p class="profile-email">وارد حساب خود شوید</p>
@@ -538,7 +539,7 @@
         </div>
     </div>
 
-    <!-- مدال ورود و ثبت‌نام -->
+    <!-- مدال ورود/ثبت‌نام -->
     <div class="auth-modal" id="authModal">
         <div class="auth-card">
             <button class="profile-close" onclick="closeAuthModal()">×</button>
@@ -556,7 +557,7 @@
         </div>
     </div>
 
-    <!-- پلیر شناور پایین صفحه -->
+    <!-- پلیر شناور -->
     <div class="music-player-bar" id="musicPlayer">
         <div class="player-time">
             <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
@@ -564,193 +565,8 @@
 
         <div class="player-center">
             <div class="player-controls">
-                <button class="control-btn" id="nextBtn">⏭</button>
-                <button class="control-btn" id="playPauseBtn">▶</button>
-                <button class="control-btn" id="prevBtn">⏮</button>
-            </div>
-            <div class="progress-container" id="progressContainer">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-        </div>
+                <button class="control-btn" id="nextBtn"><i class="fa-solid fa-backward-step"></i></button>
+                <button class="control-btn" id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+                <button class="control-btn" id="prevBtn"><i class="fa-solid fa-
 
-        <div class="player-right-info">
-            <h4 id="trackTitle">انتخاب قطعه</h4>
-            <p id="trackArtist">طنین‌فای</p>
-            <audio id="audioSource"></audio>
-        </div>
-    </div> 
-
-    <script>
-        const playlist = [
-            {
-                title: "شب زنده‌داری",
-                artist: "Hayedeh",
-                src: "Hayedeh%20-%20Shab%20Zendehdari.mp3"
-            }
-        ];
-
-        let currentTrackIndex = 0;
-        let isPlayerVisible = false;
-        
-        const audio = document.getElementById('audioSource');
-        const playPauseBtn = document.getElementById('playPauseBtn');
-        const titleEl = document.getElementById('trackTitle');
-        const artistEl = document.getElementById('trackArtist');
-        const progressBar = document.getElementById('progressBar');
-        const progressContainer = document.getElementById('progressContainer');
-        const currentTimeEl = document.getElementById('currentTime');
-        const durationEl = document.getElementById('duration');
-        const playerBar = document.getElementById('musicPlayer');
-
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return "0:00";
-            const min = Math.floor(seconds / 60);
-            const sec = Math.floor(seconds % 60);
-            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-        }
-
-        function loadTrack(index) {
-            const track = playlist[index];
-            audio.src = track.src;
-            titleEl.textContent = track.title;
-            artistEl.textContent = track.artist;
-            audio.load();
-        }
-
-        function playTrack(index) {
-            currentTrackIndex = index;
-            loadTrack(currentTrackIndex);
-            
-            if (!isPlayerVisible) {
-                playerBar.classList.add('visible');
-                isPlayerVisible = true;
-            }
-
-            audio.play().then(() => {
-                playPauseBtn.textContent = "❚❚";
-            }).catch(err => console.log("Audio play failed:", err));
-        }
-
-        function togglePlay() {
-            if (!isPlayerVisible) {
-                playerBar.classList.add('visible');
-                isPlayerVisible = true;
-            }
-
-            if (audio.paused) {
-                audio.play();
-                playPauseBtn.textContent = "❚❚";
-            } else {
-                audio.pause();
-                playPauseBtn.textContent = "▶";
-            }
-        }
-
-        playPauseBtn.addEventListener('click', togglePlay);
-
-        audio.addEventListener('timeupdate', () => {
-            if (audio.duration) {
-                const progress = (audio.currentTime / audio.duration) * 100;
-                progressBar.style.width = progress + '%';
-                currentTimeEl.textContent = formatTime(audio.currentTime);
-                durationEl.textContent = formatTime(audio.duration);
-            }
-        });
-
-        audio.addEventListener('loadedmetadata', () => {
-            durationEl.textContent = formatTime(audio.duration);
-        });
-
-        audio.addEventListener('ended', () => {
-            playPauseBtn.textContent = "▶";
-            progressBar.style.width = '0%';
-        });
-
-        progressContainer.addEventListener('click', (e) => {
-            const width = progressContainer.clientWidth;
-            const clickX = e.offsetX;
-            const duration = audio.duration;
-            if (duration) {
-                audio.currentTime = (clickX / width) * duration;
-            }
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', () => {
-            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-            playTrack(currentTrackIndex);
-        });
-
-        document.getElementById('prevBtn').addEventListener('click', () => {
-            currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-            playTrack(currentTrackIndex);
-        });
-
-        let isLoginMode = true;
-
-        function toggleMenu() {
-            document.getElementById('sideMenu').classList.toggle('active');
-        }
-
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-        }
-
-        function openProfile() {
-            document.getElementById('sideMenu').classList.remove('active');
-            document.getElementById('profileModal').classList.add('active');
-        }
-
-        function closeProfile() {
-            document.getElementById('profileModal').classList.remove('active');
-        }
-
-        function openAuthModal() {
-            document.getElementById('sideMenu').classList.remove('active');
-            document.getElementById('authModal').classList.add('active');
-        }
-
-        function closeAuthModal() {
-            document.getElementById('authModal').classList.remove('active');
-        }
-
-        function switchAuthMode(mode) {
-            isLoginMode = mode === 'login';
-            document.getElementById('tabLogin').classList.toggle('active', isLoginMode);
-            document.getElementById('tabRegister').classList.toggle('active', !isLoginMode);
-            document.getElementById('authName').style.display = isLoginMode ? 'none' : 'block';
-            document.getElementById('authSubmitBtn').innerText = isLoginMode ? 'ورود' : 'ثبت‌نام';
-        }
-
-        function handleAuth(e) {
-            e.preventDefault();
-            const email = document.getElementById('authEmail').value;
-            const name = isLoginMode ? email.split('@')[0] : document.getElementById('authName').value;
-            
-            localStorage.setItem('taninfy_user', JSON.stringify({ name: name, email: email }));
-            document.querySelector('.profile-name').innerText = name;
-            document.querySelector('.profile-email').innerText = email;
-            
-            alert(isLoginMode ? 'خوش آمدید!' : 'حساب شما ساخته شد!');
-            closeAuthModal();
-        }
-
-        function logoutUser() {
-            localStorage.removeItem('taninfy_user');
-            document.querySelector('.profile-name').innerText = 'مهمان';
-            document.querySelector('.profile-email').innerText = 'وارد حساب خود شوید';
-            alert('خارج شدید.');
-            closeProfile();
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            loadTrack(currentTrackIndex);
-            const savedUser = localStorage.getItem('taninfy_user');
-            if (savedUser) {
-                const user = JSON.parse(savedUser);
-                document.querySelector('.profile-name').innerText = user.name;
-                document.querySelector('.profile-email').innerText = user.email;
-            }
-        });
-    </script>
-</body>
-</html>
+ 
