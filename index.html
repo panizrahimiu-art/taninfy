@@ -1917,7 +1917,6 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
 
 });
 
-
 /* MUSIC PLAYER - HIDDEN UNTIL SONG CLICK */
 
 const player = document.querySelector(".player");
@@ -1940,7 +1939,7 @@ document.querySelectorAll(".track-play").forEach(button => {
     nowArtist.textContent =
       row.querySelector(".track-info span").textContent;
 
-    // نمایش پلیر پس از انتخاب آهنگ
+    // نمایش پلیر بعد از انتخاب آهنگ
     player.classList.add("visible");
 
     isPlaying = true;
@@ -1949,6 +1948,14 @@ document.querySelectorAll(".track-play").forEach(button => {
   });
 });
 
+// دکمه پخش و توقف
+mainPlay.addEventListener("click", function () {
+
+  isPlaying = !isPlaying;
+
+  this.textContent = isPlaying ? "Ⅱ" : "▶";
+
+});
 mainPlay.addEventListener("click", function () {
 
   isPlaying = !isPlaying;
