@@ -616,15 +616,20 @@ footer {
 /* MINI PLAYER */
 
 .player {
+  display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 30;
-  background: rgba(15,12,14,.96);
-  border-top: 1px solid rgba(179,90,112,.25);
+  background: rgba(15, 12, 14, 0.96);
+  border-top: 1px solid rgba(179, 90, 112, 0.25);
   padding: 9px 0;
   backdrop-filter: blur(15px);
+}
+
+.player.visible {
+  display: block;
 }
 
 .player-inner {
@@ -1913,8 +1918,9 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
 });
 
 
-/* MUSIC PLAYER - VISUAL ONLY */
+/* MUSIC PLAYER - HIDDEN UNTIL SONG CLICK */
 
+const player = document.querySelector(".player");
 const nowTitle = document.getElementById("nowTitle");
 const nowArtist = document.getElementById("nowArtist");
 const mainPlay = document.getElementById("mainPlay");
@@ -1922,10 +1928,11 @@ const mainPlay = document.getElementById("mainPlay");
 let isPlaying = false;
 
 document.querySelectorAll(".track-play").forEach(button => {
-
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
 
     const row = this.closest(".track");
+
+    if (!row) return;
 
     nowTitle.textContent =
       row.querySelector(".track-info strong").textContent;
@@ -1933,11 +1940,20 @@ document.querySelectorAll(".track-play").forEach(button => {
     nowArtist.textContent =
       row.querySelector(".track-info span").textContent;
 
-    isPlaying = true;
+    // نمایش پلیر پس از انتخاب آهنگ
+    player.classList.add("visible");
 
+    isPlaying = true;
     mainPlay.textContent = "Ⅱ";
 
   });
+});
+
+mainPlay.addEventListener("click", function () {
+
+  isPlaying = !isPlaying;
+
+  this.textContent = isPlaying ? "Ⅱ" : "▶";
 
 });
 
