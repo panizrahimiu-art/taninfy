@@ -1254,39 +1254,7 @@ footer {
         </div>
       </div>
 
-      <div class="track-list">
-
-        <div class="track">
-          <span class="track-number">01</span>
-          <div class="track-info">
-            <strong>آهنگ اول</strong>
-            <span>هنرمند اول</span>
-          </div>
-          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
-          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
-        </div>
-
-        <div class="track">
-          <span class="track-number">02</span>
-          <div class="track-info">
-            <strong>آهنگ دوم</strong>
-            <span>هنرمند دوم</span>
-          </div>
-          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
-          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
-        </div>
-
-        <div class="track">
-          <span class="track-number">03</span>
-          <div class="track-info">
-            <strong>آهنگ سوم</strong>
-            <span>هنرمند سوم</span>
-          </div>
-          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
-          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
-        </div>
-
-      </div>
+      <div class="track-list" id="trackList"></div>
 
     </section>
 
@@ -1517,6 +1485,9 @@ footer {
   </div>
 </footer>
 
+<!-- AUDIO ENGINE -->
+<audio id="audioPlayer" preload="none"></audio>
+
 <!-- MINI PLAYER -->
 
 <div class="player">
@@ -1529,9 +1500,9 @@ footer {
     </div>
 
     <div class="player-controls">
-      <button aria-label="قبلی">Ⅱ</button>
+      <button id="previousTrack" aria-label="آهنگ قبلی">|◀</button>
       <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">▶</button>
-      <button aria-label="بعدی">↻</button>
+      <button id="nextTrack" aria-label="آهنگ بعدی">▶|</button>
     </div>
 
     <div class="player-label">YOUR MOOD, YOUR SOUND</div>
@@ -1540,6 +1511,7 @@ footer {
 
 </div>
 
+<script src="songs.js"></script>
 <script>
 
 /* PAGE NAVIGATION */
@@ -1628,6 +1600,56 @@ document.addEventListener("keydown", function(event) {
 
 });
 
+
+/* MUSIC CATALOG - DATA COMES FROM songs.js */
+
+const trackList = document.getElementById("trackList");
+const songCatalog = Array.isArray(window.TANINFY_SONGS) ? window.TANINFY_SONGS : [];
+
+function renderTrackCatalog() {
+  trackList.innerHTML = "";
+
+  if (songCatalog.length === 0) {
+    trackList.innerHTML = '<p class="form-note">هنوز آهنگی اضافه نشده. لینک آهنگ‌ها را در فایل songs.js وارد کن.</p>';
+    return;
+  }
+
+  songCatalog.forEach((song, index) => {
+    const row = document.createElement("div");
+    row.className = "track";
+    row.dataset.songId = song.id || String(index);
+    row.dataset.src = song.src || "";
+
+    const number = document.createElement("span");
+    number.className = "track-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+
+    const info = document.createElement("div");
+    info.className = "track-info";
+    const title = document.createElement("strong");
+    title.textContent = song.title || "بدون نام";
+    const artist = document.createElement("span");
+    artist.textContent = song.artist || "هنرمند نامشخص";
+    info.append(title, artist);
+
+    const play = document.createElement("button");
+    play.className = "track-play";
+    play.type = "button";
+    play.setAttribute("aria-label", "پخش آهنگ");
+    play.textContent = "▶";
+
+    const heart = document.createElement("button");
+    heart.className = "heart-btn";
+    heart.type = "button";
+    heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
+    heart.textContent = "♡";
+
+    row.append(number, info, play, heart);
+    trackList.appendChild(row);
+  });
+}
+
+renderTrackCatalog();
 
 /* FAVORITES */
 
@@ -1720,36 +1742,19 @@ function syncHearts() {
 
 }
 
-document.querySelectorAll(".heart-btn").forEach(button => {
-
-  button.addEventListener("click", function() {
-
-    const row = this.closest(".track");
-
-    const title = row.querySelector(".track-info strong").textContent;
-
-    const artist = row.querySelector(".track-info span").textContent;
-
-    const index = favorites.findIndex(item => item.title === title);
-
-    if (index >= 0) {
-
-      favorites.splice(index, 1);
-
-    } else {
-
-      favorites.push({ title, artist });
-
-    }
-
-    saveFavorites();
-
-    renderFavorites();
-
-    syncHearts();
-
-  });
-
+trackList.addEventListener("click", function(event) {
+  const button = event.target.closest(".heart-btn");
+  if (!button) return;
+  const row = button.closest(".track");
+  const title = row.querySelector(".track-info strong").textContent;
+  const artist = row.querySelector(".track-info span").textContent;
+  const songId = row.dataset.songId;
+  const index = favorites.findIndex(item => item.songId === songId || (item.title === title && item.artist === artist));
+  if (index >= 0) favorites.splice(index, 1);
+  else favorites.push({ songId, title, artist });
+  saveFavorites();
+  renderFavorites();
+  syncHearts();
 });
 
 
@@ -1917,69 +1922,102 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
 
 });
 
-/* MUSIC PLAYER - HIDDEN UNTIL SONG CLICK */
+/* TANINFY AUDIO PLAYER */
 
+const audioPlayer = document.getElementById("audioPlayer");
 const player = document.querySelector(".player");
 const nowTitle = document.getElementById("nowTitle");
 const nowArtist = document.getElementById("nowArtist");
 const mainPlay = document.getElementById("mainPlay");
+const previousTrack = document.getElementById("previousTrack");
+const nextTrack = document.getElementById("nextTrack");
+let currentTrackIndex = -1;
 
-let isPlaying = false;
+function setPlayerTrack(index, autoplay = true) {
+  if (index < 0 || index >= songCatalog.length) return;
 
-document.querySelectorAll(".track-play").forEach(button => {
-  button.addEventListener("click", function () {
+  const song = songCatalog[index];
+  currentTrackIndex = index;
+  nowTitle.textContent = song.title || "بدون نام";
+  nowArtist.textContent = song.artist || "هنرمند نامشخص";
+  player.classList.add("visible");
 
-    const row = this.closest(".track");
+  if (!song.src) {
+    nowArtist.textContent = "لینک مستقیم فایل صوتی برای این آهنگ ثبت نشده";
+    mainPlay.textContent = "▶";
+    return;
+  }
 
-    if (!row) return;
+  if (audioPlayer.src !== new URL(song.src, document.baseURI).href) {
+    audioPlayer.src = song.src;
+  }
 
-    nowTitle.textContent =
-      row.querySelector(".track-info strong").textContent;
+  if (autoplay) {
+    audioPlayer.play().catch(() => {
+      mainPlay.textContent = "▶";
+      nowArtist.textContent = "پخش نشد؛ لینک باید مستقیم و قابل دسترسی باشد";
+    });
+  }
 
-    nowArtist.textContent =
-      row.querySelector(".track-info span").textContent;
+  document.querySelectorAll(".track-play").forEach((button, i) => {
+    button.textContent = i === index && !audioPlayer.paused ? "Ⅱ" : "▶";
+  });
+}
 
-    // نمایش پلیر بعد از انتخاب آهنگ
-    player.classList.add("visible");
+trackList.addEventListener("click", function(event) {
+  const button = event.target.closest(".track-play");
+  if (!button) return;
+  const row = button.closest(".track");
+  const index = Array.from(trackList.querySelectorAll(".track")).indexOf(row);
+  setPlayerTrack(index, true);
+});
 
-    isPlaying = true;
-    mainPlay.textContent = "Ⅱ";
+mainPlay.addEventListener("click", async function() {
+  if (currentTrackIndex < 0) return;
 
+  if (audioPlayer.paused) {
+    try {
+      await audioPlayer.play();
+    } catch (error) {
+      nowArtist.textContent = "لینک مستقیم فایل صوتی معتبر نیست";
+    }
+  } else {
+    audioPlayer.pause();
+  }
+});
+
+previousTrack.addEventListener("click", function() {
+  if (!songCatalog.length) return;
+  const index = currentTrackIndex <= 0 ? songCatalog.length - 1 : currentTrackIndex - 1;
+  setPlayerTrack(index, true);
+});
+
+nextTrack.addEventListener("click", function() {
+  if (!songCatalog.length) return;
+  const index = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
+  setPlayerTrack(index, true);
+});
+
+audioPlayer.addEventListener("play", function() {
+  mainPlay.textContent = "Ⅱ";
+  document.querySelectorAll(".track-play").forEach((button, i) => {
+    button.textContent = i === currentTrackIndex ? "Ⅱ" : "▶";
   });
 });
 
-// دکمه پخش و توقف
-mainPlay.addEventListener("click", function () {
-
-  isPlaying = !isPlaying;
-
-  this.textContent = isPlaying ? "Ⅱ" : "▶";
-
-});
-mainPlay.addEventListener("click", function () {
-
-  isPlaying = !isPlaying;
-
-  this.textContent = isPlaying ? "Ⅱ" : "▶";
-
+audioPlayer.addEventListener("pause", function() {
+  mainPlay.textContent = "▶";
+  document.querySelectorAll(".track-play").forEach(button => button.textContent = "▶");
 });
 
-mainPlay.addEventListener("click", function() {
-
-  isPlaying = !isPlaying;
-
-  this.textContent = isPlaying ? "Ⅱ" : "▶";
-
-  if (nowTitle.textContent === "هنوز چیزی انتخاب نشده") {
-
-    nowTitle.textContent = "یک آهنگ انتخاب کن";
-
-    nowArtist.textContent = "TANINFY MUSIC";
-
-  }
-
+audioPlayer.addEventListener("ended", function() {
+  if (currentTrackIndex < songCatalog.length - 1) setPlayerTrack(currentTrackIndex + 1, true);
+  else mainPlay.textContent = "▶";
 });
 
+audioPlayer.addEventListener("error", function() {
+  if (currentTrackIndex >= 0) nowArtist.textContent = "خطا در دسترسی به فایل صوتی؛ لینک را بررسی کن";
+});
 
 /* INITIALIZE */
 
@@ -1993,3 +2031,4 @@ syncHearts();
 
 </body>
 </html>
+
