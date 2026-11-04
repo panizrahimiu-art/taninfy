@@ -125,6 +125,7 @@
 }
 
 .full-progress-area {
+  direction: ltr;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1930,31 +1931,57 @@ footer {
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
-function showPage(name) {
+const availablePages = ["home", "profile", "favorites", "playlist", "login", "contact"];
+
+function showPage(name, addHistory = true) {
   const target = document.getElementById("page-" + name);
   if (!target) return;
 
   pages.forEach(page => page.classList.toggle("active", page === target));
   closeMenu();
   window.scrollTo({ top: 0, behavior: "instant" });
-  history.replaceState(null, "", "#" + name);
+
+  if (addHistory) {
+    history.pushState(
+      { taninfy: true, page: name },
+      "",
+      "#" + name
+    );
+  }
 }
 
 document.querySelectorAll("[data-page]").forEach(link => {
   link.addEventListener("click", function(event) {
     event.preventDefault();
-    showPage(this.dataset.page);
+    showPage(this.dataset.page, true);
   });
 });
 
 function loadPageFromHash() {
   const name = location.hash.replace("#", "");
-  const availablePages = ["home", "profile", "favorites", "playlist", "login", "contact"];
-  showPage(availablePages.includes(name) ? name : "home");
+  showPage(availablePages.includes(name) ? name : "home", false);
 }
 
-window.addEventListener("load", loadPageFromHash);
-window.addEventListener("hashchange", loadPageFromHash);
+window.addEventListener("load", function() {
+  // Keep the current page as the first Taninfy history state.
+  history.replaceState(
+    { taninfy: true, page: availablePages.includes(location.hash.replace("#", "")) ? location.hash.replace("#", "") : "home" },
+    "",
+    location.hash || "#home"
+  );
+  loadPageFromHash();
+});
+
+window.addEventListener("popstate", function(event) {
+  if (event.state && event.state.taninfy) {
+    showPage(event.state.page, false);
+  } else {
+    // If the browser returned to a non-Taninfy history entry,
+    // restore Taninfy's home page instead of leaving a broken page state.
+    history.pushState({ taninfy: true, page: "home" }, "", "#home");
+    showPage("home", false);
+  }
+});
 
 
 /* DROPDOWN MENU */
