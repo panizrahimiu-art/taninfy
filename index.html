@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#090809">
-<title>طنین‌فای | موسیقی، به وقتِ تو</title>
+
+<title>Taninfy | Music</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +14,10 @@
 <style>
 :root {
   --bg: #090809;
-  --panel: #111011;
-  --panel2: #171315;
+  --panel: #141114;
   --wine: #641d30;
   --wine2: #8d3048;
-  --wine-light: #b35a70;
+  --pink: #d08a9b;
   --text: #f5eff0;
   --muted: #a59a9d;
   --line: rgba(255,255,255,.09);
@@ -25,10 +25,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -39,499 +35,569 @@ body {
   line-height: 1.8;
 }
 
+button, input, select, textarea {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
 .wrap {
-  width: min(1160px, calc(100% - 44px));
+  width: min(1100px, calc(100% - 40px));
   margin: auto;
 }
 
-/* Navigation */
+/* HEADER */
 
 header {
-  height: 84px;
+  height: 76px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--line);
-  background: rgba(9,8,9,.86);
-  backdrop-filter: blur(18px);
+  background: rgba(9,8,9,.94);
   position: sticky;
   top: 0;
   z-index: 20;
+  backdrop-filter: blur(15px);
 }
 
 .nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  align-items: center;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 23px;
+  gap: 10px;
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: -.7px;
+  direction: ltr;
 }
 
 .brand-mark {
-  width: 37px;
-  height: 37px;
-  border: 1px solid rgba(179,90,112,.7);
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
-  color: #d08a9b;
-  font-size: 19px;
-  background: linear-gradient(145deg,#31131d,#0c0a0b);
+  border: 1px solid #8d3048;
+  border-radius: 50%;
+  color: var(--pink);
+  background: #211017;
 }
 
-.brand span:last-child {
-  color: #d08a9b;
+.brand-name {
+  color: var(--pink);
 }
 
-.links {
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(208,138,155,.25);
+  border-radius: 8px;
+  background: #151014;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 1px;
+  background: var(--pink);
+}
+
+/* DROPDOWN MENU */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  opacity: 0;
+  visibility: hidden;
+  transition: .25s;
+  z-index: 40;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(330px, 86vw);
+  padding: 28px;
+  background: #100c0f;
+  border-left: 1px solid rgba(208,138,155,.25);
+  transform: translateX(105%);
+  transition: transform .3s ease;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+body.menu-open .side-menu {
+  transform: translateX(0);
+}
+
+body.menu-open .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.menu-head {
   display: flex;
   align-items: center;
-  gap: 30px;
-  color: #b9afb2;
-  font-size: 13px;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  direction: ltr;
 }
 
-.links a:hover {
-  color: #f0c2cd;
+.menu-label {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 2px;
 }
 
-.nav-cta {
-  border: 1px solid rgba(179,90,112,.55);
-  border-radius: 999px;
-  padding: 9px 18px;
-  color: #f0c2cd;
-  font-size: 12px;
-  background: rgba(100,29,48,.15);
+.menu-close {
+  width: 35px;
+  height: 35px;
+  color: var(--pink);
+  background: transparent;
+  border: 1px solid rgba(208,138,155,.3);
+  font-size: 25px;
 }
 
-/* Hero section */
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+}
+
+.menu-links a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 17px 2px;
+  direction: ltr;
+  border-bottom: 1px solid rgba(208,138,155,.17);
+  color: #e9dfe2;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.menu-links a:hover {
+  color: var(--pink);
+  padding-left: 10px;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  color: var(--pink);
+  font-size: 19px;
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: #81747a;
+  font-size: 10px;
+  letter-spacing: 2px;
+  direction: ltr;
+}
+
+/* PAGE SYSTEM */
+
+.page {
+  display: none;
+  min-height: calc(100vh - 76px);
+  padding: 50px 0 100px;
+  animation: appear .25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-heading {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-heading small {
+  color: var(--pink);
+  letter-spacing: 2px;
+  direction: ltr;
+  display: block;
+}
+
+.page-heading h1 {
+  font-size: 35px;
+  margin: 8px 0 0;
+}
+
+/* HOME PAGE */
 
 .hero {
-  min-height: 600px;
+  min-height: 540px;
   display: grid;
-  grid-template-columns: 1.04fr .96fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 38px;
-  padding: 68px 0 80px;
-  position: relative;
-  isolation: isolate;
-}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  width: 460px;
-  height: 460px;
-  border-radius: 50%;
-  background: rgba(100,29,48,.2);
-  filter: blur(100px);
-  left: 9%;
-  top: 12%;
-  z-index: -1;
+  gap: 30px;
+  padding-top: 40px;
+  padding-bottom: 50px;
 }
 
 .eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #c27a8c;
+  color: var(--pink);
   font-size: 12px;
-  letter-spacing: 1.3px;
-  margin-bottom: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
 }
 
-.eyebrow:before {
-  content: "";
-  width: 27px;
-  height: 1px;
-  background: #9e4259;
+.hero h1 {
+  font-size: clamp(42px, 5vw, 65px);
+  line-height: 1.3;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
 }
 
-h1 {
-  font-size: clamp(38px,5.2vw,68px);
-  line-height: 1.35;
-  letter-spacing: -2px;
-  margin: 0 0 18px;
-  font-weight: 700;
-}
-
-h1 em {
+.hero h1 em {
   font-style: normal;
-  color: #c4778b;
+  color: var(--pink);
 }
 
-.hero-copy p {
-  max-width: 460px;
+.hero p {
+  max-width: 440px;
   color: var(--muted);
-  font-size: 15px;
   line-height: 2.2;
-  margin: 0 0 30px;
+  font-size: 14px;
 }
 
 .actions {
   display: flex;
-  gap: 12px;
-  align-items: center;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
 }
 
-.primary {
-  background: linear-gradient(135deg,#8a3048,#5d1b2e);
-  border: 1px solid #9a3b54;
-  color: white;
-  border-radius: 8px;
-  padding: 13px 24px;
-  box-shadow: 0 8px 28px rgba(100,29,48,.22);
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 13px;
   transition: .2s;
 }
 
-.primary:hover {
+.btn-primary {
+  background: linear-gradient(135deg, #8d3048, #541728);
+  border-color: #9a3b54;
+  color: white;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.2);
   transform: translateY(-2px);
-  filter: brightness(1.12);
 }
 
-.secondary {
-  border: 1px solid var(--line);
-  color: #e1d8db;
-  border-radius: 8px;
-  padding: 12px 22px;
-  background: rgba(255,255,255,.02);
+.btn-secondary {
+  background: #151114;
+  border-color: var(--line);
+  color: #e5d9dd;
 }
-
-.hero-note {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-top: 36px;
-  color: #8e8286;
-  font-size: 11px;
-}
-
-.hero-note b {
-  color: #d6a0ad;
-  font-weight: 500;
-}
-
-/* Abstract music visual */
 
 .visual {
-  height: 430px;
-  position: relative;
+  height: 400px;
   display: grid;
   place-items: center;
+  position: relative;
 }
 
 .orbit {
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  border: 1px solid rgba(179,90,112,.22);
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(208,138,155,.22);
   border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: absolute;
 }
 
-.orbit:before,
-.orbit:after {
+.orbit::before {
   content: "";
   position: absolute;
-  border: 1px solid rgba(179,90,112,.13);
-  border-radius: 50%;
   inset: 25px;
-}
-
-.orbit:after {
-  inset: 57px;
+  border: 1px solid rgba(208,138,155,.16);
+  border-radius: 50%;
 }
 
 .disc {
-  width: 270px;
-  height: 270px;
+  width: 245px;
+  height: 245px;
   border-radius: 50%;
-  position: relative;
   display: grid;
   place-items: center;
-  background: radial-gradient(
-    circle at 45% 38%,
-    #431b29 0,
-    #211018 44%,
-    #0b090a 73%
-  );
-  box-shadow:
-    0 0 100px rgba(100,29,48,.24),
-    inset 0 0 0 1px rgba(214,139,158,.24);
+  background: radial-gradient(circle at 40% 35%, #552034, #1b0e14 60%, #090809);
+  box-shadow: 0 0 80px rgba(100,29,48,.3);
+  animation: rotateDisc 30s linear infinite;
 }
 
-.disc:before {
-  content: "";
-  position: absolute;
-  inset: 24px;
-  border: 1px solid rgba(204,135,154,.23);
-  border-radius: 50%;
+@keyframes rotateDisc {
+  to { transform: rotate(360deg); }
 }
 
-.disc:after {
-  content: "";
-  position: absolute;
-  inset: 49px;
-  border: 1px solid rgba(204,135,154,.16);
-  border-radius: 50%;
-}
-
-.soundwave {
+.wave {
   display: flex;
   align-items: center;
-  gap: 7px;
-  height: 76px;
-  z-index: 1;
+  gap: 6px;
 }
 
-.soundwave i {
-  display: block;
+.wave span {
   width: 4px;
-  border-radius: 5px;
-  background: linear-gradient(to top,#641d30,#d18a9e);
   height: var(--h);
-  opacity: .9;
+  border-radius: 5px;
+  background: linear-gradient(to top, #641d30, #e3a2b3);
 }
 
-.float-card {
+.visual-label {
   position: absolute;
-  background: rgba(19,15,17,.9);
-  border: 1px solid rgba(179,90,112,.25);
-  padding: 13px 16px;
-  border-radius: 10px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 14px 38px #0005;
-}
-
-.float-card small {
-  display: block;
-  color: #9e9296;
-  font-size: 10px;
-}
-
-.float-card strong {
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.card-one {
-  top: 54px;
-  right: 4px;
-}
-
-.card-two {
-  bottom: 48px;
+  bottom: 25px;
   left: 0;
+  background: #151114;
+  border: 1px solid rgba(208,138,155,.2);
+  padding: 10px 15px;
+  color: var(--pink);
+  font-size: 11px;
 }
 
-/* Section headings */
+/* MUSIC MIXES */
 
-.section-head {
+.section-title {
   display: flex;
   justify-content: space-between;
   align-items: end;
-  gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
-.section-head h2 {
-  font-size: 23px;
+.section-title h2 {
   margin: 0;
-  font-weight: 600;
-  letter-spacing: -.5px;
+  font-size: 23px;
 }
 
-.section-head p {
+.section-title p {
+  margin: 5px 0 0;
   color: var(--muted);
   font-size: 12px;
-  margin: 5px 0 0;
-}
-
-.text-link {
-  color: #d18a9e;
-  font-size: 12px;
-}
-
-/* Music mixes */
-
-.featured {
-  padding: 15px 0 70px;
 }
 
 .mix-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 
 .mix {
-  min-height: 180px;
+  min-height: 155px;
+  padding: 22px;
+  background: linear-gradient(145deg, #21141a, #100d0f);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 18px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(145deg,#1a1316,#100e0f);
-  transition: .25s;
+  border-radius: 8px;
+  transition: .2s;
 }
 
 .mix:hover {
-  border-color: rgba(179,90,112,.5);
+  border-color: #8d3048;
   transform: translateY(-3px);
 }
 
-.mix:after {
-  content: "";
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: var(--glow,rgba(100,29,48,.35));
-  filter: blur(42px);
-  left: -22px;
-  bottom: -50px;
-}
-
-.mix .number {
+.mix small {
+  color: var(--pink);
   font-size: 11px;
-  color: #8d7c82;
 }
 
 .mix h3 {
-  font-size: 17px;
-  font-weight: 600;
-  margin: 23px 0 4px;
-  position: relative;
-  z-index: 1;
+  margin: 20px 0 5px;
+  font-size: 19px;
 }
 
 .mix p {
-  font-size: 11px;
-  color: #a69a9e;
+  color: var(--muted);
+  font-size: 12px;
   margin: 0;
-  position: relative;
-  z-index: 1;
 }
 
-.play-dot {
-  position: absolute;
-  left: 17px;
-  bottom: 17px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #6c263a;
-  color: #fff;
-  z-index: 2;
-  box-shadow: 0 0 22px #641d3040;
-}
+/* TRACKS */
 
-/* Track list */
-
-.recent {
-  padding: 10px 0 86px;
-}
-
-.track-list {
-  border-top: 1px solid var(--line);
+.tracks {
+  margin-top: 55px;
+  padding-bottom: 40px;
 }
 
 .track {
   display: grid;
-  grid-template-columns: 42px 1fr auto auto;
+  grid-template-columns: 40px 1fr auto auto;
   align-items: center;
-  gap: 16px;
-  padding: 15px 12px;
+  gap: 15px;
+  padding: 15px 10px;
   border-bottom: 1px solid var(--line);
-  transition: .2s;
 }
 
-.track:hover {
-  background: rgba(255,255,255,.025);
-}
-
-.track-no {
-  color: #71656a;
+.track-number {
+  color: #83747a;
   font-size: 12px;
-  text-align: center;
 }
 
 .track-info strong {
+  display: block;
   font-size: 13px;
   font-weight: 500;
-  display: block;
 }
 
 .track-info span {
+  color: var(--muted);
   font-size: 11px;
-  color: #93878b;
 }
 
-.track-time {
-  font-size: 11px;
-  color: #93878b;
-  direction: ltr;
-}
-
-.track-play {
-  border: 1px solid var(--line);
+.track button {
+  width: 35px;
+  height: 35px;
   background: transparent;
-  color: #c77b90;
-  width: 33px;
-  height: 33px;
+  color: var(--pink);
+  border: 1px solid var(--line);
   border-radius: 50%;
 }
 
-/* Bottom call to action */
+.heart-btn.active {
+  color: #f08ca8;
+}
 
-.bottom-cta {
-  margin-bottom: 75px;
-  border: 1px solid rgba(179,90,112,.24);
-  border-radius: 14px;
-  padding: 30px 34px;
+/* OTHER PAGES */
+
+.panel {
+  background: linear-gradient(145deg, #191216, #100d0f);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 18px;
+}
+
+.panel h2 {
+  font-size: 19px;
+  margin-top: 0;
+}
+
+.panel p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.field {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid rgba(208,138,155,.2);
+  border-radius: 6px;
+  background: #0d0a0c;
+  color: var(--text);
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--wine2);
+}
+
+textarea.field {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-status {
+  color: var(--pink);
+  font-size: 12px;
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.list-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 25px;
-  background: radial-gradient(
-    ellipse at left,
-    #32131e 0%,
-    #151012 55%,
-    #100e0f 100%
-  );
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.bottom-cta h2 {
-  font-size: 22px;
-  margin: 0 0 5px;
+.list-item strong {
+  display: block;
+  font-size: 13px;
 }
 
-.bottom-cta p {
-  font-size: 12px;
-  color: #aa9ca1;
-  margin: 0;
+.list-item span {
+  color: var(--muted);
+  font-size: 11px;
 }
 
-/* Footer */
+.remove-btn {
+  background: transparent;
+  color: var(--pink);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid rgba(208,138,155,.3);
+  color: var(--pink);
+  padding: 10px 16px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
@@ -543,15 +609,11 @@ footer {
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 15px;
   align-items: center;
 }
 
-footer .brand {
-  font-size: 16px;
-}
-
-/* Fixed music player */
+/* MINI PLAYER */
 
 .player {
   position: fixed;
@@ -559,172 +621,76 @@ footer .brand {
   left: 0;
   right: 0;
   z-index: 30;
-  background: rgba(15,12,14,.94);
+  background: rgba(15,12,14,.96);
   border-top: 1px solid rgba(179,90,112,.25);
-  backdrop-filter: blur(20px);
-  padding: 11px 0;
+  padding: 9px 0;
+  backdrop-filter: blur(15px);
 }
 
 .player-inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 20px;
-}
-
-.now-playing {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 11px;
-  min-width: 0;
-}
-
-.album-mini {
-  width: 39px;
-  height: 39px;
-  border-radius: 7px;
-  background: linear-gradient(145deg,#792b42,#1b1014);
-  display: grid;
-  place-items: center;
-  color: #e8b3c0;
+  gap: 15px;
 }
 
 .now-playing strong {
-  font-size: 11px;
   display: block;
+  font-size: 11px;
 }
 
 .now-playing span {
+  color: var(--muted);
   font-size: 10px;
-  color: #96898e;
 }
 
-.controls {
+.player-controls {
   display: flex;
   align-items: center;
-  gap: 20px;
-  color: #bbaeb2;
+  gap: 15px;
 }
 
-.controls button {
-  background: none;
+.player-controls button {
+  background: transparent;
   border: 0;
-  color: inherit;
+  color: var(--pink);
   font-size: 17px;
 }
 
-.controls .main-play {
+.player-controls .play-main {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #8a3048;
+  background: var(--wine2);
   color: white;
-  font-size: 14px;
 }
 
-.volume {
-  justify-self: end;
-  color: #988b90;
-  font-size: 11px;
+.player-label {
+  color: #8f8086;
+  font-size: 10px;
+  direction: ltr;
 }
 
-/* Responsive design */
+/* RESPONSIVE */
 
-@media(max-width:800px) {
-  .links {
-    display: none;
-  }
-
+@media (max-width: 750px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 52px 0 45px;
-    gap: 0;
+    padding-top: 20px;
   }
 
   .hero-copy {
-    text-align: center;
-  }
-
-  .hero-copy p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .eyebrow,
-  .actions,
-  .hero-note {
-    justify-content: center;
+    order: 2;
   }
 
   .visual {
-    height: 330px;
-    grid-row: 1;
-  }
-
-  .disc {
-    width: 220px;
-    height: 220px;
+    height: 280px;
+    order: 1;
   }
 
   .orbit {
-    width: 290px;
-    height: 290px;
-  }
-
-  .mix-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
-
-  .bottom-cta {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .player-inner {
-    grid-template-columns: 1fr auto;
-  }
-
-  .volume {
-    display: none;
-  }
-
-  .controls {
-    gap: 12px;
-  }
-
-  .section-head h2 {
-    font-size: 20px;
-  }
-}
-
-@media(max-width:440px) {
-  .wrap {
-    width: calc(100% - 28px);
-  }
-
-  header {
-    height: 70px;
-  }
-
-  .brand {
-    font-size: 19px;
-  }
-
-  .nav-cta {
-    padding: 7px 12px;
-  }
-
-  .hero {
-    min-height: auto;
-  }
-
-  h1 {
-    font-size: 39px;
-    letter-spacing: -1px;
-  }
-
-  .visual {
-    height: 290px;
+    width: 250px;
+    height: 250px;
   }
 
   .disc {
@@ -732,67 +698,51 @@ footer .brand {
     height: 190px;
   }
 
-  .orbit {
-    width: 255px;
-    height: 255px;
+  .mix-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .card-one {
-    right: -3px;
-    top: 32px;
+  .hero h1 {
+    font-size: 45px;
   }
 
-  .card-two {
-    left: -2px;
-    bottom: 24px;
-  }
-
-  .mix {
-    min-height: 155px;
-    padding: 14px;
-  }
-
-  .mix h3 {
-    font-size: 15px;
-    margin-top: 18px;
-  }
-
-  .track {
-    grid-template-columns: 25px 1fr auto;
-    gap: 10px;
-  }
-
-  .track-time {
+  .player-label {
     display: none;
   }
 
-  .bottom-cta {
-    padding: 23px;
+  .page-heading h1 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 430px) {
+  .wrap {
+    width: calc(100% - 28px);
   }
 
-  .bottom-cta h2 {
-    font-size: 19px;
+  .mix-grid {
+    grid-template-columns: 1fr;
   }
 
-  .footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
+  .track {
+    grid-template-columns: 22px 1fr auto;
+    gap: 9px;
+  }
+
+  .track .heart-btn {
+    grid-column: 3;
   }
 
   .player-inner {
     gap: 8px;
   }
 
-  .now-playing {
-    gap: 7px;
-  }
-
-  .controls {
+  .player-controls {
     gap: 8px;
   }
 
-  .controls button {
-    font-size: 15px;
+  .brand {
+    font-size: 21px;
   }
 }
 </style>
@@ -803,203 +753,416 @@ footer .brand {
 <header>
   <div class="wrap nav">
 
-    <a class="brand" href="#" aria-label="طنین فای">
+    <a href="#" class="brand" data-page="home">
       <span class="brand-mark">♫</span>
-      <span>طنین<span>‌فای</span></span>
+      <span class="brand-name">TANINFY</span>
     </a>
 
-<nav class="links">
-  <a href="#profile">Profile</a>
-  <a href="#favorites">Favorites</a>
-  <a href="#playlist">Playlist</a>
-  <a href="#contact">Contact Us</a>
-  <a href="#login">Log in / Sign in</a>
-</nav>
-
-    <a class="nav-cta" href="#mixes">کشف موسیقی ↗</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
   </div>
 </header>
 
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+
+  <div class="menu-head">
+    <span class="menu-label">TANINFY / MENU</span>
+    <button class="menu-close" id="menuClose" aria-label="بستن منو">×</button>
+  </div>
+
+  <nav class="menu-links">
+
+    <a href="#profile" data-page="profile">
+      <span class="menu-icon">♙</span>
+      <span>Profile</span>
+    </a>
+
+    <a href="#favorites" data-page="favorites">
+      <span class="menu-icon">♡</span>
+      <span>Favorites</span>
+    </a>
+
+    <a href="#playlist" data-page="playlist">
+      <span class="menu-icon">♫</span>
+      <span>Playlist</span>
+    </a>
+
+    <a href="#login" data-page="login">
+      <span class="menu-icon">↪</span>
+      <span>Sign in / Log in</span>
+    </a>
+
+    <a href="#contact" data-page="contact">
+      <span class="menu-icon">✉</span>
+      <span>Contact Us</span>
+    </a>
+
+  </nav>
+
+  <div class="menu-footer">YOUR MOOD, YOUR SOUND</div>
+
+</aside>
+
 <main>
 
-<section class="wrap hero" id="home">
+<!-- HOME PAGE -->
 
-  <div class="hero-copy">
+<section class="page active" id="page-home">
 
-    <div class="eyebrow">موسیقی، فراتر از صدا</div>
+  <div class="wrap">
 
-    <h1>
-      بذار موسیقی،<br>
-      <em>حرفتو بزنه.</em>
-    </h1>
+    <section class="hero">
 
-    <p>
-      برای لحظه‌هایی که هیچ کلمه‌ای کافی نیست؛
-      جایی برای کشف صداهای تازه، حال‌وهوای متفاوت
-      و موسیقی‌ای که به تو نزدیک‌تره.
-    </p>
+      <div class="hero-copy">
 
-    <div class="actions">
-      <a class="primary" href="#mixes">شروع شنیدن <span>↗</span></a>
-      <a class="secondary" href="#tracks">آهنگ‌های تازه</a>
-    </div>
+        <div class="eyebrow">TANINFY · MUSIC EXPERIENCE</div>
 
-    <div class="hero-note">
-      <span>●</span>
-      <b>صدای خودت رو پیدا کن</b>
-      <span>—</span>
-      <span>هر لحظه، یک حال تازه</span>
-    </div>
+        <h1>
+          موسیقی،<br>
+          <em>فراتر از صدا.</em>
+        </h1>
+
+        <p>
+          برای لحظه‌هایی که هیچ کلمه‌ای کافی نیست؛
+          جایی برای کشف صداهای تازه، حال‌وهوای متفاوت
+          و موسیقی‌ای که به تو نزدیک‌تره.
+        </p>
+
+        <div class="actions">
+          <a href="#mixes" class="btn btn-primary" id="startListening">
+            شروع شنیدن ↗
+          </a>
+
+          <a href="#tracks" class="btn btn-secondary" id="newTracks">
+            آهنگ‌های تازه
+          </a>
+        </div>
+
+      </div>
+
+      <div class="visual">
+
+        <div class="orbit"></div>
+
+        <div class="disc">
+          <div class="wave">
+            <span style="--h:20px"></span>
+            <span style="--h:35px"></span>
+            <span style="--h:55px"></span>
+            <span style="--h:30px"></span>
+            <span style="--h:70px"></span>
+            <span style="--h:43px"></span>
+            <span style="--h:60px"></span>
+            <span style="--h:27px"></span>
+            <span style="--h:48px"></span>
+            <span style="--h:35px"></span>
+          </div>
+        </div>
+
+        <div class="visual-label">SOUND · MOOD · MOMENT</div>
+
+      </div>
+
+    </section>
+
+    <section id="mixes">
+
+      <div class="section-title">
+        <div>
+          <h2>میکس‌های منتخب</h2>
+          <p>برای هر لحظه، یک حال متفاوت.</p>
+        </div>
+      </div>
+
+      <div class="mix-grid">
+
+        <article class="mix">
+          <small>01 / NIGHT</small>
+          <h3>شب‌های طولانی</h3>
+          <p>آرام، عمیق و دور از هیاهو</p>
+        </article>
+
+        <article class="mix">
+          <small>02 / DARK</small>
+          <h3>تاریک و مرموز</h3>
+          <p>برای وقت‌هایی که سکوت کافی نیست</p>
+        </article>
+
+        <article class="mix">
+          <small>03 / NOSTALGIA</small>
+          <h3>خاطرات دور</h3>
+          <p>صداهایی که فراموش نمی‌شن</p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="tracks" id="tracks">
+
+      <div class="section-title">
+        <div>
+          <h2>آهنگ‌های منتخب</h2>
+          <p>انتخابی برای حال‌وهوای تو.</p>
+        </div>
+      </div>
+
+      <div class="track-list">
+
+        <div class="track">
+          <span class="track-number">01</span>
+          <div class="track-info">
+            <strong>آهنگ اول</strong>
+            <span>هنرمند اول</span>
+          </div>
+          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
+          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
+        </div>
+
+        <div class="track">
+          <span class="track-number">02</span>
+          <div class="track-info">
+            <strong>آهنگ دوم</strong>
+            <span>هنرمند دوم</span>
+          </div>
+          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
+          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
+        </div>
+
+        <div class="track">
+          <span class="track-number">03</span>
+          <div class="track-info">
+            <strong>آهنگ سوم</strong>
+            <span>هنرمند سوم</span>
+          </div>
+          <button class="track-play" aria-label="انتخاب آهنگ">▶</button>
+          <button class="heart-btn" aria-label="افزودن به علاقه‌مندی‌ها">♡</button>
+        </div>
+
+      </div>
+
+    </section>
 
   </div>
 
-  <div class="visual" aria-label="تصویر انتزاعی موج صدا">
+</section>
 
-    <div class="orbit"></div>
+<!-- PROFILE PAGE -->
 
-    <div class="disc">
-      <div class="soundwave">
-        <i style="--h:20px"></i>
-        <i style="--h:35px"></i>
-        <i style="--h:53px"></i>
-        <i style="--h:31px"></i>
-        <i style="--h:68px"></i>
-        <i style="--h:42px"></i>
-        <i style="--h:57px"></i>
-        <i style="--h:27px"></i>
-        <i style="--h:45px"></i>
-        <i style="--h:61px"></i>
-        <i style="--h:32px"></i>
-        <i style="--h:20px"></i>
-      </div>
+<section class="page" id="page-profile">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>YOUR SPACE</small>
+      <h1>Profile</h1>
     </div>
 
-    <div class="float-card card-one">
-      <small>پیشنهاد امروز</small>
-      <strong>برای شب‌های طولانی</strong>
-    </div>
+    <div class="panel">
+      <h2>پروفایل من</h2>
+      <p>فضای شخصی تو در طنین‌فای.</p>
 
-    <div class="float-card card-two">
-      <small>حال‌وهوای انتخابی</small>
-      <strong>آرام · عمیق · بی‌انتها</strong>
+      <form class="form" id="profileForm">
+
+        <input class="field" id="profileName" type="text" placeholder="نام شما">
+
+        <input class="field" id="profileEmail" type="email" placeholder="ایمیل">
+
+        <label for="moodSelect">حال‌وهوای موردعلاقه</label>
+
+        <select class="field" id="moodSelect">
+          <option value="dark">Dark & Mysterious</option>
+          <option value="calm">Calm & Relaxing</option>
+          <option value="nostalgic">Nostalgic</option>
+          <option value="energetic">Energetic</option>
+        </select>
+
+        <button class="btn btn-primary" type="submit">ذخیره تغییرات</button>
+
+        <div class="form-status" id="profileStatus"></div>
+
+      </form>
     </div>
 
   </div>
 
 </section>
 
-<section class="wrap featured" id="mixes">
+<!-- FAVORITES PAGE -->
 
-  <div class="section-head">
-    <div>
-      <h2>برای هر حال، یک صدا</h2>
-      <p>میکس‌هایی برای لحظه‌های خودت</p>
+<section class="page" id="page-favorites">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>YOUR COLLECTION</small>
+      <h1>Favorites ♡</h1>
     </div>
 
-    <a class="text-link" href="#tracks">همهٔ موسیقی‌ها ↗</a>
-  </div>
+    <div class="panel">
+      <h2>آهنگ‌های موردعلاقه</h2>
+      <p>آهنگ‌هایی که از صفحه‌ی اصلی انتخاب می‌کنی، اینجا نمایش داده می‌شن.</p>
 
-  <div class="mix-grid">
-
-    <a class="mix" href="#tracks" style="--glow:rgba(100,29,48,.5)">
-      <span class="number">01 / MOOD</span>
-      <h3>بعد از نیمه‌شب</h3>
-      <p>برای فکرهایی که خواب ندارند</p>
-      <span class="play-dot">▶</span>
-    </a>
-
-    <a class="mix" href="#tracks" style="--glow:rgba(93,46,60,.5)">
-      <span class="number">02 / FOCUS</span>
-      <h3>غرق در خودت</h3>
-      <p>تمرکز، سکوت و جریان</p>
-      <span class="play-dot">▶</span>
-    </a>
-
-    <a class="mix" href="#tracks" style="--glow:rgba(125,44,64,.45)">
-      <span class="number">03 / FEEL</span>
-      <h3>کمی دلتنگی</h3>
-      <p>برای حس‌هایی که می‌مانند</p>
-      <span class="play-dot">▶</span>
-    </a>
-
-    <a class="mix" href="#tracks" style="--glow:rgba(74,28,42,.55)">
-      <span class="number">04 / REPEAT</span>
-      <h3>روی تکرار</h3>
-      <p>آهنگ‌هایی که رها نمی‌کنی</p>
-      <span class="play-dot">▶</span>
-    </a>
-
-  </div>
-
-</section>
-
-<section class="wrap recent" id="tracks">
-
-  <div class="section-head">
-    <div>
-      <h2>تازه در طنین‌فای</h2>
-      <p>چند صدای تازه برای پلی‌لیستت</p>
-    </div>
-
-    <span class="text-link">منتخب هفته</span>
-  </div>
-
-  <div class="track-list">
-
-    <div class="track">
-      <span class="track-no">01</span>
-      <div class="track-info">
-        <strong>یک شب آرام</strong>
-        <span>میکس طنین‌فای · فضای شبانه</span>
-      </div>
-      <span class="track-time">03:42</span>
-      <button class="track-play" aria-label="پخش">▶</button>
-    </div>
-
-    <div class="track">
-      <span class="track-no">02</span>
-      <div class="track-info">
-        <strong>میانِ صداها</strong>
-        <span>میکس طنین‌فای · آلترناتیو</span>
-      </div>
-      <span class="track-time">04:08</span>
-      <button class="track-play" aria-label="پخش">▶</button>
-    </div>
-
-    <div class="track">
-      <span class="track-no">03</span>
-      <div class="track-info">
-        <strong>از دور</strong>
-        <span>میکس طنین‌فای · ملایم</span>
-      </div>
-      <span class="track-time">03:16</span>
-      <button class="track-play" aria-label="پخش">▶</button>
-    </div>
-
-    <div class="track">
-      <span class="track-no">04</span>
-      <div class="track-info">
-        <strong>آخرین قطار</strong>
-        <span>میکس طنین‌فای · سینمایی</span>
-      </div>
-      <span class="track-time">05:01</span>
-      <button class="track-play" aria-label="پخش">▶</button>
+      <div id="favoriteList"></div>
     </div>
 
   </div>
 
 </section>
 
-<section class="wrap" id="about">
+<!-- PLAYLIST PAGE -->
 
-  <div class="bottom-cta">
-    <div>
-      <h2>موسیقی رو، جورِ خودت تجربه کن.</h2>
-      <p>طنین‌فای؛ برای هر چیزی که نمی‌شه به زبون آورد.</p>
+<section class="page" id="page-playlist">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>YOUR MUSIC</small>
+      <h1>Playlist ♫</h1>
     </div>
 
-    <a class="primary" href="#home">برگرد به بالا ↑</a>
+    <div class="panel">
+
+      <h2>ساخت پلی‌لیست جدید</h2>
+
+      <form class="form" id="playlistForm">
+
+        <input class="field" id="playlistName" type="text" placeholder="نام پلی‌لیست" required>
+
+        <select class="field" id="playlistMood">
+          <option value="Dark">Dark</option>
+          <option value="Calm">Calm</option>
+          <option value="Nostalgic">Nostalgic</option>
+          <option value="Energetic">Energetic</option>
+        </select>
+
+        <button class="btn btn-primary" type="submit">ساخت پلی‌لیست</button>
+
+        <div class="form-status" id="playlistStatus"></div>
+
+      </form>
+
+    </div>
+
+    <div class="panel">
+      <h2>پلی‌لیست‌های من</h2>
+      <div id="playlistList"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- LOGIN / SIGNUP PAGE -->
+
+<section class="page" id="page-login">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>WELCOME BACK</small>
+      <h1>Sign in / Log in</h1>
+    </div>
+
+    <div class="panel">
+
+      <h2>ورود به حساب</h2>
+
+      <form class="form" id="loginForm">
+
+        <input class="field" type="email" placeholder="ایمیل" required>
+
+        <input class="field" type="password" placeholder="رمز عبور" required minlength="6">
+
+        <button class="btn btn-primary" type="submit">Log in</button>
+
+        <div class="form-status" id="loginStatus"></div>
+
+      </form>
+
+    </div>
+
+    <div class="panel">
+
+      <h2>ساخت حساب جدید</h2>
+
+      <form class="form" id="signupForm">
+
+        <input class="field" type="text" placeholder="نام" required>
+
+        <input class="field" type="email" placeholder="ایمیل" required>
+
+        <input class="field" type="password" placeholder="رمز عبور" required minlength="6">
+
+        <button class="btn btn-primary" type="submit">Sign in</button>
+
+        <div class="form-status" id="signupStatus"></div>
+
+      </form>
+
+      <p class="form-note">
+        توجه: این فرم نمایشی است و هنوز به سیستم واقعی حساب کاربری متصل نشده.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CONTACT PAGE -->
+
+<section class="page" id="page-contact">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>GET IN TOUCH</small>
+      <h1>Contact Us</h1>
+    </div>
+
+    <div class="panel">
+
+      <h2>با ما در ارتباط باش</h2>
+
+      <p>نظرات، پیشنهادها و پیام‌هات رو برای ما بنویس.</p>
+
+      <form class="form" id="contactForm">
+
+        <input class="field" type="text" placeholder="نام" required>
+
+        <input class="field" type="email" placeholder="ایمیل" required>
+
+        <textarea class="field" placeholder="پیام شما..." required></textarea>
+
+        <button class="btn btn-primary" type="submit">ارسال پیام</button>
+
+        <div class="form-status" id="contactStatus"></div>
+
+      </form>
+
+      <p class="form-note">
+        ارسال واقعی پیام نیازمند اتصال فرم به یک سرویس دریافت پیام است.
+      </p>
+
+    </div>
+
   </div>
 
 </section>
@@ -1008,91 +1171,466 @@ footer .brand {
 
 <footer>
   <div class="wrap footer-inner">
-
-    <a class="brand" href="#">
-      <span class="brand-mark">♫</span>
-      <span>طنین<span>‌فای</span></span>
-    </a>
-
-    <span>یک گوشهٔ کوچک برای صداهای بزرگ.</span>
-    <span>© طنین‌فای</span>
-
+    <span>♫ TANINFY</span>
+    <span>یک گوشه‌ی کوچک برای صداهای بزرگ.</span>
+    <span>© Taninfy</span>
   </div>
 </footer>
+
+<!-- MINI PLAYER -->
 
 <div class="player">
 
   <div class="wrap player-inner">
 
     <div class="now-playing">
-      <div class="album-mini">♫</div>
-
-      <div>
-        <strong id="nowTitle">هنوز چیزی پخش نشده</strong>
-        <span id="nowSub">یک میکس انتخاب کن</span>
-      </div>
+      <strong id="nowTitle">هنوز چیزی انتخاب نشده</strong>
+      <span id="nowArtist">TANINFY MUSIC</span>
     </div>
 
-    <div class="controls">
+    <div class="player-controls">
       <button aria-label="قبلی">Ⅱ</button>
-      <button class="main-play" id="mainPlay" aria-label="پخش یا توقف">▶</button>
+      <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">▶</button>
       <button aria-label="بعدی">↻</button>
     </div>
 
-    <div class="volume">
-      TANINFY · YOUR MOOD, YOUR SOUND
-    </div>
+    <div class="player-label">YOUR MOOD, YOUR SOUND</div>
 
   </div>
 
 </div>
 
 <script>
-const title = document.getElementById('nowTitle');
-const sub = document.getElementById('nowSub');
-const mainPlay = document.getElementById('mainPlay');
 
-let playing = false;
+/* PAGE NAVIGATION */
 
-document.querySelectorAll('.track-play, .play-dot').forEach((button) => {
+const pages = document.querySelectorAll(".page");
 
-  button.addEventListener('click', (event) => {
+function showPage(name) {
+
+  const target = document.getElementById("page-" + name);
+
+  if (!target) return;
+
+  pages.forEach(page => {
+    page.classList.toggle("active", page === target);
+  });
+
+  closeMenu();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "instant"
+  });
+
+  history.replaceState(null, "", "#" + name);
+}
+
+document.querySelectorAll("[data-page]").forEach(link => {
+
+  link.addEventListener("click", function(event) {
 
     event.preventDefault();
 
-    const row = button.closest('.track');
-    const mix = button.closest('.mix');
-
-    title.textContent = row
-      ? row.querySelector('strong').textContent
-      : mix.querySelector('h3').textContent;
-
-    sub.textContent = row
-      ? row.querySelector('.track-info span').textContent
-      : 'میکس منتخب طنین‌فای';
-
-    playing = true;
-    mainPlay.textContent = 'Ⅱ';
+    showPage(this.dataset.page);
 
   });
 
 });
 
-mainPlay.addEventListener('click', () => {
+function loadPageFromHash() {
 
-  playing = !playing;
+  const name = location.hash.replace("#", "");
 
-  mainPlay.textContent = playing ? 'Ⅱ' : '▶';
+  const availablePages = [
+    "home",
+    "profile",
+    "favorites",
+    "playlist",
+    "login",
+    "contact"
+  ];
 
-  if (
-    !title.textContent ||
-    title.textContent === 'هنوز چیزی پخش نشده'
-  ) {
-    title.textContent = 'یک میکس انتخاب کن';
-    sub.textContent = 'این نسخه فقط ظاهر پخش‌کننده را نمایش می‌دهد';
+  showPage(availablePages.includes(name) ? name : "home");
+
+}
+
+window.addEventListener("load", loadPageFromHash);
+
+window.addEventListener("hashchange", loadPageFromHash);
+
+
+/* DROPDOWN MENU */
+
+const menuToggle = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
+const menuOverlay = document.getElementById("menuOverlay");
+
+function openMenu() {
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
+}
+
+menuToggle.addEventListener("click", openMenu);
+
+menuClose.addEventListener("click", closeMenu);
+
+menuOverlay.addEventListener("click", closeMenu);
+
+document.addEventListener("keydown", function(event) {
+
+  if (event.key === "Escape") {
+    closeMenu();
   }
 
 });
+
+
+/* FAVORITES */
+
+const favoriteKey = "taninfy-favorites";
+
+let favorites = JSON.parse(
+  localStorage.getItem(favoriteKey) || "[]"
+);
+
+function saveFavorites() {
+  localStorage.setItem(
+    favoriteKey,
+    JSON.stringify(favorites)
+  );
+}
+
+function renderFavorites() {
+
+  const box = document.getElementById("favoriteList");
+
+  box.innerHTML = "";
+
+  if (favorites.length === 0) {
+
+    box.innerHTML =
+      '<p class="form-note">هنوز آهنگی به علاقه‌مندی‌ها اضافه نکردی.</p>';
+
+    return;
+  }
+
+  favorites.forEach((item, index) => {
+
+    const row = document.createElement("div");
+
+    row.className = "list-item";
+
+    const info = document.createElement("div");
+
+    const title = document.createElement("strong");
+
+    title.textContent = item.title;
+
+    const artist = document.createElement("span");
+
+    artist.textContent = item.artist;
+
+    info.append(title, artist);
+
+    const remove = document.createElement("button");
+
+    remove.className = "remove-btn";
+
+    remove.textContent = "حذف";
+
+    remove.addEventListener("click", function() {
+
+      favorites.splice(index, 1);
+
+      saveFavorites();
+
+      renderFavorites();
+
+      syncHearts();
+
+    });
+
+    row.append(info, remove);
+
+    box.appendChild(row);
+
+  });
+
+}
+
+function syncHearts() {
+
+  document.querySelectorAll(".track").forEach(row => {
+
+    const title = row.querySelector(".track-info strong").textContent;
+
+    const button = row.querySelector(".heart-btn");
+
+    const found = favorites.some(item => item.title === title);
+
+    button.classList.toggle("active", found);
+
+    button.textContent = found ? "♥" : "♡";
+
+  });
+
+}
+
+document.querySelectorAll(".heart-btn").forEach(button => {
+
+  button.addEventListener("click", function() {
+
+    const row = this.closest(".track");
+
+    const title = row.querySelector(".track-info strong").textContent;
+
+    const artist = row.querySelector(".track-info span").textContent;
+
+    const index = favorites.findIndex(item => item.title === title);
+
+    if (index >= 0) {
+
+      favorites.splice(index, 1);
+
+    } else {
+
+      favorites.push({ title, artist });
+
+    }
+
+    saveFavorites();
+
+    renderFavorites();
+
+    syncHearts();
+
+  });
+
+});
+
+
+/* PLAYLISTS */
+
+const playlistKey = "taninfy-playlists";
+
+let playlists = JSON.parse(
+  localStorage.getItem(playlistKey) || "[]"
+);
+
+function renderPlaylists() {
+
+  const box = document.getElementById("playlistList");
+
+  box.innerHTML = "";
+
+  if (playlists.length === 0) {
+
+    box.innerHTML =
+      '<p class="form-note">هنوز پلی‌لیستی نساختی.</p>';
+
+    return;
+  }
+
+  playlists.forEach((playlist, index) => {
+
+    const row = document.createElement("div");
+
+    row.className = "list-item";
+
+    const info = document.createElement("div");
+
+    const name = document.createElement("strong");
+
+    name.textContent = playlist.name;
+
+    const mood = document.createElement("span");
+
+    mood.textContent = playlist.mood;
+
+    info.append(name, mood);
+
+    const remove = document.createElement("button");
+
+    remove.className = "remove-btn";
+
+    remove.textContent = "حذف";
+
+    remove.addEventListener("click", function() {
+
+      playlists.splice(index, 1);
+
+      localStorage.setItem(
+        playlistKey,
+        JSON.stringify(playlists)
+      );
+
+      renderPlaylists();
+
+    });
+
+    row.append(info, remove);
+
+    box.appendChild(row);
+
+  });
+
+}
+
+document.getElementById("playlistForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const name = document.getElementById("playlistName").value.trim();
+
+  const mood = document.getElementById("playlistMood").value;
+
+  if (!name) return;
+
+  playlists.push({ name, mood });
+
+  localStorage.setItem(
+    playlistKey,
+    JSON.stringify(playlists)
+  );
+
+  renderPlaylists();
+
+  this.reset();
+
+  document.getElementById("playlistStatus").textContent =
+    "پلی‌لیست ساخته شد.";
+
+});
+
+
+/* PROFILE */
+
+const profileKey = "taninfy-profile";
+
+const savedProfile = JSON.parse(
+  localStorage.getItem(profileKey) || "{}"
+);
+
+document.getElementById("profileName").value =
+  savedProfile.name || "";
+
+document.getElementById("profileEmail").value =
+  savedProfile.email || "";
+
+document.getElementById("moodSelect").value =
+  savedProfile.mood || "dark";
+
+document.getElementById("profileForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const profile = {
+    name: document.getElementById("profileName").value,
+    email: document.getElementById("profileEmail").value,
+    mood: document.getElementById("moodSelect").value
+  };
+
+  localStorage.setItem(
+    profileKey,
+    JSON.stringify(profile)
+  );
+
+  document.getElementById("profileStatus").textContent =
+    "تغییرات در این مرورگر ذخیره شد.";
+
+});
+
+
+/* CONTACT FORM */
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  document.getElementById("contactStatus").textContent =
+    "فرم آماده است؛ برای ارسال واقعی باید به سرویس دریافت پیام متصل شود.";
+
+});
+
+
+/* LOGIN AND SIGNUP */
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  document.getElementById("loginStatus").textContent =
+    "ورود واقعی هنوز فعال نیست؛ سیستم حساب کاربری به سایت متصل نشده است.";
+
+});
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  document.getElementById("signupStatus").textContent =
+    "برای فعال شدن ثبت‌نام واقعی، سایت باید به سیستم احراز هویت متصل شود.";
+
+});
+
+
+/* MUSIC PLAYER - VISUAL ONLY */
+
+const nowTitle = document.getElementById("nowTitle");
+const nowArtist = document.getElementById("nowArtist");
+const mainPlay = document.getElementById("mainPlay");
+
+let isPlaying = false;
+
+document.querySelectorAll(".track-play").forEach(button => {
+
+  button.addEventListener("click", function() {
+
+    const row = this.closest(".track");
+
+    nowTitle.textContent =
+      row.querySelector(".track-info strong").textContent;
+
+    nowArtist.textContent =
+      row.querySelector(".track-info span").textContent;
+
+    isPlaying = true;
+
+    mainPlay.textContent = "Ⅱ";
+
+  });
+
+});
+
+mainPlay.addEventListener("click", function() {
+
+  isPlaying = !isPlaying;
+
+  this.textContent = isPlaying ? "Ⅱ" : "▶";
+
+  if (nowTitle.textContent === "هنوز چیزی انتخاب نشده") {
+
+    nowTitle.textContent = "یک آهنگ انتخاب کن";
+
+    nowArtist.textContent = "TANINFY MUSIC";
+
+  }
+
+});
+
+
+/* INITIALIZE */
+
+renderFavorites();
+
+renderPlaylists();
+
+syncHearts();
+
 </script>
 
 </body>
