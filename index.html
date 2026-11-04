@@ -1846,6 +1846,78 @@ footer {
 </div>
 
 <script src="songs.js"></script>
+<!-- FULL MUSIC PLAYER -->
+<div class="full-player" id="fullPlayer">
+
+  <button class="full-player-close" id="closeFullPlayer">×</button>
+
+  <div class="full-player-content">
+
+    <div class="full-cover-wrap">
+      <img id="fullCover"
+           src=""
+           alt="Album Cover"
+           class="full-cover">
+    </div>
+
+    <div class="full-song-info">
+      <h1 id="fullTitle">Song Title</h1>
+      <p id="fullArtist">Artist Name</p>
+    </div>
+
+    <div class="full-progress-area">
+      <span id="fullCurrentTime">0:00</span>
+
+      <input
+        type="range"
+        id="fullProgress"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <span id="fullDuration">0:00</span>
+    </div>
+
+    <div class="full-controls">
+
+      <button id="shuffleBtn" class="full-control-btn" title="Shuffle">
+        🔀
+      </button>
+
+      <button id="fullPrevBtn" class="full-control-btn" title="Previous">
+        ⏮
+      </button>
+
+      <button id="fullPlayBtn" class="full-play-btn">
+        ▶
+      </button>
+
+      <button id="fullNextBtn" class="full-control-btn" title="Next">
+        ⏭
+      </button>
+
+      <button id="repeatBtn" class="full-control-btn" title="Repeat">
+        🔁
+      </button>
+
+    </div>
+
+    <div class="full-extra-controls">
+
+      <button id="fullFavoriteBtn">
+        ♡ Favorite
+      </button>
+
+      <button id="fullPlaylistBtn">
+        ＋ Playlist
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
 <script>
 
 /* PAGE NAVIGATION */
@@ -2462,76 +2534,6 @@ renderPlaylists();
 syncHearts();
 
 </script>
-<!-- FULL MUSIC PLAYER -->
-<div class="full-player" id="fullPlayer">
 
-  <button class="full-player-close" id="closeFullPlayer">×</button>
-
-  <div class="full-player-content">
-
-    <div class="full-cover-wrap">
-      <img id="fullCover"
-           src=""
-           alt="Album Cover"
-           class="full-cover">
-    </div>
-
-    <div class="full-song-info">
-      <h1 id="fullTitle">Song Title</h1>
-      <p id="fullArtist">Artist Name</p>
-    </div>
-
-    <div class="full-progress-area">
-      <span id="fullCurrentTime">0:00</span>
-
-      <input
-        type="range"
-        id="fullProgress"
-        min="0"
-        max="100"
-        value="0"
-      >
-
-      <span id="fullDuration">0:00</span>
-    </div>
-
-    <div class="full-controls">
-
-      <button id="shuffleBtn" class="full-control-btn" title="Shuffle">
-        🔀
-      </button>
-
-      <button id="fullPrevBtn" class="full-control-btn" title="Previous">
-        ⏮
-      </button>
-
-      <button id="fullPlayBtn" class="full-play-btn">
-        ▶
-      </button>
-
-      <button id="fullNextBtn" class="full-control-btn" title="Next">
-        ⏭
-      </button>
-
-      <button id="repeatBtn" class="full-control-btn" title="Repeat">
-        🔁
-      </button>
-
-    </div>
-
-    <div class="full-extra-controls">
-
-      <button id="fullFavoriteBtn">
-        ♡ Favorite
-      </button>
-
-      <button id="fullPlaylistBtn">
-        ＋ Playlist
-      </button>
-
-    </div>
-
-  </div>
-</div>
 </body>
 </html>
