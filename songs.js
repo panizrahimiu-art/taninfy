@@ -21,10 +21,10 @@ window.TANINFY_SONGS = [
     cover: "DIRECT-COVER-IMAGE-URL"
    },
    {
-    id: "song-1",
-    title: "I Don't Care to Dance",
-    artist: "J. E. Sunde",
-    src: "https://dl.musicdel.ir/Music/1403/01/j_e_sunde_i_dont_care_to_dance.mp3",
+    id: "song-4",
+    title: "Un-Break My Heart",
+    artist: "Toni Braxton",
+    src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
