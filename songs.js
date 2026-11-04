@@ -1,9 +1,9 @@
 window.TANINFY_SONGS = [
   {
     id: "song-1",
-    title: "نام آهنگ اول",
-    artist: "نام خواننده",
-    src: "لینک مستقیم فایل صوتی"
+    title: "I Don't Care to Dance",
+    artist: "J. E. Sunde",
+    src: "لینک مستقیم فایل صوتی MP3"
   },
   {
     id: "song-2",
