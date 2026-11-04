@@ -28,17 +28,17 @@ window.TANINFY_SONGS = [
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
-    id: "song-2",
-    title: "Nafas",
-    artist: "Morteza Pashayi",
-    src: "https://dls.musics-fa.com/tagdl/ali/Morteza%20Pashaei%20-%20Nafas%20(320).mp3",
+    id: "song-5",
+    title: "Another Love",
+    artist: "Tom Odell",
+    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
-    id: "song-3",
-    title: "نام آهنگ سوم",
-    artist: "نام خواننده",
-    src: "لینک مستقیم فایل صوتی",
+    id: "song-6",
+    title: "Stars",
+    artist: "Aemia",
+    src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
 ];
