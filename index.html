@@ -670,6 +670,11 @@ footer {
   color: white;
 }
 
+.player-controls .play-main:disabled {
+  opacity: .75;
+  cursor: wait;
+}
+
 .player-label {
   color: #8f8086;
   font-size: 10px;
@@ -1486,7 +1491,7 @@ footer {
 </footer>
 
 <!-- AUDIO ENGINE -->
-<audio id="audioPlayer" preload="none"></audio>
+<audio id="audioPlayer" preload="auto"></audio>
 
 <!-- MINI PLAYER -->
 
@@ -1932,6 +1937,26 @@ const mainPlay = document.getElementById("mainPlay");
 const previousTrack = document.getElementById("previousTrack");
 const nextTrack = document.getElementById("nextTrack");
 let currentTrackIndex = -1;
+let isLoadingTrack = false;
+
+function preloadNextTrack() {
+  const nextIndex = currentTrackIndex + 1;
+  if (nextIndex >= songCatalog.length) return;
+
+  const nextSong = songCatalog[nextIndex];
+  if (!nextSong || !nextSong.src) return;
+
+  // Preload the next song so it can start faster.
+  const preloader = new Audio();
+  preloader.preload = "auto";
+  preloader.src = nextSong.src;
+}
+
+function setLoadingState(loading) {
+  isLoadingTrack = loading;
+  mainPlay.disabled = loading;
+  mainPlay.textContent = loading ? "⏳" : (audioPlayer.paused ? "▶" : "Ⅱ");
+}
 
 function setPlayerTrack(index, autoplay = true) {
   if (index < 0 || index >= songCatalog.length) return;
@@ -1948,12 +1973,24 @@ function setPlayerTrack(index, autoplay = true) {
     return;
   }
 
-  if (audioPlayer.src !== new URL(song.src, document.baseURI).href) {
+  const newSrc = new URL(song.src, document.baseURI).href;
+
+  if (audioPlayer.src !== newSrc) {
+    setLoadingState(true);
     audioPlayer.src = song.src;
+    audioPlayer.load();
   }
 
+  // Start loading the next track in the background.
+  preloadNextTrack();
+
   if (autoplay) {
-    audioPlayer.play().catch(() => {
+    setLoadingState(true);
+
+    audioPlayer.play().then(() => {
+      setLoadingState(false);
+    }).catch(() => {
+      setLoadingState(false);
       mainPlay.textContent = "▶";
       nowArtist.textContent = "پخش نشد؛ لینک باید مستقیم و قابل دسترسی باشد";
     });
@@ -1998,7 +2035,23 @@ nextTrack.addEventListener("click", function() {
   setPlayerTrack(index, true);
 });
 
+audioPlayer.addEventListener("loadstart", function() {
+  if (currentTrackIndex >= 0) {
+    setLoadingState(true);
+  }
+});
+
+audioPlayer.addEventListener("canplay", function() {
+  if (!audioPlayer.paused) {
+    setLoadingState(false);
+  } else {
+    mainPlay.disabled = false;
+    mainPlay.textContent = "▶";
+  }
+});
+
 audioPlayer.addEventListener("play", function() {
+  setLoadingState(false);
   mainPlay.textContent = "Ⅱ";
   document.querySelectorAll(".track-play").forEach((button, i) => {
     button.textContent = i === currentTrackIndex ? "Ⅱ" : "▶";
@@ -2031,4 +2084,3 @@ syncHearts();
 
 </body>
 </html>
-
