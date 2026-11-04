@@ -213,7 +213,15 @@
 
 .full-control-btn.active {
   color: #d98b9f;
-  text-shadow: 0 0 15px rgba(180,60,90,0.8);
+  background: rgba(105,20,50,.28);
+  box-shadow: 0 0 0 1px rgba(208,138,155,.22), 0 0 18px rgba(105,20,50,.28);
+  text-shadow: 0 0 15px rgba(180,60,90,0.55);
+}
+
+.full-control-spacer {
+  width: 42px;
+  height: 42px;
+  display: block;
 }
 
 .full-play-btn {
@@ -1881,8 +1889,8 @@ footer {
 
     <div class="full-controls">
 
-      <button id="shuffleBtn" class="full-control-btn" title="Shuffle">
-        🔀
+      <button id="playbackModeBtn" class="full-control-btn" title="Shuffle">
+        ⤨
       </button>
 
       <button id="fullPrevBtn" class="full-control-btn" title="Previous">
@@ -1897,9 +1905,7 @@ footer {
         ⏭
       </button>
 
-      <button id="repeatBtn" class="full-control-btn" title="Repeat">
-        🔁
-      </button>
+      <span class="full-control-spacer" aria-hidden="true"></span>
 
     </div>
 
@@ -2148,10 +2154,10 @@ trackList.addEventListener("click", function(event) {
   if (index < 0) return;
 
   setPlayerTrack(index, true);
-  openFullPlayer(songCatalog[index]);
 });
 
-mainPlay.addEventListener("click", async function() {
+mainPlay.addEventListener("click", async function(event) {
+  event.stopPropagation();
   if (currentTrackIndex < 0) return;
 
   if (audioPlayer.paused) {
@@ -2206,13 +2212,13 @@ audioPlayer.addEventListener("pause", function() {
 });
 
 audioPlayer.addEventListener("ended", function() {
-  if (repeatMode) {
+  if (playbackMode === "repeat") {
     audioPlayer.currentTime = 0;
     audioPlayer.play().catch(() => {});
     return;
   }
 
-  if (shuffleMode) {
+  if (playbackMode === "shuffle") {
     playRandomTrack();
     return;
   }
@@ -2411,14 +2417,12 @@ const fullArtist = document.getElementById("fullArtist");
 const fullPlayBtn = document.getElementById("fullPlayBtn");
 const fullPrevBtn = document.getElementById("fullPrevBtn");
 const fullNextBtn = document.getElementById("fullNextBtn");
-const shuffleBtn = document.getElementById("shuffleBtn");
-const repeatBtn = document.getElementById("repeatBtn");
+const playbackModeBtn = document.getElementById("playbackModeBtn");
 const fullProgress = document.getElementById("fullProgress");
 const fullCurrentTime = document.getElementById("fullCurrentTime");
 const fullDuration = document.getElementById("fullDuration");
 
-let shuffleMode = false;
-let repeatMode = false;
+let playbackMode = "off"; // off → shuffle → repeat → off
 
 function openFullPlayer(track) {
   if (!track) return;
@@ -2489,7 +2493,7 @@ fullPrevBtn.addEventListener("click", function() {
 fullNextBtn.addEventListener("click", function() {
   if (!songCatalog.length) return;
 
-  if (shuffleMode) {
+  if (playbackMode === "shuffle") {
     playRandomTrack();
     return;
   }
@@ -2498,14 +2502,23 @@ fullNextBtn.addEventListener("click", function() {
   setPlayerTrack(index, true);
 });
 
-repeatBtn.addEventListener("click", function() {
-  repeatMode = !repeatMode;
-  repeatBtn.classList.toggle("active", repeatMode);
-});
-
-shuffleBtn.addEventListener("click", function() {
-  shuffleMode = !shuffleMode;
-  shuffleBtn.classList.toggle("active", shuffleMode);
+playbackModeBtn.addEventListener("click", function() {
+  if (playbackMode === "off") {
+    playbackMode = "shuffle";
+    playbackModeBtn.textContent = "⤨";
+    playbackModeBtn.title = "Shuffle";
+    playbackModeBtn.classList.add("active");
+  } else if (playbackMode === "shuffle") {
+    playbackMode = "repeat";
+    playbackModeBtn.textContent = "↻";
+    playbackModeBtn.title = "Repeat song";
+    playbackModeBtn.classList.add("active");
+  } else {
+    playbackMode = "off";
+    playbackModeBtn.textContent = "⤨";
+    playbackModeBtn.title = "Shuffle";
+    playbackModeBtn.classList.remove("active");
+  }
 });
 
 function playRandomTrack() {
@@ -2519,8 +2532,11 @@ function playRandomTrack() {
   setPlayerTrack(randomIndex, true);
 }
 
-/* Clicking anywhere on the mini-player opens the large player */
-player.addEventListener("click", function() {
+/* Clicking the mini-player body opens the large player.
+   Its buttons keep their own controls. */
+player.addEventListener("click", function(event) {
+  if (event.target.closest("button") || event.target.closest("input")) return;
+
   if (currentTrackIndex >= 0 && songCatalog[currentTrackIndex]) {
     openFullPlayer(songCatalog[currentTrackIndex]);
   }
