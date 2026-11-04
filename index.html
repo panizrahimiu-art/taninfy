@@ -668,6 +668,49 @@ footer {
   border-radius: 50%;
   background: var(--wine2);
   color: white;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.buffer-ring {
+  position: absolute;
+  inset: -2px;
+  width: 38px;
+  height: 38px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.buffer-ring-bg,
+.buffer-ring-progress {
+  fill: none;
+  stroke-width: 2;
+}
+
+.buffer-ring-bg {
+  stroke: rgba(255,255,255,.16);
+}
+
+.buffer-ring-progress {
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-dasharray: 106.81;
+  stroke-dashoffset: 106.81;
+  transition: stroke-dashoffset .12s linear;
+}
+
+.player.is-buffering .buffer-ring {
+  opacity: 1;
+}
+
+.play-icon {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
 }
 
 .player-controls .play-main:disabled {
@@ -1506,7 +1549,13 @@ footer {
 
     <div class="player-controls">
       <button id="previousTrack" aria-label="آهنگ قبلی">|◀</button>
-      <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">▶</button>
+      <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">
+  <svg class="buffer-ring" viewBox="0 0 40 40" aria-hidden="true">
+    <circle class="buffer-ring-bg" cx="20" cy="20" r="17"></circle>
+    <circle class="buffer-ring-progress" id="bufferRingProgress" cx="20" cy="20" r="17"></circle>
+  </svg>
+  <span class="play-icon" id="playIcon">▶</span>
+</button>
       <button id="nextTrack" aria-label="آهنگ بعدی">▶|</button>
     </div>
 
@@ -1934,28 +1983,75 @@ const player = document.querySelector(".player");
 const nowTitle = document.getElementById("nowTitle");
 const nowArtist = document.getElementById("nowArtist");
 const mainPlay = document.getElementById("mainPlay");
+const playIcon = document.getElementById("playIcon");
+const bufferRingProgress = document.getElementById("bufferRingProgress");
 const previousTrack = document.getElementById("previousTrack");
 const nextTrack = document.getElementById("nextTrack");
 let currentTrackIndex = -1;
 let isLoadingTrack = false;
+let bufferAnimationFrame = null;
 
-function preloadNextTrack() {
-  const nextIndex = currentTrackIndex + 1;
-  if (nextIndex >= songCatalog.length) return;
+const BUFFER_RING_CIRCUMFERENCE = 106.81;
 
-  const nextSong = songCatalog[nextIndex];
-  if (!nextSong || !nextSong.src) return;
+function setBufferProgress(percent) {
+  const safePercent = Math.max(0, Math.min(100, percent || 0));
+  bufferRingProgress.style.strokeDashoffset =
+    BUFFER_RING_CIRCUMFERENCE * (1 - safePercent / 100);
+}
 
-  // Preload the next song so it can start faster.
-  const preloader = new Audio();
-  preloader.preload = "auto";
-  preloader.src = nextSong.src;
+function updateBufferProgress() {
+  if (!audioPlayer.duration || !Number.isFinite(audioPlayer.duration)) {
+    setBufferProgress(0);
+    return;
+  }
+
+  let bufferedEnd = 0;
+
+  for (let i = 0; i < audioPlayer.buffered.length; i++) {
+    if (
+      audioPlayer.currentTime >= audioPlayer.buffered.start(i) &&
+      audioPlayer.currentTime <= audioPlayer.buffered.end(i)
+    ) {
+      bufferedEnd = audioPlayer.buffered.end(i);
+      break;
+    }
+  }
+
+  if (!bufferedEnd && audioPlayer.buffered.length) {
+    bufferedEnd = audioPlayer.buffered.end(audioPlayer.buffered.length - 1);
+  }
+
+  const percent = (bufferedEnd / audioPlayer.duration) * 100;
+  setBufferProgress(percent);
+
+  if (isLoadingTrack) {
+    bufferAnimationFrame = requestAnimationFrame(updateBufferProgress);
+  }
+}
+
+function startBufferProgress() {
+  if (bufferAnimationFrame) cancelAnimationFrame(bufferAnimationFrame);
+  updateBufferProgress();
+}
+
+function stopBufferProgress() {
+  if (bufferAnimationFrame) {
+    cancelAnimationFrame(bufferAnimationFrame);
+    bufferAnimationFrame = null;
+  }
 }
 
 function setLoadingState(loading) {
   isLoadingTrack = loading;
   mainPlay.disabled = loading;
-  mainPlay.textContent = loading ? "⏳" : (audioPlayer.paused ? "▶" : "Ⅱ");
+  player.classList.toggle("is-buffering", loading);
+
+  if (!loading) {
+    stopBufferProgress();
+    setBufferProgress(100);
+  }
+
+  playIcon.textContent = loading ? "▶" : (audioPlayer.paused ? "▶" : "Ⅱ");
 }
 
 function setPlayerTrack(index, autoplay = true) {
@@ -1969,7 +2065,8 @@ function setPlayerTrack(index, autoplay = true) {
 
   if (!song.src) {
     nowArtist.textContent = "لینک مستقیم فایل صوتی برای این آهنگ ثبت نشده";
-    mainPlay.textContent = "▶";
+    setLoadingState(false);
+    playIcon.textContent = "▶";
     return;
   }
 
@@ -1977,21 +2074,21 @@ function setPlayerTrack(index, autoplay = true) {
 
   if (audioPlayer.src !== newSrc) {
     setLoadingState(true);
+    setBufferProgress(0);
     audioPlayer.src = song.src;
     audioPlayer.load();
+    startBufferProgress();
   }
-
-  // Start loading the next track in the background.
-  preloadNextTrack();
 
   if (autoplay) {
     setLoadingState(true);
+    startBufferProgress();
 
     audioPlayer.play().then(() => {
       setLoadingState(false);
     }).catch(() => {
       setLoadingState(false);
-      mainPlay.textContent = "▶";
+      playIcon.textContent = "▶";
       nowArtist.textContent = "پخش نشد؛ لینک باید مستقیم و قابل دسترسی باشد";
     });
   }
@@ -2004,6 +2101,7 @@ function setPlayerTrack(index, autoplay = true) {
 trackList.addEventListener("click", function(event) {
   const button = event.target.closest(".track-play");
   if (!button) return;
+
   const row = button.closest(".track");
   const index = Array.from(trackList.querySelectorAll(".track")).indexOf(row);
   setPlayerTrack(index, true);
@@ -2038,7 +2136,12 @@ nextTrack.addEventListener("click", function() {
 audioPlayer.addEventListener("loadstart", function() {
   if (currentTrackIndex >= 0) {
     setLoadingState(true);
+    startBufferProgress();
   }
+});
+
+audioPlayer.addEventListener("progress", function() {
+  if (isLoadingTrack) updateBufferProgress();
 });
 
 audioPlayer.addEventListener("canplay", function() {
@@ -2046,30 +2149,42 @@ audioPlayer.addEventListener("canplay", function() {
     setLoadingState(false);
   } else {
     mainPlay.disabled = false;
-    mainPlay.textContent = "▶";
+    player.classList.remove("is-buffering");
+    playIcon.textContent = "▶";
   }
 });
 
 audioPlayer.addEventListener("play", function() {
   setLoadingState(false);
-  mainPlay.textContent = "Ⅱ";
+  playIcon.textContent = "Ⅱ";
+
   document.querySelectorAll(".track-play").forEach((button, i) => {
     button.textContent = i === currentTrackIndex ? "Ⅱ" : "▶";
   });
 });
 
 audioPlayer.addEventListener("pause", function() {
-  mainPlay.textContent = "▶";
+  if (!audioPlayer.ended) {
+    player.classList.remove("is-buffering");
+  }
+  playIcon.textContent = "▶";
   document.querySelectorAll(".track-play").forEach(button => button.textContent = "▶");
 });
 
 audioPlayer.addEventListener("ended", function() {
-  if (currentTrackIndex < songCatalog.length - 1) setPlayerTrack(currentTrackIndex + 1, true);
-  else mainPlay.textContent = "▶";
+  if (currentTrackIndex < songCatalog.length - 1) {
+    setPlayerTrack(currentTrackIndex + 1, true);
+  } else {
+    setLoadingState(false);
+    playIcon.textContent = "▶";
+  }
 });
 
 audioPlayer.addEventListener("error", function() {
-  if (currentTrackIndex >= 0) nowArtist.textContent = "خطا در دسترسی به فایل صوتی؛ لینک را بررسی کن";
+  setLoadingState(false);
+  if (currentTrackIndex >= 0) {
+    nowArtist.textContent = "خطا در دسترسی به فایل صوتی؛ لینک را بررسی کن";
+  }
 });
 
 /* INITIALIZE */
