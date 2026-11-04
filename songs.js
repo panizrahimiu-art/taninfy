@@ -7,9 +7,9 @@ window.TANINFY_SONGS = [
   },
   {
     id: "song-2",
-    title: "نام آهنگ دوم",
-    artist: "نام خواننده",
-    src: "لینک مستقیم فایل صوتی"
+    title: "Nafaz",
+    artist: "Morteza Pashayi",
+    src: "https://dls.musics-fa.com/tagdl/ali/Morteza%20Pashaei%20-%20Nafas%20(320).mp3"
   },
   {
     id: "song-3",
