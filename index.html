@@ -137,6 +137,7 @@
 #fullProgress {
   flex: 1;
   appearance: none;
+  direction: ltr;
 
   height: 4px;
 
@@ -2118,7 +2119,16 @@ function setPlayerTrack(index, autoplay = true) {
 
   player.classList.add("visible");
 
+  // If the large player is already open, refresh its song information
+  // immediately when the track changes.
+  if (typeof fullPlayer !== "undefined" && fullPlayer.classList.contains("active")) {
+    openFullPlayer(track);
+  }
+
   setBufferProgress(0);
+  fullProgress.value = 0;
+  fullCurrentTime.textContent = "0:00";
+  fullDuration.textContent = "0:00";
   setLoadingState(true);
 
   audioPlayer.pause();
@@ -2477,6 +2487,8 @@ audioPlayer.addEventListener("timeupdate", function() {
 
 audioPlayer.addEventListener("loadedmetadata", function() {
   fullDuration.textContent = formatFullTime(audioPlayer.duration);
+  fullCurrentTime.textContent = "0:00";
+  fullProgress.value = 0;
 });
 
 fullProgress.addEventListener("input", function() {
