@@ -12,6 +12,286 @@
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+  /* ================================
+   FULL MUSIC PLAYER
+================================ */
+
+.full-player {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(92, 18, 38, 0.45),
+      rgba(5, 5, 5, 0.97) 65%
+    );
+
+  backdrop-filter: blur(25px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.full-player.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.full-player-content {
+  width: min(90vw, 520px);
+  text-align: center;
+  position: relative;
+}
+
+.full-player-close {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.35);
+  color: white;
+
+  font-size: 30px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  transition: 0.25s;
+}
+
+.full-player-close:hover {
+  background: #641b32;
+  transform: rotate(90deg);
+}
+
+.full-cover-wrap {
+  width: min(70vw, 390px);
+  aspect-ratio: 1 / 1;
+
+  margin: 0 auto 30px;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.7),
+    0 0 50px rgba(105,20,50,0.25);
+}
+
+.full-cover {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.full-song-info h1 {
+  color: white;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  margin: 0 0 8px;
+}
+
+.full-song-info p {
+  color: rgba(255,255,255,0.6);
+
+  font-size: 16px;
+
+  margin: 0 0 35px;
+}
+
+.full-progress-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 12px;
+}
+
+#fullProgress {
+  flex: 1;
+  appearance: none;
+
+  height: 4px;
+
+  background: rgba(255,255,255,0.2);
+
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+#fullProgress::-webkit-slider-thumb {
+  appearance: none;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  cursor: pointer;
+}
+
+#fullProgress::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: white;
+
+  cursor: pointer;
+}
+
+.full-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+
+  margin-top: 35px;
+}
+
+.full-control-btn,
+.full-play-btn {
+  border: 0;
+
+  background: transparent;
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.full-control-btn {
+  font-size: 22px;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+}
+
+.full-control-btn:hover {
+  transform: scale(1.15);
+}
+
+.full-control-btn.active {
+  color: #d98b9f;
+  text-shadow: 0 0 15px rgba(180,60,90,0.8);
+}
+
+.full-play-btn {
+  width: 68px;
+  height: 68px;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  color: #111;
+
+  font-size: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.15);
+}
+
+.full-play-btn:hover {
+  transform: scale(1.07);
+}
+
+.full-extra-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.full-extra-controls button {
+  padding: 10px 18px;
+
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.05);
+
+  color: rgba(255,255,255,0.75);
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.full-extra-controls button:hover {
+  background: rgba(105,20,50,0.55);
+  color: white;
+}
+
+@media (max-width: 600px) {
+
+  .full-cover-wrap {
+    width: 75vw;
+  }
+
+  .full-song-info h1 {
+    font-size: 23px;
+  }
+
+  .full-controls {
+    gap: 12px;
+  }
+
+  .full-play-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .full-player-close {
+    top: 18px;
+    right: 18px;
+  }
+}
 :root {
   --bg: #090809;
   --panel: #141114;
@@ -1976,122 +2256,375 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
 
 });
 
-/* TANINFY AUDIO PLAYER */
+/* ==========================================
+   TANINFY - FULL SCREEN MUSIC PLAYER
+========================================== */
 
-const audioPlayer = document.getElementById("audioPlayer");
-const player = document.querySelector(".player");
-const nowTitle = document.getElementById("nowTitle");
-const nowArtist = document.getElementById("nowArtist");
-const mainPlay = document.getElementById("mainPlay");
-const playIcon = document.getElementById("playIcon");
-const bufferRingProgress = document.getElementById("bufferRingProgress");
-const previousTrack = document.getElementById("previousTrack");
-const nextTrack = document.getElementById("nextTrack");
-let currentTrackIndex = -1;
-let isLoadingTrack = false;
-let bufferAnimationFrame = null;
+const fullPlayer = document.getElementById("fullPlayer");
+const closeFullPlayer = document.getElementById("closeFullPlayer");
 
-const BUFFER_RING_CIRCUMFERENCE = 106.81;
+const fullCover = document.getElementById("fullCover");
+const fullTitle = document.getElementById("fullTitle");
+const fullArtist = document.getElementById("fullArtist");
 
-function setBufferProgress(percent) {
-  const safePercent = Math.max(0, Math.min(100, percent || 0));
-  bufferRingProgress.style.strokeDashoffset =
-    BUFFER_RING_CIRCUMFERENCE * (1 - safePercent / 100);
+const fullPlayBtn = document.getElementById("fullPlayBtn");
+const fullPrevBtn = document.getElementById("fullPrevBtn");
+const fullNextBtn = document.getElementById("fullNextBtn");
+
+const shuffleBtn = document.getElementById("shuffleBtn");
+const repeatBtn = document.getElementById("repeatBtn");
+
+const fullProgress = document.getElementById("fullProgress");
+const fullCurrentTime = document.getElementById("fullCurrentTime");
+const fullDuration = document.getElementById("fullDuration");
+
+let shuffleMode = false;
+let repeatMode = false;
+
+
+/* ------------------------------------------
+   OPEN FULL PLAYER
+------------------------------------------ */
+
+function openFullPlayer(track) {
+
+  if (!track) return;
+
+  fullTitle.textContent = track.title || "Unknown Song";
+  fullArtist.textContent = track.artist || "Unknown Artist";
+
+  /*
+    اگر برای آهنگ cover تعریف کرده باشی
+    از همان استفاده می‌کند.
+  */
+  fullCover.src = track.cover || "";
+
+
+  fullPlayer.classList.add("active");
+
+  updateFullPlayButton();
 }
 
-function updateBufferProgress() {
-  if (!audioPlayer.duration || !Number.isFinite(audioPlayer.duration)) {
-    setBufferProgress(0);
-    return;
+
+/* ------------------------------------------
+   CLOSE
+------------------------------------------ */
+
+function closeFullMusicPlayer() {
+  fullPlayer.classList.remove("active");
+}
+
+closeFullPlayer.addEventListener(
+  "click",
+  closeFullMusicPlayer
+);
+
+
+/* ------------------------------------------
+   PLAY / PAUSE
+------------------------------------------ */
+
+fullPlayBtn.addEventListener("click", function () {
+
+  if (audioPlayer.paused) {
+
+    audioPlayer.play().catch(() => {});
+
+  } else {
+
+    audioPlayer.pause();
+
   }
 
-  let bufferedEnd = 0;
+});
 
-  for (let i = 0; i < audioPlayer.buffered.length; i++) {
-    if (
-      audioPlayer.currentTime >= audioPlayer.buffered.start(i) &&
-      audioPlayer.currentTime <= audioPlayer.buffered.end(i)
-    ) {
-      bufferedEnd = audioPlayer.buffered.end(i);
-      break;
+
+/* ------------------------------------------
+   UPDATE PLAY BUTTON
+------------------------------------------ */
+
+function updateFullPlayButton() {
+
+  if (!audioPlayer.paused) {
+
+    fullPlayBtn.textContent = "❚❚";
+
+  } else {
+
+    fullPlayBtn.textContent = "▶";
+
+  }
+
+}
+
+
+/* ------------------------------------------
+   AUDIO EVENTS
+------------------------------------------ */
+
+audioPlayer.addEventListener("play", function () {
+  updateFullPlayButton();
+});
+
+audioPlayer.addEventListener("pause", function () {
+  updateFullPlayButton();
+});
+
+
+/* ------------------------------------------
+   PROGRESS
+------------------------------------------ */
+
+audioPlayer.addEventListener("timeupdate", function () {
+
+  if (!audioPlayer.duration) return;
+
+  const percent =
+    (audioPlayer.currentTime / audioPlayer.duration) * 100;
+
+  fullProgress.value = percent;
+
+  fullCurrentTime.textContent =
+    formatFullTime(audioPlayer.currentTime);
+
+});
+
+
+audioPlayer.addEventListener("loadedmetadata", function () {
+
+  fullDuration.textContent =
+    formatFullTime(audioPlayer.duration);
+
+});
+
+
+function formatFullTime(seconds) {
+
+  if (!seconds || isNaN(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+
+  const remainingSeconds =
+    Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0");
+
+  return `${minutes}:${remainingSeconds}`;
+}
+
+
+/* ------------------------------------------
+   SEEK
+------------------------------------------ */
+
+fullProgress.addEventListener("input", function () {
+
+  if (!audioPlayer.duration) return;
+
+  audioPlayer.currentTime =
+    (this.value / 100) * audioPlayer.duration;
+
+});
+
+
+/* ------------------------------------------
+   PREVIOUS
+------------------------------------------ */
+
+fullPrevBtn.addEventListener("click", function () {
+
+  if (
+    typeof currentTrackIndex !== "undefined" &&
+    currentTrackIndex > 0
+  ) {
+
+    setPlayerTrack(currentTrackIndex - 1);
+
+  }
+
+});
+
+
+/* ------------------------------------------
+   NEXT
+------------------------------------------ */
+
+fullNextBtn.addEventListener("click", function () {
+
+  if (
+    typeof currentTrackIndex !== "undefined" &&
+    currentTrackIndex < TANINFY_SONGS.length - 1
+  ) {
+
+    if (shuffleMode) {
+
+      playRandomTrack();
+
+    } else {
+
+      setPlayerTrack(currentTrackIndex + 1);
+
     }
+
   }
 
-  if (!bufferedEnd && audioPlayer.buffered.length) {
-    bufferedEnd = audioPlayer.buffered.end(audioPlayer.buffered.length - 1);
-  }
+});
 
-  const percent = (bufferedEnd / audioPlayer.duration) * 100;
-  setBufferProgress(percent);
 
-  if (isLoadingTrack) {
-    bufferAnimationFrame = requestAnimationFrame(updateBufferProgress);
-  }
-}
+/* ------------------------------------------
+   REPEAT
+------------------------------------------ */
 
-function startBufferProgress() {
-  if (bufferAnimationFrame) cancelAnimationFrame(bufferAnimationFrame);
-  updateBufferProgress();
-}
+repeatBtn.addEventListener("click", function () {
 
-function stopBufferProgress() {
-  if (bufferAnimationFrame) {
-    cancelAnimationFrame(bufferAnimationFrame);
-    bufferAnimationFrame = null;
-  }
-}
+  repeatMode = !repeatMode;
 
-function setLoadingState(loading) {
-  isLoadingTrack = loading;
-  mainPlay.disabled = loading;
-  player.classList.toggle("is-buffering", loading);
+  repeatBtn.classList.toggle(
+    "active",
+    repeatMode
+  );
 
-  if (!loading) {
-    stopBufferProgress();
-    setBufferProgress(100);
-  }
+});
 
-  playIcon.textContent = loading ? "▶" : (audioPlayer.paused ? "▶" : "Ⅱ");
-}
 
-function setPlayerTrack(index, autoplay = true) {
-  if (index < 0 || index >= songCatalog.length) return;
+/* ------------------------------------------
+   SHUFFLE
+------------------------------------------ */
 
-  const song = songCatalog[index];
-  currentTrackIndex = index;
-  nowTitle.textContent = song.title || "بدون نام";
-  nowArtist.textContent = song.artist || "هنرمند نامشخص";
-  player.classList.add("visible");
+shuffleBtn.addEventListener("click", function () {
 
-  if (!song.src) {
-    nowArtist.textContent = "لینک مستقیم فایل صوتی برای این آهنگ ثبت نشده";
-    setLoadingState(false);
-    playIcon.textContent = "▶";
+  shuffleMode = !shuffleMode;
+
+  shuffleBtn.classList.toggle(
+    "active",
+    shuffleMode
+  );
+
+});
+
+
+/* ------------------------------------------
+   RANDOM SONG
+------------------------------------------ */
+
+function playRandomTrack() {
+
+  if (
+    !window.TANINFY_SONGS ||
+    TANINFY_SONGS.length <= 1
+  ) {
     return;
   }
 
-  const newSrc = new URL(song.src, document.baseURI).href;
+  let randomIndex;
 
-  if (audioPlayer.src !== newSrc) {
-    setLoadingState(true);
-    setBufferProgress(0);
-    audioPlayer.src = song.src;
-    audioPlayer.load();
-    startBufferProgress();
+  do {
+
+    randomIndex =
+      Math.floor(
+        Math.random() * TANINFY_SONGS.length
+      );
+
+  } while (
+    randomIndex === currentTrackIndex
+  );
+
+  setPlayerTrack(randomIndex);
+}
+
+
+/* ------------------------------------------
+   WHEN SONG ENDS
+------------------------------------------ */
+
+audioPlayer.addEventListener("ended", function () {
+
+  /*
+    Repeat فعال باشد:
+    همین آهنگ دوباره پخش می‌شود.
+  */
+
+  if (repeatMode) {
+
+    audioPlayer.currentTime = 0;
+
+    audioPlayer.play().catch(() => {});
+
+    return;
   }
 
-  if (autoplay) {
-    setLoadingState(true);
-    startBufferProgress();
 
-    audioPlayer.play().then(() => {
-      setLoadingState(false);
-    }).catch(() => {
-      setLoadingState(false);
-      playIcon.textContent = "▶";
-      nowArtist.textContent = "پخش نشد؛ لینک باید مستقیم و قابل دسترسی باشد";
-    });
+  /*
+    Shuffle فعال باشد:
+    آهنگ تصادفی بعدی
+  */
+
+  if (shuffleMode) {
+
+    playRandomTrack();
+
+    return;
   }
+
+
+  /*
+    حالت عادی:
+    آهنگ بعدی
+  */
+
+  if (
+    typeof currentTrackIndex !== "undefined" &&
+    currentTrackIndex <
+      TANINFY_SONGS.length - 1
+  ) {
+
+    setPlayerTrack(currentTrackIndex + 1);
+
+  }
+
+});
+
+
+/* ------------------------------------------
+   OPEN FULL PLAYER WHEN MINI PLAYER IS CLICKED
+------------------------------------------ */
+
+const miniPlayer =
+  document.querySelector(".player");
+
+if (miniPlayer) {
+
+  miniPlayer.addEventListener("click", function (event) {
+
+    /*
+      روی دکمه‌های کنترل کوچک کلیک شده؟
+      اگر بله، صفحه بزرگ باز نشود.
+    */
+
+    if (
+      event.target.closest("button") ||
+      event.target.closest("input")
+    ) {
+      return;
+    }
+
+    if (
+      typeof currentTrackIndex !== "undefined" &&
+      currentTrackIndex >= 0 &&
+      TANINFY_SONGS[currentTrackIndex]
+    ) {
+
+      openFullPlayer(
+        TANINFY_SONGS[currentTrackIndex]
+      );
+
+    }
+
+  });
+
+}
 
   document.querySelectorAll(".track-play").forEach((button, i) => {
     button.textContent = i === index && !audioPlayer.paused ? "Ⅱ" : "▶";
@@ -2196,6 +2729,76 @@ renderPlaylists();
 syncHearts();
 
 </script>
+<!-- FULL MUSIC PLAYER -->
+<div class="full-player" id="fullPlayer">
 
+  <button class="full-player-close" id="closeFullPlayer">×</button>
+
+  <div class="full-player-content">
+
+    <div class="full-cover-wrap">
+      <img id="fullCover"
+           src=""
+           alt="Album Cover"
+           class="full-cover">
+    </div>
+
+    <div class="full-song-info">
+      <h1 id="fullTitle">Song Title</h1>
+      <p id="fullArtist">Artist Name</p>
+    </div>
+
+    <div class="full-progress-area">
+      <span id="fullCurrentTime">0:00</span>
+
+      <input
+        type="range"
+        id="fullProgress"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <span id="fullDuration">0:00</span>
+    </div>
+
+    <div class="full-controls">
+
+      <button id="shuffleBtn" class="full-control-btn" title="Shuffle">
+        🔀
+      </button>
+
+      <button id="fullPrevBtn" class="full-control-btn" title="Previous">
+        ⏮
+      </button>
+
+      <button id="fullPlayBtn" class="full-play-btn">
+        ▶
+      </button>
+
+      <button id="fullNextBtn" class="full-control-btn" title="Next">
+        ⏭
+      </button>
+
+      <button id="repeatBtn" class="full-control-btn" title="Repeat">
+        🔁
+      </button>
+
+    </div>
+
+    <div class="full-extra-controls">
+
+      <button id="fullFavoriteBtn">
+        ♡ Favorite
+      </button>
+
+      <button id="fullPlaylistBtn">
+        ＋ Playlist
+      </button>
+
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
