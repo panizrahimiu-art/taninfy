@@ -8,34 +8,26 @@
     
     <style>
         :root {
-            --bg-color: #0b0710;
-            --grad-1: rgba(88, 28, 135, 0.3);
-            --grad-2: rgba(76, 29, 149, 0.25);
+            --bg-color: #0d0814;
+            --accent-glow: rgba(168, 85, 247, 0.25);
             --text-main: #ffffff;
             --text-sub: #c084fc;
-            --title-color: #f3e8ff;
-            --tagline-color: #94a3b8;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --btn-bg: rgba(88, 28, 135, 0.2);
-            --btn-border: rgba(167, 139, 250, 0.4);
-            --menu-bg: rgba(18, 10, 32, 0.85);
-            --modal-bg: rgba(20, 10, 35, 0.9);
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-hover: rgba(255, 255, 255, 0.09);
+            --modal-bg: rgba(18, 10, 28, 0.92);
         }
 
         body.light-theme {
             --bg-color: #f3e8ff;
-            --grad-1: rgba(192, 132, 252, 0.35);
-            --grad-2: rgba(216, 180, 254, 0.45);
+            --accent-glow: rgba(168, 85, 247, 0.3);
             --text-main: #2e1065;
             --text-sub: #7e22ce;
-            --title-color: #3b0764;
-            --tagline-color: #6b21a8;
-            --card-bg: rgba(255, 255, 255, 0.6);
-            --card-border: rgba(126, 34, 206, 0.2);
-            --btn-bg: rgba(168, 85, 247, 0.15);
-            --btn-border: rgba(126, 34, 206, 0.4);
-            --menu-bg: rgba(243, 232, 255, 0.9);
+            --text-muted: #6b21a8;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(126, 34, 206, 0.2);
+            --glass-hover: rgba(255, 255, 255, 0.8);
             --modal-bg: rgba(255, 255, 255, 0.95);
         }
 
@@ -44,50 +36,32 @@
         body {
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(circle at 80% 10%, var(--grad-1) 0%, transparent 50%),
-                radial-gradient(circle at 20% 90%, var(--grad-2) 0%, transparent 50%);
+                radial-gradient(circle at 15% 20%, rgba(147, 51, 234, 0.22) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(88, 28, 135, 0.25) 0%, transparent 50%);
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 20px 120px 20px;
-            position: relative;
+            padding: 25px 20px 140px 20px;
             overflow-x: hidden;
             transition: background 0.4s ease, color 0.4s ease;
         }
 
-        /* هدر بالا */
+        /* هدر بالا مطابق تصویر */
         .top-bar {
             width: 100%;
-            max-width: 1100px;
+            max-width: 950px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            z-index: 10;
+            margin-bottom: 35px;
         }
 
-        .icon-wave {
+        .header-left {
             display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 20px;
-        }
-        .icon-wave span {
-            width: 3px;
-            background: var(--text-sub);
-            animation: pulse 1.2s infinite ease-in-out;
-        }
-        .icon-wave span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
-        .icon-wave span:nth-child(2) { height: 18px; animation-delay: 0.3s; }
-        .icon-wave span:nth-child(3) { height: 14px; animation-delay: 0.2s; }
-        .icon-wave span:nth-child(4) { height: 8px; animation-delay: 0.4s; }
-
-        @keyframes pulse {
-            0%, 100% { transform: scaleY(0.4); }
-            50% { transform: scaleY(1); }
+            align-items: center;
+            gap: 12px;
         }
 
         .menu-icon {
@@ -95,321 +69,262 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
-            padding: 10px;
+            padding: 8px;
         }
         .menu-icon span {
-            width: 24px;
+            width: 20px;
             height: 2px;
             background: var(--text-sub);
-            transition: 0.3s;
+            border-radius: 2px;
         }
 
-        /* منوی کشویی */
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -320px;
-            width: 300px;
-            height: 100%;
-            background: var(--menu-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            box-shadow: 5px 0 25px rgba(0,0,0,0.4);
-            display: flex;
-            flex-direction: column;
-            padding: 40px 30px;
-            transition: 0.4s ease-in-out;
-            z-index: 100;
-            text-align: right;
+        .brand-badge {
+            font-size: 0.9rem;
+            color: #ffffff;
+            font-weight: 400;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 6px 18px;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
         }
-        .side-menu.active { left: 0; }
-        .close-btn {
-            align-self: flex-start;
-            font-size: 2rem;
-            color: var(--text-sub);
-            cursor: pointer;
-            margin-bottom: 30px;
-            background: none;
-            border: none;
-        }
-        .side-menu ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        .side-menu ul li a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .side-menu ul li a:hover {
-            color: var(--text-sub);
-            padding-right: 8px;
-        }
-        .menu-divider {
+
+        /* بخش اصلی و لوگو */
+        .hero-container {
             width: 100%;
-            height: 1px;
-            background: rgba(167, 139, 250, 0.2);
-            margin: 2px 0;
-        }
-
-        /* بخش معرفی اصلی */
-        .hero-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 750px;
             text-align: center;
             margin-bottom: 40px;
-            max-width: 600px;
+            position: relative;
         }
-        .audio-wave-top {
-            width: 140px;
-            height: 30px;
-            margin-bottom: 10px;
-            opacity: 0.8;
+
+        /* موج صوتی پشت متن */
+        .hero-wave-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 100%;
+            max-width: 650px;
+            height: 120px;
+            opacity: 0.18;
+            pointer-events: none;
             color: var(--text-sub);
         }
-        .brand-title {
-            font-family: 'Times New Roman', Times, serif, Tahoma;
-            font-size: 3.8rem;
-            font-weight: 300;
-            letter-spacing: 6px;
-            color: var(--title-color);
-            text-transform: uppercase;
-            margin-bottom: -5px;
-            text-shadow: 0 0 25px rgba(167, 139, 250, 0.3);
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+            position: relative;
         }
-        .brand-sub {
-            font-size: 1rem;
-            letter-spacing: 5px;
-            color: var(--text-sub);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-        .tagline {
-            font-style: italic;
-            color: var(--tagline-color);
-            font-size: 0.95rem;
+
+        .hero-subtitle {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            letter-spacing: 4px;
             margin-bottom: 25px;
+            font-weight: 300;
+            text-transform: uppercase;
+            position: relative;
         }
+
+        /* کادر سرچ بیضی */
         .search-box {
             position: relative;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
+            margin: 0 auto;
         }
         .search-input {
             width: 100%;
-            padding: 14px 20px 14px 45px;
-            background: var(--btn-bg);
-            border: 1px solid var(--btn-border);
+            padding: 12px 20px 12px 45px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--glass-border);
             border-radius: 30px;
             color: var(--text-main);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             outline: none;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(15px);
             transition: all 0.3s ease;
         }
-        .search-input::placeholder { color: var(--tagline-color); }
+        .search-input::placeholder { color: var(--text-muted); }
         .search-input:focus {
             border-color: var(--text-sub);
-            box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
         .search-icon {
             position: absolute;
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--text-sub);
-            pointer-events: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* بخش شبکه محتوا (پلی‌لیست‌ها و آهنگ‌ها) */
-        .content-container {
+        /* گرید دو ستونه طبق تصویر */
+        .main-grid {
             width: 100%;
-            max-width: 1000px;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--title-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* کارت‌های بزرگ پلی‌لیست */
-        .playlist-grid {
+            max-width: 900px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
-        .playlist-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
+
+        @media (max-width: 768px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-subtitle { font-size: 1.3rem; }
+        }
+
+        .section-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 25px;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            cursor: pointer;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .playlist-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--text-sub);
-            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.2);
-        }
-        .playlist-icon {
-            width: 65px;
-            height: 65px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(192, 132, 252, 0.3), rgba(126, 34, 206, 0.3));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            border: 1px solid var(--btn-border);
-            flex-shrink: 0;
-        }
-        .playlist-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
-        .playlist-info p {
-            font-size: 0.85rem;
-            color: var(--tagline-color);
+            padding: 22px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
-        /* لیست آهنگ‌های جدید */
-        .tracks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
+        .card-header {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
         }
-        .track-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 15px;
-            backdrop-filter: blur(10px);
+
+        /* سطر آهنگ‌ها و پلی‌لیست‌ها */
+        .item-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: 0.3s;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
+            transition: all 0.25s ease;
+            margin-bottom: 12px;
         }
-        .track-card:hover {
-            border-color: var(--text-sub);
-            background: rgba(255, 255, 255, 0.08);
+        .item-row:last-child { margin-bottom: 0; }
+        .item-row:hover {
+            background: var(--glass-hover);
+            border-color: rgba(192, 132, 252, 0.3);
+            transform: translateY(-2px);
         }
-        .track-card-left {
+
+        .item-left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .track-card-img {
-            width: 45px;
-            height: 45px;
+
+        .item-icon {
+            width: 42px;
+            height: 42px;
             border-radius: 10px;
-            background: rgba(167, 139, 250, 0.2);
+            background: rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168, 85, 247, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-        }
-        .track-card-details h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .track-card-details p {
-            font-size: 0.8rem;
-            color: var(--tagline-color);
-        }
-        .quick-play-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--text-sub);
-            color: #120a20;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .quick-play-btn:hover {
-            transform: scale(1.1);
+            font-size: 1.1rem;
+            color: var(--text-sub);
         }
 
-        /* پلیر پایین صفحه (سیال و شیشه‌ای) */
+        .item-info { text-align: right; }
+        .item-info h4 { font-size: 0.92rem; font-weight: 500; margin-bottom: 2px; }
+        .item-info p { font-size: 0.78rem; color: var(--text-muted); }
+
+        .play-action-btn {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 0.85rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+        .item-row:hover .play-action-btn { opacity: 1; color: var(--text-sub); transform: scale(1.15); }
+
+        /* منوی کشویی */
+        .side-menu {
+            position: fixed;
+            top: 0; right: -320px;
+            width: 290px;
+            height: 100%;
+            background: var(--modal-bg);
+            backdrop-filter: blur(25px);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            padding: 35px 25px;
+            transition: 0.4s ease;
+            z-index: 1100;
+            text-align: right;
+            border-left: 1px solid var(--glass-border);
+        }
+        .side-menu.active { right: 0; }
+        .close-btn {
+            align-self: flex-start;
+            font-size: 1.8rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            background: none;
+            border: none;
+            margin-bottom: 25px;
+        }
+        .side-menu ul { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+        .side-menu ul li a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .side-menu ul li a:hover { color: var(--text-sub); padding-right: 6px; }
+
+        /* پلیر شناور کاملاً تطبیق داده شده با تصویر */
         .music-player-bar {
             position: fixed;
-            bottom: -100px; /* مخفی در حالت اول */
+            bottom: -120px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            max-width: 900px;
-            height: 80px;
-            background: rgba(18, 10, 32, 0.85);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 24px;
+            width: 88%;
+            max-width: 780px;
+            height: 70px;
+            background: rgba(22, 14, 34, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 25px;
+            padding: 0 22px;
             z-index: 1000;
-            color: #fff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .music-player-bar.visible {
-            bottom: 20px;
-        }
+        .music-player-bar.visible { bottom: 20px; }
 
-        .player-left {
+        .player-right-info {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            width: 220px;
+            flex-direction: column;
+            text-align: right;
+            width: 140px;
         }
-        .track-cover {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(167, 139, 250, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            border: 1px solid rgba(167, 139, 250, 0.3);
-        }
-        .track-info h4 { font-size: 14px; margin-bottom: 3px; font-weight: 500; }
-        .track-info p { font-size: 12px; color: rgba(255, 255, 255, 0.5); }
+        .player-right-info h4 { font-size: 0.88rem; font-weight: 500; color: #fff; }
+        .player-right-info p { font-size: 0.75rem; color: var(--text-muted); }
 
         .player-center {
             display: flex;
@@ -417,39 +332,19 @@
             align-items: center;
             gap: 6px;
             flex: 1;
-            max-width: 420px;
+            max-width: 360px;
         }
         .player-controls {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 16px;
         }
-        .control-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s, color 0.2s;
-        }
-        .control-btn:hover { color: #c084fc; transform: scale(1.1); }
-        .play-pause-btn {
-            width: 36px;
-            height: 36px;
-            background: #c084fc;
-            color: #120a20;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
-        }
+        .control-btn { background: none; border: none; color: #fff; font-size: 14px; cursor: pointer; transition: 0.2s; }
+        .control-btn:hover { color: var(--text-sub); transform: scale(1.1); }
 
         .progress-container {
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             cursor: pointer;
@@ -460,87 +355,71 @@
             height: 100%;
             background: linear-gradient(90deg, #c084fc, #e879f9);
             border-radius: 10px;
-            transition: width 0.1s linear;
         }
-        .player-right {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-            width: 100px;
+
+        .player-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            width: 80px;
             text-align: left;
             direction: ltr;
         }
 
         /* مدال‌ها */
         .profile-modal, .auth-modal {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-            backdrop-filter: blur(8px);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(10px);
             display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s;
-            z-index: 1200;
+            opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1200;
         }
         .profile-modal.active, .auth-modal.active { opacity: 1; pointer-events: auto; }
         
         .profile-card, .auth-card {
-            background: var(--modal-bg);
-            border: 1px solid var(--btn-border);
-            border-radius: 24px;
-            width: 90%; max-width: 380px;
-            padding: 30px 25px;
-            position: relative;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            background: var(--modal-bg); border: 1px solid var(--glass-border);
+            border-radius: 24px; width: 90%; max-width: 350px; padding: 28px;
+            position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.7);
             display: flex; flex-direction: column; align-items: center;
         }
-        .auth-card { border-radius: 35% 65% 60% 40% / 40% 50% 50% 60%; }
         .profile-close {
-            position: absolute; top: 15px; right: 20px;
-            font-size: 1.5rem; color: var(--text-sub);
-            cursor: pointer; background: none; border: none;
+            position: absolute; top: 15px; left: 18px; font-size: 1.4rem;
+            color: var(--text-sub); cursor: pointer; background: none; border: none;
         }
         .profile-avatar {
-            width: 80px; height: 80px; border-radius: 50%;
-            border: 2px solid var(--text-sub);
-            background: #2a1b4e; display: flex; align-items: center; justify-content: center;
-            font-size: 2.2rem; margin-bottom: 10px;
+            width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--text-sub);
+            background: var(--glass-bg); display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; margin-bottom: 10px;
         }
-        .profile-badge {
-            font-size: 0.75rem; background: linear-gradient(45deg, #7e22ce, #a78bfa);
-            color: white; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px;
-        }
-        .profile-name { font-size: 1.3rem; color: var(--title-color); }
-        .profile-email { font-size: 0.85rem; color: var(--tagline-color); margin-bottom: 20px; }
+        .profile-badge { font-size: 0.7rem; background: var(--text-sub); color: var(--bg-color); padding: 3px 10px; border-radius: 10px; margin-bottom: 8px; font-weight: bold; }
+        .profile-name { font-size: 1.1rem; margin-bottom: 2px; }
+        .profile-email { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 18px; }
+        
         .profile-stats {
             display: flex; justify-content: space-around; width: 100%;
-            border-top: 1px solid rgba(167, 139, 250, 0.15);
-            border-bottom: 1px solid rgba(167, 139, 250, 0.15);
-            padding: 12px 0; margin-bottom: 20px;
+            border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);
+            padding: 10px 0; margin-bottom: 18px;
         }
         .stat-item { display: flex; flex-direction: column; align-items: center; }
-        .stat-value { font-size: 1.1rem; font-weight: bold; color: var(--text-sub); }
-        .stat-label { font-size: 0.75rem; color: var(--tagline-color); }
+        .stat-value { font-size: 0.95rem; font-weight: bold; color: var(--text-sub); }
+        .stat-label { font-size: 0.7rem; color: var(--text-muted); }
+
         .profile-actions { display: flex; gap: 10px; width: 100%; }
         .profile-btn {
-            flex: 1; padding: 10px; border-radius: 20px;
-            border: 1px solid var(--btn-border); background: var(--btn-bg);
-            color: var(--text-main); font-size: 0.85rem; cursor: pointer; transition: 0.3s;
+            flex: 1; padding: 9px; border-radius: 14px; border: 1px solid var(--glass-border);
+            background: var(--glass-bg); color: var(--text-main); font-size: 0.8rem; cursor: pointer; transition: 0.3s;
         }
 
-        .auth-tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid rgba(167, 139, 250, 0.2); width: 100%; }
-        .auth-tab {
-            flex: 1; background: none; border: none; color: var(--tagline-color);
-            font-size: 1rem; cursor: pointer; padding: 5px 0; transition: 0.3s;
-        }
-        .auth-tab.active { color: var(--text-sub); font-weight: bold; border-bottom: 2px solid var(--text-sub); }
+        .auth-tabs { display: flex; gap: 10px; margin-bottom: 18px; border-bottom: 1px solid var(--glass-border); width: 100%; padding-bottom: 8px; }
+        .auth-tab { flex: 1; background: none; border: none; color: var(--text-muted); font-size: 0.9rem; cursor: pointer; transition: 0.3s; }
+        .auth-tab.active { color: var(--text-sub); font-weight: bold; }
         .auth-form { display: flex; flex-direction: column; gap: 12px; width: 100%; }
         .auth-input {
-            width: 100%; padding: 12px 15px; background: var(--btn-bg);
-            border: 1px solid var(--btn-border); border-radius: 12px;
-            color: var(--text-main); font-size: 0.9rem; outline: none;
+            width: 100%; padding: 10px 14px; background: var(--glass-bg);
+            border: 1px solid var(--glass-border); border-radius: 12px;
+            color: var(--text-main); font-size: 0.85rem; outline: none;
         }
         .auth-submit-btn {
-            padding: 12px; border-radius: 20px; border: none;
-            background: linear-gradient(45deg, #7e22ce, #a78bfa); color: white;
+            padding: 10px; border-radius: 14px; border: none;
+            background: var(--text-sub); color: var(--bg-color);
             font-weight: bold; cursor: pointer; margin-top: 5px;
         }
     </style>
@@ -549,128 +428,117 @@
 
     <!-- هدر بالا -->
     <div class="top-bar">
-        <div class="menu-icon" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
-        <div class="icon-wave">
-            <span></span><span></span><span></span><span></span>
+        <div class="header-left">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="brand-badge">Taninfy Audio</div>
         </div>
     </div>
 
-    <!-- منوی کشویی سمت چپ -->
+    <!-- منوی کشویی -->
     <div class="side-menu" id="sideMenu">
         <button class="close-btn" onclick="toggleMenu()">×</button>
         <ul>
-            <li><a onclick="openProfile()"> Profile</a></li>
-            <div class="menu-divider"></div>
-            <li><a href="#"> Favorite</a></li>
-            <div class="menu-divider"></div>
-            <li><a href="#"> Playlist</a></li>
-            <div class="menu-divider"></div>
-            <li><a onclick="toggleTheme()"> Theme</a></li>
-            <div class="menu-divider"></div>
-            <li><a href="#"> Contact us</a></li>
-            <div class="menu-divider"></div>
-            <li><a onclick="openAuthModal()"> Log In / Sign In</a></li>
-            <div class="menu-divider"></div>
+            <li><a onclick="openProfile()">👤 حساب کاربری</a></li>
+            <li><a href="#">❤️ علاقه‌مندی‌ها</a></li>
+            <li><a href="#">🎵 پلی‌لیست‌ها</a></li>
+            <li><a onclick="toggleTheme()">☀️ / 🌙 تغییر تم</a></li>
+            <li><a href="#">📩 تماس با ما</a></li>
+            <li><a onclick="openAuthModal()">🔑 ورود / ثبت‌نام</a></li>
         </ul>
     </div>
 
     <!-- بخش معرفی اصلی -->
-    <div class="hero-section">
-        <svg class="audio-wave-top" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 20H55L65 8L75 32L85 14L95 26L105 18L115 22L125 10L135 30L145 20H198" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="hero-container">
+        <svg class="hero-wave-bg" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 20H40L50 5L60 35L70 10L80 30L90 15L100 25L110 8L120 32L130 18L140 22L150 10L160 30L170 20H198" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
 
-        <h1 class="brand-title">TANINFY</h1>
-        <div class="brand-sub">M U S I C</div>
-        <p class="tagline">Feel the Music. Live the Mood.</p>
+        <h1 class="hero-title">طنین‌فای</h1>
+        <div class="hero-subtitle">TANINFY MUSIC VIBES</div>
 
         <div class="search-box">
-            <input type="text" class="search-input" placeholder="جستجوی آهنگ، هنرمند یا پلی‌لیست...">
+            <input type="text" class="search-input" placeholder="جستجوی قطعه، هنرمند...">
             <span class="search-icon">🔍</span>
         </div>
     </div>
 
-    <!-- محتوای اصلی (پلی‌لیست‌ها و آهنگ‌ها) -->
-    <div class="content-container">
+    <!-- گرید اصلی دقیقاً مطابق تصویر -->
+    <div class="main-grid">
         
-        <!-- پلی‌لیست‌های پیشنهادی -->
-        <section>
-            <div class="section-header">
-                <h2 class="section-title"> پلی‌لیست‌های ویژه</h2>
+        <!-- ستون پلی‌لیست‌های منتخب -->
+        <div class="section-card">
+            <div class="card-header">
+                <span>✨ پلی‌لیست‌های منتخب</span>
             </div>
-            <div class="playlist-grid">
-                <div class="playlist-card" onclick="playTrack(0)">
-                    <div class="playlist-icon"></div>
-                    <div class="playlist-info">
-                        <h3>شب‌های آرام</h3>
-                        <p>موزیک‌های ملایم و آرامش‌بخش شبانه</p>
+            
+            <div class="item-row" onclick="playTrack(0)">
+                <button class="play-action-btn">◀</button>
+                <div class="item-left">
+                    <div class="item-info">
+                        <h4>شب‌های آرام</h4>
+                        <p>Quiet Nights</p>
                     </div>
-                </div>
-                <div class="playlist-card" onclick="playTrack(0)">
-                    <div class="playlist-icon"></div>
-                    <div class="playlist-info">
-                        <h3>ضربان الکترونیک</h3>
-                        <p>ریتم‌های پرانرژی و مدرن</p>
-                    </div>
+                    <div class="item-icon">🎙️</div>
                 </div>
             </div>
-        </section>
 
-        <!-- جدیدترین آهنگ‌ها -->
-        <section>
-            <div class="section-header">
-                <h2 class="section-title"> جدیدترین موزیک‌ها</h2>
-            </div>
-            <div class="tracks-grid">
-                <div class="track-card" onclick="playTrack(0)">
-                    <div class="track-card-left">
-                        <div class="track-card-img">🎼</div>
-                        <div class="track-card-details">
-                            <h4>شب زنده‌داری</h4>
-                            <p>هایده</p>
-                        </div>
+            <div class="item-row" onclick="playTrack(0)">
+                <button class="play-action-btn">◀</button>
+                <div class="item-left">
+                    <div class="item-info">
+                        <h4>پالس الکترونیک</h4>
+                        <p>Electronic Pulse</p>
                     </div>
-                    <button class="quick-play-btn">▶</button>
+                    <div class="item-icon">🌐</div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- ستون جدیدترین انتشارها -->
+        <div class="section-card">
+            <div class="card-header">
+                <span>🔥 جدیدترین انتشارها</span>
+            </div>
+
+            <div class="item-row" onclick="playTrack(0)">
+                <button class="play-action-btn">◀</button>
+                <div class="item-left">
+                    <div class="item-info">
+                        <h4>شب زنده‌داری</h4>
+                        <p>Hayedeh</p>
+                    </div>
+                    <div class="item-icon">📻</div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <!-- کارت مدال پروفایل -->
+    <!-- مدال پروفایل -->
     <div class="profile-modal" id="profileModal">
         <div class="profile-card">
            <button class="profile-close" onclick="closeProfile()">×</button>
             <div class="profile-avatar">👤</div>
             <span class="profile-badge">VIP Member</span>
             <h3 class="profile-name">مهمان</h3>
-            <p class="profile-email">برای ورود کلیک کنید</p>
+            <p class="profile-email">وارد حساب خود شوید</p>
 
             <div class="profile-stats">
-                <div class="stat-item">
-                    <span class="stat-value">۰</span>
-                    <span class="stat-label">علاقه‌مندی‌ها</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">۰</span>
-                    <span class="stat-label">پلی‌لیست‌ها</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">۰ ساعت</span>
-                    <span class="stat-label">پخش موزیک</span>
-                </div>
+                <div class="stat-item"><span class="stat-value">۰</span><span class="stat-label">لایک‌ها</span></div>
+                <div class="stat-item"><span class="stat-value">۰</span><span class="stat-label">لیست‌ها</span></div>
+                <div class="stat-item"><span class="stat-value">۰ ساعت</span><span class="stat-label">پخش</span></div>
             </div>
 
             <div class="profile-actions">
-                <button class="profile-btn" onclick="openAuthModal(); closeProfile();">ورود / ثبت‌نام</button>
-                <button class="profile-btn" onclick="logoutUser()" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171;">خروج</button>
+                <button class="profile-btn" onclick="openAuthModal(); closeProfile();">ورود</button>
+                <button class="profile-btn" onclick="logoutUser()" style="color: #f87171;">خروج</button>
             </div>
         </div>
     </div>
 
-    <!-- کارت مدال ورود و ثبت نام -->
+    <!-- مدال ورود و ثبت‌نام -->
     <div class="auth-modal" id="authModal">
         <div class="auth-card">
             <button class="profile-close" onclick="closeAuthModal()">×</button>
@@ -683,43 +551,40 @@
                 <input type="text" class="auth-input" id="authName" placeholder="نام و نام خانوادگی" style="display: none;">
                 <input type="email" class="auth-input" id="authEmail" placeholder="ایمیل" required>
                 <input type="password" class="auth-input" id="authPassword" placeholder="رمز عبور" required>
-                <button type="submit" class="auth-submit-btn" id="authSubmitBtn">ورود به حساب</button>
+                <button type="submit" class="auth-submit-btn" id="authSubmitBtn">ادامه</button>
             </form>
         </div>
     </div>
 
-    <!-- Music Player Bar (پایین صفحه) -->
+    <!-- پلیر شناور پایین صفحه -->
     <div class="music-player-bar" id="musicPlayer">
-        <div class="player-left">
-            <div class="track-cover" id="trackCover">🎵</div>
-            <div class="track-info">
-                <h4 id="trackTitle">نام آهنگ</h4>
-                <p id="trackArtist">هنرمند</p>
-            </div>
+        <div class="player-time">
+            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
         </div>
 
         <div class="player-center">
             <div class="player-controls">
-                <button class="control-btn" id="prevBtn">⏮</button>
-                <button class="control-btn play-pause-btn" id="playPauseBtn">▶</button>
                 <button class="control-btn" id="nextBtn">⏭</button>
+                <button class="control-btn" id="playPauseBtn">▶</button>
+                <button class="control-btn" id="prevBtn">⏮</button>
             </div>
             <div class="progress-container" id="progressContainer">
                 <div class="progress-bar" id="progressBar"></div>
             </div>
         </div>
 
-        <div class="player-right">
+        <div class="player-right-info">
+            <h4 id="trackTitle">انتخاب قطعه</h4>
+            <p id="trackArtist">طنین‌فای</p>
             <audio id="audioSource"></audio>
-            <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
         </div>
     </div> 
 
     <script>
         const playlist = [
             {
-                title: "Shab Zendedari",
-                artist: "Hayede",
+                title: "شب زنده‌داری",
+                artist: "Hayedeh",
                 src: "Hayedeh%20-%20Shab%20Zendehdari.mp3"
             }
         ];
@@ -756,7 +621,6 @@
             currentTrackIndex = index;
             loadTrack(currentTrackIndex);
             
-            // آشکار کردن پلیر موقع کلیک روی آهنگ
             if (!isPlayerVisible) {
                 playerBar.classList.add('visible');
                 isPlayerVisible = true;
@@ -821,7 +685,6 @@
             playTrack(currentTrackIndex);
         });
 
-        // تم و منو
         let isLoginMode = true;
 
         function toggleMenu() {
@@ -855,7 +718,7 @@
             document.getElementById('tabLogin').classList.toggle('active', isLoginMode);
             document.getElementById('tabRegister').classList.toggle('active', !isLoginMode);
             document.getElementById('authName').style.display = isLoginMode ? 'none' : 'block';
-            document.getElementById('authSubmitBtn').innerText = isLoginMode ? 'ورود به حساب' : 'ایجاد حساب کاربری';
+            document.getElementById('authSubmitBtn').innerText = isLoginMode ? 'ورود' : 'ثبت‌نام';
         }
 
         function handleAuth(e) {
@@ -867,14 +730,14 @@
             document.querySelector('.profile-name').innerText = name;
             document.querySelector('.profile-email').innerText = email;
             
-            alert(isLoginMode ? 'با موفقیت وارد شدید!' : 'حساب شما ساخته شد!');
+            alert(isLoginMode ? 'خوش آمدید!' : 'حساب شما ساخته شد!');
             closeAuthModal();
         }
 
         function logoutUser() {
             localStorage.removeItem('taninfy_user');
             document.querySelector('.profile-name').innerText = 'مهمان';
-            document.querySelector('.profile-email').innerText = 'برای ورود کلیک کنید';
+            document.querySelector('.profile-email').innerText = 'وارد حساب خود شوید';
             alert('خارج شدید.');
             closeProfile();
         }
