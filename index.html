@@ -1849,65 +1849,36 @@ footer {
 <script>
 
 /* PAGE NAVIGATION */
-
 const pages = document.querySelectorAll(".page");
 
 function showPage(name) {
-
   const target = document.getElementById("page-" + name);
-
   if (!target) return;
 
-  pages.forEach(page => {
-    page.classList.toggle("active", page === target);
-  });
-
+  pages.forEach(page => page.classList.toggle("active", page === target));
   closeMenu();
-
-  window.scrollTo({
-    top: 0,
-    behavior: "instant"
-  });
-
+  window.scrollTo({ top: 0, behavior: "instant" });
   history.replaceState(null, "", "#" + name);
 }
 
 document.querySelectorAll("[data-page]").forEach(link => {
-
   link.addEventListener("click", function(event) {
-
     event.preventDefault();
-
     showPage(this.dataset.page);
-
   });
-
 });
 
 function loadPageFromHash() {
-
   const name = location.hash.replace("#", "");
-
-  const availablePages = [
-    "home",
-    "profile",
-    "favorites",
-    "playlist",
-    "login",
-    "contact"
-  ];
-
+  const availablePages = ["home", "profile", "favorites", "playlist", "login", "contact"];
   showPage(availablePages.includes(name) ? name : "home");
-
 }
 
 window.addEventListener("load", loadPageFromHash);
-
 window.addEventListener("hashchange", loadPageFromHash);
 
 
 /* DROPDOWN MENU */
-
 const menuToggle = document.getElementById("menuToggle");
 const menuClose = document.getElementById("menuClose");
 const menuOverlay = document.getElementById("menuOverlay");
@@ -1920,30 +1891,23 @@ function closeMenu() {
   document.body.classList.remove("menu-open");
 }
 
-menuToggle.addEventListener("click", openMenu);
-
-menuClose.addEventListener("click", closeMenu);
-
-menuOverlay.addEventListener("click", closeMenu);
+if (menuToggle) menuToggle.addEventListener("click", openMenu);
+if (menuClose) menuClose.addEventListener("click", closeMenu);
+if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
 
 document.addEventListener("keydown", function(event) {
-
-  if (event.key === "Escape") {
-    closeMenu();
-  }
-
+  if (event.key === "Escape") closeMenu();
 });
 
 
-/* MUSIC CATALOG - DATA COMES FROM songs.js */
-
+/* MUSIC CATALOG */
 const trackList = document.getElementById("trackList");
 const songCatalog = Array.isArray(window.TANINFY_SONGS) ? window.TANINFY_SONGS : [];
 
 function renderTrackCatalog() {
   trackList.innerHTML = "";
 
-  if (songCatalog.length === 0) {
+  if (!songCatalog.length) {
     trackList.innerHTML = '<p class="form-note">هنوز آهنگی اضافه نشده. لینک آهنگ‌ها را در فایل songs.js وارد کن.</p>';
     return;
   }
@@ -1952,7 +1916,6 @@ function renderTrackCatalog() {
     const row = document.createElement("div");
     row.className = "track";
     row.dataset.songId = song.id || String(index);
-    row.dataset.src = song.src || "";
 
     const number = document.createElement("span");
     number.className = "track-number";
@@ -1960,10 +1923,13 @@ function renderTrackCatalog() {
 
     const info = document.createElement("div");
     info.className = "track-info";
+
     const title = document.createElement("strong");
     title.textContent = song.title || "بدون نام";
+
     const artist = document.createElement("span");
     artist.textContent = song.artist || "هنرمند نامشخص";
+
     info.append(title, artist);
 
     const play = document.createElement("button");
@@ -1985,659 +1951,132 @@ function renderTrackCatalog() {
 
 renderTrackCatalog();
 
-/* FAVORITES */
 
-const favoriteKey = "taninfy-favorites";
+/* AUDIO PLAYER */
+const audioPlayer = document.getElementById("audioPlayer");
+const player = document.querySelector(".player");
+const nowTitle = document.getElementById("nowTitle");
+const nowArtist = document.getElementById("nowArtist");
+const mainPlay = document.getElementById("mainPlay");
+const playIcon = document.getElementById("playIcon");
+const bufferRingProgress = document.getElementById("bufferRingProgress");
+const previousTrack = document.getElementById("previousTrack");
+const nextTrack = document.getElementById("nextTrack");
 
-let favorites = JSON.parse(
-  localStorage.getItem(favoriteKey) || "[]"
-);
+let currentTrackIndex = -1;
+let isLoadingTrack = false;
+let bufferAnimationFrame = null;
 
-function saveFavorites() {
-  localStorage.setItem(
-    favoriteKey,
-    JSON.stringify(favorites)
-  );
+function setBufferProgress(percent) {
+  if (!bufferRingProgress) return;
+  const circumference = 106.81;
+  const safePercent = Math.max(0, Math.min(100, percent));
+  bufferRingProgress.style.strokeDashoffset =
+    circumference - (circumference * safePercent / 100);
 }
 
-function renderFavorites() {
-
-  const box = document.getElementById("favoriteList");
-
-  box.innerHTML = "";
-
-  if (favorites.length === 0) {
-
-    box.innerHTML =
-      '<p class="form-note">هنوز آهنگی به علاقه‌مندی‌ها اضافه نکردی.</p>';
-
+function updateBufferProgress() {
+  if (!audioPlayer.duration || !audioPlayer.buffered.length) {
+    setBufferProgress(0);
     return;
   }
 
-  favorites.forEach((item, index) => {
-
-    const row = document.createElement("div");
-
-    row.className = "list-item";
-
-    const info = document.createElement("div");
-
-    const title = document.createElement("strong");
-
-    title.textContent = item.title;
-
-    const artist = document.createElement("span");
-
-    artist.textContent = item.artist;
-
-    info.append(title, artist);
-
-    const remove = document.createElement("button");
-
-    remove.className = "remove-btn";
-
-    remove.textContent = "حذف";
-
-    remove.addEventListener("click", function() {
-
-      favorites.splice(index, 1);
-
-      saveFavorites();
-
-      renderFavorites();
-
-      syncHearts();
-
-    });
-
-    row.append(info, remove);
-
-    box.appendChild(row);
-
-  });
-
-}
-
-function syncHearts() {
-
-  document.querySelectorAll(".track").forEach(row => {
-
-    const title = row.querySelector(".track-info strong").textContent;
-
-    const button = row.querySelector(".heart-btn");
-
-    const found = favorites.some(item => item.title === title);
-
-    button.classList.toggle("active", found);
-
-    button.textContent = found ? "♥" : "♡";
-
-  });
-
-}
-
-trackList.addEventListener("click", function(event) {
-  const button = event.target.closest(".heart-btn");
-  if (!button) return;
-  const row = button.closest(".track");
-  const title = row.querySelector(".track-info strong").textContent;
-  const artist = row.querySelector(".track-info span").textContent;
-  const songId = row.dataset.songId;
-  const index = favorites.findIndex(item => item.songId === songId || (item.title === title && item.artist === artist));
-  if (index >= 0) favorites.splice(index, 1);
-  else favorites.push({ songId, title, artist });
-  saveFavorites();
-  renderFavorites();
-  syncHearts();
-});
-
-
-/* PLAYLISTS */
-
-const playlistKey = "taninfy-playlists";
-
-let playlists = JSON.parse(
-  localStorage.getItem(playlistKey) || "[]"
-);
-
-function renderPlaylists() {
-
-  const box = document.getElementById("playlistList");
-
-  box.innerHTML = "";
-
-  if (playlists.length === 0) {
-
-    box.innerHTML =
-      '<p class="form-note">هنوز پلی‌لیستی نساختی.</p>';
-
-    return;
+  let bufferedEnd = 0;
+  for (let i = 0; i < audioPlayer.buffered.length; i++) {
+    if (audioPlayer.buffered.end(i) > bufferedEnd) {
+      bufferedEnd = audioPlayer.buffered.end(i);
+    }
   }
 
-  playlists.forEach((playlist, index) => {
-
-    const row = document.createElement("div");
-
-    row.className = "list-item";
-
-    const info = document.createElement("div");
-
-    const name = document.createElement("strong");
-
-    name.textContent = playlist.name;
-
-    const mood = document.createElement("span");
-
-    mood.textContent = playlist.mood;
-
-    info.append(name, mood);
-
-    const remove = document.createElement("button");
-
-    remove.className = "remove-btn";
-
-    remove.textContent = "حذف";
-
-    remove.addEventListener("click", function() {
-
-      playlists.splice(index, 1);
-
-      localStorage.setItem(
-        playlistKey,
-        JSON.stringify(playlists)
-      );
-
-      renderPlaylists();
-
-    });
-
-    row.append(info, remove);
-
-    box.appendChild(row);
-
-  });
-
+  const percent = (bufferedEnd / audioPlayer.duration) * 100;
+  setBufferProgress(percent);
 }
 
-document.getElementById("playlistForm").addEventListener("submit", function(event) {
+function startBufferProgress() {
+  stopBufferProgress();
 
-  event.preventDefault();
-
-  const name = document.getElementById("playlistName").value.trim();
-
-  const mood = document.getElementById("playlistMood").value;
-
-  if (!name) return;
-
-  playlists.push({ name, mood });
-
-  localStorage.setItem(
-    playlistKey,
-    JSON.stringify(playlists)
-  );
-
-  renderPlaylists();
-
-  this.reset();
-
-  document.getElementById("playlistStatus").textContent =
-    "پلی‌لیست ساخته شد.";
-
-});
-
-
-/* PROFILE */
-
-const profileKey = "taninfy-profile";
-
-const savedProfile = JSON.parse(
-  localStorage.getItem(profileKey) || "{}"
-);
-
-document.getElementById("profileName").value =
-  savedProfile.name || "";
-
-document.getElementById("profileEmail").value =
-  savedProfile.email || "";
-
-document.getElementById("moodSelect").value =
-  savedProfile.mood || "dark";
-
-document.getElementById("profileForm").addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  const profile = {
-    name: document.getElementById("profileName").value,
-    email: document.getElementById("profileEmail").value,
-    mood: document.getElementById("moodSelect").value
+  const loop = () => {
+    updateBufferProgress();
+    if (isLoadingTrack) {
+      bufferAnimationFrame = requestAnimationFrame(loop);
+    }
   };
 
-  localStorage.setItem(
-    profileKey,
-    JSON.stringify(profile)
-  );
-
-  document.getElementById("profileStatus").textContent =
-    "تغییرات در این مرورگر ذخیره شد.";
-
-});
-
-
-/* CONTACT FORM */
-
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  document.getElementById("contactStatus").textContent =
-    "فرم آماده است؛ برای ارسال واقعی باید به سرویس دریافت پیام متصل شود.";
-
-});
-
-
-/* LOGIN AND SIGNUP */
-
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  document.getElementById("loginStatus").textContent =
-    "ورود واقعی هنوز فعال نیست؛ سیستم حساب کاربری به سایت متصل نشده است.";
-
-});
-
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-
-  event.preventDefault();
-
-  document.getElementById("signupStatus").textContent =
-    "برای فعال شدن ثبت‌نام واقعی، سایت باید به سیستم احراز هویت متصل شود.";
-
-});
-
-/* ==========================================
-   TANINFY - FULL SCREEN MUSIC PLAYER
-========================================== */
-
-const fullPlayer = document.getElementById("fullPlayer");
-const closeFullPlayer = document.getElementById("closeFullPlayer");
-
-const fullCover = document.getElementById("fullCover");
-const fullTitle = document.getElementById("fullTitle");
-const fullArtist = document.getElementById("fullArtist");
-
-const fullPlayBtn = document.getElementById("fullPlayBtn");
-const fullPrevBtn = document.getElementById("fullPrevBtn");
-const fullNextBtn = document.getElementById("fullNextBtn");
-
-const shuffleBtn = document.getElementById("shuffleBtn");
-const repeatBtn = document.getElementById("repeatBtn");
-
-const fullProgress = document.getElementById("fullProgress");
-const fullCurrentTime = document.getElementById("fullCurrentTime");
-const fullDuration = document.getElementById("fullDuration");
-
-let shuffleMode = false;
-let repeatMode = false;
-
-
-/* ------------------------------------------
-   OPEN FULL PLAYER
------------------------------------------- */
-
-function openFullPlayer(track) {
-
-  if (!track) return;
-
-  fullTitle.textContent = track.title || "Unknown Song";
-  fullArtist.textContent = track.artist || "Unknown Artist";
-
-  /*
-    اگر برای آهنگ cover تعریف کرده باشی
-    از همان استفاده می‌کند.
-  */
-  fullCover.src = track.cover || "";
-
-
-  fullPlayer.classList.add("active");
-
-  updateFullPlayButton();
+  bufferAnimationFrame = requestAnimationFrame(loop);
 }
 
-
-/* ------------------------------------------
-   CLOSE
------------------------------------------- */
-
-function closeFullMusicPlayer() {
-  fullPlayer.classList.remove("active");
+function stopBufferProgress() {
+  if (bufferAnimationFrame) {
+    cancelAnimationFrame(bufferAnimationFrame);
+    bufferAnimationFrame = null;
+  }
 }
 
-closeFullPlayer.addEventListener(
-  "click",
-  closeFullMusicPlayer
-);
+function setLoadingState(loading) {
+  isLoadingTrack = loading;
 
-
-/* ------------------------------------------
-   PLAY / PAUSE
------------------------------------------- */
-
-fullPlayBtn.addEventListener("click", function () {
-
-  if (audioPlayer.paused) {
-
-    audioPlayer.play().catch(() => {});
-
+  if (loading) {
+    player.classList.add("is-buffering");
+    mainPlay.disabled = true;
+    playIcon.textContent = "▶";
+    startBufferProgress();
   } else {
-
-    audioPlayer.pause();
-
+    player.classList.remove("is-buffering");
+    mainPlay.disabled = false;
+    stopBufferProgress();
+    updateBufferProgress();
+    playIcon.textContent = audioPlayer.paused ? "▶" : "Ⅱ";
   }
-
-});
-
-
-/* ------------------------------------------
-   UPDATE PLAY BUTTON
------------------------------------------- */
-
-function updateFullPlayButton() {
-
-  if (!audioPlayer.paused) {
-
-    fullPlayBtn.textContent = "❚❚";
-
-  } else {
-
-    fullPlayBtn.textContent = "▶";
-
-  }
-
 }
 
+function setPlayerTrack(index, autoplay = true) {
+  if (!songCatalog.length || !songCatalog[index]) return;
 
-/* ------------------------------------------
-   AUDIO EVENTS
------------------------------------------- */
+  currentTrackIndex = index;
+  const track = songCatalog[index];
 
-audioPlayer.addEventListener("play", function () {
-  updateFullPlayButton();
-});
+  nowTitle.textContent = track.title || "بدون نام";
+  nowArtist.textContent = track.artist || "هنرمند نامشخص";
 
-audioPlayer.addEventListener("pause", function () {
-  updateFullPlayButton();
-});
+  player.classList.add("visible");
 
+  setBufferProgress(0);
+  setLoadingState(true);
 
-/* ------------------------------------------
-   PROGRESS
------------------------------------------- */
-
-audioPlayer.addEventListener("timeupdate", function () {
-
-  if (!audioPlayer.duration) return;
-
-  const percent =
-    (audioPlayer.currentTime / audioPlayer.duration) * 100;
-
-  fullProgress.value = percent;
-
-  fullCurrentTime.textContent =
-    formatFullTime(audioPlayer.currentTime);
-
-});
-
-
-audioPlayer.addEventListener("loadedmetadata", function () {
-
-  fullDuration.textContent =
-    formatFullTime(audioPlayer.duration);
-
-});
-
-
-function formatFullTime(seconds) {
-
-  if (!seconds || isNaN(seconds)) {
-    return "0:00";
-  }
-
-  const minutes = Math.floor(seconds / 60);
-
-  const remainingSeconds =
-    Math.floor(seconds % 60)
-      .toString()
-      .padStart(2, "0");
-
-  return `${minutes}:${remainingSeconds}`;
-}
-
-
-/* ------------------------------------------
-   SEEK
------------------------------------------- */
-
-fullProgress.addEventListener("input", function () {
-
-  if (!audioPlayer.duration) return;
-
-  audioPlayer.currentTime =
-    (this.value / 100) * audioPlayer.duration;
-
-});
-
-
-/* ------------------------------------------
-   PREVIOUS
------------------------------------------- */
-
-fullPrevBtn.addEventListener("click", function () {
-
-  if (
-    typeof currentTrackIndex !== "undefined" &&
-    currentTrackIndex > 0
-  ) {
-
-    setPlayerTrack(currentTrackIndex - 1);
-
-  }
-
-});
-
-
-/* ------------------------------------------
-   NEXT
------------------------------------------- */
-
-fullNextBtn.addEventListener("click", function () {
-
-  if (
-    typeof currentTrackIndex !== "undefined" &&
-    currentTrackIndex < TANINFY_SONGS.length - 1
-  ) {
-
-    if (shuffleMode) {
-
-      playRandomTrack();
-
-    } else {
-
-      setPlayerTrack(currentTrackIndex + 1);
-
-    }
-
-  }
-
-});
-
-
-/* ------------------------------------------
-   REPEAT
------------------------------------------- */
-
-repeatBtn.addEventListener("click", function () {
-
-  repeatMode = !repeatMode;
-
-  repeatBtn.classList.toggle(
-    "active",
-    repeatMode
-  );
-
-});
-
-
-/* ------------------------------------------
-   SHUFFLE
------------------------------------------- */
-
-shuffleBtn.addEventListener("click", function () {
-
-  shuffleMode = !shuffleMode;
-
-  shuffleBtn.classList.toggle(
-    "active",
-    shuffleMode
-  );
-
-});
-
-
-/* ------------------------------------------
-   RANDOM SONG
------------------------------------------- */
-
-function playRandomTrack() {
-
-  if (
-    !window.TANINFY_SONGS ||
-    TANINFY_SONGS.length <= 1
-  ) {
-    return;
-  }
-
-  let randomIndex;
-
-  do {
-
-    randomIndex =
-      Math.floor(
-        Math.random() * TANINFY_SONGS.length
-      );
-
-  } while (
-    randomIndex === currentTrackIndex
-  );
-
-  setPlayerTrack(randomIndex);
-}
-
-
-/* ------------------------------------------
-   WHEN SONG ENDS
------------------------------------------- */
-
-audioPlayer.addEventListener("ended", function () {
-
-  /*
-    Repeat فعال باشد:
-    همین آهنگ دوباره پخش می‌شود.
-  */
-
-  if (repeatMode) {
-
-    audioPlayer.currentTime = 0;
-
-    audioPlayer.play().catch(() => {});
-
-    return;
-  }
-
-
-  /*
-    Shuffle فعال باشد:
-    آهنگ تصادفی بعدی
-  */
-
-  if (shuffleMode) {
-
-    playRandomTrack();
-
-    return;
-  }
-
-
-  /*
-    حالت عادی:
-    آهنگ بعدی
-  */
-
-  if (
-    typeof currentTrackIndex !== "undefined" &&
-    currentTrackIndex <
-      TANINFY_SONGS.length - 1
-  ) {
-
-    setPlayerTrack(currentTrackIndex + 1);
-
-  }
-
-});
-
-
-/* ------------------------------------------
-   OPEN FULL PLAYER WHEN MINI PLAYER IS CLICKED
------------------------------------------- */
-
-const miniPlayer =
-  document.querySelector(".player");
-
-if (miniPlayer) {
-
-  miniPlayer.addEventListener("click", function (event) {
-
-    /*
-      روی دکمه‌های کنترل کوچک کلیک شده؟
-      اگر بله، صفحه بزرگ باز نشود.
-    */
-
-    if (
-      event.target.closest("button") ||
-      event.target.closest("input")
-    ) {
-      return;
-    }
-
-    if (
-      typeof currentTrackIndex !== "undefined" &&
-      currentTrackIndex >= 0 &&
-      TANINFY_SONGS[currentTrackIndex]
-    ) {
-
-      openFullPlayer(
-        TANINFY_SONGS[currentTrackIndex]
-      );
-
-    }
-
-  });
-
-}
+  audioPlayer.pause();
+  audioPlayer.src = track.src || "";
+  audioPlayer.load();
 
   document.querySelectorAll(".track-play").forEach((button, i) => {
-    button.textContent = i === index && !audioPlayer.paused ? "Ⅱ" : "▶";
+    button.textContent = i === index ? "Ⅱ" : "▶";
+  });
+
+  if (autoplay) {
+    audioPlayer.play().catch(() => {
+      setLoadingState(false);
+      nowArtist.textContent = "برای پخش، لینک مستقیم فایل صوتی را بررسی کن";
+    });
+  }
+}
+
+function updateTrackButtons() {
+  document.querySelectorAll(".track-play").forEach((button, i) => {
+    button.textContent = i === currentTrackIndex && !audioPlayer.paused ? "Ⅱ" : "▶";
   });
 }
 
 trackList.addEventListener("click", function(event) {
-  const button = event.target.closest(".track-play");
-  if (!button) return;
+  const heartButton = event.target.closest(".heart-btn");
+  if (heartButton) return;
 
-  const row = button.closest(".track");
+  const row = event.target.closest(".track");
+  if (!row) return;
+
   const index = Array.from(trackList.querySelectorAll(".track")).indexOf(row);
+  if (index < 0) return;
+
   setPlayerTrack(index, true);
+  openFullPlayer(songCatalog[index]);
 });
 
 mainPlay.addEventListener("click", async function() {
@@ -2667,33 +2106,22 @@ nextTrack.addEventListener("click", function() {
 });
 
 audioPlayer.addEventListener("loadstart", function() {
-  if (currentTrackIndex >= 0) {
-    setLoadingState(true);
-    startBufferProgress();
-  }
+  if (currentTrackIndex >= 0) setLoadingState(true);
 });
 
-audioPlayer.addEventListener("progress", function() {
-  if (isLoadingTrack) updateBufferProgress();
-});
+audioPlayer.addEventListener("progress", updateBufferProgress);
+
+audioPlayer.addEventListener("loadedmetadata", updateBufferProgress);
 
 audioPlayer.addEventListener("canplay", function() {
-  if (!audioPlayer.paused) {
-    setLoadingState(false);
-  } else {
-    mainPlay.disabled = false;
-    player.classList.remove("is-buffering");
-    playIcon.textContent = "▶";
-  }
+  setLoadingState(false);
 });
 
 audioPlayer.addEventListener("play", function() {
   setLoadingState(false);
   playIcon.textContent = "Ⅱ";
-
-  document.querySelectorAll(".track-play").forEach((button, i) => {
-    button.textContent = i === currentTrackIndex ? "Ⅱ" : "▶";
-  });
+  updateTrackButtons();
+  updateFullPlayButton();
 });
 
 audioPlayer.addEventListener("pause", function() {
@@ -2701,15 +2129,28 @@ audioPlayer.addEventListener("pause", function() {
     player.classList.remove("is-buffering");
   }
   playIcon.textContent = "▶";
-  document.querySelectorAll(".track-play").forEach(button => button.textContent = "▶");
+  updateTrackButtons();
+  updateFullPlayButton();
 });
 
 audioPlayer.addEventListener("ended", function() {
+  if (repeatMode) {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play().catch(() => {});
+    return;
+  }
+
+  if (shuffleMode) {
+    playRandomTrack();
+    return;
+  }
+
   if (currentTrackIndex < songCatalog.length - 1) {
     setPlayerTrack(currentTrackIndex + 1, true);
   } else {
     setLoadingState(false);
     playIcon.textContent = "▶";
+    updateTrackButtons();
   }
 });
 
@@ -2720,12 +2161,304 @@ audioPlayer.addEventListener("error", function() {
   }
 });
 
+
+/* FAVORITES */
+const favoriteKey = "taninfy-favorites";
+let favorites = JSON.parse(localStorage.getItem(favoriteKey) || "[]");
+
+function saveFavorites() {
+  localStorage.setItem(favoriteKey, JSON.stringify(favorites));
+}
+
+function renderFavorites() {
+  const box = document.getElementById("favoriteList");
+  box.innerHTML = "";
+
+  if (favorites.length === 0) {
+    box.innerHTML = '<p class="form-note">هنوز آهنگی به علاقه‌مندی‌ها اضافه نکردی.</p>';
+    return;
+  }
+
+  favorites.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "list-item";
+
+    const info = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = item.title;
+    const artist = document.createElement("span");
+    artist.textContent = item.artist;
+    info.append(title, artist);
+
+    const remove = document.createElement("button");
+    remove.className = "remove-btn";
+    remove.textContent = "حذف";
+    remove.addEventListener("click", function() {
+      favorites.splice(index, 1);
+      saveFavorites();
+      renderFavorites();
+      syncHearts();
+    });
+
+    row.append(info, remove);
+    box.appendChild(row);
+  });
+}
+
+function syncHearts() {
+  document.querySelectorAll(".track").forEach(row => {
+    const title = row.querySelector(".track-info strong").textContent;
+    const artist = row.querySelector(".track-info span").textContent;
+    const button = row.querySelector(".heart-btn");
+    const found = favorites.some(item => item.title === title && item.artist === artist);
+    button.classList.toggle("active", found);
+    button.textContent = found ? "♥" : "♡";
+  });
+}
+
+trackList.addEventListener("click", function(event) {
+  const button = event.target.closest(".heart-btn");
+  if (!button) return;
+
+  event.stopPropagation();
+  const row = button.closest(".track");
+  const title = row.querySelector(".track-info strong").textContent;
+  const artist = row.querySelector(".track-info span").textContent;
+  const songId = row.dataset.songId;
+  const index = favorites.findIndex(item => item.songId === songId || (item.title === title && item.artist === artist));
+
+  if (index >= 0) favorites.splice(index, 1);
+  else favorites.push({ songId, title, artist });
+
+  saveFavorites();
+  renderFavorites();
+  syncHearts();
+});
+
+
+/* PLAYLISTS */
+const playlistKey = "taninfy-playlists";
+let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
+
+function renderPlaylists() {
+  const box = document.getElementById("playlistList");
+  box.innerHTML = "";
+
+  if (playlists.length === 0) {
+    box.innerHTML = '<p class="form-note">هنوز پلی‌لیستی نساختی.</p>';
+    return;
+  }
+
+  playlists.forEach((playlist, index) => {
+    const row = document.createElement("div");
+    row.className = "list-item";
+
+    const info = document.createElement("div");
+    const name = document.createElement("strong");
+    name.textContent = playlist.name;
+    const mood = document.createElement("span");
+    mood.textContent = playlist.mood;
+    info.append(name, mood);
+
+    const remove = document.createElement("button");
+    remove.className = "remove-btn";
+    remove.textContent = "حذف";
+    remove.addEventListener("click", function() {
+      playlists.splice(index, 1);
+      localStorage.setItem(playlistKey, JSON.stringify(playlists));
+      renderPlaylists();
+    });
+
+    row.append(info, remove);
+    box.appendChild(row);
+  });
+}
+
+document.getElementById("playlistForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("playlistName").value.trim();
+  const mood = document.getElementById("playlistMood").value;
+  if (!name) return;
+
+  playlists.push({ name, mood });
+  localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  renderPlaylists();
+  this.reset();
+  document.getElementById("playlistStatus").textContent = "پلی‌لیست ساخته شد.";
+});
+
+
+/* PROFILE */
+const profileKey = "taninfy-profile";
+const savedProfile = JSON.parse(localStorage.getItem(profileKey) || "{}");
+
+document.getElementById("profileName").value = savedProfile.name || "";
+document.getElementById("profileEmail").value = savedProfile.email || "";
+document.getElementById("moodSelect").value = savedProfile.mood || "dark";
+
+document.getElementById("profileForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const profile = {
+    name: document.getElementById("profileName").value,
+    email: document.getElementById("profileEmail").value,
+    mood: document.getElementById("moodSelect").value
+  };
+
+  localStorage.setItem(profileKey, JSON.stringify(profile));
+  document.getElementById("profileStatus").textContent = "تغییرات در این مرورگر ذخیره شد.";
+});
+
+
+/* CONTACT FORM */
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("contactStatus").textContent = "فرم آماده است؛ برای ارسال واقعی باید به سرویس دریافت پیام متصل شود.";
+});
+
+
+/* LOGIN AND SIGNUP */
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("loginStatus").textContent = "ورود واقعی هنوز فعال نیست؛ سیستم حساب کاربری به سایت متصل نشده است.";
+});
+
+document.getElementById("signupForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("signupStatus").textContent = "برای فعال شدن ثبت‌نام واقعی، سایت باید به سیستم احراز هویت متصل شود.";
+});
+
+
+/* FULL SCREEN MUSIC PLAYER */
+const fullPlayer = document.getElementById("fullPlayer");
+const closeFullPlayer = document.getElementById("closeFullPlayer");
+const fullCover = document.getElementById("fullCover");
+const fullTitle = document.getElementById("fullTitle");
+const fullArtist = document.getElementById("fullArtist");
+const fullPlayBtn = document.getElementById("fullPlayBtn");
+const fullPrevBtn = document.getElementById("fullPrevBtn");
+const fullNextBtn = document.getElementById("fullNextBtn");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const repeatBtn = document.getElementById("repeatBtn");
+const fullProgress = document.getElementById("fullProgress");
+const fullCurrentTime = document.getElementById("fullCurrentTime");
+const fullDuration = document.getElementById("fullDuration");
+
+let shuffleMode = false;
+let repeatMode = false;
+
+function openFullPlayer(track) {
+  if (!track) return;
+
+  fullTitle.textContent = track.title || "Unknown Song";
+  fullArtist.textContent = track.artist || "Unknown Artist";
+
+  if (track.cover && !String(track.cover).includes("DIRECT-COVER-IMAGE-URL")) {
+    fullCover.src = track.cover;
+    fullCover.style.opacity = "1";
+  } else {
+    fullCover.removeAttribute("src");
+    fullCover.style.opacity = "0";
+  }
+
+  fullPlayer.classList.add("active");
+  updateFullPlayButton();
+}
+
+function closeFullMusicPlayer() {
+  fullPlayer.classList.remove("active");
+}
+
+closeFullPlayer.addEventListener("click", closeFullMusicPlayer);
+
+fullPlayer.addEventListener("click", function(event) {
+  if (event.target === fullPlayer) closeFullMusicPlayer();
+});
+
+fullPlayBtn.addEventListener("click", function() {
+  if (audioPlayer.paused) audioPlayer.play().catch(() => {});
+  else audioPlayer.pause();
+});
+
+function updateFullPlayButton() {
+  fullPlayBtn.textContent = audioPlayer.paused ? "▶" : "❚❚";
+}
+
+function formatFullTime(seconds) {
+  if (!seconds || isNaN(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
+}
+
+audioPlayer.addEventListener("timeupdate", function() {
+  if (!audioPlayer.duration) return;
+
+  fullProgress.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+  fullCurrentTime.textContent = formatFullTime(audioPlayer.currentTime);
+});
+
+audioPlayer.addEventListener("loadedmetadata", function() {
+  fullDuration.textContent = formatFullTime(audioPlayer.duration);
+});
+
+fullProgress.addEventListener("input", function() {
+  if (!audioPlayer.duration) return;
+  audioPlayer.currentTime = (this.value / 100) * audioPlayer.duration;
+});
+
+fullPrevBtn.addEventListener("click", function() {
+  if (!songCatalog.length) return;
+  const index = currentTrackIndex <= 0 ? songCatalog.length - 1 : currentTrackIndex - 1;
+  setPlayerTrack(index, true);
+});
+
+fullNextBtn.addEventListener("click", function() {
+  if (!songCatalog.length) return;
+
+  if (shuffleMode) {
+    playRandomTrack();
+    return;
+  }
+
+  const index = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
+  setPlayerTrack(index, true);
+});
+
+repeatBtn.addEventListener("click", function() {
+  repeatMode = !repeatMode;
+  repeatBtn.classList.toggle("active", repeatMode);
+});
+
+shuffleBtn.addEventListener("click", function() {
+  shuffleMode = !shuffleMode;
+  shuffleBtn.classList.toggle("active", shuffleMode);
+});
+
+function playRandomTrack() {
+  if (songCatalog.length <= 1) return;
+
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * songCatalog.length);
+  } while (randomIndex === currentTrackIndex);
+
+  setPlayerTrack(randomIndex, true);
+}
+
+/* Clicking the mini-player body opens the large player */
+player.addEventListener("click", function(event) {
+  if (event.target.closest("button") || event.target.closest("input")) return;
+
+  if (currentTrackIndex >= 0 && songCatalog[currentTrackIndex]) {
+    openFullPlayer(songCatalog[currentTrackIndex]);
+  }
+});
+
 /* INITIALIZE */
-
 renderFavorites();
-
 renderPlaylists();
-
 syncHearts();
 
 </script>
