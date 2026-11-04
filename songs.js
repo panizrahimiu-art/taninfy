@@ -3,7 +3,7 @@ window.TANINFY_SONGS = [
     id: "song-1",
     title: "I Don't Care to Dance",
     artist: "J. E. Sunde",
-    src: "لینک مستقیم فایل صوتی MP3"
+    src: "https://dl.musicdel.ir/Music/1403/01/j_e_sunde_i_dont_care_to_dance.mp3"
   },
   {
     id: "song-2",
