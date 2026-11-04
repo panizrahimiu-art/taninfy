@@ -7,7 +7,7 @@ window.TANINFY_SONGS = [
   },
   {
     id: "song-2",
-    title: "Nafaz",
+    title: "Nafas",
     artist: "Morteza Pashayi",
     src: "https://dls.musics-fa.com/tagdl/ali/Morteza%20Pashaei%20-%20Nafas%20(320).mp3"
   },
