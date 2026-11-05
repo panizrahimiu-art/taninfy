@@ -56,11 +56,11 @@ window.TANINFY_SONGS = [
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
-    id: "song-2",
-    title: "Nafas",
-    artist: "Morteza Pashayi",
+    id: "song-8",
+    title: "Haminim Ke Hastim",
+    artist: "Wantons",
     genre: "Pop",
-    src: "https://dl.sevilmusics.com/cdn/music/sva/Morteza%20Pashaei%20-%20Nafas%20[320].mp3",
+    src: "https://dl.bandmusic.ir/files/mp3/s1/Wantons%20%E2%80%93%20Haminim%20Ke%20Hastim.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
