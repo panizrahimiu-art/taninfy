@@ -69,7 +69,7 @@ window.TANINFY_SONGS = [
     artist: "BLOK3",
     genre: "Pop",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL"
+    cover: "https://img-s1.onedio.com/id-68a7066ce51c7567350c8d8f/rev-0/w-600/h-337/f-jpg/s-33f2aca17cf03a0230de976d0cb5bac2ce676b7f.jpg"
    },
    {
     id: "song-4",
