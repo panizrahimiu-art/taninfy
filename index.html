@@ -1094,6 +1094,45 @@ footer {
   direction: ltr;
 }
 
+
+/* AUTH + PROFILE */
+.auth-panel { max-width: 560px; margin-inline: auto; text-align: center; }
+.auth-mark { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 18px; display:grid; place-items:center; background: linear-gradient(145deg, #3b1724, #160c11); border:1px solid rgba(208,138,155,.35); color: var(--pink); font-family: Georgia, serif; font-size: 24px; }
+.auth-panel p { max-width: 430px; margin: 0 auto 20px; line-height: 1.9; }
+.google-btn { width: 100%; }
+.signed-user { margin-top: 20px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; display:flex; align-items:center; gap:12px; text-align:left; }
+.signed-user img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid rgba(208,138,155,.35); }
+.signed-user div { flex:1; min-width:0; }
+.signed-user strong, .signed-user span { display:block; }
+.signed-user span { color:var(--muted); font-size:10px; margin-top:3px; }
+.profile-card { grid-template-columns: auto 1fr; align-items:center; gap:20px; background: radial-gradient(circle at 15% 15%, rgba(112,35,60,.18), transparent 38%), linear-gradient(145deg,#191216,#100d0f); }
+.profile-avatar-wrap { width:92px; height:92px; border-radius:50%; padding:3px; background:linear-gradient(135deg,var(--wine2),var(--pink)); }
+.profile-avatar { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; border:3px solid #120d0f; }
+.profile-main { min-width:0; }
+.profile-kicker { color:var(--pink); font-size:9px; letter-spacing:2px; }
+.profile-main h2 { margin:5px 0 3px; }
+.profile-main p { margin:0; color:var(--pink); font-size:12px; }
+.profile-details { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:5px; }
+.profile-details div { border-top:1px solid var(--line); padding-top:12px; }
+.profile-details span { display:block; color:#81767a; font-size:9px; letter-spacing:1.5px; margin-bottom:5px; }
+.profile-details strong { font-size:12px; }
+
+/* SUCCESS CHECK ANIMATION */
+.success-check-overlay { position:fixed; inset:0; z-index:200; display:grid; place-items:center; background:rgba(8,6,7,.68); backdrop-filter:blur(7px); opacity:0; pointer-events:none; transition:opacity .2s ease; }
+.success-check-overlay.active { opacity:1; pointer-events:auto; }
+.success-check-box { min-width:210px; text-align:center; }
+.success-check-circle { width:78px; height:78px; margin:0 auto 14px; position:relative; }
+.success-check-circle svg { width:100%; height:100%; transform:rotate(-90deg); }
+.success-ring { fill:none; stroke:rgba(255,255,255,.18); stroke-width:4; }
+.success-ring-progress { fill:none; stroke:var(--wine2); stroke-width:4; stroke-linecap:round; stroke-dasharray:226; stroke-dashoffset:226; }
+.success-check { fill:none; stroke:var(--pink); stroke-width:5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:70; stroke-dashoffset:70; opacity:0; }
+.success-check-overlay.animate .success-ring-progress { animation: successRing 1s ease forwards; }
+.success-check-overlay.animate .success-check { animation: successTick .42s .82s ease forwards; }
+.success-check-text { color:#fff; font-size:12px; opacity:0; transform:translateY(5px); transition:all .3s ease .95s; }
+.success-check-overlay.animate .success-check-text { opacity:1; transform:none; }
+@keyframes successRing { to { stroke-dashoffset:0; } }
+@keyframes successTick { to { stroke-dashoffset:0; opacity:1; } }
+
 /* RESPONSIVE */
 
 @media (max-width: 750px) {
@@ -1631,6 +1670,19 @@ footer {
 
 <body>
 
+<div class="success-check-overlay" id="successCheckOverlay" aria-hidden="true">
+  <div class="success-check-box">
+    <div class="success-check-circle">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <circle class="success-ring" cx="40" cy="40" r="36"></circle>
+        <circle class="success-ring-progress" cx="40" cy="40" r="36"></circle>
+        <path class="success-check" d="M23 41 L34 52 L57 28"></path>
+      </svg>
+    </div>
+    <div class="success-check-text" id="successCheckText">با موفقیت انجام شد</div>
+  </div>
+</div>
+
 <header>
   <div class="wrap nav">
 
@@ -1820,29 +1872,34 @@ footer {
       <h1>Profile</h1>
     </div>
 
-    <div class="panel">
-      <h2>پروفایل من</h2>
-      <p>فضای شخصی تو در طنین‌فای.</p>
+    <div class="panel profile-panel" id="profileGuestPanel">
+      <h2>پروفایل تو</h2>
+      <p>برای ساخت پروفایل شخصی، اول با Google وارد Taninfy شو.</p>
+      <button class="btn btn-primary" type="button" id="profileLoginBtn">Sign in with Google</button>
+    </div>
 
+    <div class="panel profile-card" id="profileCard" style="display:none;">
+      <div class="profile-avatar-wrap">
+        <img id="profileAvatar" class="profile-avatar" alt="Profile photo">
+      </div>
+      <div class="profile-main">
+        <span class="profile-kicker">TANINFY PROFILE</span>
+        <h2 id="profileDisplayName">Your Name</h2>
+        <p id="profileNicknameDisplay">@nickname</p>
+      </div>
+      <div class="profile-details">
+        <div><span>NAME</span><strong id="profileNameDisplay">—</strong></div>
+        <div><span>NICKNAME</span><strong id="profileNicknameDisplay2">—</strong></div>
+      </div>
+    </div>
+
+    <div class="panel" id="profileEditPanel" style="display:none;">
+      <h2>ویرایش پروفایل</h2>
       <form class="form" id="profileForm">
-
-        <input class="field" id="profileName" type="text" placeholder="نام شما">
-
-        <input class="field" id="profileEmail" type="email" placeholder="ایمیل">
-
-        <label for="moodSelect">حال‌وهوای موردعلاقه</label>
-
-        <select class="field" id="moodSelect">
-          <option value="dark">Dark & Mysterious</option>
-          <option value="calm">Calm & Relaxing</option>
-          <option value="nostalgic">Nostalgic</option>
-          <option value="energetic">Energetic</option>
-        </select>
-
-        <button class="btn btn-primary" type="submit">ذخیره تغییرات</button>
-
+        <input class="field" id="profileName" type="text" placeholder="نام شما" required>
+        <input class="field" id="profileNickname" type="text" placeholder="Nickname" maxlength="24" required>
+        <button class="btn btn-primary" type="submit">ذخیره پروفایل</button>
         <div class="form-status" id="profileStatus"></div>
-
       </form>
     </div>
 
@@ -1927,31 +1984,21 @@ footer {
     <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
 
     <div class="page-heading">
-      <small>WELCOME BACK</small>
+      <small>WELCOME TO TANINFY</small>
       <h1>Sign in / Log in</h1>
     </div>
 
-    <div class="panel">
-
-      <h2>ورود به Taninfy</h2>
-
-      <button class="btn btn-primary" type="button" id="googleLoginBtn" style="width:100%; margin-top:10px;">
-        Continue with Google
-      </button>
-
+    <div class="panel auth-panel">
+      <div class="auth-mark">T</div>
+      <h2 id="authTitle">ورود به Taninfy</h2>
+      <p id="authDescription">با حساب Google وارد شو؛ ایمیل به‌صورت خودکار از حساب Google دریافت می‌شود و لازم نیست دوباره واردش کنی.</p>
+      <button class="btn btn-primary google-btn" type="button" id="googleLoginBtn">Continue with Google</button>
       <div class="form-status" id="loginStatus"></div>
-
-      <div id="userAccountBox" style="display:none; margin-top:18px;">
-        <p id="userAccountText" style="margin:0 0 12px;"></p>
-        <button class="btn btn-secondary" type="button" id="logoutBtn">
-          Log out
-        </button>
+      <div id="userAccountBox" class="signed-user" style="display:none;">
+        <img id="signedUserAvatar" alt="Profile photo">
+        <div><strong id="signedUserName"></strong><span>حساب Google متصل است</span></div>
+        <button class="btn btn-secondary" type="button" id="logoutBtn">Log out</button>
       </div>
-
-      <p class="form-note">
-        ورود با حساب Google انجام می‌شود و حساب کاربری توسط Firebase Authentication مدیریت می‌شود.
-      </p>
-
     </div>
 
   </div>
@@ -2696,11 +2743,19 @@ function syncHearts() {
   });
 }
 
-trackList.addEventListener("click", function(event) {
+trackList.addEventListener("click", async function(event) {
   const button = event.target.closest(".heart-btn");
   if (!button) return;
 
   event.stopPropagation();
+
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
   const row = button.closest(".track");
   const title = row.querySelector(".track-info strong").textContent;
   const artist = row.querySelector(".track-info span").textContent;
@@ -2771,23 +2826,62 @@ document.getElementById("playlistForm").addEventListener("submit", function(even
 
 /* PROFILE */
 const profileKey = "taninfy-profile";
-const savedProfile = JSON.parse(localStorage.getItem(profileKey) || "{}");
 
-document.getElementById("profileName").value = savedProfile.name || "";
-document.getElementById("profileEmail").value = savedProfile.email || "";
-document.getElementById("moodSelect").value = savedProfile.mood || "dark";
+function getLocalProfile() {
+  return JSON.parse(localStorage.getItem(profileKey) || "{}");
+}
+
+function renderProfile(user) {
+  const guest = document.getElementById("profileGuestPanel");
+  const card = document.getElementById("profileCard");
+  const edit = document.getElementById("profileEditPanel");
+  if (!guest || !card || !edit) return;
+
+  if (!user) {
+    guest.style.display = "block";
+    card.style.display = "none";
+    edit.style.display = "none";
+    return;
+  }
+
+  guest.style.display = "none";
+  card.style.display = "grid";
+  edit.style.display = "block";
+
+  const saved = getLocalProfile();
+  const name = saved.name || user.displayName || "Taninfy User";
+  const nickname = saved.nickname || name.toLowerCase().replace(/\s+/g, "").slice(0, 18);
+  const avatar = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=256";
+
+  document.getElementById("profileAvatar").src = avatar;
+  document.getElementById("profileDisplayName").textContent = name;
+  document.getElementById("profileNicknameDisplay").textContent = "@" + nickname.replace(/^@/, "");
+  document.getElementById("profileNameDisplay").textContent = name;
+  document.getElementById("profileNicknameDisplay2").textContent = "@" + nickname.replace(/^@/, "");
+  document.getElementById("profileName").value = name;
+  document.getElementById("profileNickname").value = nickname.replace(/^@/, "");
+}
 
 document.getElementById("profileForm").addEventListener("submit", function(event) {
   event.preventDefault();
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("profileStatus").textContent = "اول وارد حساب شو.";
+    return;
+  }
 
   const profile = {
-    name: document.getElementById("profileName").value,
-    email: document.getElementById("profileEmail").value,
-    mood: document.getElementById("moodSelect").value
+    name: document.getElementById("profileName").value.trim(),
+    nickname: document.getElementById("profileNickname").value.trim().replace(/^@/, "")
   };
 
   localStorage.setItem(profileKey, JSON.stringify(profile));
-  document.getElementById("profileStatus").textContent = "تغییرات در این مرورگر ذخیره شد.";
+  renderProfile(window.taninfyCurrentUser);
+  document.getElementById("profileStatus").textContent = "پروفایل ذخیره شد.";
+  showSuccessCheck("پروفایل با موفقیت ذخیره شد");
+});
+
+document.getElementById("profileLoginBtn").addEventListener("click", function() {
+  if (typeof showPage === "function") showPage("login");
 });
 
 
@@ -2799,8 +2893,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 
 
 /* LOGIN / GOOGLE AUTHENTICATION */
-/* Firebase Authentication is initialized in the module script below. */
-
+// Firebase Authentication is initialized in the module script at the end of the page.
 
 /* FULL SCREEN MUSIC PLAYER */
 const fullPlayer = document.getElementById("fullPlayer");
@@ -2961,92 +3054,85 @@ syncHearts();
 
 
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
-  import {
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signOut,
-    onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAYfNEIpJ_kWOR5XLqgfenBAJOMbmq6Qow",
-    authDomain: "taninfy-cc186.firebaseapp.com",
-    projectId: "taninfy-cc186",
-    storageBucket: "taninfy-cc186.firebasestorage.app",
-    messagingSenderId: "209069893864",
-    appId: "1:209069893864:web:c78e3bb04cf868e270c15d",
-    measurementId: "G-H24NR6WBZE"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyAYfNEIpJ_kWOR5XLqgfenBAJOMbmq6Qow",
+  authDomain: "taninfy-cc186.firebaseapp.com",
+  projectId: "taninfy-cc186",
+  storageBucket: "taninfy-cc186.firebasestorage.app",
+  messagingSenderId: "209069893864",
+  appId: "1:209069893864:web:c78e3bb04cf868e270c15d",
+  measurementId: "G-H24NR6WBZE"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const googleProvider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+window.taninfyCurrentUser = null;
+window.taninfyAuthReady = new Promise(resolve => {
+  onAuthStateChanged(auth, user => {
+    window.taninfyCurrentUser = user || null;
+    renderProfile(user || null);
+    const accountBox = document.getElementById("userAccountBox");
+    const loginBtn = document.getElementById("googleLoginBtn");
+    const signedAvatar = document.getElementById("signedUserAvatar");
+    const signedName = document.getElementById("signedUserName");
 
-  const googleLoginBtn = document.getElementById("googleLoginBtn");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const loginStatus = document.getElementById("loginStatus");
-  const userAccountBox = document.getElementById("userAccountBox");
-  const userAccountText = document.getElementById("userAccountText");
-
-  if (googleLoginBtn) {
-    googleLoginBtn.addEventListener("click", async () => {
-      loginStatus.textContent = "در حال اتصال به Google...";
-      googleLoginBtn.disabled = true;
-
-      try {
-        await signInWithPopup(auth, googleProvider);
-      } catch (error) {
-        console.error("Google sign-in error:", error);
-
-        if (error.code === "auth/popup-closed-by-user") {
-          loginStatus.textContent = "پنجره Google بسته شد.";
-        } else if (error.code === "auth/unauthorized-domain") {
-          loginStatus.textContent = "دامنه سایت هنوز در Firebase مجاز نشده است.";
-        } else {
-          loginStatus.textContent = "ورود با Google انجام نشد. دوباره امتحان کن.";
-        }
-
-        googleLoginBtn.disabled = false;
-      }
-    });
-  }
-
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-        loginStatus.textContent = "از حساب خارج شدی.";
-      } catch (error) {
-        console.error("Logout error:", error);
-        loginStatus.textContent = "خروج از حساب انجام نشد.";
-      }
-    });
-  }
-
-  onAuthStateChanged(auth, (user) => {
     if (user) {
-      const displayName = user.displayName || "Taninfy User";
-      const email = user.email || "";
-
-      loginStatus.textContent = "با موفقیت وارد شدی.";
-      userAccountText.textContent = email
-        ? `${displayName} — ${email}`
-        : displayName;
-
-      userAccountBox.style.display = "block";
-      googleLoginBtn.textContent = "Google account connected";
-      googleLoginBtn.disabled = true;
-      googleLoginBtn.style.opacity = "0.7";
+      const name = user.displayName || "Taninfy User";
+      signedName.textContent = name;
+      signedAvatar.src = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=96";
+      accountBox.style.display = "flex";
+      loginBtn.textContent = "Google account connected";
+      loginBtn.disabled = true;
+      loginBtn.style.opacity = ".65";
     } else {
-      userAccountBox.style.display = "none";
-      googleLoginBtn.textContent = "Continue with Google";
-      googleLoginBtn.disabled = false;
-      googleLoginBtn.style.opacity = "1";
+      accountBox.style.display = "none";
+      loginBtn.textContent = "Continue with Google";
+      loginBtn.disabled = false;
+      loginBtn.style.opacity = "1";
     }
+    resolve(user || null);
   });
-</script>
+});
 
+window.showSuccessCheck = function(message) {
+  const overlay = document.getElementById("successCheckOverlay");
+  const text = document.getElementById("successCheckText");
+  if (!overlay) return;
+  text.textContent = message || "با موفقیت انجام شد";
+  overlay.classList.remove("active", "animate");
+  void overlay.offsetWidth;
+  overlay.classList.add("active", "animate");
+  setTimeout(() => overlay.classList.remove("active", "animate"), 1700);
+};
+
+document.getElementById("googleLoginBtn").addEventListener("click", async () => {
+  const status = document.getElementById("loginStatus");
+  const btn = document.getElementById("googleLoginBtn");
+  status.textContent = "در حال اتصال به Google...";
+  btn.disabled = true;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const firstLogin = !localStorage.getItem("taninfy-profile");
+    status.textContent = "با موفقیت وارد شدی.";
+    showSuccessCheck(firstLogin ? "ثبت‌نام با موفقیت انجام شد" : "ورود با موفقیت انجام شد");
+    if (firstLogin && typeof showPage === "function") setTimeout(() => showPage("profile"), 1200);
+  } catch (error) {
+    console.error(error);
+    if (error.code === "auth/popup-closed-by-user") status.textContent = "پنجره Google بسته شد.";
+    else if (error.code === "auth/unauthorized-domain") status.textContent = "دامنه سایت هنوز در Firebase مجاز نشده است.";
+    else status.textContent = "ورود با Google انجام نشد. دوباره امتحان کن.";
+    btn.disabled = false;
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+  document.getElementById("loginStatus").textContent = "از حساب خارج شدی.";
+});
+</script>
 </body>
 </html>
