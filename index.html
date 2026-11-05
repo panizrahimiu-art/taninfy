@@ -1474,6 +1474,124 @@ footer {
   border-top-color: rgba(213, 160, 173, 0.1);
 }
 
+/* SEARCH + ARTIST PROFILES */
+.music-search-wrap {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 26px;
+  z-index: 30;
+}
+.music-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(213,160,173,.14);
+  border-radius: 16px;
+  background: rgba(15,10,13,.86);
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  backdrop-filter: blur(18px);
+}
+.music-search-icon { color: #d5a0ad; font-size: 23px; line-height: 1; }
+.music-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f8f1f3;
+  font: inherit;
+  direction: rtl;
+}
+.music-search input::placeholder { color: #8f8086; }
+.music-search button {
+  border: 0;
+  background: transparent;
+  color: #a9959c;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.music-search.has-value button { opacity: 1; pointer-events: auto; }
+.search-suggestions {
+  position: absolute;
+  left: 0; right: 0; top: calc(100% + 8px);
+  display: none;
+  max-height: 390px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid rgba(213,160,173,.12);
+  border-radius: 16px;
+  background: rgba(13,9,11,.98);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.search-suggestions.active { display: block; }
+.search-suggestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #f8f1f3;
+  text-align: right;
+  cursor: pointer;
+}
+.search-suggestion:hover { background: rgba(129,26,53,.16); }
+.search-suggestion-cover {
+  width: 44px; height: 44px; object-fit: cover; border-radius: 10px; flex: 0 0 auto;
+  background: #24151a;
+}
+.search-suggestion-info { flex: 1; min-width: 0; }
+.search-suggestion-info strong, .search-suggestion-info span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-suggestion-info strong { font-size: 14px; }
+.search-suggestion-info span { margin-top: 3px; color: #94878d; font-size: 12px; }
+.search-suggestion-type { color: #c98193; font-size: 10px; letter-spacing: 1.4px; direction: ltr; }
+
+.artist-profile {
+  position: fixed; inset: 0; z-index: 100000;
+  overflow: auto;
+  background:
+    radial-gradient(60% 45% at 50% 0%, rgba(105,18,49,.35), transparent 70%),
+    #080708;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+.artist-profile.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.artist-profile-topbar {
+  position: sticky; top: 0; z-index: 5;
+  height: 78px; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  color: #8f8086; letter-spacing: 3px; font-size: 10px;
+  background: rgba(8,7,8,.72); backdrop-filter: blur(18px);
+}
+.artist-back, .artist-more {
+  width: 44px; height: 44px; border: 0; background: transparent;
+  color: #f8f1f3; cursor: pointer; font-size: 28px;
+}
+.artist-more { font-size: 18px; letter-spacing: 4px; }
+.artist-profile-content { width: min(900px, calc(100% - 36px)); margin: 0 auto; padding: 25px 0 90px; text-align: center; }
+.artist-profile-avatar-wrap { width: 150px; height: 150px; margin: 10px auto 20px; border-radius: 50%; padding: 2px; background: linear-gradient(145deg,#a24b65,#3a0d1b); }
+.artist-profile-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #1a1014; }
+.artist-profile-kicker { color: #a6536b; letter-spacing: 4px; font-size: 10px; }
+.artist-profile h1 { margin: 8px 0 5px; font-size: clamp(32px, 7vw, 58px); font-weight: 400; }
+.artist-profile-count { color: #8f8086; margin: 0 0 30px; }
+.artist-profile-songs { max-width: 760px; margin: 0 auto; text-align: right; }
+.artist-profile-song {
+  display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 14px;
+  padding: 13px 10px; border-bottom: 1px solid rgba(213,160,173,.09); cursor: pointer;
+}
+.artist-profile-song:hover { background: rgba(129,26,53,.09); border-radius: 12px; }
+.artist-profile-song img { width: 54px; height: 54px; object-fit: cover; border-radius: 9px; }
+.artist-profile-song strong, .artist-profile-song span { display: block; }
+.artist-profile-song span { margin-top: 4px; color: #8f8086; font-size: 12px; }
+.artist-profile-song button { border: 0; background: transparent; color: #f8f1f3; font-size: 18px; cursor: pointer; }
+
 /* Reduced motion accessibility */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1663,6 +1781,15 @@ footer {
     </section>
 
     <section class="tracks" id="tracks">
+
+      <div class="music-search-wrap">
+        <div class="music-search">
+          <span class="music-search-icon">⌕</span>
+          <input id="musicSearch" type="search" autocomplete="off" placeholder="جستجوی آهنگ یا خواننده..." aria-label="جستجوی آهنگ یا خواننده">
+          <button id="clearMusicSearch" type="button" aria-label="پاک کردن جستجو">×</button>
+        </div>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
 
       <div class="section-title">
         <div>
@@ -1894,6 +2021,24 @@ footer {
 
 </main>
 
+<!-- ARTIST PROFILE OVERLAY -->
+<div class="artist-profile" id="artistProfile" aria-hidden="true">
+  <div class="artist-profile-topbar">
+    <button id="closeArtistProfile" class="artist-back" aria-label="بازگشت">⌄</button>
+    <span>ARTIST</span>
+    <button id="artistProfileMore" class="artist-more" aria-label="گزینه‌ها">•••</button>
+  </div>
+  <div class="artist-profile-content">
+    <div class="artist-profile-avatar-wrap">
+      <img id="artistProfileAvatar" class="artist-profile-avatar" src="" alt="Artist">
+    </div>
+    <div class="artist-profile-kicker">TANINFY ARTIST</div>
+    <h1 id="artistProfileName">Artist</h1>
+    <p id="artistProfileCount"></p>
+    <div class="artist-profile-songs" id="artistProfileSongs"></div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap footer-inner">
     <span>♫ TANINFY</span>
@@ -2023,14 +2168,10 @@ function showPage(name, addHistory = true) {
 
   pages.forEach(page => page.classList.toggle("active", page === target));
   closeMenu();
-  window.scrollTo({ top: 0, behavior: "instant" });
+  window.scrollTo({ top: 0, behavior: "auto" });
 
   if (addHistory) {
-    history.pushState(
-      { taninfy: true, page: name },
-      "",
-      "#" + name
-    );
+    history.pushState({ taninfy: true, page: name }, "", "#" + name);
   }
 }
 
@@ -2047,21 +2188,35 @@ function loadPageFromHash() {
 }
 
 window.addEventListener("load", function() {
-  // Keep the current page as the first Taninfy history state.
-  history.replaceState(
-    { taninfy: true, page: availablePages.includes(location.hash.replace("#", "")) ? location.hash.replace("#", "") : "home" },
-    "",
-    location.hash || "#home"
-  );
-  loadPageFromHash();
+  const hash = location.hash.replace("#", "");
+  const page = availablePages.includes(hash) ? hash : "home";
+  // Create a Taninfy guard entry so a normal browser Back does not immediately
+  // throw the visitor out of the site.
+  history.replaceState({ taninfy: true, page }, "", "#" + page);
+  history.pushState({ taninfy: true, page }, "", "#" + page);
+  showPage(page, false);
 });
 
 window.addEventListener("popstate", function(event) {
+  // Browser Back closes an open full player first instead of leaving Taninfy.
+  if (document.getElementById("fullPlayer")?.classList.contains("active")) {
+    document.getElementById("fullPlayer").classList.remove("active");
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
+    return;
+  }
+
+  // Closing an artist profile is the next Back action.
+  if (document.getElementById("artistProfile")?.classList.contains("active")) {
+    closeArtistProfile(false);
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
+    return;
+  }
+
   if (event.state && event.state.taninfy) {
-    showPage(event.state.page, false);
+    showPage(event.state.page || "home", false);
+    // Keep one Taninfy guard behind the current page.
+    history.pushState({ taninfy: true, page: event.state.page || "home" }, "", "#" + (event.state.page || "home"));
   } else {
-    // If the browser returned to a non-Taninfy history entry,
-    // restore Taninfy's home page instead of leaving a broken page state.
     history.pushState({ taninfy: true, page: "home" }, "", "#home");
     showPage("home", false);
   }
@@ -2142,6 +2297,129 @@ function renderTrackCatalog() {
 renderTrackCatalog();
 
 
+/* SEARCH + ARTIST PROFILES */
+const musicSearch = document.getElementById("musicSearch");
+const clearMusicSearch = document.getElementById("clearMusicSearch");
+const searchSuggestions = document.getElementById("searchSuggestions");
+const artistProfile = document.getElementById("artistProfile");
+const closeArtistProfileBtn = document.getElementById("closeArtistProfile");
+const artistProfileMore = document.getElementById("artistProfileMore");
+const artistProfileAvatar = document.getElementById("artistProfileAvatar");
+const artistProfileName = document.getElementById("artistProfileName");
+const artistProfileCount = document.getElementById("artistProfileCount");
+const artistProfileSongs = document.getElementById("artistProfileSongs");
+
+function artistKey(name) {
+  return String(name || "هنرمند نامشخص").trim().toLocaleLowerCase();
+}
+
+function getArtists() {
+  const map = new Map();
+  songCatalog.forEach((song, index) => {
+    const name = song.artist || "هنرمند نامشخص";
+    const key = artistKey(name);
+    if (!map.has(key)) map.set(key, { name, songs: [], cover: song.cover || "" });
+    map.get(key).songs.push({ song, index });
+    if (!map.get(key).cover && song.cover) map.get(key).cover = song.cover;
+  });
+  return [...map.values()];
+}
+
+function renderSearchSuggestions(query = "") {
+  const q = query.trim().toLocaleLowerCase();
+  searchSuggestions.innerHTML = "";
+  if (!q) { searchSuggestions.classList.remove("active"); return; }
+
+  const artists = getArtists().filter(a => a.name.toLocaleLowerCase().includes(q));
+  const songs = songCatalog
+    .map((song, index) => ({ song, index }))
+    .filter(({ song }) => `${song.title || ""} ${song.artist || ""}`.toLocaleLowerCase().includes(q));
+
+  // Artist profile is intentionally first when the artist name matches.
+  artists.slice(0, 5).forEach(artist => {
+    const button = document.createElement("button");
+    button.className = "search-suggestion";
+    button.type = "button";
+    button.innerHTML = `
+      <img class="search-suggestion-cover" src="${artist.cover || ""}" alt="">
+      <span class="search-suggestion-info"><strong>${escapeHtml(artist.name)}</strong><span>${artist.songs.length} آهنگ</span></span>
+      <span class="search-suggestion-type">ARTIST PROFILE</span>`;
+    button.addEventListener("click", () => openArtistProfile(artist.name, true));
+    searchSuggestions.appendChild(button);
+  });
+
+  songs.slice(0, 7).forEach(({ song, index }) => {
+    const button = document.createElement("button");
+    button.className = "search-suggestion";
+    button.type = "button";
+    button.innerHTML = `
+      <img class="search-suggestion-cover" src="${song.cover || ""}" alt="">
+      <span class="search-suggestion-info"><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || "هنرمند نامشخص")}</span></span>
+      <span class="search-suggestion-type">SONG</span>`;
+    button.addEventListener("click", () => {
+      searchSuggestions.classList.remove("active");
+      setPlayerTrack(index, true);
+    });
+    searchSuggestions.appendChild(button);
+  });
+
+  searchSuggestions.classList.toggle("active", searchSuggestions.children.length > 0);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>\"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+}
+
+function openArtistProfile(name, addHistory = true) {
+  const artist = getArtists().find(a => artistKey(a.name) === artistKey(name));
+  if (!artist) return;
+
+  artistProfileName.textContent = artist.name;
+  artistProfileCount.textContent = `${artist.songs.length} آهنگ در Taninfy`;
+  artistProfileAvatar.src = artist.cover || "";
+  artistProfileSongs.innerHTML = "";
+
+  artist.songs.forEach(({ song, index }, songNumber) => {
+    const row = document.createElement("div");
+    row.className = "artist-profile-song";
+    row.innerHTML = `
+      <img src="${song.cover || ""}" alt="">
+      <div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div>
+      <button type="button" aria-label="پخش">▶</button>`;
+    row.addEventListener("click", () => setPlayerTrack(index, true));
+    artistProfileSongs.appendChild(row);
+  });
+
+  artistProfile.classList.add("active");
+  artistProfile.setAttribute("aria-hidden", "false");
+  searchSuggestions.classList.remove("active");
+  if (addHistory) history.pushState({ taninfy: true, artist: artist.name }, "", "#artist-" + encodeURIComponent(artist.name));
+}
+
+function closeArtistProfile(goBack = true) {
+  artistProfile.classList.remove("active");
+  artistProfile.setAttribute("aria-hidden", "true");
+  if (goBack && history.state && history.state.artist) history.back();
+}
+
+if (musicSearch) {
+  musicSearch.addEventListener("input", function() {
+    musicSearch.parentElement.classList.toggle("has-value", !!this.value);
+    renderSearchSuggestions(this.value);
+  });
+}
+if (clearMusicSearch) clearMusicSearch.addEventListener("click", function() {
+  musicSearch.value = "";
+  musicSearch.parentElement.classList.remove("has-value");
+  searchSuggestions.classList.remove("active");
+  musicSearch.focus();
+});
+if (closeArtistProfileBtn) closeArtistProfileBtn.addEventListener("click", () => closeArtistProfile(true));
+if (artistProfileMore) artistProfileMore.addEventListener("click", () => {});
+document.addEventListener("click", function(event) {
+  if (!event.target.closest(".music-search-wrap")) searchSuggestions?.classList.remove("active");
+});
+
 /* AUDIO PLAYER */
 const audioPlayer = document.getElementById("audioPlayer");
 const player = document.querySelector(".player");
@@ -2207,7 +2485,7 @@ function setLoadingState(loading) {
 
   if (loading) {
     player.classList.add("is-buffering");
-    mainPlay.disabled = true;
+    mainPlay.disabled = false;
     playIcon.textContent = "▶";
     startBufferProgress();
   } else {
@@ -2243,8 +2521,10 @@ function setPlayerTrack(index, autoplay = true) {
   setLoadingState(true);
 
   audioPlayer.pause();
+  audioPlayer.preload = "auto";
   audioPlayer.src = track.src || "";
   audioPlayer.load();
+  preloadAdjacentTrack();
 
   document.querySelectorAll(".track-play").forEach((button, i) => {
     button.textContent = i === index ? "Ⅱ" : "▶";
@@ -2256,6 +2536,25 @@ function setPlayerTrack(index, autoplay = true) {
       nowArtist.textContent = "برای پخش، لینک مستقیم فایل صوتی را بررسی کن";
     });
   }
+}
+
+let preloadedAudio = null;
+let preloadedTrackIndex = -1;
+
+function preloadAdjacentTrack() {
+  if (!songCatalog.length || currentTrackIndex < 0) return;
+  const nextIndex = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
+  const nextTrack = songCatalog[nextIndex];
+  if (!nextTrack || !nextTrack.src || nextIndex === currentTrackIndex) return;
+
+  if (preloadedTrackIndex === nextIndex && preloadedAudio) return;
+  try {
+    preloadedAudio = new Audio();
+    preloadedAudio.preload = "auto";
+    preloadedAudio.src = nextTrack.src;
+    preloadedAudio.load();
+    preloadedTrackIndex = nextIndex;
+  } catch (e) {}
 }
 
 function updateTrackButtons() {
