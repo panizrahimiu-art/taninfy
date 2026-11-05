@@ -2229,6 +2229,41 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
   .player-inner{width:calc(100% - 24px)}
 }
 
+
+/* Curated Taninfy playlists */
+.curated-intro{color:var(--muted);margin:-8px 0 24px}
+.curated-playlists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.curated-card{display:grid;grid-template-columns:minmax(150px, .9fr) 1.1fr;min-height:210px;overflow:hidden;border:1px solid rgba(213,160,173,.14);border-radius:15px;background:linear-gradient(135deg,#1b1015,#100c0f);box-shadow:0 12px 28px rgba(0,0,0,.14)}
+.curated-cover{position:relative;min-height:210px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#78344c,#241018 72%)}
+.curated-cover:before,.curated-cover:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,220,230,.17);border-radius:50%;transform:rotate(-25deg)}
+.curated-cover:after{width:145px;height:145px}
+.curated-cover span{position:absolute;top:12px;left:14px;color:rgba(255,255,255,.65);font-size:12px}
+.curated-cover b{font-size:66px;color:#f0cbd5;text-shadow:0 8px 35px rgba(0,0,0,.3);z-index:1;font-weight:400}
+.curated-cover small{position:absolute;bottom:13px;letter-spacing:2px;font-size:8px;color:rgba(255,255,255,.7)}
+.curated-dark .curated-cover{background:radial-gradient(circle at 50% 45%,#553047,#120b12 75%)}
+.curated-nostalgia .curated-cover{background:radial-gradient(circle at 50% 45%,#98566a,#28151d 75%)}
+.curated-energy .curated-cover{background:radial-gradient(circle at 50% 45%,#874052,#291018 75%)}
+.curated-info{padding:22px 20px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.curated-info>span{font-size:9px;letter-spacing:1.5px;color:#d5a0ad}
+.curated-info h2{font-size:21px;margin:8px 0 5px;color:#f8f1f3}
+.curated-info p{font-size:12px;color:#a99ba1;line-height:1.9;margin:0 0 15px}
+.curated-info button{border:1px solid rgba(213,160,173,.22);border-radius:22px;background:#26131b;color:#f1dce2;padding:8px 14px;font:12px "Vazirmatn",sans-serif;cursor:pointer}
+.curated-info button:hover{background:#3a1926}
+.curated-info button span{margin-right:8px}
+.top-account{display:inline-flex;align-items:center;gap:9px;padding:5px 13px 5px 7px;border:1px solid rgba(213,160,173,.2);border-radius:24px;background:#1b1116;color:#f8f1f3!important;font-size:12px;max-width:190px}
+.top-account img{width:29px;height:29px;border-radius:50%;object-fit:cover}
+.top-account span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:760px){
+ .curated-playlists{grid-template-columns:1fr}
+ .curated-card{grid-template-columns:130px 1fr;min-height:175px}
+ .curated-cover{min-height:175px}
+ .curated-info{padding:14px}
+ .curated-info h2{font-size:17px}
+ .curated-info p{font-size:11px}
+ .top-account{max-width:115px;font-size:10px;padding:4px 8px 4px 5px}
+ .top-account img{width:25px;height:25px}
+}
+
 </style>
 </head>
 
@@ -2260,7 +2295,11 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
     </label>
   </div>
   <div class="topbar-right">
-    <a class="top-login" href="#login" data-page="login">ورود | ثبت‌نام</a>
+    <a class="top-login" id="topLoginLink" href="#login" data-page="login">ورود | ثبت‌نام</a>
+    <a class="top-account" id="topAccountLink" href="#profile" data-page="profile" style="display:none;">
+      <img id="topAccountAvatar" alt="">
+      <span id="topAccountName">حساب کاربری</span>
+    </a>
     <button class="top-more" type="button" aria-label="گزینه‌ها">•••</button>
   </div>
 </header>
@@ -2545,46 +2584,32 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 </section>
 
 <section class="page" id="page-playlist">
-
   <div class="wrap">
-
     <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
-
     <div class="page-heading">
-      <small>YOUR MUSIC</small>
-      <h1>Playlist ♫</h1>
+      <small>TANINFY ORIGINALS</small>
+      <h1>پلی‌لیست‌های اختصاصی Taninfy ♫</h1>
     </div>
-
-    <div class="panel">
-
-      <h2>ساخت پلی‌لیست جدید</h2>
-
-      <form class="form" id="playlistForm">
-
-        <input class="field" id="playlistName" type="text" placeholder="نام پلی‌لیست" required>
-
-        <select class="field" id="playlistMood">
-          <option value="Dark">Dark</option>
-          <option value="Calm">Calm</option>
-          <option value="Nostalgic">Nostalgic</option>
-          <option value="Energetic">Energetic</option>
-        </select>
-
-        <button class="btn btn-primary" type="submit">ساخت پلی‌لیست</button>
-
-        <div class="form-status" id="playlistStatus"></div>
-
-      </form>
-
+    <p class="curated-intro">انتخاب‌های اختصاصی تیم طنین‌فای؛ پلی‌لیست‌هایی که برای همه کاربران آماده شده‌اند.</p>
+    <div class="curated-playlists" id="curatedPlaylistGrid">
+      <article class="curated-card curated-night">
+        <div class="curated-cover"><span>01</span><b>☾</b><small>TANINFY ORIGINALS</small></div>
+        <div class="curated-info"><span>MOOD · NIGHT</span><h2>شب‌های طولانی</h2><p>برای قدم‌زدن‌های شبانه و فکرهای دور.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
+      </article>
+      <article class="curated-card curated-dark">
+        <div class="curated-cover"><span>02</span><b>✦</b><small>TANINFY ORIGINALS</small></div>
+        <div class="curated-info"><span>MOOD · DARK</span><h2>تاریک و مرموز</h2><p>صداهایی عمیق برای حال‌وهوای متفاوت.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
+      </article>
+      <article class="curated-card curated-nostalgia">
+        <div class="curated-cover"><span>03</span><b>♫</b><small>TANINFY ORIGINALS</small></div>
+        <div class="curated-info"><span>MOOD · NOSTALGIA</span><h2>خاطرات دور</h2><p>آهنگ‌هایی برای مرور لحظه‌های فراموش‌نشدنی.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
+      </article>
+      <article class="curated-card curated-energy">
+        <div class="curated-cover"><span>04</span><b>↗</b><small>TANINFY ORIGINALS</small></div>
+        <div class="curated-info"><span>MOOD · ENERGY</span><h2>شروع دوباره</h2><p>ریتم‌هایی برای بالا بردن انرژی روز.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
+      </article>
     </div>
-
-    <div class="panel">
-      <h2>پلی‌لیست‌های من</h2>
-      <div id="playlistList"></div>
-    </div>
-
   </div>
-
 </section>
 
 <!-- LOGIN / SIGNUP PAGE -->
@@ -3676,62 +3701,22 @@ playlistPickerNew?.addEventListener("click", function() {
   const mood = "My playlist";
   playlists.push({ name: name.trim(), mood, songs: [] });
   localStorage.setItem(playlistKey, JSON.stringify(playlists));
-  renderPlaylists();
   addCurrentSongToPlaylist(playlists.length - 1);
 });
 
-/* PLAYLISTS */
-const playlistKey = "taninfy-playlists";
-let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
-
-function renderPlaylists() {
-  const box = document.getElementById("playlistList");
-  box.innerHTML = "";
-
-  if (playlists.length === 0) {
-    box.innerHTML = '<p class="form-note">هنوز پلی‌لیستی نساختی.</p>';
-    return;
-  }
-
-  playlists.forEach((playlist, index) => {
-    const row = document.createElement("div");
-    row.className = "list-item";
-
-    const info = document.createElement("div");
-    const name = document.createElement("strong");
-    name.textContent = playlist.name;
-    const mood = document.createElement("span");
-    mood.textContent = playlist.mood;
-    info.append(name, mood);
-
-    const remove = document.createElement("button");
-    remove.className = "remove-btn";
-    remove.textContent = "حذف";
-    remove.addEventListener("click", function() {
-      playlists.splice(index, 1);
-      localStorage.setItem(playlistKey, JSON.stringify(playlists));
-      renderPlaylists();
-    });
-
-    row.append(info, remove);
-    box.appendChild(row);
+/* TANINFY CURATED PLAYLISTS */
+document.querySelectorAll("[data-curated-browse]").forEach(button => {
+  button.addEventListener("click", () => {
+    showPage("home");
+    setTimeout(() => {
+      document.getElementById("tracks")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
   });
-}
-
-document.getElementById("playlistForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("playlistName").value.trim();
-  const mood = document.getElementById("playlistMood").value;
-  if (!name) return;
-
-  playlists.push({ name, mood, songs: [] });
-  localStorage.setItem(playlistKey, JSON.stringify(playlists));
-  renderPlaylists();
-  this.reset();
-  document.getElementById("playlistStatus").textContent = "پلی‌لیست ساخته شد.";
 });
 
+/* PLAYLIST STORAGE — retained for the personal add-to-playlist picker */
+const playlistKey = "taninfy-playlists";
+let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
 
 /* PROFILE */
 const profileKey = "taninfy-profile";
@@ -4065,7 +4050,6 @@ player.addEventListener("click", function(event) {
 /* INITIALIZE */
 renderFavorites();
 renderFavoriteArtists();
-renderPlaylists();
 syncHearts();
 
 </script>
@@ -4183,17 +4167,27 @@ window.taninfyAuthReady = new Promise(resolve => {
     const loginBtn = document.getElementById("googleLoginBtn");
     const signedAvatar = document.getElementById("signedUserAvatar");
     const signedName = document.getElementById("signedUserName");
+    const topLoginLink = document.getElementById("topLoginLink");
+    const topAccountLink = document.getElementById("topAccountLink");
+    const topAccountAvatar = document.getElementById("topAccountAvatar");
+    const topAccountName = document.getElementById("topAccountName");
 
     if (user) {
       const name = user.displayName || "Taninfy User";
       signedName.textContent = name;
       signedAvatar.src = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=96";
       accountBox.style.display = "flex";
+      if (topLoginLink) topLoginLink.style.display = "none";
+      if (topAccountLink) topAccountLink.style.display = "inline-flex";
+      if (topAccountAvatar) topAccountAvatar.src = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=96";
+      if (topAccountName) topAccountName.textContent = name;
       loginBtn.textContent = "Google account connected";
       loginBtn.disabled = true;
       loginBtn.style.opacity = ".65";
     } else {
       accountBox.style.display = "none";
+      if (topLoginLink) topLoginLink.style.display = "inline-flex";
+      if (topAccountLink) topAccountLink.style.display = "none";
       loginBtn.textContent = "Continue with Google";
       loginBtn.disabled = false;
       loginBtn.style.opacity = "1";
