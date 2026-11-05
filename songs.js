@@ -37,7 +37,7 @@ window.TANINFY_SONGS = [
     artist: "Tom Odell",
     genre: "Pop",
     src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL"
+    cover: "https://th.bing.com/th/id/OIP.rjgFCDnYsVu5E8CPY3QoqAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
   },
   {
     id: "song-6",
