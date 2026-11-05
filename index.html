@@ -692,6 +692,205 @@ body.menu-open {
   direction: ltr;
 }
 
+/* FAVORITE ARTISTS + PLAYER ACTIONS */
+.artist-profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.artist-favorite-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(213,160,173,.18);
+  border-radius: 50%;
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  font-size: 23px;
+  display: grid;
+  place-items: center;
+  transition: .2s ease;
+}
+
+.artist-favorite-btn:hover {
+  background: rgba(129,26,53,.18);
+  border-color: rgba(213,160,173,.35);
+  transform: scale(1.05);
+}
+
+.artist-favorite-btn.active {
+  color: #ef8da7;
+  text-shadow: 0 0 14px rgba(239,141,167,.35);
+}
+
+.favorite-artist-row {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 8px;
+  border-bottom: 1px solid rgba(213,160,173,.08);
+}
+
+.favorite-artist-row img {
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #21141a;
+}
+
+.favorite-artist-row strong,
+.favorite-artist-row span {
+  display: block;
+}
+
+.favorite-artist-row span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.favorite-artist-open {
+  border: 0;
+  background: transparent;
+  color: #f8f1f3;
+  text-align: right;
+  cursor: pointer;
+}
+
+.favorite-artist-remove {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(213,160,173,.12);
+  background: transparent;
+  color: #ef8da7;
+  font-size: 20px;
+}
+
+.full-player-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+  direction: ltr;
+}
+
+.full-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(213,160,173,.16);
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  font-size: 25px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.full-action-btn:hover {
+  transform: scale(1.07);
+  background: rgba(129,26,53,.18);
+}
+
+.full-action-btn.active {
+  color: #ef8da7;
+  border-color: rgba(239,141,167,.3);
+  text-shadow: 0 0 14px rgba(239,141,167,.35);
+}
+
+.playlist-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,.65);
+}
+
+.playlist-picker-overlay.active {
+  display: flex;
+}
+
+.playlist-picker {
+  width: min(420px, 92vw);
+  max-height: 78vh;
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid rgba(213,160,173,.16);
+  border-radius: 16px;
+  background: linear-gradient(145deg,#181015,#0e0b0d);
+  box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
+
+.playlist-picker h3 {
+  margin: 0 0 5px;
+}
+
+.playlist-picker p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 17px;
+}
+
+.playlist-picker-list {
+  display: grid;
+  gap: 8px;
+}
+
+.playlist-picker-item {
+  width: 100%;
+  border: 1px solid rgba(213,160,173,.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  text-align: right;
+}
+
+.playlist-picker-item:hover {
+  background: rgba(129,26,53,.18);
+  border-color: rgba(213,160,173,.3);
+}
+
+.playlist-picker-new {
+  margin-top: 13px;
+  width: 100%;
+  border: 1px dashed rgba(213,160,173,.24);
+  border-radius: 10px;
+  padding: 12px;
+  background: transparent;
+  color: var(--pink);
+}
+
+.playlist-picker-close {
+  margin-top: 8px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px;
+}
+
+@media (max-width: 700px) {
+  .favorite-artist-row {
+    grid-template-columns: 48px 1fr auto;
+  }
+  .favorite-artist-row img {
+    width: 48px;
+    height: 48px;
+  }
+  .full-player-actions {
+    margin-top: 18px;
+  }
+}
+
 /* PAGE SYSTEM */
 
 .page {
@@ -1947,6 +2146,11 @@ footer {
       <span>Favorites</span>
     </a>
 
+    <a href="#favorite-artists" data-page="favorite-artists">
+      <span class="menu-icon">♧</span>
+      <span>Favorite Artists</span>
+    </a>
+
     <a href="#playlist" data-page="playlist">
       <span class="menu-icon">♫</span>
       <span>Playlist</span>
@@ -2158,6 +2362,19 @@ footer {
 
 <!-- PLAYLIST PAGE -->
 
+<section class="page" id="page-favorite-artists">
+  <div class="wrap">
+    <div class="page-heading">
+      <small>TANINFY / ARTISTS</small>
+      <h1>Favorite Artists ♡</h1>
+    </div>
+    <div class="panel">
+      <p class="form-note">هنرمندهایی که ذخیره کردی اینجا نمایش داده می‌شن.</p>
+      <div id="favoriteArtistList"></div>
+    </div>
+  </div>
+</section>
+
 <section class="page" id="page-playlist">
 
   <div class="wrap">
@@ -2281,7 +2498,10 @@ footer {
   <div class="artist-profile-topbar">
     <button id="closeArtistProfile" class="artist-back" aria-label="بازگشت">⌄</button>
     <span>ARTIST</span>
-    <button id="artistProfileMore" class="artist-more" aria-label="گزینه‌ها">•••</button>
+    <div class="artist-profile-actions">
+      <button id="artistFavoriteBtn" class="artist-favorite-btn" type="button" aria-label="ذخیره هنرمند" title="Favorite Artist">♡</button>
+      <button id="artistProfileMore" class="artist-more" aria-label="گزینه‌ها">•••</button>
+    </div>
   </div>
   <div class="artist-profile-content">
     <div class="artist-profile-avatar-wrap">
@@ -2347,6 +2567,16 @@ footer {
 </div>
 
 <script src="songs.js"></script>
+<div class="playlist-picker-overlay" id="playlistPickerOverlay" aria-hidden="true">
+  <div class="playlist-picker" role="dialog" aria-modal="true">
+    <h3>Add to playlist</h3>
+    <p id="playlistPickerSong">انتخاب کن این آهنگ به کدام پلی‌لیست اضافه شود.</p>
+    <div class="playlist-picker-list" id="playlistPickerList"></div>
+    <button class="playlist-picker-new" id="playlistPickerNew" type="button">＋ ساخت پلی‌لیست جدید</button>
+    <button class="playlist-picker-close" id="playlistPickerClose" type="button">لغو</button>
+  </div>
+</div>
+
 <!-- FULL MUSIC PLAYER -->
 <div class="full-player" id="fullPlayer">
 
@@ -2407,16 +2637,9 @@ footer {
 
     </div>
 
-    <div class="full-extra-controls">
-
-      <button id="fullFavoriteBtn">
-        ♡ Favorite
-      </button>
-
-      <button id="fullPlaylistBtn">
-        ＋ Playlist
-      </button>
-
+    <div class="full-player-actions">
+      <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite">♡</button>
+      <button id="fullPlaylistBtn" class="full-action-btn" type="button" aria-label="Add to playlist" title="Add to playlist">＋</button>
     </div>
 
   </div>
@@ -2427,7 +2650,7 @@ footer {
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
-const availablePages = ["home", "profile", "favorites", "playlist", "login", "contact"];
+const availablePages = ["home", "profile", "favorites", "favorite-artists", "playlist", "login", "contact"];
 
 function showPage(name, addHistory = true) {
   const target = document.getElementById("page-" + name);
@@ -2580,6 +2803,7 @@ const searchSuggestions = document.getElementById("searchSuggestions");
 const artistProfile = document.getElementById("artistProfile");
 const closeArtistProfileBtn = document.getElementById("closeArtistProfile");
 const artistProfileMore = document.getElementById("artistProfileMore");
+const artistFavoriteBtn = document.getElementById("artistFavoriteBtn");
 const artistProfileAvatar = document.getElementById("artistProfileAvatar");
 const artistProfileName = document.getElementById("artistProfileName");
 const artistProfileCount = document.getElementById("artistProfileCount");
@@ -2651,8 +2875,18 @@ function renderSearchSuggestions(query = "") {
     button.innerHTML = `
       <img class="search-suggestion-cover" src="${artist.cover || ""}" alt="">
       <span class="search-suggestion-info"><strong>${escapeHtml(artist.name)}</strong><span>${artist.songs.length} آهنگ</span></span>
-      <span class="search-suggestion-type">ARTIST PROFILE</span>`;
-    button.addEventListener("click", () => openArtistProfile(artist.name, true));
+      <span class="search-suggestion-type">ARTIST PROFILE</span>
+      <span class="search-artist-heart" aria-hidden="true">${isFavoriteArtist(artist.name) ? "♥" : "♡"}</span>`;
+    button.addEventListener("click", (event) => {
+      if (event.target.closest(".search-artist-heart")) return;
+      openArtistProfile(artist.name, true);
+    });
+    const suggestionHeart = button.querySelector(".search-artist-heart");
+    suggestionHeart.addEventListener("click", async (event) => {
+      event.stopPropagation();
+      await toggleFavoriteArtist(artist);
+      suggestionHeart.textContent = isFavoriteArtist(artist.name) ? "♥" : "♡";
+    });
     searchSuggestions.appendChild(button);
   });
 
@@ -2678,6 +2912,88 @@ function escapeHtml(value) {
   return String(value).replace(/[&<>\"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
 }
 
+const favoriteArtistKey = "taninfy-favorite-artists";
+let favoriteArtists = JSON.parse(localStorage.getItem(favoriteArtistKey) || "[]");
+
+function saveFavoriteArtists() {
+  localStorage.setItem(favoriteArtistKey, JSON.stringify(favoriteArtists));
+}
+
+function isFavoriteArtist(name) {
+  return favoriteArtists.some(item => artistKey(item.name) === artistKey(name));
+}
+
+async function toggleFavoriteArtist(artist) {
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای ذخیره هنرمند، اول وارد حساب Taninfy شو.";
+    if (typeof showPage === "function") showPage("login");
+    return false;
+  }
+
+  const index = favoriteArtists.findIndex(item => artistKey(item.name) === artistKey(artist.name));
+  if (index >= 0) {
+    favoriteArtists.splice(index, 1);
+  } else {
+    favoriteArtists.push({
+      name: artist.name,
+      cover: artist.cover || ""
+    });
+  }
+
+  saveFavoriteArtists();
+  renderFavoriteArtists();
+  return true;
+}
+
+function syncArtistFavoriteButton(name) {
+  if (!artistFavoriteBtn) return;
+  const active = isFavoriteArtist(name);
+  artistFavoriteBtn.classList.toggle("active", active);
+  artistFavoriteBtn.textContent = active ? "♥" : "♡";
+}
+
+function renderFavoriteArtists() {
+  const box = document.getElementById("favoriteArtistList");
+  if (!box) return;
+  box.innerHTML = "";
+
+  if (favoriteArtists.length === 0) {
+    box.innerHTML = '<p class="form-note">هنوز هنرمندی را ذخیره نکردی.</p>';
+    return;
+  }
+
+  favoriteArtists.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "favorite-artist-row";
+
+    const img = document.createElement("img");
+    img.src = item.cover || "";
+    img.alt = item.name;
+
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "favorite-artist-open";
+    open.innerHTML = `<strong>${escapeHtml(item.name)}</strong><span>ARTIST PROFILE</span>`;
+    open.addEventListener("click", () => openArtistProfile(item.name, true));
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "favorite-artist-remove";
+    remove.textContent = "♥";
+    remove.setAttribute("aria-label", "حذف هنرمند از علاقه‌مندی‌ها");
+    remove.addEventListener("click", () => {
+      favoriteArtists.splice(index, 1);
+      saveFavoriteArtists();
+      renderFavoriteArtists();
+      syncArtistFavoriteButton(item.name);
+    });
+
+    row.append(img, open, remove);
+    box.appendChild(row);
+  });
+}
+
 function openArtistProfile(name, addHistory = true) {
   const artist = getArtists().find(a => artistKey(a.name) === artistKey(name));
   if (!artist) return;
@@ -2686,6 +3002,7 @@ function openArtistProfile(name, addHistory = true) {
   artistProfileCount.textContent =
     `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
   artistProfileAvatar.src = artist.cover || "";
+  syncArtistFavoriteButton(artist.name);
   artistProfileAlbums.innerHTML = "";
   artistProfileSongs.innerHTML = "";
 
@@ -2764,6 +3081,15 @@ if (clearMusicSearch) clearMusicSearch.addEventListener("click", function() {
 });
 if (closeArtistProfileBtn) closeArtistProfileBtn.addEventListener("click", () => closeArtistProfile(true));
 if (artistProfileMore) artistProfileMore.addEventListener("click", () => {});
+if (artistFavoriteBtn) {
+  artistFavoriteBtn.addEventListener("click", async function(event) {
+    event.stopPropagation();
+    const artist = getArtists().find(a => artistKey(a.name) === artistKey(artistProfileName.textContent));
+    if (!artist) return;
+    const changed = await toggleFavoriteArtist(artist);
+    if (changed) syncArtistFavoriteButton(artist.name);
+  });
+}
 document.addEventListener("click", function(event) {
   if (!event.target.closest(".music-search-wrap")) searchSuggestions?.classList.remove("active");
 });
@@ -3103,6 +3429,88 @@ trackList.addEventListener("click", async function(event) {
 });
 
 
+const playlistPickerOverlay = document.getElementById("playlistPickerOverlay");
+const playlistPickerList = document.getElementById("playlistPickerList");
+const playlistPickerSong = document.getElementById("playlistPickerSong");
+const playlistPickerNew = document.getElementById("playlistPickerNew");
+const playlistPickerClose = document.getElementById("playlistPickerClose");
+
+function closePlaylistPicker() {
+  playlistPickerOverlay?.classList.remove("active");
+  playlistPickerOverlay?.setAttribute("aria-hidden", "true");
+}
+
+function addCurrentSongToPlaylist(index) {
+  const track = songCatalog[currentTrackIndex];
+  if (!track || !playlists[index]) return;
+
+  if (!Array.isArray(playlists[index].songs)) playlists[index].songs = [];
+  const songId = track.id || String(currentTrackIndex);
+  const exists = playlists[index].songs.some(item => item.songId === songId);
+  if (!exists) {
+    playlists[index].songs.push({
+      songId,
+      title: track.title || "بدون نام",
+      artist: track.artist || "هنرمند نامشخص",
+      cover: track.cover || ""
+    });
+    localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  }
+
+  closePlaylistPicker();
+  showSuccessCheck("آهنگ به پلی‌لیست اضافه شد");
+}
+
+function openPlaylistPicker() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track) return;
+
+  if (window.taninfyAuthReady) {
+    window.taninfyAuthReady.then(() => {
+      if (!window.taninfyCurrentUser) {
+        document.getElementById("loginStatus").textContent = "برای اضافه کردن آهنگ به پلی‌لیست، اول وارد حساب شو.";
+        if (typeof showPage === "function") showPage("login");
+        return;
+      }
+      renderPlaylistPicker(track);
+    });
+  } else {
+    renderPlaylistPicker(track);
+  }
+}
+
+function renderPlaylistPicker(track) {
+  if (!playlistPickerOverlay || !playlistPickerList) return;
+  playlistPickerSong.textContent = `${track.title || "بدون نام"} — ${track.artist || "هنرمند نامشخص"}`;
+  playlistPickerList.innerHTML = "";
+
+  playlists.forEach((playlist, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "playlist-picker-item";
+    button.textContent = playlist.name;
+    button.addEventListener("click", () => addCurrentSongToPlaylist(index));
+    playlistPickerList.appendChild(button);
+  });
+
+  playlistPickerOverlay.classList.add("active");
+  playlistPickerOverlay.setAttribute("aria-hidden", "false");
+}
+
+playlistPickerClose?.addEventListener("click", closePlaylistPicker);
+playlistPickerOverlay?.addEventListener("click", function(event) {
+  if (event.target === playlistPickerOverlay) closePlaylistPicker();
+});
+playlistPickerNew?.addEventListener("click", function() {
+  const name = window.prompt("نام پلی‌لیست جدید را وارد کن:");
+  if (!name || !name.trim()) return;
+  const mood = "My playlist";
+  playlists.push({ name: name.trim(), mood, songs: [] });
+  localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  renderPlaylists();
+  addCurrentSongToPlaylist(playlists.length - 1);
+});
+
 /* PLAYLISTS */
 const playlistKey = "taninfy-playlists";
 let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
@@ -3148,7 +3556,7 @@ document.getElementById("playlistForm").addEventListener("submit", function(even
   const mood = document.getElementById("playlistMood").value;
   if (!name) return;
 
-  playlists.push({ name, mood });
+  playlists.push({ name, mood, songs: [] });
   localStorage.setItem(playlistKey, JSON.stringify(playlists));
   renderPlaylists();
   this.reset();
@@ -3302,12 +3710,42 @@ const fullNextBtn = document.getElementById("fullNextBtn");
 const shuffleBtn = document.getElementById("shuffleBtn");
 const repeatBtn = document.getElementById("repeatBtn");
 const fullPlayerMore = document.getElementById("fullPlayerMore");
+const fullFavoriteBtn = document.getElementById("fullFavoriteBtn");
+const fullPlaylistBtn = document.getElementById("fullPlaylistBtn");
 const fullProgress = document.getElementById("fullProgress");
 const fullCurrentTime = document.getElementById("fullCurrentTime");
 const fullDuration = document.getElementById("fullDuration");
 
 let shuffleEnabled = false;
 let repeatEnabled = false;
+
+function syncFullFavoriteButton(track) {
+  if (!fullFavoriteBtn || !track) return;
+  const active = favorites.some(item => item.songId === track.id || (item.title === track.title && item.artist === track.artist));
+  fullFavoriteBtn.classList.toggle("active", active);
+  fullFavoriteBtn.textContent = active ? "♥" : "♡";
+}
+
+async function toggleCurrentSongFavorite() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track) return;
+
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
+  const index = favorites.findIndex(item => item.songId === track.id || (item.title === track.title && item.artist === track.artist));
+  if (index >= 0) favorites.splice(index, 1);
+  else favorites.push({ songId: track.id || String(currentTrackIndex), title: track.title || "بدون نام", artist: track.artist || "هنرمند نامشخص" });
+
+  saveFavorites();
+  renderFavorites();
+  syncHearts();
+  syncFullFavoriteButton(track);
+}
 
 function openFullPlayer(track) {
   if (!track) return;
@@ -3324,6 +3762,7 @@ function openFullPlayer(track) {
   }
 
   fullPlayer.classList.add("active");
+  syncFullFavoriteButton(track);
   updateFullPlayButton();
 }
 
@@ -3332,6 +3771,20 @@ function closeFullMusicPlayer() {
 }
 
 closeFullPlayer.addEventListener("click", closeFullMusicPlayer);
+
+if (fullFavoriteBtn) {
+  fullFavoriteBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    toggleCurrentSongFavorite();
+  });
+}
+
+if (fullPlaylistBtn) {
+  fullPlaylistBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    openPlaylistPicker();
+  });
+}
 
 fullPlayerMore.addEventListener("click", async function() {
   const track = songCatalog[currentTrackIndex];
@@ -3442,6 +3895,7 @@ player.addEventListener("click", function(event) {
 
 /* INITIALIZE */
 renderFavorites();
+renderFavoriteArtists();
 renderPlaylists();
 syncHearts();
 
