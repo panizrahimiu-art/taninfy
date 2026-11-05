@@ -80,11 +80,11 @@ window.TANINFY_SONGS = [
     cover: "https://anarmusic.com/wp-content/uploads/2026/08/Blok3-Allah-Allah.jpg"
   },
   {
-    id: "song-5",
-    title: "Another Love",
-    artist: "Tom Odell",
+    id: "song-11",
+    title: "Hello",
+    artist: "Adele",
     genre: "Pop",
-    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
+    src: "https://dl.behmelody.in/1400/Dey/Adele%20-%20Hello%20%282%29.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
