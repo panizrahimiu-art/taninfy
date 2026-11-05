@@ -26,7 +26,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.-nugC40B-lnZ4DJQuQ_kegHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
