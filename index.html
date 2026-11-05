@@ -555,6 +555,46 @@ body.menu-open {
   font-size: 25px;
 }
 
+.menu-profile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 22px 0 2px;
+  padding: 13px 12px;
+  border: 1px solid rgba(213,160,173,.14);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(129,26,53,.15), rgba(255,255,255,.025));
+  direction: ltr;
+}
+.menu-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(213,160,173,.35);
+  flex: 0 0 auto;
+}
+.menu-profile-info {
+  min-width: 0;
+  text-align: left;
+}
+.menu-profile-info strong,
+.menu-profile-info span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-profile-info strong {
+  color: #f8f1f3;
+  font-size: 13px;
+}
+.menu-profile-info span {
+  color: #c98193;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
 .menu-links {
   display: flex;
   flex-direction: column;
@@ -1620,8 +1660,86 @@ footer {
 .artist-profile-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #1a1014; }
 .artist-profile-kicker { color: #a6536b; letter-spacing: 4px; font-size: 10px; }
 .artist-profile h1 { margin: 8px 0 5px; font-size: clamp(32px, 7vw, 58px); font-weight: 400; }
-.artist-profile-count { color: #8f8086; margin: 0 0 30px; }
-.artist-profile-songs { max-width: 760px; margin: 0 auto; text-align: right; }
+.artist-profile-count { color: #8f8086; margin: 0 0 24px; }
+
+.artist-albums-heading {
+  width: min(760px, 100%);
+  margin: 0 auto 12px;
+  text-align: left;
+  color: #a6536b;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.artist-profile-albums {
+  width: min(760px, 100%);
+  margin: 0 auto 28px;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3px 2px 12px;
+  direction: ltr;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(213,160,173,.28) transparent;
+}
+.artist-profile-albums::-webkit-scrollbar { height: 5px; }
+.artist-profile-albums::-webkit-scrollbar-track { background: transparent; }
+.artist-profile-albums::-webkit-scrollbar-thumb {
+  background: rgba(213,160,173,.28);
+  border-radius: 20px;
+}
+.artist-album-card {
+  flex: 0 0 142px;
+  border: 1px solid rgba(213,160,173,.1);
+  border-radius: 13px;
+  background: linear-gradient(145deg,#181015,#0e0b0d);
+  color: #f8f1f3;
+  padding: 9px;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.artist-album-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(213,160,173,.3);
+}
+.artist-album-card.active {
+  border-color: #a34a63;
+  background: linear-gradient(145deg,#251019,#110c0f);
+  box-shadow: 0 10px 30px rgba(89,16,33,.18);
+}
+.artist-album-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #21141a;
+}
+.artist-album-card strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.artist-album-card span {
+  display: block;
+  margin-top: 3px;
+  color: #8f8086;
+  font-size: 10px;
+}
+.artist-profile-songs {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+
 .artist-profile-song {
   display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 14px;
   padding: 13px 10px; border-bottom: 1px solid rgba(213,160,173,.09); cursor: pointer;
@@ -1707,6 +1825,14 @@ footer {
   <div class="menu-head">
     <span class="menu-label">TANINFY / MENU</span>
     <button class="menu-close" id="menuClose" aria-label="بستن منو">×</button>
+  </div>
+
+  <div class="menu-profile" id="menuProfile" style="display:none;">
+    <img id="menuProfileAvatar" alt="Profile photo">
+    <div class="menu-profile-info">
+      <strong id="menuProfileName">Taninfy User</strong>
+      <span id="menuProfileNickname">@username</span>
+    </div>
   </div>
 
   <nav class="menu-links">
@@ -2064,6 +2190,10 @@ footer {
     <div class="artist-profile-kicker">TANINFY ARTIST</div>
     <h1 id="artistProfileName">Artist</h1>
     <p id="artistProfileCount"></p>
+
+    <div class="artist-albums-heading">ALBUMS</div>
+    <div class="artist-profile-albums" id="artistProfileAlbums"></div>
+
     <div class="artist-profile-songs" id="artistProfileSongs"></div>
   </div>
 </div>
@@ -2286,14 +2416,23 @@ function renderTrackCatalog() {
     return;
   }
 
+  let visibleNumber = 0;
+
   songCatalog.forEach((song, index) => {
+    // featured: false keeps the song in the catalog/search/artist profile,
+    // but hides it from the Home page.
+    if (song.featured === false) return;
+
+    visibleNumber++;
+
     const row = document.createElement("div");
     row.className = "track";
     row.dataset.songId = song.id || String(index);
+    row.dataset.songIndex = String(index);
 
     const number = document.createElement("span");
     number.className = "track-number";
-    number.textContent = String(index + 1).padStart(2, "0");
+    number.textContent = String(visibleNumber).padStart(2, "0");
 
     const info = document.createElement("div");
     info.className = "track-info";
@@ -2336,6 +2475,7 @@ const artistProfileMore = document.getElementById("artistProfileMore");
 const artistProfileAvatar = document.getElementById("artistProfileAvatar");
 const artistProfileName = document.getElementById("artistProfileName");
 const artistProfileCount = document.getElementById("artistProfileCount");
+const artistProfileAlbums = document.getElementById("artistProfileAlbums");
 const artistProfileSongs = document.getElementById("artistProfileSongs");
 
 function artistKey(name) {
@@ -2344,14 +2484,45 @@ function artistKey(name) {
 
 function getArtists() {
   const map = new Map();
+
   songCatalog.forEach((song, index) => {
     const name = song.artist || "هنرمند نامشخص";
     const key = artistKey(name);
-    if (!map.has(key)) map.set(key, { name, songs: [], cover: song.cover || "" });
-    map.get(key).songs.push({ song, index });
-    if (!map.get(key).cover && song.cover) map.get(key).cover = song.cover;
+
+    if (!map.has(key)) {
+      map.set(key, {
+        name,
+        songs: [],
+        albums: new Map(),
+        cover: song.cover || ""
+      });
+    }
+
+    const artist = map.get(key);
+    artist.songs.push({ song, index });
+
+    if (!artist.cover && song.cover) artist.cover = song.cover;
+
+    const albumName = String(song.album || "Singles").trim() || "Singles";
+    const albumKey = albumName.toLocaleLowerCase();
+
+    if (!artist.albums.has(albumKey)) {
+      artist.albums.set(albumKey, {
+        name: albumName,
+        cover: song.cover || "",
+        songs: []
+      });
+    }
+
+    const album = artist.albums.get(albumKey);
+    album.songs.push({ song, index });
+    if (!album.cover && song.cover) album.cover = song.cover;
   });
-  return [...map.values()];
+
+  return [...map.values()].map(artist => ({
+    ...artist,
+    albums: [...artist.albums.values()]
+  }));
 }
 
 function renderSearchSuggestions(query = "") {
@@ -2404,27 +2575,67 @@ function openArtistProfile(name, addHistory = true) {
   if (!artist) return;
 
   artistProfileName.textContent = artist.name;
-  artistProfileCount.textContent = `${artist.songs.length} آهنگ در Taninfy`;
+  artistProfileCount.textContent =
+    `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
   artistProfileAvatar.src = artist.cover || "";
+  artistProfileAlbums.innerHTML = "";
   artistProfileSongs.innerHTML = "";
 
-  artist.songs.forEach(({ song, index }, songNumber) => {
-    const row = document.createElement("div");
-    row.className = "artist-profile-song";
-    row.innerHTML = `
-      <img src="${song.cover || ""}" alt="">
-      <div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div>
-      <button type="button" aria-label="پخش">▶</button>`;
-    row.addEventListener("click", () => setPlayerTrack(index, true));
-    artistProfileSongs.appendChild(row);
+  function renderAlbumSongs(album) {
+    artistProfileSongs.innerHTML = "";
+
+    album.songs.forEach(({ song, index }) => {
+      const row = document.createElement("div");
+      row.className = "artist-profile-song";
+      row.innerHTML = `
+        <img src="${song.cover || ""}" alt="">
+        <div>
+          <strong>${escapeHtml(song.title || "بدون نام")}</strong>
+          <span>${escapeHtml(song.artist || artist.name)}</span>
+        </div>
+        <button type="button" aria-label="پخش">▶</button>`;
+
+      row.addEventListener("click", () => setPlayerTrack(index, true));
+      artistProfileSongs.appendChild(row);
+    });
+  }
+
+  artist.albums.forEach((album, albumIndex) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "artist-album-card" + (albumIndex === 0 ? " active" : "");
+    card.innerHTML = `
+      <img src="${album.cover || ""}" alt="">
+      <strong>${escapeHtml(album.name)}</strong>
+      <span>${album.songs.length} آهنگ</span>`;
+
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".artist-album-card").forEach(item => {
+        item.classList.remove("active");
+      });
+      card.classList.add("active");
+      renderAlbumSongs(album);
+    });
+
+    artistProfileAlbums.appendChild(card);
   });
+
+  if (artist.albums.length) {
+    renderAlbumSongs(artist.albums[0]);
+  }
 
   artistProfile.classList.add("active");
   artistProfile.setAttribute("aria-hidden", "false");
   searchSuggestions.classList.remove("active");
-  if (addHistory) history.pushState({ taninfy: true, artist: artist.name }, "", "#artist-" + encodeURIComponent(artist.name));
-}
 
+  if (addHistory) {
+    history.pushState(
+      { taninfy: true, artist: artist.name },
+      "",
+      "#artist-" + encodeURIComponent(artist.name)
+    );
+  }
+}
 function closeArtistProfile(goBack = true) {
   artistProfile.classList.remove("active");
   artistProfile.setAttribute("aria-hidden", "true");
@@ -2599,8 +2810,8 @@ trackList.addEventListener("click", function(event) {
   const row = event.target.closest(".track");
   if (!row) return;
 
-  const index = Array.from(trackList.querySelectorAll(".track")).indexOf(row);
-  if (index < 0) return;
+  const index = Number(row.dataset.songIndex);
+  if (!Number.isInteger(index) || !songCatalog[index]) return;
 
   setPlayerTrack(index, true);
 });
@@ -2831,6 +3042,35 @@ function getLocalProfile() {
   return JSON.parse(localStorage.getItem(profileKey) || "{}");
 }
 
+function updateMenuProfile(user, profile = {}) {
+  const menuProfile = document.getElementById("menuProfile");
+  const menuAvatar = document.getElementById("menuProfileAvatar");
+  const menuName = document.getElementById("menuProfileName");
+  const menuNickname = document.getElementById("menuProfileNickname");
+
+  if (!menuProfile || !menuAvatar || !menuName || !menuNickname) return;
+
+  if (!user) {
+    menuProfile.style.display = "none";
+    return;
+  }
+
+  const name = profile.name || user.displayName || "Taninfy User";
+  const nickname = (profile.nickname || name.toLowerCase().replace(/\\s+/g, "").slice(0, 18))
+    .replace(/^@/, "");
+
+  menuAvatar.src =
+    user.photoURL ||
+    profile.avatar ||
+    "https://ui-avatars.com/api/?name=" +
+      encodeURIComponent(name) +
+      "&background=3a1823&color=fff&size=128";
+
+  menuName.textContent = name;
+  menuNickname.textContent = "@" + nickname;
+  menuProfile.style.display = "flex";
+}
+
 function renderProfile(user) {
   const guest = document.getElementById("profileGuestPanel");
   const card = document.getElementById("profileCard");
@@ -2841,6 +3081,7 @@ function renderProfile(user) {
     guest.style.display = "block";
     card.style.display = "none";
     edit.style.display = "none";
+    updateMenuProfile(null);
     return;
   }
 
@@ -2860,10 +3101,17 @@ function renderProfile(user) {
   document.getElementById("profileNicknameDisplay2").textContent = "@" + nickname.replace(/^@/, "");
   document.getElementById("profileName").value = name;
   document.getElementById("profileNickname").value = nickname.replace(/^@/, "");
+
+  updateMenuProfile(user, {
+    name,
+    nickname,
+    avatar
+  });
 }
 
-document.getElementById("profileForm").addEventListener("submit", function(event) {
+document.getElementById("profileForm").addEventListener("submit", async function(event) {
   event.preventDefault();
+
   if (!window.taninfyCurrentUser) {
     document.getElementById("profileStatus").textContent = "اول وارد حساب شو.";
     return;
@@ -2874,10 +3122,36 @@ document.getElementById("profileForm").addEventListener("submit", function(event
     nickname: document.getElementById("profileNickname").value.trim().replace(/^@/, "")
   };
 
-  localStorage.setItem(profileKey, JSON.stringify(profile));
-  renderProfile(window.taninfyCurrentUser);
-  document.getElementById("profileStatus").textContent = "پروفایل ذخیره شد.";
-  showSuccessCheck("پروفایل با موفقیت ذخیره شد");
+  if (!profile.name || !profile.nickname) {
+    document.getElementById("profileStatus").textContent = "نام و نام کاربری را وارد کن.";
+    return;
+  }
+
+  const saveButton = this.querySelector("button[type=\"submit\"]");
+  saveButton.disabled = true;
+  document.getElementById("profileStatus").textContent = "در حال بررسی نام کاربری...";
+
+  try {
+    if (typeof window.saveTaninfyProfile === "function") {
+      await window.saveTaninfyProfile(profile);
+    } else {
+      // Local fallback only if Firebase profile storage is unavailable.
+      localStorage.setItem(profileKey, JSON.stringify(profile));
+    }
+
+    localStorage.setItem(profileKey, JSON.stringify(profile));
+    renderProfile(window.taninfyCurrentUser);
+    document.getElementById("profileStatus").textContent = "پروفایل ذخیره شد.";
+    showSuccessCheck("پروفایل با موفقیت ذخیره شد");
+  } catch (error) {
+    console.error(error);
+    document.getElementById("profileStatus").textContent =
+      error.code === "username-already-taken"
+        ? "این نام کاربری قبلاً استفاده شده. یک نام دیگر انتخاب کن."
+        : "ذخیره پروفایل انجام نشد. دوباره امتحان کن.";
+  } finally {
+    saveButton.disabled = false;
+  }
 });
 
 document.getElementById("profileLoginBtn").addEventListener("click", function() {
@@ -3056,6 +3330,12 @@ syncHearts();
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  runTransaction
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAYfNEIpJ_kWOR5XLqgfenBAJOMbmq6Qow",
@@ -3069,12 +3349,92 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
 window.taninfyCurrentUser = null;
+
+function normalizeUsername(value) {
+  return String(value || "")
+    .trim()
+    .replace(/^@/, "")
+    .toLocaleLowerCase()
+    .replace(/\\s+/g, "");
+}
+
+window.saveTaninfyProfile = async function(profile) {
+  const user = window.taninfyCurrentUser;
+  if (!user) throw new Error("not-authenticated");
+
+  const nickname = normalizeUsername(profile.nickname);
+  if (!nickname) throw new Error("invalid-username");
+
+  const profileRef = doc(db, "profiles", user.uid);
+  const usernameRef = doc(db, "usernames", nickname);
+
+  const currentProfileSnap = await getDoc(profileRef);
+  const oldNickname = normalizeUsername(
+    currentProfileSnap.exists() ? currentProfileSnap.data().nickname : ""
+  );
+  const oldUsernameRef = oldNickname ? doc(db, "usernames", oldNickname) : null;
+
+  await runTransaction(db, async (transaction) => {
+    const usernameSnap = await transaction.get(usernameRef);
+
+    if (usernameSnap.exists() && usernameSnap.data().uid !== user.uid) {
+      const error = new Error("username-already-taken");
+      error.code = "username-already-taken";
+      throw error;
+    }
+
+    if (oldUsernameRef && oldNickname !== nickname) {
+      const oldSnap = await transaction.get(oldUsernameRef);
+      if (oldSnap.exists() && oldSnap.data().uid === user.uid) {
+        transaction.delete(oldUsernameRef);
+      }
+    }
+
+    transaction.set(usernameRef, {
+      uid: user.uid,
+      nickname
+    });
+
+    transaction.set(profileRef, {
+      uid: user.uid,
+      name: profile.name,
+      nickname,
+      avatar: user.photoURL || "",
+      updatedAt: Date.now()
+    }, { merge: true });
+  });
+
+  return { ...profile, nickname };
+};
+
+async function loadTaninfyProfile(user) {
+  if (!user) return;
+
+  try {
+    const snap = await getDoc(doc(db, "profiles", user.uid));
+
+    if (snap.exists()) {
+      const remoteProfile = snap.data();
+      localStorage.setItem(profileKey, JSON.stringify({
+        name: remoteProfile.name || user.displayName || "Taninfy User",
+        nickname: remoteProfile.nickname || "",
+        avatar: remoteProfile.avatar || user.photoURL || ""
+      }));
+      renderProfile(user);
+    }
+  } catch (error) {
+    console.warn("Taninfy profile could not be loaded from Firestore.", error);
+  }
+}
 window.taninfyAuthReady = new Promise(resolve => {
-  onAuthStateChanged(auth, user => {
+  onAuthStateChanged(auth, async user => {
     window.taninfyCurrentUser = user || null;
     renderProfile(user || null);
+    if (user) await loadTaninfyProfile(user);
+
     const accountBox = document.getElementById("userAccountBox");
     const loginBtn = document.getElementById("googleLoginBtn");
     const signedAvatar = document.getElementById("signedUserAvatar");
@@ -3117,6 +3477,7 @@ document.getElementById("googleLoginBtn").addEventListener("click", async () => 
   try {
     const result = await signInWithPopup(auth, provider);
     const firstLogin = !localStorage.getItem("taninfy-profile");
+    renderProfile(result.user);
     status.textContent = "با موفقیت وارد شدی.";
     showSuccessCheck(firstLogin ? "ثبت‌نام با موفقیت انجام شد" : "ورود با موفقیت انجام شد");
     if (firstLogin && typeof showPage === "function") setTimeout(() => showPage("profile"), 1200);
