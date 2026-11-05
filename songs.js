@@ -64,11 +64,11 @@ window.TANINFY_SONGS = [
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
-    id: "song-3",
-    title: "Extasy",
-    artist: "Koorosh & Sijal & Samilow & Raha",
+    id: "song-9",
+    title: "Sebebi Yar",
+    artist: "BLOK3",
     genre: "Pop",
-    src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
+    src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
    },
    {
