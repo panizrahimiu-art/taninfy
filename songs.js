@@ -12,7 +12,7 @@ window.TANINFY_SONGS = [
     title: "Nafas",
     artist: "Morteza Pashayi",
     genre: "Pop",
-    src: "https://dls.musics-fa.com/tagdl/ali/Morteza%20Pashaei%20-%20Nafas%20(320).mp3",
+    src: "https://dl.sevilmusics.com/cdn/music/sva/Morteza%20Pashaei%20-%20Nafas%20[320].mp3",
     cover: "DIRECT-COVER-IMAGE-URL"
   },
   {
