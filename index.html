@@ -1933,42 +1933,23 @@ footer {
 
     <div class="panel">
 
-      <h2>ورود به حساب</h2>
+      <h2>ورود به Taninfy</h2>
 
-      <form class="form" id="loginForm">
+      <button class="btn btn-primary" type="button" id="googleLoginBtn" style="width:100%; margin-top:10px;">
+        Continue with Google
+      </button>
 
-        <input class="field" type="email" placeholder="ایمیل" required>
+      <div class="form-status" id="loginStatus"></div>
 
-        <input class="field" type="password" placeholder="رمز عبور" required minlength="6">
-
-        <button class="btn btn-primary" type="submit">Log in</button>
-
-        <div class="form-status" id="loginStatus"></div>
-
-      </form>
-
-    </div>
-
-    <div class="panel">
-
-      <h2>ساخت حساب جدید</h2>
-
-      <form class="form" id="signupForm">
-
-        <input class="field" type="text" placeholder="نام" required>
-
-        <input class="field" type="email" placeholder="ایمیل" required>
-
-        <input class="field" type="password" placeholder="رمز عبور" required minlength="6">
-
-        <button class="btn btn-primary" type="submit">Sign in</button>
-
-        <div class="form-status" id="signupStatus"></div>
-
-      </form>
+      <div id="userAccountBox" style="display:none; margin-top:18px;">
+        <p id="userAccountText" style="margin:0 0 12px;"></p>
+        <button class="btn btn-secondary" type="button" id="logoutBtn">
+          Log out
+        </button>
+      </div>
 
       <p class="form-note">
-        توجه: این فرم نمایشی است و هنوز به سیستم واقعی حساب کاربری متصل نشده.
+        ورود با حساب Google انجام می‌شود و حساب کاربری توسط Firebase Authentication مدیریت می‌شود.
       </p>
 
     </div>
@@ -2817,16 +2798,8 @@ document.getElementById("contactForm").addEventListener("submit", function(event
 });
 
 
-/* LOGIN AND SIGNUP */
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  document.getElementById("loginStatus").textContent = "ورود واقعی هنوز فعال نیست؛ سیستم حساب کاربری به سایت متصل نشده است.";
-});
-
-document.getElementById("signupForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  document.getElementById("signupStatus").textContent = "برای فعال شدن ثبت‌نام واقعی، سایت باید به سیستم احراز هویت متصل شود.";
-});
+/* LOGIN / GOOGLE AUTHENTICATION */
+/* Firebase Authentication is initialized in the module script below. */
 
 
 /* FULL SCREEN MUSIC PLAYER */
@@ -2984,6 +2957,95 @@ renderFavorites();
 renderPlaylists();
 syncHearts();
 
+</script>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAYfNEIpJ_kWOR5XLqgfenBAJOMbmq6Qow",
+    authDomain: "taninfy-cc186.firebaseapp.com",
+    projectId: "taninfy-cc186",
+    storageBucket: "taninfy-cc186.firebasestorage.app",
+    messagingSenderId: "209069893864",
+    appId: "1:209069893864:web:c78e3bb04cf868e270c15d",
+    measurementId: "G-H24NR6WBZE"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+
+  const googleLoginBtn = document.getElementById("googleLoginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const loginStatus = document.getElementById("loginStatus");
+  const userAccountBox = document.getElementById("userAccountBox");
+  const userAccountText = document.getElementById("userAccountText");
+
+  if (googleLoginBtn) {
+    googleLoginBtn.addEventListener("click", async () => {
+      loginStatus.textContent = "در حال اتصال به Google...";
+      googleLoginBtn.disabled = true;
+
+      try {
+        await signInWithPopup(auth, googleProvider);
+      } catch (error) {
+        console.error("Google sign-in error:", error);
+
+        if (error.code === "auth/popup-closed-by-user") {
+          loginStatus.textContent = "پنجره Google بسته شد.";
+        } else if (error.code === "auth/unauthorized-domain") {
+          loginStatus.textContent = "دامنه سایت هنوز در Firebase مجاز نشده است.";
+        } else {
+          loginStatus.textContent = "ورود با Google انجام نشد. دوباره امتحان کن.";
+        }
+
+        googleLoginBtn.disabled = false;
+      }
+    });
+  }
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+        loginStatus.textContent = "از حساب خارج شدی.";
+      } catch (error) {
+        console.error("Logout error:", error);
+        loginStatus.textContent = "خروج از حساب انجام نشد.";
+      }
+    });
+  }
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const displayName = user.displayName || "Taninfy User";
+      const email = user.email || "";
+
+      loginStatus.textContent = "با موفقیت وارد شدی.";
+      userAccountText.textContent = email
+        ? `${displayName} — ${email}`
+        : displayName;
+
+      userAccountBox.style.display = "block";
+      googleLoginBtn.textContent = "Google account connected";
+      googleLoginBtn.disabled = true;
+      googleLoginBtn.style.opacity = "0.7";
+    } else {
+      userAccountBox.style.display = "none";
+      googleLoginBtn.textContent = "Continue with Google";
+      googleLoginBtn.disabled = false;
+      googleLoginBtn.style.opacity = "1";
+    }
+  });
 </script>
 
 </body>
