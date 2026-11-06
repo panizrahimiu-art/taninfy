@@ -7,7 +7,7 @@ const artists = [
   },
   {
     name: "Billie Eilish",
-    image: "لینک عکس Billie Eilish",
+    image: "https://th.bing.com/th/id/OIP.c1GNgzZ0xgLgPFz2HbNz6wHaJQ?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     genre: "Pop"
   }
   {
