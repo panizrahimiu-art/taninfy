@@ -16,7 +16,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.sevilmusics.com/cdn/music/sva/Morteza%20Pashaei%20-%20Nafas%20[320].mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.Fwi3wysT42U2TTQq8DoPzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
