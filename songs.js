@@ -129,23 +129,23 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-2",
-    title: "Nafas",
-    artist: "Morteza Pashayi",
+    id: "song-14",
+    title: "Blue",
+    artist: "Billie Eilish",
     genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.sevilmusics.com/cdn/music/sva/Morteza%20Pashaei%20-%20Nafas%20[320].mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    album: "HIT ME HARD AND SOFT",
+    src: "https://dl.behmelody.in/1403/08/02/Billie%20Eilish%20-%20Blue.mp3",
+    cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
     featured: true
   },
   {
-    id: "song-3",
-    title: "Extasy",
-    artist: "Koorosh & Sijal & Samilow & Raha",
+    id: "song-15",
+    title: "WILDFLOWER",
+    artist: "Billie Eilish",
     genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    album: "HIT ME HARD AND SOFT",
+    src: "https://behmelody.musitraf.ir/1404/04/23/Billie%20Eilish%20-%20WILDFLOWER.mp3",
+    cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
     featured: true
    },
    {
