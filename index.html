@@ -2264,6 +2264,11 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 
 
 /* Explore song covers + general artist directory */
+.track-cover-wrap{position:relative;width:96px;height:96px;flex:0 0 96px;border-radius:11px;overflow:hidden;}
+.track-cover-wrap .track-cover-thumb{display:block;width:100%;height:100%;}
+.track-cover-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(12,7,11,.38);color:#fff;font-size:25px;opacity:.92;transition:background .2s,opacity .2s;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.track-cover-wrap:hover .track-cover-play,.track.is-playing .track-cover-play{background:rgba(95,20,48,.62);opacity:1}
+.track-cover-play.active{font-size:22px}
 .track{grid-template-columns:32px 78px minmax(0,1fr) auto auto;align-items:center;gap:15px;padding:15px 10px;min-height:106px}
 .track-cover-thumb{width:96px;height:96px;border-radius:11px;object-fit:cover;background:#21141a;box-shadow:0 5px 16px rgba(0,0,0,.25)}
 .track-info{min-width:0}
@@ -2287,6 +2292,7 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 @media(max-width:650px){
  .track{grid-template-columns:25px 66px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px}
  .track-cover-thumb{width:80px;height:80px;border-radius:9px}
+ .track-cover-wrap{width:80px;height:80px;flex-basis:80px}
  .artist-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
  .artist-directory-card{padding:12px 8px 14px}
  .artist-directory-card img{width:min(100%,125px)}
@@ -2425,6 +2431,7 @@ body.light-theme .page { color:#34232a; }
 @media(max-width:650px) {
   .track { grid-template-columns:25px 92px minmax(0,1fr) 38px 38px; min-height:112px; }
   .track-cover-thumb { width:92px; height:92px; }
+  .track-cover-wrap{width:92px;height:92px;flex-basis:92px}
 }
 .full-action-btn { min-width:48px; }
 
@@ -3206,11 +3213,18 @@ function renderTrackCatalog() {
     number.className = "track-number";
     number.textContent = String(position + 1).padStart(2, "0");
 
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "track-cover-wrap";
     const cover = document.createElement("img");
     cover.className = "track-cover-thumb";
     cover.src = song.cover || "";
     cover.alt = `کاور ${song.title}`;
     cover.loading = "lazy";
+    const coverPlay = document.createElement("span");
+    coverPlay.className = "track-cover-play";
+    coverPlay.setAttribute("aria-hidden", "true");
+    coverPlay.textContent = "▶";
+    coverWrap.append(cover, coverPlay);
 
     const info = document.createElement("div");
     info.className = "track-info";
@@ -3232,7 +3246,7 @@ function renderTrackCatalog() {
     heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
     heart.textContent = "♡";
 
-    row.append(number, cover, info, play, heart);
+    row.append(number, coverWrap, info, play, heart);
     trackList.appendChild(row);
   });
 }
@@ -3718,9 +3732,7 @@ function setPlayerTrack(index, autoplay = true) {
   audioPlayer.load();
   preloadAdjacentTrack();
 
-  document.querySelectorAll(".track-play").forEach((button, i) => {
-    button.textContent = i === index ? "Ⅱ" : "▶";
-  });
+  updateTrackButtons();
 
   if (autoplay) {
     audioPlayer.play().catch(() => {
@@ -3750,8 +3762,17 @@ function preloadAdjacentTrack() {
 }
 
 function updateTrackButtons() {
-  document.querySelectorAll(".track-play").forEach((button, i) => {
-    button.textContent = i === currentTrackIndex && !audioPlayer.paused ? "Ⅱ" : "▶";
+  document.querySelectorAll("#trackList .track").forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const active = index === currentTrackIndex && !audioPlayer.paused;
+    const sideButton = row.querySelector(".track-play");
+    const coverIcon = row.querySelector(".track-cover-play");
+    if (sideButton) sideButton.textContent = active ? "Ⅱ" : "▶";
+    if (coverIcon) {
+      coverIcon.textContent = active ? "Ⅱ" : "▶";
+      coverIcon.classList.toggle("active", active);
+    }
+    row.classList.toggle("is-playing", active);
   });
 }
 
@@ -4759,6 +4780,9 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
+
 
 
 
