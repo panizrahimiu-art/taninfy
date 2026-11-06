@@ -2276,6 +2276,14 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 .artist-directory-card span{font-size:11px;color:#a99ba1}
 .artists-intro{margin:8px 0 0;color:#91868b;font-size:13px}
 #artistProfile .artist-favorite-btn{display:none!important}
+.artist-directory-photo{width:min(100%,145px);aspect-ratio:1;position:relative;flex:0 0 auto}
+.artist-directory-open{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;border-radius:50%;overflow:hidden}
+.artist-directory-photo .artist-directory-open img{width:100%;height:100%;display:block}
+.artist-directory-favorite{position:absolute;right:2px;bottom:2px;width:36px;height:36px;border-radius:50%;border:2px solid #d5a0ad;background:#171017;color:#fff;font-size:25px;line-height:1;display:grid;place-items:center;box-shadow:0 4px 14px #0008;z-index:2}
+.artist-directory-favorite.active{background:#d5a0ad;color:#211017}
+.artist-directory-card{cursor:default}
+.artist-directory-card strong,.artist-directory-card span{pointer-events:none}
+@media(max-width:650px){.artist-directory-photo{width:min(100%,125px)}.artist-directory-favorite{width:33px;height:33px;font-size:23px}}
 @media(max-width:650px){
  .track{grid-template-columns:25px 66px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px}
  .track-cover-thumb{width:80px;height:80px;border-radius:9px}
@@ -3123,27 +3131,72 @@ document.addEventListener("keydown", function(event) {
 const trackList = document.getElementById("trackList");
 const songCatalog = Array.isArray(window.TANINFY_SONGS) ? window.TANINFY_SONGS : [];
 
+function shuffleItems(items) {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function getExploreRecommendations() {
+  // آهنگ‌های ناقص و تکراری از پیشنهادها حذف می‌شوند؛ ایندکس اصلی برای پخش حفظ می‌شود.
+  const seen = new Set();
+  const all = songCatalog.map((song, index) => ({ song, index }))
+    .filter(({ song }) => song && song.title && song.artist && song.src && song.featured !== false)
+    .filter(({ song }) => {
+      const key = String(song.src || `${song.title}|${song.artist}`).trim().toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+  const history = window.taninfyListeningStats || {};
+  const artistCounts = history.artistCounts || {};
+  let savedFavoriteArtists = [];
+  try { savedFavoriteArtists = JSON.parse(localStorage.getItem("taninfy-favorite-artists") || "[]"); } catch (_) {}
+  const favoriteNames = new Set(savedFavoriteArtists.map(item => artistKey(item.name)));
+  const topArtists = Object.entries(artistCounts)
+    .sort((a, b) => Number(b[1] || 0) - Number(a[1] || 0))
+    .slice(0, 8).map(([name]) => artistKey(name));
+
+  const listened = all.filter(({song}) => topArtists.includes(artistKey(song.artist)));
+  const favorites = all.filter(({song}) => favoriteNames.has(artistKey(song.artist)));
+  const now = Date.now();
+  const fresh = all.filter(({song}) => song.isNew === true ||
+    (song.uploadedAt && now - new Date(song.uploadedAt).getTime() <= 30 * 86400000));
+
+  const chosen = new Map();
+  const take = (items, limit) => {
+    shuffleItems(items).slice(0, limit).forEach(item => chosen.set(item.index, item));
+  };
+  take(listened, 15);
+  take(favorites.filter(item => !chosen.has(item.index)), 15);
+  take(fresh.filter(item => !chosen.has(item.index)), 10);
+  take(all.filter(item => !chosen.has(item.index)), 10);
+
+  // اگر یکی از دسته‌ها کم‌تعداد بود، ظرفیت خالی با آهنگ‌های یکتای دیگر پر می‌شود.
+  if (chosen.size < 50) {
+    take(all.filter(item => !chosen.has(item.index)), 50 - chosen.size);
+  }
+  return shuffleItems([...chosen.values()]).slice(0, 50);
+}
+
 function renderTrackCatalog() {
   trackList.innerHTML = "";
-
   if (!songCatalog.length) {
     trackList.innerHTML = '<p class="form-note">هنوز آهنگی اضافه نشده. لینک آهنگ‌ها را در فایل songs.js وارد کن.</p>';
     return;
   }
 
-  let visibleNumber = 0;
+  const recommendations = getExploreRecommendations();
+  if (!recommendations.length) {
+    trackList.innerHTML = '<p class="form-note">هنوز آهنگ کامل و قابل پخشی برای نمایش وجود ندارد.</p>';
+    return;
+  }
 
-  const followedNames = new Set(JSON.parse(localStorage.getItem("taninfy-favorite-artists") || "[]").map(item => String(item.name || "").trim().toLowerCase()));
-  const prioritizedSongs = songCatalog.map((song, index) => ({ song, index }))
-    .filter(({ song }) => song.featured !== false)
-    .sort((a, b) => Number(followedNames.has(String(b.song.artist || "").trim().toLowerCase())) - Number(followedNames.has(String(a.song.artist || "").trim().toLowerCase())));
-  prioritizedSongs.forEach(({ song, index }) => {
-    // followed artists are prioritized in the Explore track list.
-    // but hides it from the Home page.
-    if (song.featured === false) return;
-
-    visibleNumber++;
-
+  recommendations.forEach(({ song, index }, position) => {
     const row = document.createElement("div");
     row.className = "track";
     row.dataset.songId = song.id || String(index);
@@ -3151,23 +3204,20 @@ function renderTrackCatalog() {
 
     const number = document.createElement("span");
     number.className = "track-number";
-    number.textContent = String(visibleNumber).padStart(2, "0");
+    number.textContent = String(position + 1).padStart(2, "0");
 
     const cover = document.createElement("img");
     cover.className = "track-cover-thumb";
     cover.src = song.cover || "";
-    cover.alt = song.title ? `کاور ${song.title}` : "کاور آهنگ";
+    cover.alt = `کاور ${song.title}`;
     cover.loading = "lazy";
 
     const info = document.createElement("div");
     info.className = "track-info";
-
     const title = document.createElement("strong");
-    title.textContent = song.title || "بدون نام";
-
+    title.textContent = song.title;
     const artist = document.createElement("span");
-    artist.textContent = song.artist || "هنرمند نامشخص";
-
+    artist.textContent = song.artist;
     info.append(title, artist);
 
     const play = document.createElement("button");
@@ -3188,6 +3238,7 @@ function renderTrackCatalog() {
 }
 
 renderTrackCatalog();
+window.renderTaninfyExplore = renderTrackCatalog;
 
 
 /* SEARCH + ARTIST PROFILES */
@@ -3246,19 +3297,41 @@ function renderArtistDirectory() {
   }
 
   artists.sort((a, b) => a.name.localeCompare(b.name, "fa")).forEach(artist => {
-    const card = document.createElement("button");
-    card.type = "button";
+    const card = document.createElement("div");
     card.className = "artist-directory-card";
+    const photoWrap = document.createElement("div");
+    photoWrap.className = "artist-directory-photo";
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "artist-directory-open";
+    open.setAttribute("aria-label", `مشاهده پروفایل ${artist.name}`);
     const img = document.createElement("img");
     if (artist.image) img.src = artist.image;
     img.alt = artist.name;
     img.loading = "lazy";
+    open.appendChild(img);
+    const favorite = document.createElement("button");
+    favorite.type = "button";
+    favorite.className = "artist-directory-favorite";
+    const syncFavorite = () => {
+      const active = isFavoriteArtist(artist.name);
+      favorite.classList.toggle("active", active);
+      favorite.textContent = active ? "✓" : "+";
+      favorite.setAttribute("aria-label", active ? "حذف از هنرمندان موردعلاقه" : "افزودن به هنرمندان موردعلاقه");
+    };
+    syncFavorite();
+    favorite.addEventListener("click", async event => {
+      event.stopPropagation();
+      const ok = await toggleFavoriteArtist(artist);
+      if (ok) { syncFavorite(); renderArtistDirectory(); }
+    });
+    open.addEventListener("click", () => openArtistProfile(artist.name, true));
+    photoWrap.append(open, favorite);
     const name = document.createElement("strong");
     name.textContent = artist.name;
     const count = document.createElement("span");
     count.textContent = `${artist.songs.length} آهنگ`;
-    card.append(img, name, count);
-    card.addEventListener("click", () => openArtistProfile(artist.name, true));
+    card.append(photoWrap, name, count);
     box.appendChild(card);
   });
 }
@@ -3350,6 +3423,7 @@ async function toggleFavoriteArtist(artist) {
   saveFavoriteArtists();
   renderFavoriteArtists();
   renderTrackCatalog();
+  renderArtistDirectory();
   syncHearts();
   return true;
 }
@@ -3522,6 +3596,21 @@ const nextTrack = document.getElementById("nextTrack");
 
 let currentTrackIndex = -1;
 let isLoadingTrack = false;
+let trackedPlayIndex = -1;
+let trackedPlayRecorded = false;
+
+function maybeRecordMeaningfulListen() {
+  if (currentTrackIndex < 0 || audioPlayer.paused || trackedPlayRecorded) return;
+  const duration = Number(audioPlayer.duration);
+  const threshold = Number.isFinite(duration) && duration > 0 ? Math.min(30, duration * 0.5) : 30;
+  if (audioPlayer.currentTime >= threshold) {
+    trackedPlayRecorded = true;
+    const song = songCatalog[currentTrackIndex];
+    if (song && typeof window.recordTaninfyListen === "function") {
+      window.recordTaninfyListen(song).catch(error => console.warn("Listen stats could not be saved.", error));
+    }
+  }
+}
 let bufferAnimationFrame = null;
 
 function setBufferProgress(percent) {
@@ -3590,6 +3679,8 @@ function setPlayerTrack(index, autoplay = true) {
   if (!songCatalog.length || !songCatalog[index]) return;
 
   currentTrackIndex = index;
+  trackedPlayIndex = index;
+  trackedPlayRecorded = false;
   const track = songCatalog[index];
 
   nowTitle.textContent = track.title || "بدون نام";
@@ -3711,6 +3802,7 @@ audioPlayer.addEventListener("loadstart", function() {
 audioPlayer.addEventListener("progress", updateBufferProgress);
 
 audioPlayer.addEventListener("loadedmetadata", updateBufferProgress);
+audioPlayer.addEventListener("timeupdate", maybeRecordMeaningfulListen);
 
 audioPlayer.addEventListener("canplay", function() {
   setLoadingState(false);
@@ -4336,6 +4428,43 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider();
+
+window.taninfyListeningStats = { songCounts: {}, artistCounts: {} };
+window.loadTaninfyListeningStats = async function(user) {
+  if (!user) {
+    window.taninfyListeningStats = { songCounts: {}, artistCounts: {} };
+    return;
+  }
+  try {
+    const statsRef = doc(db, "listeningStats", user.uid);
+    const statsSnap = await getDoc(statsRef);
+    window.taninfyListeningStats = statsSnap.exists()
+      ? { songCounts: statsSnap.data().songCounts || {}, artistCounts: statsSnap.data().artistCounts || {} }
+      : { songCounts: {}, artistCounts: {} };
+    if (typeof window.renderTaninfyExplore === "function") window.renderTaninfyExplore();
+  } catch (error) {
+    console.warn("Listening history could not be loaded.", error);
+  }
+};
+
+window.recordTaninfyListen = async function(song) {
+  const user = window.taninfyCurrentUser;
+  if (!user || !song) return;
+  const songKey = encodeURIComponent(String(song.id || `${song.artist}-${song.title}`));
+  const artistName = String(song.artist || "Unknown");
+  const statsRef = doc(db, "listeningStats", user.uid);
+  await runTransaction(db, async transaction => {
+    const snap = await transaction.get(statsRef);
+    const data = snap.exists() ? snap.data() : {};
+    const songCounts = { ...(data.songCounts || {}) };
+    const artistCounts = { ...(data.artistCounts || {}) };
+    songCounts[songKey] = Number(songCounts[songKey] || 0) + 1;
+    artistCounts[artistName] = Number(artistCounts[artistName] || 0) + 1;
+    transaction.set(statsRef, { songCounts, artistCounts, updatedAt: Date.now() }, { merge: true });
+    window.taninfyListeningStats = { songCounts, artistCounts };
+  });
+  if (typeof window.renderTaninfyExplore === "function") window.renderTaninfyExplore();
+};
 window.taninfyCurrentUser = null;
 
 function normalizeUsername(value) {
@@ -4418,7 +4547,12 @@ window.taninfyAuthReady = new Promise(resolve => {
   onAuthStateChanged(auth, async user => {
     window.taninfyCurrentUser = user || null;
     renderProfile(user || null);
-    if (user) await loadTaninfyProfile(user);
+    if (user) {
+      await loadTaninfyProfile(user);
+      await window.loadTaninfyListeningStats(user);
+    } else {
+      await window.loadTaninfyListeningStats(null);
+    }
 
     const accountBox = document.getElementById("userAccountBox");
     const loginBtn = document.getElementById("googleLoginBtn");
@@ -4625,6 +4759,10 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
+
+
 
 
 
