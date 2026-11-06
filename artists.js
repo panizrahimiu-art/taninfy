@@ -11,42 +11,42 @@ const artists = [
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "BLOK3",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "Hoomaan",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
   {
-    name: "Billie Eilish",
+    name: "",
     image: "لینک عکس Billie Eilish",
     genre: "Pop"
   }
