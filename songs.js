@@ -149,13 +149,13 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
-    title: "Un-Break My Heart",
-    artist: "Toni Braxton",
+    id: "song-16",
+    title: "Creep",
+    artist: "Radiohead",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    src: "https://dl.arasmusic.com/05/07/Radiohead%20-%20Creep.mp3",
+    cover: "https://rytmzendegy.ir/_next/image?url=https%3A%2F%2Fdl.rytmzendegy.ir%2Fcover%2Fcover-creep-by-radiohead.jpg&w=768&q=80",
     featured: true
   },
   {
