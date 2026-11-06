@@ -2400,6 +2400,11 @@ body.light-theme .full-action-btn { color:#34232a !important; }
 body.light-theme .full-song-info p { color:var(--wine2) !important; }
 body.light-theme .full-progress-area { color:#57464d !important; }
 body.light-theme .full-play-btn { color:#fff !important; }
+body.light-theme .artist-profile { background:radial-gradient(60% 45% at 50% 0%,rgba(213,160,173,.2),transparent 70%),#f4eff1 !important; color:#34232a !important; }
+body.light-theme .artist-profile-topbar { background:rgba(250,247,248,.92) !important; color:#796b71 !important; }
+body.light-theme .artist-profile h1, body.light-theme .artist-profile-song strong { color:#34232a !important; }
+body.light-theme .artist-profile-song span, body.light-theme .artist-profile-count { color:#796b71 !important; }
+body.light-theme .artist-back, body.light-theme .artist-profile-song button { color:#34232a !important; }
 body.light-theme .full-action-btn { border-color:rgba(74,35,49,.2); }
 body.light-theme .player { background:rgba(255,250,252,.97) !important; }
 body.light-theme .now-playing strong { color:#34232a !important; }
@@ -2464,7 +2469,7 @@ body.light-theme .page { color:#34232a; }
     <a href="#playlist" data-page="playlist"><span>♫</span>پلی‌لیست‌ها</a>
     <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
     <a href="#settings" data-page="settings"><span>⚙</span>تنظیمات</a>
-    <a href="#contact" data-page="contact"><span>ⓘ</span>ارتباط با ما</a>
+    <a href="#favorites" data-page="favorites"><span>♡</span>موردعلاقه‌ها</a>
   </nav>
   <div class="sidebar-bottom">
     <small>YOUR MOOD, YOUR SOUND</small>
@@ -2513,11 +2518,6 @@ body.light-theme .page { color:#34232a; }
     <a href="#login" data-page="login">
       <span class="menu-icon">↪</span>
       <span>Sign in / Log in</span>
-    </a>
-
-    <a href="#contact" data-page="contact">
-      <span class="menu-icon">✉</span>
-      <span>Contact Us</span>
     </a>
 
   </nav>
@@ -2700,8 +2700,12 @@ body.light-theme .page { color:#34232a; }
     </div>
 
     <div class="panel">
-      <h2>آهنگ‌های موردعلاقه</h2>
+      <h2>هنرمندان موردعلاقه</h2>
+      <div id="favoriteArtistList"></div>
+    </div>
 
+    <div class="panel">
+      <h2>آهنگ‌های موردعلاقه</h2>
       <div id="favoriteList"></div>
     </div>
 
@@ -2818,6 +2822,7 @@ body.light-theme .page { color:#34232a; }
         <div class="settings-card-heading"><span class="settings-symbol">♧</span><div><h2>حریم خصوصی</h2><p>کنترل نمایش اطلاعات حساب.</p></div></div>
         <div class="setting-row"><div><strong>نمایش عمومی پروفایل</strong><span>اجازه بده دیگران پروفایلت را ببینند.</span></div><label class="switch"><input id="settingPublicProfile" type="checkbox" checked><span></span></label></div>
         <div class="setting-row"><div><strong>نمایش پلی‌لیست‌ها</strong><span>پلی‌لیست‌ها در پروفایلت نمایش داده شوند.</span></div><label class="switch"><input id="settingShowPlaylists" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>ارتباط با ما</strong><span>ارسال نظر، پیشنهاد یا پیام به Taninfy.</span></div><button type="button" class="btn btn-secondary" data-page="contact">ورود به صفحه ارتباط</button></div>
       </section>
 
     </div>
@@ -2835,7 +2840,7 @@ body.light-theme .page { color:#34232a; }
 
     <div class="page-heading">
       <small>GET IN TOUCH</small>
-      <h1>Contact Us</h1>
+      <h1>ارتباط با ما</h1>
     </div>
 
     <div class="panel">
@@ -2876,8 +2881,8 @@ body.light-theme .page { color:#34232a; }
     <button id="closeArtistProfile" class="artist-back" aria-label="بازگشت">⌄</button>
     <span>ARTIST</span>
     <div class="artist-profile-actions">
-      <button id="artistFavoriteBtn" class="artist-favorite-btn" type="button" aria-label="ذخیره هنرمند" title="Favorite Artist">♡</button>
-      <button id="artistProfileMore" class="artist-more" aria-label="گزینه‌ها">•••</button>
+      <button id="artistFavoriteBtn" class="artist-favorite-btn" type="button" aria-label="افزودن هنرمند به موردعلاقه‌ها" title="افزودن به موردعلاقه‌ها">＋</button>
+
     </div>
   </div>
   <div class="artist-profile-content">
@@ -3023,6 +3028,7 @@ body.light-theme .page { color:#34232a; }
   </div>
 </div>
 
+<script src="artists.js"></script>
 <script>
 
 /* PAGE NAVIGATION */
@@ -3127,8 +3133,12 @@ function renderTrackCatalog() {
 
   let visibleNumber = 0;
 
-  songCatalog.forEach((song, index) => {
-    // featured: false keeps the song in the catalog/search/artist profile,
+  const followedNames = new Set(JSON.parse(localStorage.getItem("taninfy-favorite-artists") || "[]").map(item => String(item.name || "").trim().toLowerCase()));
+  const prioritizedSongs = songCatalog.map((song, index) => ({ song, index }))
+    .filter(({ song }) => song.featured !== false)
+    .sort((a, b) => Number(followedNames.has(String(b.song.artist || "").trim().toLowerCase())) - Number(followedNames.has(String(a.song.artist || "").trim().toLowerCase())));
+  prioritizedSongs.forEach(({ song, index }) => {
+    // followed artists are prioritized in the Explore track list.
     // but hides it from the Home page.
     if (song.featured === false) return;
 
@@ -3200,46 +3210,28 @@ function artistKey(name) {
 
 function getArtists() {
   const map = new Map();
-
+  const profileData = Array.isArray(window.TANINFY_ARTISTS) ? window.TANINFY_ARTISTS : [];
+  profileData.forEach(profile => {
+    if (!profile || !profile.name) return;
+    map.set(artistKey(profile.name), {
+      name: profile.name, image: profile.image || "", genre: profile.genre || "",
+      songs: [], albums: new Map()
+    });
+  });
   songCatalog.forEach((song, index) => {
     const name = song.artist || "هنرمند نامشخص";
     const key = artistKey(name);
-
-    if (!map.has(key)) {
-      map.set(key, {
-        name,
-        songs: [],
-        albums: new Map(),
-        cover: song.artistCover || song.artistImage || song.cover || ""
-      });
-    }
-
+    if (!map.has(key)) map.set(key, { name, image: "", genre: "", songs: [], albums: new Map() });
     const artist = map.get(key);
     artist.songs.push({ song, index });
-
-    if (song.artistCover || song.artistImage) artist.cover = song.artistCover || song.artistImage;
-    else if (!artist.cover && song.cover) artist.cover = song.cover;
-
     const albumName = String(song.album || "Singles").trim() || "Singles";
     const albumKey = albumName.toLocaleLowerCase();
-
-    if (!artist.albums.has(albumKey)) {
-      artist.albums.set(albumKey, {
-        name: albumName,
-        cover: song.cover || "",
-        songs: []
-      });
-    }
-
+    if (!artist.albums.has(albumKey)) map.get(key).albums.set(albumKey, { name: albumName, cover: song.cover || "", songs: [] });
     const album = artist.albums.get(albumKey);
     album.songs.push({ song, index });
     if (!album.cover && song.cover) album.cover = song.cover;
   });
-
-  return [...map.values()].map(artist => ({
-    ...artist,
-    albums: [...artist.albums.values()]
-  }));
+  return [...map.values()].map(artist => ({ ...artist, albums: [...artist.albums.values()] }));
 }
 
 function renderArtistDirectory() {
@@ -3258,7 +3250,7 @@ function renderArtistDirectory() {
     card.type = "button";
     card.className = "artist-directory-card";
     const img = document.createElement("img");
-    img.src = artist.cover || "";
+    if (artist.image) img.src = artist.image;
     img.alt = artist.name;
     img.loading = "lazy";
     const name = document.createElement("strong");
@@ -3287,7 +3279,7 @@ function renderSearchSuggestions(query = "") {
     button.className = "search-suggestion";
     button.type = "button";
     button.innerHTML = `
-      <img class="search-suggestion-cover" src="${artist.cover || ""}" alt="">
+      <img class="search-suggestion-cover" src="${artist.image || ""}" alt="">
       <span class="search-suggestion-info"><strong>${escapeHtml(artist.name)}</strong><span>${artist.songs.length} آهنگ</span></span>
       <span class="search-suggestion-type">ARTIST PROFILE</span>
       <span class="search-artist-heart" aria-hidden="true">${isFavoriteArtist(artist.name) ? "♥" : "♡"}</span>`;
@@ -3351,12 +3343,14 @@ async function toggleFavoriteArtist(artist) {
   } else {
     favoriteArtists.push({
       name: artist.name,
-      cover: artist.cover || ""
+      image: artist.image || ""
     });
   }
 
   saveFavoriteArtists();
   renderFavoriteArtists();
+  renderTrackCatalog();
+  syncHearts();
   return true;
 }
 
@@ -3364,7 +3358,8 @@ function syncArtistFavoriteButton(name) {
   if (!artistFavoriteBtn) return;
   const active = isFavoriteArtist(name);
   artistFavoriteBtn.classList.toggle("active", active);
-  artistFavoriteBtn.textContent = active ? "♥" : "♡";
+  artistFavoriteBtn.textContent = active ? "✓" : "＋";
+  artistFavoriteBtn.setAttribute("aria-label", active ? "حذف هنرمند از موردعلاقه‌ها" : "افزودن هنرمند به موردعلاقه‌ها");
 }
 
 function renderFavoriteArtists() {
@@ -3382,7 +3377,7 @@ function renderFavoriteArtists() {
     row.className = "favorite-artist-row";
 
     const img = document.createElement("img");
-    img.src = item.cover || "";
+    if (item.image) img.src = item.image;
     img.alt = item.name;
 
     const open = document.createElement("button");
@@ -3400,6 +3395,8 @@ function renderFavoriteArtists() {
       favoriteArtists.splice(index, 1);
       saveFavoriteArtists();
       renderFavoriteArtists();
+      renderTrackCatalog();
+      syncHearts();
       syncArtistFavoriteButton(item.name);
     });
 
@@ -3408,6 +3405,8 @@ function renderFavoriteArtists() {
   });
 }
 
+renderFavoriteArtists();
+
 function openArtistProfile(name, addHistory = true) {
   const artist = getArtists().find(a => artistKey(a.name) === artistKey(name));
   if (!artist) return;
@@ -3415,7 +3414,8 @@ function openArtistProfile(name, addHistory = true) {
   artistProfileName.textContent = artist.name;
   artistProfileCount.textContent =
     `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
-  artistProfileAvatar.src = artist.cover || "";
+  artistProfileAvatar.removeAttribute("src");
+  if (artist.image) artistProfileAvatar.src = artist.image;
   syncArtistFavoriteButton(artist.name);
   artistProfileAlbums.innerHTML = "";
   artistProfileSongs.innerHTML = "";
@@ -4548,6 +4548,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       document.head.appendChild(accentStyle);
     }
     accentStyle.textContent = `
+      ${theme_rules}
       .btn-primary, .top-login, .segmented-control button.active { background:linear-gradient(135deg, ${settings.accent}, color-mix(in srgb, ${settings.accent} 62%, #171017)) !important; border-color:${settings.accent} !important; }
       /* Keep the navigation bar and its selected state in sync with the chosen accent. */
       .app-sidebar { background:color-mix(in srgb, ${settings.accent} 13%, #100c0f) !important; border-color:color-mix(in srgb, ${settings.accent} 35%, transparent) !important; }
@@ -4624,6 +4625,8 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
 
 
 
