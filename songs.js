@@ -161,7 +161,7 @@ window.TANINFY_SONGS = [
   {
     id: "song-17",
     title: "M.",
-    artist: "anil emre daldal",
+    artist: "Anil Emre Daldal",
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://irsv.upmusics.com/dlw/anil%20emre%20daldal%20(320).mp3",
