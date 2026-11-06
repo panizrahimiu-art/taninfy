@@ -94,7 +94,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.behmelody.in/1400/Dey/Adele%20-%20Hello%20%282%29.mp3",
-    cover: "https://tse4.mm.bing.net/th/id/OIP.eSLf3uryq5wm5S7YquZu8QHaHY?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
   },
   {
@@ -170,21 +170,21 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Un-Break My Heart",
-    artist: "Toni Braxton",
+    title: "We Are the People",
+    artist: "Empire of the Sun",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    src: "https://bedunim.ir/wp-content/uploads/2025/03/We-Are-The-People.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.F7EGLx6w59OGoNJzNWetBQHaEK?r=0&w=866&h=487&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
-    title: "Another Love",
-    artist: "Tom Odell",
+    title: "All I Ask",
+    artist: "Adele",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
-    cover: "https://th.bing.com/th/id/OIP.rjgFCDnYsVu5E8CPY3QoqAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    src: "https://gaana.ir/music/all-i-ask/",
+    cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
   },
   {
