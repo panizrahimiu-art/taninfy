@@ -2286,6 +2286,56 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
  .artist-directory-card img{width:min(100%,125px)}
 }
 
+
+/* SETTINGS — responsive controls */
+.settings-intro{color:var(--muted);margin:8px 0 0;font-size:13px}
+.settings-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.settings-card{margin:0;padding:23px 24px}
+.settings-card-heading{display:flex;align-items:center;gap:13px;padding-bottom:17px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.settings-card-heading h2{margin:0 0 2px;font-size:17px}
+.settings-card-heading p{margin:0;font-size:11px;color:var(--muted)}
+.settings-symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(213,160,173,.1);color:var(--pink);font-size:23px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}
+.setting-row:last-child{border-bottom:0}
+.setting-row>div:first-child strong,.setting-row>div:first-child span{display:block}
+.setting-row strong{font-size:12px}
+.setting-row span{font-size:10px;color:var(--muted);margin-top:3px}
+.setting-column{align-items:flex-start;flex-direction:column}
+.segmented-control{display:flex;padding:3px;border:1px solid var(--line);border-radius:8px;background:rgba(0,0,0,.12)}
+.segmented-control button{border:0;border-radius:6px;padding:6px 14px;background:transparent;color:var(--muted);font-size:11px}
+.segmented-control button.active{background:var(--wine2);color:#fff}
+.accent-options{display:flex;align-items:center;gap:12px;margin-top:12px}
+.accent-swatch{width:27px;height:27px;border-radius:50%;border:2px solid transparent;background:var(--swatch);box-shadow:0 0 0 1px var(--line)}
+.accent-swatch.active{outline:2px solid var(--text);outline-offset:3px}
+.custom-accent{width:29px;height:29px;border:1px dashed var(--line);border-radius:50%;display:grid;place-items:center;color:var(--pink);position:relative;cursor:pointer}
+.custom-accent input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.settings-select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:7px 12px;font-size:11px}
+.switch{position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto}
+.switch input{opacity:0;width:0;height:0}
+.switch span{position:absolute;inset:0;border-radius:30px;background:#51454a;transition:.2s;cursor:pointer}
+.switch span:before{content:"";position:absolute;width:18px;height:18px;right:3px;top:3px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked+span{background:var(--wine2)}
+.switch input:checked+span:before{transform:translateX(-18px)}
+.settings-range{width:100%;accent-color:var(--pink);cursor:pointer}
+.settings-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:18px 0;color:var(--muted);font-size:11px}
+body.light-theme{--bg:#f4eff1;--panel:#fff;--text:#281c21;--muted:#796b71;--line:rgba(74,35,49,.14);background:#f4eff1;color:var(--text)}
+body.light-theme header{background:rgba(250,247,248,.94)}
+body.light-theme .side-menu{background:linear-gradient(160deg,#fff7fa,#f0e7eb)}
+body.light-theme .menu-links a,body.light-theme .menu-profile-info strong{color:#34232a}
+body.light-theme .panel,body.light-theme .settings-card{background:linear-gradient(145deg,#fff,#f8f1f4)}
+body.light-theme .field,body.light-theme .settings-select{background:#fff;color:#34232a}
+body.light-theme .player{background:rgba(255,250,252,.96)}
+body.light-theme .now-playing strong{color:#34232a}
+body.light-theme .music-search{background:rgba(255,255,255,.92)}
+body.light-theme .music-search input{color:#34232a}
+body.light-theme .mix{background:linear-gradient(145deg,#fff,#f4e9ee)}
+body.light-theme .track:hover{background:rgba(129,26,53,.06)}
+body.light-theme .full-player{background:radial-gradient(70% 55% at 82% 4%,rgba(213,160,173,.3),transparent 62%),#f5edf0}
+body.light-theme .full-song-info h1,body.light-theme .full-player-close,body.light-theme .full-player-more,body.light-theme .full-control-btn{color:#34232a}
+body.light-theme .full-progress-area{color:#57464d}
+body.light-theme .full-play-btn{color:#fff}
+@media(max-width:760px){.settings-layout{grid-template-columns:1fr}.settings-card{padding:19px}.settings-bottom{align-items:flex-start;flex-direction:column}}
+
 </style>
 </head>
 
@@ -2654,19 +2704,59 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 </section>
 
 <!-- SETTINGS PAGE -->
-
 <section class="page" id="page-settings">
   <div class="wrap">
     <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
     <div class="page-heading">
       <small>TANINFY / PREFERENCES</small>
       <h1>تنظیمات</h1>
+      <p class="settings-intro">تجربه شنیدن موسیقی را مطابق سلیقه‌ات تنظیم کن.</p>
     </div>
-    <div class="panel">
-      <h2>تنظیمات حساب و پخش</h2>
-      <p>تنظیمات مربوط به حساب کاربری و تجربه پخش موسیقی از این بخش در دسترس قرار می‌گیرند.</p>
-      <p class="form-note">این بخش آماده توسعه تنظیمات بیشتر است.</p>
+
+    <div class="settings-layout">
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">◐</span><div><h2>ظاهر و پوسته</h2><p>رنگ و حال‌وهوای Taninfy را انتخاب کن.</p></div></div>
+        <div class="setting-row"><div><strong>حالت نمایش</strong><span>روشن یا تاریک</span></div>
+          <div class="segmented-control" role="group" aria-label="حالت نمایش">
+            <button type="button" data-theme-mode="dark">تاریک</button><button type="button" data-theme-mode="light">روشن</button>
+          </div>
+        </div>
+        <div class="setting-row setting-column"><div><strong>رنگ اصلی سایت</strong><span>رنگ دکمه‌ها و جزئیات</span></div>
+          <div class="accent-options">
+            <button type="button" class="accent-swatch" data-accent="#d5a0ad" style="--swatch:#d5a0ad" aria-label="صورتی چرک"></button>
+            <button type="button" class="accent-swatch" data-accent="#b58bd8" style="--swatch:#b58bd8" aria-label="بنفش"></button>
+            <button type="button" class="accent-swatch" data-accent="#7fa9d8" style="--swatch:#7fa9d8" aria-label="آبی"></button>
+            <button type="button" class="accent-swatch" data-accent="#83b69a" style="--swatch:#83b69a" aria-label="سبز"></button>
+            <button type="button" class="accent-swatch" data-accent="#d2ad75" style="--swatch:#d2ad75" aria-label="طلایی"></button>
+            <label class="custom-accent">＋ <input id="customAccent" type="color" value="#d5a0ad" aria-label="انتخاب رنگ دلخواه"></label>
+          </div>
+        </div>
+        <div class="setting-row"><div><strong>اندازه نوشته‌ها</strong><span>برای خوانایی بهتر</span></div>
+          <select id="textScale" class="settings-select"><option value="0.95">کوچک</option><option value="1" selected>معمولی</option><option value="1.08">بزرگ</option></select>
+        </div>
+      </section>
+
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">♫</span><div><h2>پخش موسیقی</h2><p>رفتار پخش‌کننده را مدیریت کن.</p></div></div>
+        <div class="setting-row"><div><strong>پخش خودکار آهنگ بعدی</strong><span>پس از پایان آهنگ، قطعه بعدی پخش شود.</span></div><label class="switch"><input id="settingAutoplay" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>پخش تصادفی</strong><span>آهنگ‌ها با ترتیب تصادفی پخش شوند.</span></div><label class="switch"><input id="settingShuffle" type="checkbox"><span></span></label></div>
+        <div class="setting-row"><div><strong>تکرار آهنگ</strong><span>آهنگ فعلی پس از پایان دوباره پخش شود.</span></div><label class="switch"><input id="settingRepeat" type="checkbox"><span></span></label></div>
+        <div class="setting-row setting-column"><div><strong>میزان صدا</strong><span>صدای پخش‌کننده: <b id="volumeValue">۸۰٪</b></span></div><input id="settingVolume" class="settings-range" type="range" min="0" max="100" value="80"></div>
+      </section>
+
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">♧</span><div><h2>حریم خصوصی</h2><p>کنترل نمایش اطلاعات حساب.</p></div></div>
+        <div class="setting-row"><div><strong>نمایش عمومی پروفایل</strong><span>اجازه بده دیگران پروفایلت را ببینند.</span></div><label class="switch"><input id="settingPublicProfile" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>نمایش پلی‌لیست‌ها</strong><span>پلی‌لیست‌ها در پروفایلت نمایش داده شوند.</span></div><label class="switch"><input id="settingShowPlaylists" type="checkbox" checked><span></span></label></div>
+      </section>
+
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">♢</span><div><h2>اعلان‌ها</h2><p>درباره خبرهای تازه موسیقی باخبر شو.</p></div></div>
+        <div class="setting-row"><div><strong>آهنگ‌های جدید</strong><span>اعلان انتشار موسیقی‌های تازه.</span></div><label class="switch"><input id="settingNewMusic" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>خبرهای هنرمندان</strong><span>خبرها و به‌روزرسانی هنرمندان.</span></div><label class="switch"><input id="settingArtistNews" type="checkbox"><span></span></label></div>
+      </section>
     </div>
+    <div class="settings-bottom"><span id="settingsStatus" role="status">تنظیمات به‌صورت خودکار ذخیره می‌شوند.</span><button type="button" class="btn btn-secondary" id="resetSettings">بازگردانی تنظیمات پیش‌فرض</button></div>
   </div>
 </section>
 
@@ -3588,6 +3678,14 @@ audioPlayer.addEventListener("ended", function() {
     return;
   }
 
+  if (window.taninfySettings && window.taninfySettings.autoplay === false) {
+    setLoadingState(false);
+    playIcon.textContent = "▶";
+    updateTrackButtons();
+    updateFullPlayButton();
+    return;
+  }
+
   if (currentTrackIndex < songCatalog.length - 1) {
     setPlayerTrack(currentTrackIndex + 1, true);
   } else {
@@ -4321,6 +4419,99 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 })();
 </script>
 
+
+<script>
+/* TANINFY SETTINGS — saved locally on this device */
+(function () {
+  const storageKey = "taninfy-settings";
+  const defaults = {
+    theme: "dark", accent: "#d5a0ad", textScale: "1",
+    autoplay: true, shuffle: false, repeat: false, volume: 80,
+    publicProfile: true, showPlaylists: true, newMusic: true, artistNews: false
+  };
+  let settings;
+  try { settings = { ...defaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") }; }
+  catch (_) { settings = { ...defaults }; }
+  window.taninfySettings = settings;
+
+  const $ = id => document.getElementById(id);
+  function save() {
+    localStorage.setItem(storageKey, JSON.stringify(settings));
+    const status = $("settingsStatus");
+    if (status) status.textContent = "تنظیمات ذخیره شد.";
+  }
+  function applyTheme() {
+    document.body.classList.toggle("light-theme", settings.theme === "light");
+    document.documentElement.style.setProperty("--pink", settings.accent);
+    document.documentElement.style.setProperty("--wine2", settings.accent);
+    document.documentElement.style.setProperty("--wine", settings.accent);
+    document.documentElement.style.fontSize = (Number(settings.textScale) * 100) + "%";
+    document.querySelectorAll("[data-theme-mode]").forEach(btn =>
+      btn.classList.toggle("active", btn.dataset.themeMode === settings.theme));
+    document.querySelectorAll(".accent-swatch").forEach(btn =>
+      btn.classList.toggle("active", btn.dataset.accent.toLowerCase() === settings.accent.toLowerCase()));
+    if ($("customAccent")) $("customAccent").value = settings.accent;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = settings.theme === "light" ? "#f4eff1" : "#090809";
+  }
+  function syncControls() {
+    const map = {
+      settingAutoplay:"autoplay", settingShuffle:"shuffle", settingRepeat:"repeat",
+      settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists",
+      settingNewMusic:"newMusic", settingArtistNews:"artistNews"
+    };
+    Object.entries(map).forEach(([id,key]) => { if ($(id)) $(id).checked = !!settings[key]; });
+    if ($("settingVolume")) $("settingVolume").value = settings.volume;
+    if ($("volumeValue")) $("volumeValue").textContent = Number(settings.volume).toLocaleString("fa-IR") + "٪";
+    if ($("textScale")) $("textScale").value = settings.textScale;
+    if (typeof audioPlayer !== "undefined") audioPlayer.volume = settings.volume / 100;
+    if (typeof shuffleEnabled !== "undefined") shuffleEnabled = settings.shuffle;
+    if (typeof repeatEnabled !== "undefined") repeatEnabled = settings.repeat;
+    if (typeof shuffleBtn !== "undefined" && shuffleBtn) shuffleBtn.classList.toggle("active", settings.shuffle);
+    if (typeof repeatBtn !== "undefined" && repeatBtn) repeatBtn.classList.toggle("active", settings.repeat);
+  }
+  document.querySelectorAll("[data-theme-mode]").forEach(btn => btn.addEventListener("click", () => {
+    settings.theme = btn.dataset.themeMode; applyTheme(); save();
+  }));
+  document.querySelectorAll(".accent-swatch").forEach(btn => btn.addEventListener("click", () => {
+    settings.accent = btn.dataset.accent; applyTheme(); save();
+  }));
+  $("customAccent")?.addEventListener("input", e => { settings.accent = e.target.value; applyTheme(); save(); });
+  $("textScale")?.addEventListener("change", e => { settings.textScale = e.target.value; applyTheme(); save(); });
+  const toggles = {
+    settingAutoplay:"autoplay", settingShuffle:"shuffle", settingRepeat:"repeat",
+    settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists",
+    settingNewMusic:"newMusic", settingArtistNews:"artistNews"
+  };
+  Object.entries(toggles).forEach(([id,key]) => $(id)?.addEventListener("change", e => {
+    settings[key] = e.target.checked;
+    if (key === "shuffle" && typeof shuffleEnabled !== "undefined") {
+      shuffleEnabled = settings.shuffle;
+      if (typeof shuffleBtn !== "undefined" && shuffleBtn) shuffleBtn.classList.toggle("active", settings.shuffle);
+    }
+    if (key === "repeat" && typeof repeatEnabled !== "undefined") {
+      repeatEnabled = settings.repeat;
+      if (typeof repeatBtn !== "undefined" && repeatBtn) repeatBtn.classList.toggle("active", settings.repeat);
+    }
+    save();
+  }));
+  $("settingVolume")?.addEventListener("input", e => {
+    settings.volume = Number(e.target.value);
+    if (typeof audioPlayer !== "undefined") audioPlayer.volume = settings.volume / 100;
+    if ($("volumeValue")) $("volumeValue").textContent = settings.volume.toLocaleString("fa-IR") + "٪";
+    save();
+  });
+  $("resetSettings")?.addEventListener("click", () => {
+    settings = { ...defaults }; window.taninfySettings = settings;
+    applyTheme(); syncControls(); save();
+    if ($("settingsStatus")) $("settingsStatus").textContent = "تنظیمات به حالت پیش‌فرض برگشت.";
+  });
+  applyTheme();
+  syncControls();
+})();
+</script>
+
 </body>
 </html>
+
 
