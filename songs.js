@@ -1,6 +1,5 @@
 window.TANINFY_SONGS = [
   {
-    id: "song-1",
     title: "I Don't Care to Dance",
     artist: "J. E. Sunde",
     genre: "Pop",
@@ -10,7 +9,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-2",
     title: "Nafas",
     artist: "Morteza Pashayi",
     genre: "Pop",
@@ -20,7 +18,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-3",
     title: "Extasy",
     artist: "Koorosh & Sijal & Samilow & Raha",
     genre: "Pop",
@@ -30,7 +27,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
     genre: "Pop",
@@ -40,7 +36,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
@@ -50,7 +45,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -60,7 +54,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-7",
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
     genre: "Pop",
@@ -70,7 +63,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-8",
     title: "Haminim Ke Hastim",
     artist: "Wantons",
     genre: "Pop",
@@ -80,7 +72,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-9",
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
@@ -89,7 +80,6 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
    {
-    id: "song-10",
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
@@ -99,7 +89,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-11",
     title: "Hello",
     artist: "Adele",
     genre: "Pop",
@@ -109,7 +98,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-12",
     title: "Kirginim",
     artist: "BLOK3",
     genre: "Pop",
@@ -119,7 +107,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-13",
     title: "Kusura Bakma",
     artist: "BLOK3",
     genre: "Pop",
@@ -129,7 +116,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-14",
     title: "Blue",
     artist: "Billie Eilish",
     genre: "Pop",
@@ -139,7 +125,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-15",
     title: "WILDFLOWER",
     artist: "Billie Eilish",
     genre: "Pop",
@@ -149,7 +134,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-16",
     title: "Creep",
     artist: "Radiohead",
     genre: "Pop",
@@ -159,7 +143,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-17",
     title: "M.",
     artist: "Anil Emre Daldal",
     genre: "Pop",
@@ -169,7 +152,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-18",
     title: "Baby Blue Movie",
     artist: "Cigarettes After Sex",
     genre: "Pop",
@@ -179,7 +161,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-19",
     title: "Thriller",
     artist: "Michael Jackson",
     genre: "Pop",
@@ -189,7 +170,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
     genre: "Pop",
@@ -199,7 +179,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
@@ -209,7 +188,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -219,7 +197,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-7",
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
     genre: "Pop",
@@ -229,7 +206,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-8",
     title: "Haminim Ke Hastim",
     artist: "Wantons",
     genre: "Pop",
@@ -239,7 +215,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-9",
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
@@ -248,7 +223,6 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
    {
-    id: "song-10",
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
@@ -258,7 +232,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-3",
     title: "Extasy",
     artist: "Koorosh & Sijal & Samilow & Raha",
     genre: "Pop",
@@ -268,7 +241,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
     genre: "Pop",
@@ -278,7 +250,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
@@ -288,7 +259,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -298,7 +268,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-7",
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
     genre: "Pop",
@@ -308,7 +277,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-8",
     title: "Haminim Ke Hastim",
     artist: "Wantons",
     genre: "Pop",
@@ -318,7 +286,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-9",
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
@@ -327,7 +294,6 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
    {
-    id: "song-10",
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
@@ -337,7 +303,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-3",
     title: "Extasy",
     artist: "Koorosh & Sijal & Samilow & Raha",
     genre: "Pop",
@@ -347,7 +312,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
     genre: "Pop",
@@ -357,7 +321,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
@@ -367,7 +330,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -377,7 +339,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-7",
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
     genre: "Pop",
@@ -387,7 +348,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-8",
     title: "Haminim Ke Hastim",
     artist: "Wantons",
     genre: "Pop",
@@ -397,7 +357,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-9",
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
@@ -406,7 +365,6 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
    {
-    id: "song-10",
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
@@ -416,7 +374,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-3",
     title: "Extasy",
     artist: "Koorosh & Sijal & Samilow & Raha",
     genre: "Pop",
@@ -426,7 +383,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    id: "song-4",
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
     genre: "Pop",
@@ -436,7 +392,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
@@ -446,7 +401,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -456,7 +410,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
    {
-    id: "song-7",
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
     genre: "Pop",
@@ -466,7 +419,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-8",
     title: "Haminim Ke Hastim",
     artist: "Wantons",
     genre: "Pop",
@@ -476,7 +428,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-9",
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
@@ -485,7 +436,6 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
    {
-    id: "song-10",
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
