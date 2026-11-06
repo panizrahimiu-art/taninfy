@@ -6,7 +6,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.musicdel.ir/Music/1403/01/j_e_sunde_i_dont_care_to_dance.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.2g-4xKAHtsd0SrcuhJXPRQHaFy?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -36,7 +36,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://th.bing.com/th/id/OIP.XFJ-dx4eO4VqFIoY3kITjAHaGk?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -56,7 +56,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.Nxd7f427w9FpTwnY-9C6CQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
    {
@@ -169,23 +169,23 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-6",
-    title: "",
-    artist: "Aemia",
+    id: "song-18",
+    title: "Baby Blue Movie",
+    artist: "Cigarettes After Sex",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    src: "https://bedunim.ir/wp-content/uploads/2024/06/Cigarettes_After_Sex_Baby_Blue_Movie_fkp8jLNJEpU_140.mp3",
+    cover: "https://persianmoozek.ir/_next/image?url=https%3A%2F%2Fdlpersianmoozek.476978.ir.cdn.ir%2Fgallery%2FCigarettes%20After%20Sex%2FX%27s.jpg&w=640&q=75",
     featured: true
   },
   {
-    id: "song-3",
-    title: "Extasy",
-    artist: "Koorosh & Sijal & Samilow & Raha",
+    id: "song-19",
+    title: "",
+    artist: "",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
-    cover: "https://tse3.mm.bing.net/th/id/OIP.-nugC40B-lnZ4DJQuQ_kegHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    src: "",
+    cover: "",
     featured: true
    },
    {
