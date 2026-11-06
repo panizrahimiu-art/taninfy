@@ -2123,7 +2123,7 @@ body{font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.65}
 .sidebar-brand{display:flex;flex-direction:column;align-items:center;gap:0;margin:0 0 30px;color:#f8f1f3}
 .sidebar-logo{width:48px;height:48px;border:2px solid #d5a0ad;border-radius:50%;display:grid;place-items:center;font:36px Georgia;color:#d5a0ad;line-height:1}
 .sidebar-brand strong{font-size:17px;letter-spacing:-.5px;color:#d5a0ad}
-.sidebar-nav{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:12px}
+.sidebar-nav{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:8px}
 .sidebar-nav a,.sidebar-bottom a{
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
   padding:11px 4px;color:#8f8086;font-size:12px;font-weight:600;border-radius:12px;transition:.2s
@@ -2266,8 +2266,8 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 
 
 /* Explore song covers + general artist directory */
-.track{grid-template-columns:32px 58px minmax(0,1fr) auto auto;align-items:center;gap:13px;padding:13px 10px;min-height:86px}
-.track-cover-thumb{width:58px;height:58px;border-radius:9px;object-fit:cover;background:#21141a;box-shadow:0 5px 16px rgba(0,0,0,.25)}
+.track{grid-template-columns:32px 78px minmax(0,1fr) auto auto;align-items:center;gap:15px;padding:15px 10px;min-height:106px}
+.track-cover-thumb{width:78px;height:78px;border-radius:11px;object-fit:cover;background:#21141a;box-shadow:0 5px 16px rgba(0,0,0,.25)}
 .track-info{min-width:0}
 .track-info strong,.track-info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .artist-directory{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:22px}
@@ -2279,8 +2279,8 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 .artists-intro{margin:8px 0 0;color:#91868b;font-size:13px}
 #artistProfile .artist-favorite-btn{display:none!important}
 @media(max-width:650px){
- .track{grid-template-columns:25px 52px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px}
- .track-cover-thumb{width:52px;height:52px;border-radius:8px}
+ .track{grid-template-columns:25px 66px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px}
+ .track-cover-thumb{width:66px;height:66px;border-radius:9px}
  .artist-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
  .artist-directory-card{padding:12px 8px 14px}
  .artist-directory-card img{width:min(100%,125px)}
@@ -2331,14 +2331,14 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
     <span class="sidebar-logo">♫</span><strong>taninfy</strong>
   </a>
   <nav class="sidebar-nav">
-    <a class="active" href="#" data-page="home"><span>◉</span>اکسپلور</a>
-    <a href="#favorites" data-page="favorites"><span>▣</span>کتابخانه من</a>
-    <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
-    <a href="#playlist" data-page="playlist"><span>♫</span>پلی‌لیست‌ها</a>
+    <a class="active" href="#home" data-page="home"><span>◉</span>اکسپلور</a>
     <a href="#profile" data-page="profile"><span>♙</span>پروفایل</a>
+    <a href="#playlist" data-page="playlist"><span>♫</span>پلی‌لیست‌ها</a>
+    <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
+    <a href="#settings" data-page="settings"><span>⚙</span>تنظیمات</a>
+    <a href="#contact" data-page="contact"><span>ⓘ</span>ارتباط با ما</a>
   </nav>
   <div class="sidebar-bottom">
-    <a href="#contact" data-page="contact"><span>ⓘ</span>ارتباط با ما</a>
     <small>YOUR MOOD, YOUR SOUND</small>
   </div>
 </aside>
@@ -2494,15 +2494,6 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
     </section>
 
     <section class="tracks" id="tracks">
-
-      <div class="music-search-wrap">
-        <div class="music-search">
-          <span class="music-search-icon">⌕</span>
-          <input id="musicSearch" type="search" autocomplete="off" placeholder="جستجوی آهنگ یا خواننده..." aria-label="جستجوی آهنگ یا خواننده">
-          <button id="clearMusicSearch" type="button" aria-label="پاک کردن جستجو">×</button>
-        </div>
-        <div class="search-suggestions" id="searchSuggestions"></div>
-      </div>
 
       <div class="section-title">
         <div>
@@ -2660,6 +2651,23 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 
   </div>
 
+</section>
+
+<!-- SETTINGS PAGE -->
+
+<section class="page" id="page-settings">
+  <div class="wrap">
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+    <div class="page-heading">
+      <small>TANINFY / PREFERENCES</small>
+      <h1>تنظیمات</h1>
+    </div>
+    <div class="panel">
+      <h2>تنظیمات حساب و پخش</h2>
+      <p>تنظیمات مربوط به حساب کاربری و تجربه پخش موسیقی از این بخش در دسترس قرار می‌گیرند.</p>
+      <p class="form-note">این بخش آماده توسعه تنظیمات بیشتر است.</p>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT PAGE -->
@@ -2864,7 +2872,7 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
-const availablePages = ["home", "profile", "favorites", "artists", "playlist", "login", "contact"];
+const availablePages = ["home", "profile", "favorites", "artists", "playlist", "settings", "login", "contact"];
 
 function showPage(name, addHistory = true) {
   const target = document.getElementById("page-" + name);
@@ -4294,18 +4302,16 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 <script>
 (function(){
   const topSearch = document.getElementById("topMusicSearch");
-  const originalSearch = document.getElementById("musicSearch");
-  if (!topSearch || !originalSearch) return;
-  topSearch.addEventListener("input", () => {
-    originalSearch.value = topSearch.value;
-    originalSearch.dispatchEvent(new Event("input", {bubbles:true}));
-    if (topSearch.value.trim()) {
-      document.getElementById("tracks")?.scrollIntoView({behavior:"smooth",block:"start"});
-    }
-  });
-  originalSearch.addEventListener("input", () => {
-    if (topSearch.value !== originalSearch.value) topSearch.value = originalSearch.value;
-  });
+  if (topSearch) {
+    topSearch.addEventListener("input", () => {
+      const query = topSearch.value.trim().toLocaleLowerCase();
+      const trackCards = document.querySelectorAll("#trackList .track");
+      trackCards.forEach(card => {
+        card.style.display = !query || card.textContent.toLocaleLowerCase().includes(query) ? "" : "none";
+      });
+      if (query) document.getElementById("tracks")?.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  }
   document.querySelectorAll(".sidebar-nav a").forEach(link => {
     link.addEventListener("click", () => {
       document.querySelectorAll(".sidebar-nav a").forEach(item => item.classList.remove("active"));
@@ -4317,3 +4323,4 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
