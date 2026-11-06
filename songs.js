@@ -159,18 +159,18 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    id: "song-5",
-    title: "Another Love",
-    artist: "Tom Odell",
+    id: "song-17",
+    title: "M.",
+    artist: "anil emre daldal",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    src: "https://irsv.upmusics.com/dlw/anil%20emre%20daldal%20(320).mp3",
+    cover: "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b4/b4/30/b4b43018-8b29-ae0b-de41-7c35093c29d6/cover.jpg/1200x1200bf-60.jpg",
     featured: true
   },
   {
     id: "song-6",
-    title: "Stars",
+    title: "",
     artist: "Aemia",
     genre: "Pop",
     album: "اسم آلبوم",
