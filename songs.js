@@ -180,12 +180,12 @@ window.TANINFY_SONGS = [
   },
   {
     id: "song-19",
-    title: "",
-    artist: "",
+    title: "Thriller",
+    artist: "Michael Jackson",
     genre: "Pop",
-    album: "اسم آلبوم",
-    src: "",
-    cover: "",
+    album: "Thriller",
+    src: "https://behmelody.musitraf.ir/1399/Shahrivar/Thriller/Thriller.mp3?_=7",
+    cover: "https://behmelody.in/wp-content/uploads/2020/09/Thriller.jpg",
     featured: true
    },
    {
