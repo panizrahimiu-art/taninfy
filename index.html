@@ -2407,11 +2407,11 @@ body.light-theme .now-playing span { color:#796b71 !important; }
 body.light-theme .field { background:#fff !important; color:#34232a !important; }
 body.light-theme .settings-select { background:#fff !important; color:#34232a !important; }
 body.light-theme .page { color:#34232a; }
-.track { grid-template-columns:32px 98px minmax(0,1fr) auto auto; min-height:124px; }
-.track-cover-thumb { width:98px; height:98px; }
+.track { grid-template-columns:32px 116px minmax(0,1fr) auto auto; min-height:142px; }
+.track-cover-thumb { width:116px; height:116px; }
 @media(max-width:650px) {
-  .track { grid-template-columns:25px 78px minmax(0,1fr) 38px 38px; min-height:98px; }
-  .track-cover-thumb { width:78px; height:78px; }
+  .track { grid-template-columns:25px 92px minmax(0,1fr) 38px 38px; min-height:112px; }
+  .track-cover-thumb { width:92px; height:92px; }
 }
 .full-action-btn { min-width:48px; }
 
@@ -4548,13 +4548,20 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       document.head.appendChild(accentStyle);
     }
     accentStyle.textContent = `
-      .btn-primary, .segmented-control button.active { background:linear-gradient(135deg, ${settings.accent}, color-mix(in srgb, ${settings.accent} 62%, #171017)) !important; border-color:${settings.accent} !important; }
-      .sidebar-nav a.active, .sidebar-nav a:hover, .sidebar-bottom a:hover { background:color-mix(in srgb, ${settings.accent} 22%, transparent) !important; }
+      .btn-primary, .top-login, .segmented-control button.active { background:linear-gradient(135deg, ${settings.accent}, color-mix(in srgb, ${settings.accent} 62%, #171017)) !important; border-color:${settings.accent} !important; }
+      /* Keep the navigation bar and its selected state in sync with the chosen accent. */
+      .app-sidebar { background:color-mix(in srgb, ${settings.accent} 13%, #100c0f) !important; border-color:color-mix(in srgb, ${settings.accent} 35%, transparent) !important; }
+      body.light-theme .app-sidebar { background:color-mix(in srgb, ${settings.accent} 12%, #ffffff) !important; border-color:color-mix(in srgb, ${settings.accent} 32%, #ffffff) !important; }
+      .sidebar-nav a.active, .sidebar-nav a:hover, .sidebar-bottom a:hover { background:color-mix(in srgb, ${settings.accent} 25%, transparent) !important; }
+      .sidebar-nav a.active, .sidebar-brand strong, .sidebar-logo, .topbar-arrow, .top-search span { color:${settings.accent} !important; }
+      .sidebar-logo { border-color:${settings.accent} !important; }
       .mix, .mix:nth-child(2), .mix:nth-child(3) { background:linear-gradient(135deg, color-mix(in srgb, ${settings.accent} 38%, #171017), #171017) !important; }
       .mix small, .mix::after, .hero h1 em, .profile-kicker, .profile-main p, .custom-accent { color:${settings.accent} !important; }
       .mix::after { background:color-mix(in srgb, ${settings.accent} 20%, transparent) !important; }
       .switch input:checked+span { background:${settings.accent} !important; }
-      .full-play-btn, .play-btn, .track-play, .sidebar-logo { background:${settings.accent} !important; }
+      /* Accent is the play-button circle; the play glyph is a darker shade for contrast. */
+      .full-play-btn, .play-btn, .track-play { background:${settings.accent} !important; border-color:${settings.accent} !important; color:color-mix(in srgb, ${settings.accent} 35%, #171017) !important; }
+      .full-play-btn svg, .play-btn svg, .track-play svg { fill:currentColor !important; }
       .track:hover { background:color-mix(in srgb, ${settings.accent} 10%, transparent) !important; }
       .settings-symbol { color:${settings.accent} !important; background:color-mix(in srgb, ${settings.accent} 13%, transparent) !important; }
       .btn-primary:hover { filter:brightness(1.12); }
@@ -4617,6 +4624,8 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
 
 
 
