@@ -66,7 +66,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Delm%20Az%20Donya%20Gerefte%20(320).mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.fANlpRrZyB9doGqV7mCLvQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -76,7 +76,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Wantons%20%E2%80%93%20Haminim%20Ke%20Hastim.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://images.genius.com/c5953392e63863b32aadac824b845ff3.600x600x1.jpg",
     featured: true
   },
   {
@@ -105,7 +105,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.behmelody.in/1400/Dey/Adele%20-%20Hello%20%282%29.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.eSLf3uryq5wm5S7YquZu8QHaHY?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
