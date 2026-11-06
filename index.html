@@ -2264,6 +2264,28 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
  .top-account img{width:25px;height:25px}
 }
 
+
+/* Explore song covers + general artist directory */
+.track{grid-template-columns:32px 58px minmax(0,1fr) auto auto;align-items:center;gap:13px;padding:13px 10px;min-height:86px}
+.track-cover-thumb{width:58px;height:58px;border-radius:9px;object-fit:cover;background:#21141a;box-shadow:0 5px 16px rgba(0,0,0,.25)}
+.track-info{min-width:0}
+.track-info strong,.track-info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.artist-directory{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:22px}
+.artist-directory-card{min-width:0;border:1px solid rgba(213,160,173,.13);border-radius:13px;background:linear-gradient(145deg,#191116,#0e0b0d);padding:15px 12px 17px;color:#f8f1f3;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;transition:transform .22s,border-color .22s,background .22s}
+.artist-directory-card:hover{transform:translateY(-5px);border-color:rgba(213,160,173,.4);background:linear-gradient(145deg,#28131c,#110c10)}
+.artist-directory-card img{width:min(100%,145px);aspect-ratio:1;border-radius:50%;object-fit:cover;background:#24151c;border:2px solid rgba(213,160,173,.25);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.artist-directory-card strong{font-size:14px;margin-top:5px}
+.artist-directory-card span{font-size:11px;color:#a99ba1}
+.artists-intro{margin:8px 0 0;color:#91868b;font-size:13px}
+#artistProfile .artist-favorite-btn{display:none!important}
+@media(max-width:650px){
+ .track{grid-template-columns:25px 52px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px}
+ .track-cover-thumb{width:52px;height:52px;border-radius:8px}
+ .artist-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .artist-directory-card{padding:12px 8px 14px}
+ .artist-directory-card img{width:min(100%,125px)}
+}
+
 </style>
 </head>
 
@@ -2311,7 +2333,7 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
   <nav class="sidebar-nav">
     <a class="active" href="#" data-page="home"><span>◉</span>اکسپلور</a>
     <a href="#favorites" data-page="favorites"><span>▣</span>کتابخانه من</a>
-    <a href="#favorite-artists" data-page="favorite-artists"><span>♬</span>هنرمندان محبوب</a>
+    <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
     <a href="#playlist" data-page="playlist"><span>♫</span>پلی‌لیست‌ها</a>
     <a href="#profile" data-page="profile"><span>♙</span>پروفایل</a>
   </nav>
@@ -2350,9 +2372,9 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
       <span>Favorites</span>
     </a>
 
-    <a href="#favorite-artists" data-page="favorite-artists">
+    <a href="#artists" data-page="artists">
       <span class="menu-icon">♧</span>
-      <span>Favorite Artists</span>
+      <span>Artists</span>
     </a>
 
     <a href="#playlist" data-page="playlist">
@@ -2570,16 +2592,14 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 
 <!-- PLAYLIST PAGE -->
 
-<section class="page" id="page-favorite-artists">
+<section class="page" id="page-artists">
   <div class="wrap">
     <div class="page-heading">
       <small>TANINFY / ARTISTS</small>
-      <h1>Favorite Artists ♡</h1>
+      <h1>هنرمندان</h1>
+      <p class="artists-intro">خواننده‌ها و هنرمندان Taninfy را کشف کن؛ برای دیدن آهنگ‌ها وارد پروفایل هر هنرمند شو.</p>
     </div>
-    <div class="panel">
-      <p class="form-note">هنرمندهایی که ذخیره کردی اینجا نمایش داده می‌شن.</p>
-      <div id="favoriteArtistList"></div>
-    </div>
+    <div class="artist-directory" id="artistDirectory"></div>
   </div>
 </section>
 
@@ -2844,7 +2864,7 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
-const availablePages = ["home", "profile", "favorites", "favorite-artists", "playlist", "login", "contact"];
+const availablePages = ["home", "profile", "favorites", "artists", "playlist", "login", "contact"];
 
 function showPage(name, addHistory = true) {
   const target = document.getElementById("page-" + name);
@@ -2959,6 +2979,12 @@ function renderTrackCatalog() {
     number.className = "track-number";
     number.textContent = String(visibleNumber).padStart(2, "0");
 
+    const cover = document.createElement("img");
+    cover.className = "track-cover-thumb";
+    cover.src = song.cover || "";
+    cover.alt = song.title ? `کاور ${song.title}` : "کاور آهنگ";
+    cover.loading = "lazy";
+
     const info = document.createElement("div");
     info.className = "track-info";
 
@@ -2982,7 +3008,7 @@ function renderTrackCatalog() {
     heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
     heart.textContent = "♡";
 
-    row.append(number, info, play, heart);
+    row.append(number, cover, info, play, heart);
     trackList.appendChild(row);
   });
 }
@@ -3020,14 +3046,15 @@ function getArtists() {
         name,
         songs: [],
         albums: new Map(),
-        cover: song.cover || ""
+        cover: song.artistCover || song.artistImage || song.cover || ""
       });
     }
 
     const artist = map.get(key);
     artist.songs.push({ song, index });
 
-    if (!artist.cover && song.cover) artist.cover = song.cover;
+    if (song.artistCover || song.artistImage) artist.cover = song.artistCover || song.artistImage;
+    else if (!artist.cover && song.cover) artist.cover = song.cover;
 
     const albumName = String(song.album || "Singles").trim() || "Singles";
     const albumKey = albumName.toLocaleLowerCase();
@@ -3049,6 +3076,35 @@ function getArtists() {
     ...artist,
     albums: [...artist.albums.values()]
   }));
+}
+
+function renderArtistDirectory() {
+  const box = document.getElementById("artistDirectory");
+  if (!box) return;
+  const artists = getArtists();
+  box.innerHTML = "";
+
+  if (!artists.length) {
+    box.innerHTML = '<p class="form-note">هنوز هنرمندی به کتابخانه Taninfy اضافه نشده است.</p>';
+    return;
+  }
+
+  artists.sort((a, b) => a.name.localeCompare(b.name, "fa")).forEach(artist => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "artist-directory-card";
+    const img = document.createElement("img");
+    img.src = artist.cover || "";
+    img.alt = artist.name;
+    img.loading = "lazy";
+    const name = document.createElement("strong");
+    name.textContent = artist.name;
+    const count = document.createElement("span");
+    count.textContent = `${artist.songs.length} آهنگ`;
+    card.append(img, name, count);
+    card.addEventListener("click", () => openArtistProfile(artist.name, true));
+    box.appendChild(card);
+  });
 }
 
 function renderSearchSuggestions(query = "") {
@@ -4050,6 +4106,7 @@ player.addEventListener("click", function(event) {
 /* INITIALIZE */
 renderFavorites();
 renderFavoriteArtists();
+renderArtistDirectory();
 syncHearts();
 
 </script>
@@ -4260,4 +4317,3 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
-
