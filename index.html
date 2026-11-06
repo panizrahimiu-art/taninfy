@@ -2336,6 +2336,88 @@ body.light-theme .full-progress-area{color:#57464d}
 body.light-theme .full-play-btn{color:#fff}
 @media(max-width:760px){.settings-layout{grid-template-columns:1fr}.settings-card{padding:19px}.settings-bottom{align-items:flex-start;flex-direction:column}}
 
+
+/* TANINFY LIGHT THEME + ACCESSIBILITY FIXES */
+:root { --text-scale: 1; }
+body.light-theme .topbar,
+body.light-theme .app-sidebar {
+  background: rgba(250,247,248,.97) !important;
+  border-color: rgba(74,35,49,.14) !important;
+}
+body.light-theme .topbar-arrow,
+body.light-theme .top-more,
+body.light-theme .topbar .menu-toggle,
+body.light-theme .sidebar-brand,
+body.light-theme .sidebar-nav a,
+body.light-theme .sidebar-bottom a { color:#34232a; }
+body.light-theme .top-search,
+body.light-theme .music-search,
+body.light-theme .menu-toggle {
+  background:#fff !important;
+  border-color:rgba(74,35,49,.16) !important;
+}
+body.light-theme .top-search input,
+body.light-theme .music-search input { color:#34232a !important; }
+body.light-theme .explore-heading h1,
+body.light-theme .section-title h2,
+body.light-theme .page-heading h1,
+body.light-theme .hero h1,
+body.light-theme .track-info strong,
+body.light-theme .list-item strong,
+body.light-theme .panel h2 { color:#34232a !important; }
+body.light-theme .explore-heading span,
+body.light-theme .mix,
+body.light-theme .artist-directory-card,
+body.light-theme .curated-card,
+body.light-theme .track,
+body.light-theme .settings-card,
+body.light-theme .panel {
+  color:#34232a;
+  background:linear-gradient(145deg,#fff,#f6edf1) !important;
+  border-color:rgba(74,35,49,.13) !important;
+}
+body.light-theme .mix h3,
+body.light-theme .mix p,
+body.light-theme .mix small,
+body.light-theme .artist-directory-card strong,
+body.light-theme .artist-directory-card span { color:#34232a !important; }
+body.light-theme .track-info span,
+body.light-theme .artists-intro,
+body.light-theme .section-title p,
+body.light-theme .page-heading p,
+body.light-theme .panel p { color:#796b71; }
+body.light-theme .track:hover,
+body.light-theme .sidebar-nav a:hover,
+body.light-theme .sidebar-nav a.active { background:rgba(129,26,53,.09) !important; }
+body.light-theme .full-player {
+  background:radial-gradient(70% 55% at 82% 4%,rgba(213,160,173,.3),transparent 62%),
+             radial-gradient(70% 55% at 0% 100%,rgba(213,160,173,.22),transparent 64%),#f5edf0 !important;
+}
+body.light-theme .full-player::before,
+body.light-theme .full-player::after { background:rgba(129,26,53,.08); }
+body.light-theme .full-song-info h1,
+body.light-theme .full-player-close,
+body.light-theme .full-player-more,
+body.light-theme .full-control-btn,
+body.light-theme .full-action-btn { color:#34232a !important; }
+body.light-theme .full-song-info p { color:var(--wine2) !important; }
+body.light-theme .full-progress-area { color:#57464d !important; }
+body.light-theme .full-play-btn { color:#fff !important; }
+body.light-theme .full-action-btn { border-color:rgba(74,35,49,.2); }
+body.light-theme .player { background:rgba(255,250,252,.97) !important; }
+body.light-theme .now-playing strong { color:#34232a !important; }
+body.light-theme .now-playing span { color:#796b71 !important; }
+body.light-theme .field { background:#fff !important; color:#34232a !important; }
+body.light-theme .settings-select { background:#fff !important; color:#34232a !important; }
+body.light-theme .page { color:#34232a; }
+.track { grid-template-columns:32px 98px minmax(0,1fr) auto auto; min-height:124px; }
+.track-cover-thumb { width:98px; height:98px; }
+@media(max-width:650px) {
+  .track { grid-template-columns:25px 78px minmax(0,1fr) 38px 38px; min-height:98px; }
+  .track-cover-thumb { width:78px; height:78px; }
+}
+.full-action-btn { min-width:48px; }
+
 </style>
 </head>
 
@@ -2737,24 +2819,11 @@ body.light-theme .full-play-btn{color:#fff}
       </section>
 
       <section class="panel settings-card">
-        <div class="settings-card-heading"><span class="settings-symbol">♫</span><div><h2>پخش موسیقی</h2><p>رفتار پخش‌کننده را مدیریت کن.</p></div></div>
-        <div class="setting-row"><div><strong>پخش خودکار آهنگ بعدی</strong><span>پس از پایان آهنگ، قطعه بعدی پخش شود.</span></div><label class="switch"><input id="settingAutoplay" type="checkbox" checked><span></span></label></div>
-        <div class="setting-row"><div><strong>پخش تصادفی</strong><span>آهنگ‌ها با ترتیب تصادفی پخش شوند.</span></div><label class="switch"><input id="settingShuffle" type="checkbox"><span></span></label></div>
-        <div class="setting-row"><div><strong>تکرار آهنگ</strong><span>آهنگ فعلی پس از پایان دوباره پخش شود.</span></div><label class="switch"><input id="settingRepeat" type="checkbox"><span></span></label></div>
-        <div class="setting-row setting-column"><div><strong>میزان صدا</strong><span>صدای پخش‌کننده: <b id="volumeValue">۸۰٪</b></span></div><input id="settingVolume" class="settings-range" type="range" min="0" max="100" value="80"></div>
-      </section>
-
-      <section class="panel settings-card">
         <div class="settings-card-heading"><span class="settings-symbol">♧</span><div><h2>حریم خصوصی</h2><p>کنترل نمایش اطلاعات حساب.</p></div></div>
         <div class="setting-row"><div><strong>نمایش عمومی پروفایل</strong><span>اجازه بده دیگران پروفایلت را ببینند.</span></div><label class="switch"><input id="settingPublicProfile" type="checkbox" checked><span></span></label></div>
         <div class="setting-row"><div><strong>نمایش پلی‌لیست‌ها</strong><span>پلی‌لیست‌ها در پروفایلت نمایش داده شوند.</span></div><label class="switch"><input id="settingShowPlaylists" type="checkbox" checked><span></span></label></div>
       </section>
 
-      <section class="panel settings-card">
-        <div class="settings-card-heading"><span class="settings-symbol">♢</span><div><h2>اعلان‌ها</h2><p>درباره خبرهای تازه موسیقی باخبر شو.</p></div></div>
-        <div class="setting-row"><div><strong>آهنگ‌های جدید</strong><span>اعلان انتشار موسیقی‌های تازه.</span></div><label class="switch"><input id="settingNewMusic" type="checkbox" checked><span></span></label></div>
-        <div class="setting-row"><div><strong>خبرهای هنرمندان</strong><span>خبرها و به‌روزرسانی هنرمندان.</span></div><label class="switch"><input id="settingArtistNews" type="checkbox"><span></span></label></div>
-      </section>
     </div>
     <div class="settings-bottom"><span id="settingsStatus" role="status">تنظیمات به‌صورت خودکار ذخیره می‌شوند.</span><button type="button" class="btn btn-secondary" id="resetSettings">بازگردانی تنظیمات پیش‌فرض</button></div>
   </div>
@@ -2952,6 +3021,7 @@ body.light-theme .full-play-btn{color:#fff}
     <div class="full-player-actions">
       <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite">♡</button>
       <button id="fullPlaylistBtn" class="full-action-btn" type="button" aria-label="Add to playlist" title="Add to playlist">＋</button>
+      <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ">↓</button>
     </div>
 
   </div>
@@ -4032,6 +4102,34 @@ const fullProgress = document.getElementById("fullProgress");
 const fullCurrentTime = document.getElementById("fullCurrentTime");
 const fullDuration = document.getElementById("fullDuration");
 
+const fullDownloadBtn = document.getElementById("fullDownloadBtn");
+
+async function downloadCurrentSong() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track || !track.src) {
+    alert("لینک دانلود این آهنگ در دسترس نیست.");
+    return;
+  }
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    const status = document.getElementById("loginStatus");
+    if (status) status.textContent = "برای دانلود آهنگ، ابتدا با حساب Google ثبت‌نام یا وارد شو؛ سپس دوباره روی دانلود بزن.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
+  const safeName = ((track.artist || "Taninfy") + " - " + (track.title || "song"))
+    .replace(/[\\/:*?"<>|]/g, "-").trim();
+  const link = document.createElement("a");
+  link.href = track.src;
+  link.download = safeName + (String(track.src).match(/\.(mp3|wav|m4a|ogg)(?:[?#]|$)/i)?.[1] ? "." + String(track.src).match(/\.(mp3|wav|m4a|ogg)(?:[?#]|$)/i)[1] : ".mp3");
+  link.rel = "noopener";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+fullDownloadBtn?.addEventListener("click", downloadCurrentSong);
+
 let shuffleEnabled = false;
 let repeatEnabled = false;
 
@@ -4426,12 +4524,13 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   const storageKey = "taninfy-settings";
   const defaults = {
     theme: "dark", accent: "#d5a0ad", textScale: "1",
-    autoplay: true, shuffle: false, repeat: false, volume: 80,
-    publicProfile: true, showPlaylists: true, newMusic: true, artistNews: false
+    publicProfile: true, showPlaylists: true
   };
   let settings;
   try { settings = { ...defaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") }; }
   catch (_) { settings = { ...defaults }; }
+  delete settings.autoplay; delete settings.shuffle; delete settings.repeat;
+  delete settings.volume; delete settings.newMusic; delete settings.artistNews;
   window.taninfySettings = settings;
 
   const $ = id => document.getElementById(id);
@@ -4445,7 +4544,8 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
     document.documentElement.style.setProperty("--pink", settings.accent);
     document.documentElement.style.setProperty("--wine2", settings.accent);
     document.documentElement.style.setProperty("--wine", settings.accent);
-    document.documentElement.style.fontSize = (Number(settings.textScale) * 100) + "%";
+    document.documentElement.style.setProperty("--text-scale", String(Number(settings.textScale) || 1));
+    document.body.style.zoom = String(Number(settings.textScale) || 1);
     document.querySelectorAll("[data-theme-mode]").forEach(btn =>
       btn.classList.toggle("active", btn.dataset.themeMode === settings.theme));
     document.querySelectorAll(".accent-swatch").forEach(btn =>
@@ -4456,19 +4556,10 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   }
   function syncControls() {
     const map = {
-      settingAutoplay:"autoplay", settingShuffle:"shuffle", settingRepeat:"repeat",
-      settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists",
-      settingNewMusic:"newMusic", settingArtistNews:"artistNews"
+      settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists"
     };
     Object.entries(map).forEach(([id,key]) => { if ($(id)) $(id).checked = !!settings[key]; });
-    if ($("settingVolume")) $("settingVolume").value = settings.volume;
-    if ($("volumeValue")) $("volumeValue").textContent = Number(settings.volume).toLocaleString("fa-IR") + "٪";
     if ($("textScale")) $("textScale").value = settings.textScale;
-    if (typeof audioPlayer !== "undefined") audioPlayer.volume = settings.volume / 100;
-    if (typeof shuffleEnabled !== "undefined") shuffleEnabled = settings.shuffle;
-    if (typeof repeatEnabled !== "undefined") repeatEnabled = settings.repeat;
-    if (typeof shuffleBtn !== "undefined" && shuffleBtn) shuffleBtn.classList.toggle("active", settings.shuffle);
-    if (typeof repeatBtn !== "undefined" && repeatBtn) repeatBtn.classList.toggle("active", settings.repeat);
   }
   document.querySelectorAll("[data-theme-mode]").forEach(btn => btn.addEventListener("click", () => {
     settings.theme = btn.dataset.themeMode; applyTheme(); save();
@@ -4479,9 +4570,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   $("customAccent")?.addEventListener("input", e => { settings.accent = e.target.value; applyTheme(); save(); });
   $("textScale")?.addEventListener("change", e => { settings.textScale = e.target.value; applyTheme(); save(); });
   const toggles = {
-    settingAutoplay:"autoplay", settingShuffle:"shuffle", settingRepeat:"repeat",
-    settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists",
-    settingNewMusic:"newMusic", settingArtistNews:"artistNews"
+    settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists"
   };
   Object.entries(toggles).forEach(([id,key]) => $(id)?.addEventListener("change", e => {
     settings[key] = e.target.checked;
