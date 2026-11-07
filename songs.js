@@ -246,7 +246,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://www.appahangx.com/s-dl/100159",
-    cover: "https://v.tapseda.com/i/covers/iranian/raha/raha-oh-nana-medium.webp",
+    cover: "https://xx.sahand-music.ir/Archive/R/Raha/1405/Raha%20-%20Oh%20Nana.mp3",
     featured: true
   },
   {
