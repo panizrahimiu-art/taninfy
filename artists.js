@@ -18,20 +18,5 @@ window.TANINFY_ARTISTS = [
     name: "Ayla celik",
     image: "https://cdn1.kralmuzik.com.tr/media/original/26-03/25/aylacelikkk.jpg",
     genre: "pop"
-  },
-    {
-    name: "BLOK3",
-    image: "https://www.kanal3.com.tr/wp-content/uploads/2026/03/blok-3-1100x650.webp",
-    genre: "pop"
-  },
-      {
-    name: "BLOK3",
-    image: "https://www.kanal3.com.tr/wp-content/uploads/2026/03/blok-3-1100x650.webp",
-    genre: "pop"
-  },
-        {
-    name: "BLOK3",
-    image: "https://www.kanal3.com.tr/wp-content/uploads/2026/03/blok-3-1100x650.webp",
-    genre: "pop"
-  },
+  }
 ];
