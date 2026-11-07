@@ -386,4 +386,40 @@ window.TANINFY_SONGS = [
     cover: "https://tse2.mm.bing.net/th/id/OIP.x0aBg3zvphodQ6ld-oGHwwHaJ4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
+  {
+    title: "Ta Bahare Delneshin",
+    artist: "Gholam Hossein Banan",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ahangirani.ir/Music/1403/08/Gholam%20Hossein%20Banan-Ta%20Bahare%20Delneshin-ahangirani.ir.mp3",
+    cover: "https://ahangirani.ir/wp-content/uploads/2024/11/Gholam%20Hossein%20Banan-Mastaneh-ahangirani.ir.jpg",
+    featured: true
+  },
+  {
+    title: "Ama Başaramadım",
+    artist: "Burak Bulut",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.myavangmusic.com/downloads/Burak%20Bulut/Ama%20Basaramadim/Burak%20Bulut%20-%20Ama%20Basaramadim.mp3",
+    cover: "https://th.bing.com/th/id/OIP.z1lWyBgqUi-JjLXHeTPZAAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Fou",
+    artist: "Shahin Najafi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.musicdrum.ir/uploads/2022/10/Shahin-Najafi-Fou-Album-Radikal.mp3",
+    cover: "https://th.bing.com/th/id/OIP.bQArh4U4WDG_RPuCqZWu8QHaHa?w=108&h=108&c=1&bgcl=6d3831&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+  },
+  {
+    title: "Fou",
+    artist: "Shahin Najafi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.musicdrum.ir/uploads/2022/10/Shahin-Najafi-Fou-Album-Radikal.mp3",
+    cover: "https://th.bing.com/th/id/OIP.bQArh4U4WDG_RPuCqZWu8QHaHa?w=108&h=108&c=1&bgcl=6d3831&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+  },
 ];
