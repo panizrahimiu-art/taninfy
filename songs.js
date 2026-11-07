@@ -93,7 +93,7 @@ window.TANINFY_SONGS = [
     title: "Hello",
     artist: "Adele",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "25",
     src: "https://dl.behmelody.in/1400/Dey/Adele%20-%20Hello%20%282%29.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
@@ -278,4 +278,50 @@ window.TANINFY_SONGS = [
     cover: "https://www.playmusic.ir/images/thumbnails/music/2026/09/25/123146_400.webp",
     featured: true
   },
+  {
+    title: "Send My Love",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://gaana.ir/music/send-my-love-to-your-new-lover/#download",
+    cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
+    featured: true
+   },
+   {
+    title: "I Miss You",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://download.bibis.ir/Music/English/Adele/Adele-I-miss-you_bibis.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "When We Were Young",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://dl.melod.ir/Musics/A/Adele/Adele--When-We-Were-Young_melod.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "Remedy",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://download.bibis.ir/Music/English/Adele/Adele-Remedy_bibis.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "Water Under The Bridge",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://dl.melod.ir/Musics/A/Adele/Adele--Water-Under-the-Bridge_melod.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+  
 ];
