@@ -286,8 +286,8 @@ window.TANINFY_SONGS = [
     src: "https://gaana.ir/music/send-my-love-to-your-new-lover/#download",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Miss You",
     artist: "Adele",
     genre: "Pop",
@@ -295,8 +295,8 @@ window.TANINFY_SONGS = [
     src: "https://download.bibis.ir/Music/English/Adele/Adele-I-miss-you_bibis.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "When We Were Young",
     artist: "Adele",
     genre: "Pop",
@@ -304,8 +304,8 @@ window.TANINFY_SONGS = [
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--When-We-Were-Young_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Remedy",
     artist: "Adele",
     genre: "Pop",
@@ -313,8 +313,8 @@ window.TANINFY_SONGS = [
     src: "https://download.bibis.ir/Music/English/Adele/Adele-Remedy_bibis.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Water Under The Bridge",
     artist: "Adele",
     genre: "Pop",
@@ -322,8 +322,8 @@ window.TANINFY_SONGS = [
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Water-Under-the-Bridge_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "River Lea",
     artist: "Adele",
     genre: "Pop",
@@ -331,8 +331,8 @@ window.TANINFY_SONGS = [
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--river-lea_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Love in the Dark",
     artist: "Adele",
     genre: "Pop",
@@ -340,8 +340,8 @@ window.TANINFY_SONGS = [
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Love-in-the-dark_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Million Years Ago",
     artist: "Adele",
     genre: "Pop",
@@ -349,5 +349,14 @@ window.TANINFY_SONGS = [
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Million-Years-Ago-melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
-   },
+  },
+  {
+    title: "Napıyosun Mesela?",
+    artist: "BLOK3",
+    genre: "Pop",
+    album: "Virtüöz",
+    src: "https://dl.musicdel.ir/Music/1404/06/BLOK3-nap%C4%B1yosun%20mesela%20-musicdel.ir.mp3",
+    cover: "https://cdn-images.dzcdn.net/images/cover/2d3c663ad58b594ad3f00d403b3e2b76/1000x1000-000000-80-0-0.jpg",
+    featured: true
+  },
 ];
