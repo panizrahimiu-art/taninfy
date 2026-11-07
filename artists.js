@@ -18,5 +18,10 @@ window.TANINFY_ARTISTS = [
     name: "Ayla celik",
     image: "https://cdn1.kralmuzik.com.tr/media/original/26-03/25/aylacelikkk.jpg",
     genre: "pop"
-  }
+  },
+  {
+    name: "Adele",
+    image: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/73/6d/7c/736d7cfb-c79d-c9a9-4170-5e71d008dea1/886449666430.jpg/1200x1200bf-60.jpg",
+    genre: "pop"
+  },
 ];
