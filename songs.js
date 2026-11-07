@@ -77,7 +77,8 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
-    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
   },
   {
     title: "Allah Allah",
@@ -211,7 +212,8 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://irsv.upmusics.com/Tracks/Songs/Mehran%20Modiri%20-%20Emshab%20Shabe%20Mahtabe%20(UpMusic).mp3",
-    cover: "https://i.etsystatic.com/49133137/r/il/71c7ce/5724223684/il_fullxfull.5724223684_aq82.jpg"
+    cover: "https://i.etsystatic.com/49133137/r/il/71c7ce/5724223684/il_fullxfull.5724223684_aq82.jpg",
+    featured: true
   },
   {
     title: "Ex",
