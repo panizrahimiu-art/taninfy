@@ -1,7 +1,7 @@
 window.TANINFY_ARTISTS = [
   {
     name: "BLOK3",
-    image: "https://www.kanal3.com.tr/wp-content/uploads/2026/03/blok-3-1100x650.webp",
+    image: "https://img-s1.onedio.com/id-68a7066ce51c7567350c8d8f/rev-0/w-600/h-337/f-jpg/s-33f2aca17cf03a0230de976d0cb5bac2ce676b7f.jpg",
     genre: "pop"
   },
   {
