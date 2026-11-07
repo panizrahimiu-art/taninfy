@@ -77,7 +77,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "OBSESIF",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
-    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
     featured: true
   },
   {
@@ -86,7 +86,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "OBSESIF",
     src: "https://dl.anarmusic.com/music/1405/06/02/Blok3%20-%20Allah%20Allah.mp3",
-    cover: "https://anarmusic.com/wp-content/uploads/2026/08/Blok3-Allah-Allah.jpg",
+    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
     featured: true
   },
   {
@@ -104,7 +104,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "OBSESIF",
     src: "https://dl.myavangmusic.com/downloads/BLOK3/Kirginim/BLOK3%20-%20Kirginim.mp3",
-    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
     featured: true
   },
   {
@@ -113,7 +113,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "Virtüöz",
     src: "https://dl.anarmusic.com/music/1404/09/06/Blok3%20-%20Kusura%20Bakma.mp3",
-    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://cdn-images.dzcdn.net/images/cover/2d3c663ad58b594ad3f00d403b3e2b76/1000x1000-000000-80-0-0.jpg",
     featured: true
   },
   {
