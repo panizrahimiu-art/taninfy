@@ -359,4 +359,31 @@ window.TANINFY_SONGS = [
     cover: "https://cdn-images.dzcdn.net/images/cover/2d3c663ad58b594ad3f00d403b3e2b76/1000x1000-000000-80-0-0.jpg",
     featured: true
   },
+  {
+    title: "Penceresiz Kaldim Anne",
+    artist: "Ahmet Kaya",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.navazmusics.com/Singers/A/Ahmet%20Kaya/320/Penceresiz%20Kaldim%20Anne%28navazmusic%29.mp3",
+    cover: "https://th.bing.com/th/id/OIP.tfmGGPsK3un74ZcaSr16ugHaHP?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Hamintori",
+    artist: "Behzad Leito & Anita",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/96/bahman/24/Behzad%20Leito%20-%20Hamintori.mp3",
+    cover: "https://th.bing.com/th/id/OIP.Khrq3AuD5tWL4rV4tgXoVAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Go Away",
+    artist: "Tate McRae",
+    genre: "Pop",
+    album: "",
+    src: "https://files.cvaultx.com/wp-content/uploads/music/2023/03/Tate_McRae_-_Go_Away_CeeNaija.com_.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.x0aBg3zvphodQ6ld-oGHwwHaJ4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
 ];
