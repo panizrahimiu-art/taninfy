@@ -239,5 +239,41 @@ window.TANINFY_SONGS = [
     src: "https://kk.soonami.ir/Cinare%20Melikzade%20-%20Olmayanim.mp3",
     cover: "",
     featured: true
-  }
+  },
+  {
+    title: "Oh Nana",
+    artist: "Raha",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://www.appahangx.com/s-dl/100159",
+    cover: "https://v.tapseda.com/i/covers/iranian/raha/raha-oh-nana-medium.webp",
+    featured: true
+  },
+  {
+    title: "BAZIGAR",
+    artist: "Isam",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://www.appahangx.com/s-dl/99807",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1405/05/82911786778180813017867781805243.webp",
+    featured: true
+  },
+  {
+    title: "Hysteric",
+    artist: "Isam & Koorosh",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://www.appahangx.com/s-dl/99807",
+    cover: "https://csong.ir/dl/1507/dl320/",
+    featured: true
+  },
+  {
+    title: "Shodi Nooram",
+    artist: "Novan",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://dl.playmusic.ir/Music/N/Novan/Single/Novan%20-%20Shodi%20Nooram.mp3",
+    cover: "https://www.playmusic.ir/images/thumbnails/music/2026/09/25/123146_400.webp",
+    featured: true
+  },
 ];
