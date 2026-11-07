@@ -75,7 +75,7 @@ window.TANINFY_SONGS = [
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "OBSESIF",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -84,7 +84,7 @@ window.TANINFY_SONGS = [
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "OBSESIF",
     src: "https://dl.anarmusic.com/music/1405/06/02/Blok3%20-%20Allah%20Allah.mp3",
     cover: "https://anarmusic.com/wp-content/uploads/2026/08/Blok3-Allah-Allah.jpg",
     featured: true
@@ -102,7 +102,7 @@ window.TANINFY_SONGS = [
     title: "Kirginim",
     artist: "BLOK3",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "OBSESIF",
     src: "https://dl.myavangmusic.com/downloads/BLOK3/Kirginim/BLOK3%20-%20Kirginim.mp3",
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -111,7 +111,7 @@ window.TANINFY_SONGS = [
     title: "Kusura Bakma",
     artist: "BLOK3",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "Virtüöz",
     src: "https://dl.anarmusic.com/music/1404/09/06/Blok3%20-%20Kusura%20Bakma.mp3",
     cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
