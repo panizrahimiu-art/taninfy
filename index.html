@@ -2095,7 +2095,7 @@ footer {
 html,body{background:#080708;color:#f8f1f3}
 body{font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.65}
 .topbar{
-  position:fixed;top:0;left:0;right:0;height:62px;z-index:100;
+  position:fixed;top:0;left:120px;right:0;height:62px;z-index:100;
   display:flex;align-items:center;justify-content:space-between;gap:18px;
   padding:0 28px 0 24px;background:rgba(12,9,11,.96);
   border-bottom:1px solid rgba(213,160,173,.13);backdrop-filter:blur(18px)
@@ -2193,13 +2193,14 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 .player-label{color:#91868b}
 .full-player{background:#090809!important}
 @media(max-width:900px){
+  .topbar{left:86px}
   .app-sidebar{width:86px}
   main,footer{margin-left:86px}
   .wrap{width:calc(100% - 38px)}
   .track-list{grid-template-columns:1fr}
 }
 @media(max-width:650px){
-  .topbar{height:58px;padding:0 12px}
+  .topbar{left:0;height:58px;padding:0 12px}
   .topbar .menu-toggle{display:flex;width:34px;height:34px;border:0;background:transparent;gap:4px}
   .topbar .menu-toggle span{background:#d5a0ad;width:18px}
   .topbar-arrow{display:none}
@@ -4222,7 +4223,7 @@ async function downloadCurrentSong() {
   if (window.taninfyAuthReady) await window.taninfyAuthReady;
   if (!window.taninfyCurrentUser) {
     const status = document.getElementById("loginStatus");
-    if (status) status.textContent = "برای دانلود آهنگ، ابتدا با حساب Google ثبت‌نام یا وارد شو؛ سپس دوباره روی دانلود بزن.";
+    if (status) status.textContent = "برای دانلود آهنگ، ابتدا ثبت‌نام یا وارد حساب Taninfy شو؛ سپس دوباره روی دانلود بزن.";
     if (typeof showPage === "function") showPage("login");
     return;
   }
@@ -4780,6 +4781,9 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
+
 
 
 
