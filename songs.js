@@ -188,6 +188,77 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Be Man Nago Doset Daram",
+    artist: "Dariush",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://musicstaj.musitraf.com/song404/paeiz/Be%20Man%20Nago%20Doset%20Daram.mp3",
+    cover: "https://gitarmuzic.com/wp-content/uploads/2025/07/dariush-be-man-nago-doset-daram.jpg",
+    featured: true
+  },
+  {
+    title: "Ağlama Ben Ağlarım",
+    artist: "Canozan",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://azturk.musitraf.ir/1402/09/08/Canozan%20-%20A%C4%9Flama%20ben%20a%C4%9Flar%C4%B1m.mp3",
+    cover: "https://azturk.ir/wp-content/uploads/2023/11/Canozan-A%C4%9Flama-ben-a%C4%9Flar%C4%B1m.jpg",
+    featured: true
+  },
+  {
+    title: "Emshab Shabe Mahtabe",
+    artist: "Mehran Modiri",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://irsv.upmusics.com/Tracks/Songs/Mehran%20Modiri%20-%20Emshab%20Shabe%20Mahtabe%20(UpMusic).mp3",
+    cover: "https://i.etsystatic.com/49133137/r/il/71c7ce/5724223684/il_fullxfull.5724223684_aq82.jpg"
+   },
+   {
+    title: "Ex",
+    artist: "Hiphopologist",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://dl.anarmusic.com/music/1404/08/21/Hiphopologist%20-%20Ex.mp3",
+    cover: "https://anarmusic.com/wp-content/uploads/2025/11/Hiphopologist-Ex.jpg",
+    featured: true
+  },
+  {
+    title: "Bagdat",
+    artist: "Ayla celik",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://kk.soonami.ir/Ayla%20Celik%20ft.%20Beyazit%20Ozturk%20-%20Bagdat.mp3",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.A5zTH91NSfxx60H1W0UbKwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Olmayanim",
+    artist: "Cinare Melikzade",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://kk.soonami.ir/Cinare%20Melikzade%20-%20Olmayanim.mp3",
+    cover: "DIRECT-COVER-IMAGE-URL",
+    featured: true
+  },
+  {
+    title: "Another Love",
+    artist: "Tom Odell",
+    genre: "Pop",
+    album: "اسم آلبوم",
+    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
+    cover: "https://th.bing.com/th/id/OIP.rjgFCDnYsVu5E8CPY3QoqAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
@@ -195,7 +266,7 @@ window.TANINFY_SONGS = [
     src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
     cover: "DIRECT-COVER-IMAGE-URL",
     featured: true
-  },
+   },
    {
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
@@ -266,7 +337,7 @@ window.TANINFY_SONGS = [
     src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
     cover: "DIRECT-COVER-IMAGE-URL",
     featured: true
-  },
+   },
    {
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
@@ -337,78 +408,7 @@ window.TANINFY_SONGS = [
     src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
     cover: "DIRECT-COVER-IMAGE-URL",
     featured: true
-  },
-   {
-    title: "Delm Az Donya Gerefte",
-    artist: "Hoomaan",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Delm%20Az%20Donya%20Gerefte%20(320).mp3",
-    cover: "https://tse1.mm.bing.net/th/id/OIP.fANlpRrZyB9doGqV7mCLvQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    featured: true
-  },
-  {
-    title: "Haminim Ke Hastim",
-    artist: "Wantons",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.bandmusic.ir/files/mp3/s1/Wantons%20%E2%80%93%20Haminim%20Ke%20Hastim.mp3",
-    cover: "https://images.genius.com/c5953392e63863b32aadac824b845ff3.600x600x1.jpg",
-    featured: true
-  },
-  {
-    title: "Sebebi Yar",
-    artist: "BLOK3",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
-    cover: "https://th.bing.com/th/id/OIP.sBuU8fefYZhtyyEggHsswQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
    },
-   {
-    title: "Allah Allah",
-    artist: "BLOK3",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.anarmusic.com/music/1405/06/02/Blok3%20-%20Allah%20Allah.mp3",
-    cover: "https://anarmusic.com/wp-content/uploads/2026/08/Blok3-Allah-Allah.jpg",
-    featured: true
-  },
-  {
-    title: "Extasy",
-    artist: "Koorosh & Sijal & Samilow & Raha",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
-    cover: "https://tse3.mm.bing.net/th/id/OIP.-nugC40B-lnZ4DJQuQ_kegHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    featured: true
-   },
-   {
-    title: "Un-Break My Heart",
-    artist: "Toni Braxton",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
-    featured: true
-  },
-  {
-    title: "Another Love",
-    artist: "Tom Odell",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
-    cover: "https://th.bing.com/th/id/OIP.rjgFCDnYsVu5E8CPY3QoqAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
-    featured: true
-  },
-  {
-    title: "Stars",
-    artist: "Aemia",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
-    cover: "DIRECT-COVER-IMAGE-URL",
-    featured: true
-  },
    {
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan",
