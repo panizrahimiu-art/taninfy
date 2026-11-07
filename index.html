@@ -2460,6 +2460,112 @@ body.light-theme .page { color:#34232a; }
   }
 }
 
+
+/* ================================
+   TANINFY — JS PLAYLIST CARDS
+================================ */
+.curated-playlists{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+.curated-card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:150px 1fr;
+  min-height:190px;
+  border:1px solid rgba(213,160,173,.12);
+  border-radius:18px;
+  background:linear-gradient(145deg,#1a1015,#0e0b0d 78%);
+  box-shadow:0 18px 50px rgba(0,0,0,.18);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.curated-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(213,160,173,.3);
+  box-shadow:0 25px 65px rgba(0,0,0,.28);
+}
+.curated-cover{
+  position:relative;
+  min-height:190px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding:16px;
+  background:
+    radial-gradient(circle at 70% 25%,rgba(213,160,173,.22),transparent 42%),
+    linear-gradient(145deg,#4d1428,#160b10);
+}
+.curated-cover span{
+  font:700 12px Arial,sans-serif;
+  color:rgba(255,255,255,.55);
+  letter-spacing:2px;
+}
+.curated-cover b{
+  font:400 58px Georgia,serif;
+  color:rgba(255,255,255,.88);
+  line-height:1;
+}
+.curated-cover small{
+  position:absolute;
+  left:16px;
+  top:16px;
+  color:rgba(255,255,255,.48);
+  font:700 8px Arial,sans-serif;
+  letter-spacing:2px;
+}
+.curated-info{
+  padding:24px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+}
+.curated-info>span{
+  color:var(--pink);
+  font:700 9px Arial,sans-serif;
+  letter-spacing:2px;
+}
+.curated-info h2{
+  margin:9px 0 5px;
+  font-size:21px;
+}
+.curated-info p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+  margin:0 0 17px;
+}
+.curated-info button{
+  align-self:flex-start;
+  border:0;
+  background:transparent;
+  color:var(--pink);
+  padding:0;
+  font-size:11px;
+  cursor:pointer;
+}
+.curated-info button:hover{color:#fff}
+.playlist-song-count{
+  color:#8f8086;
+  font-size:10px;
+  margin-top:3px;
+}
+.playlist-empty-state{
+  margin-top:24px;
+}
+@media(max-width:750px){
+  .curated-playlists{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .curated-card{grid-template-columns:115px 1fr;min-height:165px}
+  .curated-cover{min-height:165px}
+  .curated-cover b{font-size:45px}
+  .curated-info{padding:18px 16px}
+}
+
 </style>
 
 <style>
@@ -3233,28 +3339,21 @@ body.light-theme .page { color:#34232a; }
 <section class="page" id="page-playlist">
   <div class="wrap">
     <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
     <div class="page-heading">
-      <small>TANINFY ORIGINALS</small>
-      <h1>پلی لیست‌های اختصاصی Taninfy ♫</h1>
+      <small>TANINFY / PLAYLISTS</small>
+      <h1>پلی لیست‌های من ♫</h1>
     </div>
-    <p class="curated-intro">انتخاب‌های اختصاصی تیم طنین‌فای؛ پلی لیست‌هایی که برای همه کاربران آماده شده‌اند.</p>
-    <div class="curated-playlists" id="curatedPlaylistGrid">
-      <article class="curated-card curated-night">
-        <div class="curated-cover"><span>01</span><b>☾</b><small>TANINFY ORIGINALS</small></div>
-        <div class="curated-info"><span>MOOD · NIGHT</span><h2>شب‌های طولانی</h2><p>برای قدم‌زدن‌های شبانه و فکرهای دور.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
-      </article>
-      <article class="curated-card curated-dark">
-        <div class="curated-cover"><span>02</span><b>✦</b><small>TANINFY ORIGINALS</small></div>
-        <div class="curated-info"><span>MOOD · DARK</span><h2>تاریک و مرموز</h2><p>صداهایی عمیق برای حال‌وهوای متفاوت.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
-      </article>
-      <article class="curated-card curated-nostalgia">
-        <div class="curated-cover"><span>03</span><b>♫</b><small>TANINFY ORIGINALS</small></div>
-        <div class="curated-info"><span>MOOD · NOSTALGIA</span><h2>خاطرات دور</h2><p>آهنگ‌هایی برای مرور لحظه‌های فراموش‌نشدنی.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
-      </article>
-      <article class="curated-card curated-energy">
-        <div class="curated-cover"><span>04</span><b>↗</b><small>TANINFY ORIGINALS</small></div>
-        <div class="curated-info"><span>MOOD · ENERGY</span><h2>شروع دوباره</h2><p>ریتم‌هایی برای بالا بردن انرژی روز.</p><button type="button" data-curated-browse>مشاهده آهنگ‌ها <span>←</span></button></div>
-      </article>
+
+    <p class="curated-intro">
+      پلی لیست‌ها از فایل <b>playlist.js</b> خوانده می‌شوند؛ برای هر آهنگ فقط نام یا شناسهٔ آن را بنویس.
+    </p>
+
+    <div class="curated-playlists" id="curatedPlaylistGrid"></div>
+
+    <div class="panel playlist-empty-state" id="playlistEmptyState" style="display:none;">
+      <h2>هنوز پلی لیستی ساخته نشده</h2>
+      <p>داخل فایل <b>playlist.js</b> اسم پلی لیست و آهنگ‌ها را اضافه کن.</p>
     </div>
   </div>
 </section>
@@ -3459,6 +3558,7 @@ body.light-theme .page { color:#34232a; }
 </div>
 
 <script src="songs.js"></script>
+<script src="playlist.js"></script>
 <div class="playlist-picker-overlay" id="playlistPickerOverlay" aria-hidden="true">
   <div class="playlist-picker" role="dialog" aria-modal="true">
     <h3>Add to playlist</h3>
@@ -3749,6 +3849,200 @@ function renderTrackCatalog() {
 
 renderTrackCatalog();
 window.renderTaninfyExplore = renderTrackCatalog;
+
+/* =========================================
+   TANINFY — PLAYLIST.JS CONNECTION
+   Playlist entries can contain only song IDs
+   or exact song titles. The full song data
+   (src, cover, artist, etc.) always comes
+   from songs.js / TANINFY_SONGS.
+========================================= */
+
+function getPlaylistSong(songRef) {
+  if (!songRef) return null;
+
+  const ref = String(
+    typeof songRef === "object"
+      ? (songRef.id ?? songRef.songId ?? songRef.title ?? "")
+      : songRef
+  ).trim();
+
+  if (!ref) return null;
+
+  const byId = songCatalog.find(song => String(song?.id ?? "").trim() === ref);
+  if (byId) return byId;
+
+  const normalized = ref.toLocaleLowerCase();
+  return songCatalog.find(song =>
+    String(song?.title ?? "").trim().toLocaleLowerCase() === normalized
+  ) || null;
+}
+
+function getTaninfyPlaylists() {
+  return Array.isArray(window.TANINFY_PLAYLISTS)
+    ? window.TANINFY_PLAYLISTS
+    : [];
+}
+
+function playlistCover(playlist, songs) {
+  if (playlist?.cover) return playlist.cover;
+  const firstSong = songs.find(Boolean);
+  return firstSong?.cover || "";
+}
+
+function renderTaninfyPlaylists() {
+  const grid = document.getElementById("curatedPlaylistGrid");
+  const empty = document.getElementById("playlistEmptyState");
+  if (!grid) return;
+
+  const playlistData = getTaninfyPlaylists();
+  grid.innerHTML = "";
+
+  if (!playlistData.length) {
+    if (empty) empty.style.display = "block";
+    return;
+  }
+
+  if (empty) empty.style.display = "none";
+
+  playlistData.forEach((playlist, playlistIndex) => {
+    const refs = Array.isArray(playlist.songs) ? playlist.songs : [];
+    const resolvedSongs = refs.map(getPlaylistSong).filter(Boolean);
+
+    const card = document.createElement("article");
+    card.className = "curated-card";
+
+    const cover = document.createElement("div");
+    cover.className = "curated-cover";
+
+    const number = document.createElement("span");
+    number.textContent = String(playlistIndex + 1).padStart(2, "0");
+
+    const icon = document.createElement("b");
+    icon.textContent = playlist.icon || "♫";
+
+    const label = document.createElement("small");
+    label.textContent = playlist.label || "TANINFY PLAYLIST";
+
+    cover.append(number, icon, label);
+
+    const info = document.createElement("div");
+    info.className = "curated-info";
+
+    const mood = document.createElement("span");
+    mood.textContent = playlist.mood
+      ? `MOOD · ${String(playlist.mood).toUpperCase()}`
+      : "TANINFY · PLAYLIST";
+
+    const title = document.createElement("h2");
+    title.textContent = playlist.name || "Playlist";
+
+    const description = document.createElement("p");
+    description.textContent = playlist.description || "انتخابی از آهنگ‌های Taninfy.";
+
+    const count = document.createElement("div");
+    count.className = "playlist-song-count";
+    count.textContent = `${resolvedSongs.length} آهنگ`;
+
+    const openButton = document.createElement("button");
+    openButton.type = "button";
+    openButton.textContent = "مشاهده آهنگ‌ها ←";
+
+    openButton.addEventListener("click", () => {
+      if (!resolvedSongs.length) {
+        showSuccessCheck("آهنگی برای این پلی لیست پیدا نشد");
+        return;
+      }
+
+      showPage("home");
+      setTimeout(() => {
+        const indices = resolvedSongs
+          .map(song => songCatalog.indexOf(song))
+          .filter(index => index >= 0);
+
+        renderPlaylistSongsInExplore(indices, playlist.name || "Playlist");
+      }, 80);
+    });
+
+    info.append(mood, title, description, count, openButton);
+    card.append(cover, info);
+    grid.appendChild(card);
+  });
+}
+
+function renderPlaylistSongsInExplore(indices, playlistName) {
+  const list = document.getElementById("trackList");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  const heading = document.createElement("div");
+  heading.className = "section-title";
+  heading.innerHTML = `
+    <div>
+      <h2>${escapeHtml(playlistName || "Playlist")}</h2>
+      <p>آهنگ‌های این پلی لیست</p>
+    </div>
+  `;
+  list.appendChild(heading);
+
+  indices.forEach(index => {
+    const song = songCatalog[index];
+    if (!song) return;
+
+    const row = document.createElement("article");
+    row.className = "track music-card";
+    row.dataset.songId = song.id || String(index);
+    row.dataset.songIndex = String(index);
+    row.setAttribute("tabindex", "0");
+    row.setAttribute("role", "button");
+    row.setAttribute("aria-label", `پخش ${song.title || "آهنگ"}`);
+
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "track-cover-wrap";
+
+    const cover = document.createElement("img");
+    cover.className = "track-cover-thumb";
+    cover.src = song.cover || "";
+    cover.alt = `کاور ${song.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
+    const coverPlay = document.createElement("span");
+    coverPlay.className = "track-cover-play";
+    coverPlay.setAttribute("aria-hidden", "true");
+    coverPlay.textContent = "▶";
+    coverWrap.append(cover, coverPlay);
+
+    const info = document.createElement("div");
+    info.className = "track-info";
+
+    const title = document.createElement("strong");
+    title.className = "track-title";
+    title.textContent = song.title || "بدون نام";
+
+    const artist = document.createElement("span");
+    artist.className = "track-artist";
+    artist.textContent = song.artist || "هنرمند نامشخص";
+
+    info.append(title, artist);
+
+    const heart = document.createElement("button");
+    heart.className = "heart-btn";
+    heart.type = "button";
+    heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
+    heart.textContent = "♡";
+
+    row.append(coverWrap, info, heart);
+    list.appendChild(row);
+  });
+
+  syncHearts();
+  list.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+window.renderTaninfyPlaylists = renderTaninfyPlaylists;
+renderTaninfyPlaylists();
+
 
 
 /* SEARCH + ARTIST PROFILES */
@@ -5313,36 +5607,6 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
