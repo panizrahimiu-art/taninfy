@@ -2436,6 +2436,30 @@ body.light-theme .page { color:#34232a; }
 }
 .full-action-btn { min-width:48px; }
 
+/* =========================================
+   FINAL USER REQUESTED TWEAKS — MINI PLAYER
+========================================= */
+.player {
+  left: 140px !important;
+  right: 20px !important;
+  bottom: 18px !important;
+  border: 1px solid rgba(213,160,173,.18) !important;
+  border-radius: 22px !important;
+  background: rgba(12, 9, 11, .82) !important;
+  opacity: .88;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,.28);
+}
+
+@media(max-width:650px) {
+  .player {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 78px !important;
+    border-radius: 20px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -3274,29 +3298,66 @@ function artistKey(name) {
   return String(name || "هنرمند نامشخص").trim().toLocaleLowerCase();
 }
 
+function splitArtistNames(value) {
+  const text = String(value || "").trim();
+  if (!text) return ["هنرمند نامشخص"];
+
+  // A collaboration is one song credit, but each credited artist gets
+  // the same song inside their own profile.
+  return text
+    .split(/\s*(?:&|×|\+|\bx\b|\bfeat\.?\b|\bft\.?\b|\bfeaturing\b|\band\b)\s*/i)
+    .map(name => name.trim())
+    .filter(Boolean);
+}
+
+function addSongToArtist(map, name, song, index) {
+  const cleanName = String(name || "هنرمند نامشخص").trim() || "هنرمند نامشخص";
+  const key = artistKey(cleanName);
+  if (!map.has(key)) {
+    map.set(key, { name: cleanName, image: "", genre: "", songs: [], albums: new Map() });
+  }
+
+  const artist = map.get(key);
+  artist.songs.push({ song, index });
+
+  const albumName = String(song.album || "Singles").trim() || "Singles";
+  const albumKey = albumName.toLocaleLowerCase();
+  if (!artist.albums.has(albumKey)) {
+    artist.albums.set(albumKey, { name: albumName, cover: song.cover || "", songs: [] });
+  }
+
+  const album = artist.albums.get(albumKey);
+  album.songs.push({ song, index });
+  if (!album.cover && song.cover) album.cover = song.cover;
+}
+
 function getArtists() {
   const map = new Map();
   const profileData = Array.isArray(window.TANINFY_ARTISTS) ? window.TANINFY_ARTISTS : [];
+
+  // Keep artist profiles separate even if an artist-data entry itself contains
+  // a collaboration credit such as "Isam & Koorosh".
   profileData.forEach(profile => {
     if (!profile || !profile.name) return;
-    map.set(artistKey(profile.name), {
-      name: profile.name, image: profile.image || "", genre: profile.genre || "",
-      songs: [], albums: new Map()
+    splitArtistNames(profile.name).forEach(name => {
+      const key = artistKey(name);
+      if (!map.has(key)) {
+        map.set(key, {
+          name, image: profile.image || "", genre: profile.genre || "",
+          songs: [], albums: new Map()
+        });
+      } else if (!map.get(key).image && profile.image) {
+        map.get(key).image = profile.image;
+      }
     });
   });
+
   songCatalog.forEach((song, index) => {
-    const name = song.artist || "هنرمند نامشخص";
-    const key = artistKey(name);
-    if (!map.has(key)) map.set(key, { name, image: "", genre: "", songs: [], albums: new Map() });
-    const artist = map.get(key);
-    artist.songs.push({ song, index });
-    const albumName = String(song.album || "Singles").trim() || "Singles";
-    const albumKey = albumName.toLocaleLowerCase();
-    if (!artist.albums.has(albumKey)) map.get(key).albums.set(albumKey, { name: albumName, cover: song.cover || "", songs: [] });
-    const album = artist.albums.get(albumKey);
-    album.songs.push({ song, index });
-    if (!album.cover && song.cover) album.cover = song.cover;
+    splitArtistNames(song.artist || "هنرمند نامشخص").forEach(name => {
+      addSongToArtist(map, name, song, index);
+    });
   });
+
   return [...map.values()].map(artist => ({ ...artist, albums: [...artist.albums.values()] }));
 }
 
@@ -4781,6 +4842,15 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
 
 
