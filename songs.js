@@ -183,7 +183,7 @@ window.TANINFY_SONGS = [
     title: "All I Ask",
     artist: "Adele",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "25",
     src: "https://gaana.ir/music/all-i-ask/",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
@@ -320,6 +320,33 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "25",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Water-Under-the-Bridge_melod.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "River Lea",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://dl.melod.ir/Musics/A/Adele/Adele--river-lea_melod.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "Love in the Dark",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://dl.melod.ir/Musics/A/Adele/Adele--Love-in-the-dark_melod.ir.mp3",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
+    featured: true
+   },
+   {
+    title: "Million Years Ago",
+    artist: "Adele",
+    genre: "Pop",
+    album: "25",
+    src: "https://dl.melod.ir/Musics/A/Adele/Adele--Million-Years-Ago-melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
    },
