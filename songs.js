@@ -612,15 +612,6 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Skit",
-    artist: "Chvrsi & Reza Sadeghi",
-    genre: "Pop",
-    album: "DAAM",
-    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Reza%20Sadeghi%20-%20Skit.mp3",
-    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
-    featured: true
-   },
-   {
     title: "Araftey",
     artist: "Chvrsi & Hossein Bashiri",
     genre: "Pop",
