@@ -3179,6 +3179,121 @@ body.light-theme .page { color:#34232a; }
   display:block;
   transition:opacity .25s ease,transform .35s ease;
 }
+/* ===== TANINFY PLAYLIST — DYNAMIC LUXURY BACKDROP ===== */
+.playlist-detail{
+  --playlist-bg-image:none;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-radius:22px;
+  padding:18px 22px 78px;
+  background:linear-gradient(180deg,rgba(9,7,9,.72) 0%,rgba(9,7,9,.88) 38%,rgba(9,7,9,.98) 100%);
+  box-shadow:0 30px 90px rgba(0,0,0,.22);
+}
+.playlist-detail::before{
+  content:"";
+  position:absolute;
+  inset:-45px;
+  z-index:-2;
+  background-image:
+    linear-gradient(180deg,rgba(8,6,8,.42) 0%,rgba(8,6,8,.78) 52%,rgba(8,6,8,.97) 100%),
+    var(--playlist-bg-image);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  filter:blur(26px) saturate(1.18);
+  transform:scale(1.08);
+  opacity:.72;
+  transition:background-image .55s ease,opacity .4s ease,filter .4s ease;
+}
+.playlist-detail::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 12%,rgba(213,160,173,.13),transparent 32%),
+    radial-gradient(circle at 82% 18%,rgba(145,43,72,.15),transparent 34%),
+    linear-gradient(180deg,transparent 0%,rgba(8,6,8,.18) 45%,rgba(8,6,8,.45) 100%);
+}
+.playlist-detail-hero,
+.playlist-detail-list-head,
+.playlist-detail-songs{
+  position:relative;
+  z-index:1;
+}
+.playlist-detail-cover-wrap{
+  box-shadow:0 28px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06);
+}
+.playlist-detail-meta h2{
+  text-shadow:0 8px 35px rgba(0,0,0,.45);
+}
+.playlist-detail-song{
+  backdrop-filter:blur(12px);
+}
+.playlist-detail-song:hover{
+  background:rgba(255,255,255,.055);
+}
+.playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(142,34,61,.28),rgba(255,255,255,.035));
+  box-shadow:inset 3px 0 0 rgba(213,160,173,.75);
+}
+
+/* روشن: تمام نوشته‌های محیط پلی‌لیست مشکی/تیره */
+body.light-theme .playlist-detail{
+  color:#111;
+  background:linear-gradient(180deg,rgba(255,255,255,.84) 0%,rgba(250,246,247,.94) 45%,rgba(246,239,241,.98) 100%);
+  box-shadow:0 25px 70px rgba(70,35,45,.10);
+}
+body.light-theme .playlist-detail::before{
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.60) 0%,rgba(255,255,255,.80) 48%,rgba(248,241,243,.96) 100%),
+    var(--playlist-bg-image);
+  opacity:.38;
+  filter:blur(28px) saturate(.95);
+}
+body.light-theme .playlist-detail::after{
+  background:
+    radial-gradient(circle at 18% 12%,rgba(150,66,91,.10),transparent 32%),
+    radial-gradient(circle at 82% 18%,rgba(120,40,65,.08),transparent 34%),
+    linear-gradient(180deg,transparent 0%,rgba(255,255,255,.22) 55%,rgba(248,241,243,.48) 100%);
+}
+body.light-theme .playlist-detail-back,
+body.light-theme .playlist-detail-kicker,
+body.light-theme .playlist-detail-meta h2,
+body.light-theme .playlist-detail-meta p,
+body.light-theme .playlist-detail-list-head,
+body.light-theme .playlist-detail-list-head span,
+body.light-theme .playlist-detail-song-info strong,
+body.light-theme .playlist-detail-song-info span,
+body.light-theme .playlist-detail-number,
+body.light-theme .playlist-detail-empty,
+body.light-theme .playlist-detail-actions button{
+  color:#111 !important;
+}
+body.light-theme .playlist-detail-list-head span:last-child,
+body.light-theme .playlist-detail-song-info span{
+  color:#2b2528 !important;
+}
+body.light-theme .playlist-detail-song{
+  border-bottom-color:rgba(40,28,33,.12);
+}
+body.light-theme .playlist-detail-song:hover{
+  background:rgba(255,255,255,.58);
+}
+body.light-theme .playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(130,34,61,.10),rgba(255,255,255,.45));
+  box-shadow:inset 3px 0 0 rgba(120,35,58,.72);
+}
+body.light-theme .playlist-secondary-action{
+  background:rgba(255,255,255,.55);
+  border-color:rgba(40,28,33,.16);
+}
+body.light-theme .playlist-main-action{
+  color:#fff !important;
+}
+
 
 .playlist-detail-cover.is-song-cover{
   transform:scale(1.015);
@@ -4598,6 +4713,17 @@ function getPlaylistCoverForDetail(playlist, songs) {
   return playlistCover(playlist, songs) || "";
 }
 
+function setPlaylistDetailBackground(imageUrl) {
+  const detail = document.getElementById("playlistDetail");
+  if (!detail) return;
+  if (imageUrl) {
+    const safeUrl = String(imageUrl).replace(/"/g, '\\\"');
+    detail.style.setProperty("--playlist-bg-image", `url("${safeUrl}")`);
+  } else {
+    detail.style.setProperty("--playlist-bg-image", "none");
+  }
+}
+
 function resetPlaylistDetailCover() {
   const cover = document.getElementById("playlistDetailCover");
   if (!cover || !taninfyOpenPlaylist) return;
@@ -4636,12 +4762,23 @@ function updatePlaylistDetailPlaying() {
   const cover = document.getElementById("playlistDetailCover");
   if (!cover) return;
 
-  if (playingSong && playingSong.cover) {
-    cover.src = playingSong.cover;
-    cover.alt = `کاور ${playingSong.title || "آهنگ"}`;
+  const currentIsInPlaylist =
+    Number.isInteger(currentTrackIndex) &&
+    taninfyOpenPlaylistIndices.includes(currentTrackIndex);
+
+  const activeSong = currentIsInPlaylist ? songCatalog[currentTrackIndex] : null;
+
+  if (activeSong && activeSong.cover) {
+    cover.src = activeSong.cover;
+    cover.alt = `کاور ${activeSong.title || "آهنگ"}`;
     cover.classList.add("is-song-cover");
+    setPlaylistDetailBackground(activeSong.cover);
   } else {
     resetPlaylistDetailCover();
+    const playlistSongs = (Array.isArray(taninfyOpenPlaylist?.songs) ? taninfyOpenPlaylist.songs : [])
+      .map(getPlaylistSong)
+      .filter(Boolean);
+    setPlaylistDetailBackground(getPlaylistCoverForDetail(taninfyOpenPlaylist, playlistSongs));
   }
 }
 
@@ -4817,6 +4954,7 @@ function openTaninfyPlaylist(playlist) {
   if (count) count.textContent = `${resolvedSongs.length} آهنگ`;
 
   resetPlaylistDetailCover();
+  setPlaylistDetailBackground(getPlaylistCoverForDetail(playlist, resolvedSongs));
   renderPlaylistDetailSongs(taninfyOpenPlaylistIndices);
 
   const playButton = document.getElementById("playlistDetailPlay");
@@ -6570,6 +6708,10 @@ document.addEventListener("click", function (event) {
 
 </body>
 </html>
+
+
+
+
 
 
 
