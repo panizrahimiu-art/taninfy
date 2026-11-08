@@ -2612,7 +2612,8 @@ body.light-theme .page { color:#34232a; }
 }
 .full-player::marker { display: none; }
 .full-player-content {
-  width: min(78vw, 640px) !important;
+  width: min(72vw, 600px) !important;
+  box-sizing: border-box !important;
   height: auto !important;
   max-height: calc(100dvh - 64px);
   padding: clamp(22px, 4vw, 42px) !important;
@@ -2718,7 +2719,7 @@ body.light-theme .page { color:#34232a; }
 .full-play-btn:hover { background: transparent !important; }
 @media (max-width: 700px) {
   .full-player-content {
-    width: min(78vw, 530px) !important;
+    width: min(76vw, 500px) !important;
     max-height: calc(100dvh - 48px);
     padding: clamp(20px, 5vw, 30px) !important;
   }
@@ -6917,8 +6918,8 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       .mix small, .mix::after, .hero h1 em, .profile-kicker, .profile-main p, .custom-accent { color:${settings.accent} !important; }
       .mix::after { background:color-mix(in srgb, ${settings.accent} 20%, transparent) !important; }
       .switch input:checked+span { background:${settings.accent} !important; }
-      /* Accent is the play-button circle; the play glyph is a darker shade for contrast. */
-      .full-play-btn, .play-btn, .track-play { background:${settings.accent} !important; border-color:${settings.accent} !important; color:color-mix(in srgb, ${settings.accent} 35%, #171017) !important; }
+      /* Keep full-player play/pause icon transparent; accent applies only to compact play controls. */
+      .play-btn, .track-play { background:${settings.accent} !important; border-color:${settings.accent} !important; color:color-mix(in srgb, ${settings.accent} 35%, #171017) !important; }
       .full-play-btn svg, .play-btn svg, .track-play svg { fill:currentColor !important; }
       .track:hover { background:color-mix(in srgb, ${settings.accent} 10%, transparent) !important; }
       .settings-symbol { color:${settings.accent} !important; background:color-mix(in srgb, ${settings.accent} 13%, transparent) !important; }
@@ -7148,4 +7149,12 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   #trackList .track-title{font-size:12.5px !important;}
   #trackList .track-artist{font-size:10.5px !important;}
 }
+</style>
+
+<style>
+/* Final full-player refinements */
+.full-player-content { width: min(72vw, 600px) !important; box-sizing: border-box !important; }
+.full-play-btn, #fullPlayBtn { background: transparent !important; background-color: transparent !important; background-image: none !important; border: 0 !important; border-color: transparent !important; border-radius: 0 !important; box-shadow: none !important; outline: 0 !important; color: #fff !important; }
+.full-play-btn:hover, .full-play-btn:focus, .full-play-btn:active, #fullPlayBtn:hover, #fullPlayBtn:focus, #fullPlayBtn:active { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
+@media (max-width: 700px) { .full-player-content { width: min(76vw, 500px) !important; } }
 </style>
