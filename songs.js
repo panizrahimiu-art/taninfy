@@ -520,5 +520,23 @@ window.TANINFY_SONGS = [
     src: "https://dl.bandmusic.ir/files/1402/11/09/Arta%20-%20Yadet%20Nist.mp33",
     cover: "https://bedunim.ir/wp-content/uploads/2024/01/Arta-Yadet-Nist-320-mp3-image.jpg",
     featured: true
-  },
+   },  
+   {
+    title: "Zemestoon",
+    artist: "Hoomaan & Arown",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20&%20Arown%20%E2%80%93%20Zemestoon%20(320).mp3",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.0WLxkCOhojSCIUmJ7VQQbgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Age Bere",
+    artist: "Arta & Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1403/04/A/320/Arta%20%26%20Hoomaan%20-%20Age%20Bere%20%28320%29.mp3",
+    cover: "https://i.ytimg.com/vi/gJWBwRkpiqg/maxresdefault.jpg",
+    featured: true
+   },
 ];
