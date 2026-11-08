@@ -4144,7 +4144,6 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
   <div class="wrap explore-wrap">
     <div class="explore-heading">
       <h1>Explore</h1>
-      <span>موسیقی برای هر حال‌وهوا</span>
     </div>
 
     <section class="hero">
@@ -4325,7 +4324,7 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     </div>
 
     <p class="curated-intro">
-      پلی لیست‌ها از فایل <b>playlist.js</b> خوانده می‌شوند؛ برای هر آهنگ فقط نام یا شناسهٔ آن را بنویس.
+      همهٔ پلی‌لیست‌های ساخته‌شده و مجموعه‌های Taninfy اینجا نمایش داده می‌شوند.
     </p>
 
     <div class="curated-playlists" id="curatedPlaylistGrid"></div>
@@ -4363,7 +4362,7 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     <div class="panel playlist-empty-state" id="playlistEmptyState" style="display:none;">
       <h2>هنوز پلی لیستی ساخته نشده</h2>
-      <p>داخل فایل <b>playlist.js</b> اسم پلی لیست و آهنگ‌ها را اضافه کن.</p>
+      <p>با افزودن آهنگ‌ها به پلی‌لیست، اینجا نمایش داده می‌شود.</p>
     </div>
   </div>
 </section>
@@ -4686,6 +4685,11 @@ function showPage(name, addHistory = true) {
 document.querySelectorAll("[data-page]").forEach(link => {
   link.addEventListener("click", function(event) {
     event.preventDefault();
+    // Entering Playlists from navigation must always return to the collection,
+    // never leave the previously opened playlist detail on screen.
+    if (this.dataset.page === "playlist" && typeof closeTaninfyPlaylist === "function") {
+      closeTaninfyPlaylist();
+    }
     showPage(this.dataset.page, true);
   });
 });
@@ -4903,9 +4907,29 @@ function getPlaylistSong(songRef) {
 }
 
 function getTaninfyPlaylists() {
-  return Array.isArray(window.TANINFY_PLAYLISTS)
+  const curated = Array.isArray(window.TANINFY_PLAYLISTS)
     ? window.TANINFY_PLAYLISTS
     : [];
+  let personal = [];
+  try {
+    const stored = JSON.parse(localStorage.getItem("taninfy-playlists") || "[]");
+    if (Array.isArray(stored)) personal = stored;
+  } catch (error) {
+    console.warn("Taninfy playlists could not be read from local storage.", error);
+  }
+
+  // Keep both playlist.js collections and playlists created by the user.
+  // If names collide, show the personal playlist once and preserve its contents.
+  const combined = [...curated];
+  personal.forEach(item => {
+    const name = String(item?.name || "").trim().toLocaleLowerCase();
+    const existingIndex = combined.findIndex(entry =>
+      String(entry?.name || "").trim().toLocaleLowerCase() === name
+    );
+    if (existingIndex >= 0) combined[existingIndex] = item;
+    else combined.push(item);
+  });
+  return combined;
 }
 
 function playlistCover(playlist, songs) {
@@ -5049,60 +5073,21 @@ function renderPlaylistDetailSongs(indices) {
     playButton.title = "پخش";
     playButton.textContent = "▶";
 
-    const heart = document.createElement("button");
-    heart.type = "button";
-    heart.className = "playlist-detail-song-heart";
-    heart.title = "علاقه‌مندی";
-    heart.textContent = "♡";
-
     playButton.addEventListener("click", event => {
       event.stopPropagation();
       setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
     });
 
-    heart.addEventListener("click", async event => {
-      event.stopPropagation();
-
-      if (window.taninfyAuthReady) await window.taninfyAuthReady;
-      if (!window.taninfyCurrentUser) {
-        const status = document.getElementById("loginStatus");
-        if (status) status.textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
-        if (typeof showPage === "function") showPage("login");
-        return;
-      }
-
-      const songId = song.id || String(index);
-      const foundIndex = favorites.findIndex(item =>
-        item.songId === songId ||
-        (item.title === song.title && item.artist === song.artist)
-      );
-
-      if (foundIndex >= 0) {
-        favorites.splice(foundIndex, 1);
-      } else {
-        favorites.push({
-          songId,
-          title: song.title || "بدون نام",
-          artist: song.artist || "هنرمند نامشخص"
-        });
-      }
-
-      saveFavorites();
-      renderFavorites();
-      syncHearts();
-      syncPlaylistDetailHearts();
-    });
 
     row.addEventListener("click", event => {
       if (event.target.closest("button")) return;
       setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
     });
 
-    row.append(number, coverWrap, info, playButton, heart);
+    row.append(number, coverWrap, info, playButton);
     list.appendChild(row);
   });
 
-  syncPlaylistDetailHearts();
   updatePlaylistDetailPlaying();
 }
 
@@ -5127,11 +5112,6 @@ function syncPlaylistDetailHearts() {
 function openTaninfyPlaylist(playlist) {
   const refs = Array.isArray(playlist?.songs) ? playlist.songs : [];
   const resolvedSongs = refs.map(getPlaylistSong).filter(Boolean);
-
-  if (!resolvedSongs.length) {
-    showSuccessCheck("آهنگی برای این پلی لیست پیدا نشد");
-    return;
-  }
 
   taninfyOpenPlaylist = playlist;
   taninfyOpenPlaylistIndices = resolvedSongs
@@ -6148,6 +6128,7 @@ function addCurrentSongToPlaylist(index) {
     localStorage.setItem(playlistKey, JSON.stringify(playlists));
   }
 
+  if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
   closePlaylistPicker();
   showSuccessCheck("آهنگ به پلی لیست اضافه شد");
 }
@@ -7005,7 +6986,7 @@ if (typeof audioPlayer !== "undefined") {
 #page-home .explore-heading{gap:14px!important;align-items:center!important;margin-bottom:25px!important}
 #page-home .explore-heading h1{font-size:clamp(32px,3vw,42px)!important;letter-spacing:-1.6px!important;font-weight:750!important}
 #page-home .explore-heading span{background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important;border-radius:999px!important;padding:8px 14px!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-#page-home .hero{display:flex!important;align-items:center;min-height:168px!important;padding:27px 32px!important;margin:0 0 38px!important;position:relative;overflow:hidden;border:1px solid var(--explore-line);border-radius:25px!important;background:radial-gradient(80% 130% at 100% 0%,rgba(154,63,94,.30),transparent 62%),radial-gradient(70% 110% at 0% 100%,rgba(90,38,62,.26),transparent 65%),linear-gradient(135deg,rgba(35,20,29,.96),rgba(16,12,16,.94))!important;box-shadow:0 18px 48px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.045)!important}
+#page-home .hero{display:none!important;align-items:center;min-height:168px!important;padding:27px 32px!important;margin:0 0 38px!important;position:relative;overflow:hidden;border:1px solid var(--explore-line);border-radius:25px!important;background:radial-gradient(80% 130% at 100% 0%,rgba(154,63,94,.30),transparent 62%),radial-gradient(70% 110% at 0% 100%,rgba(90,38,62,.26),transparent 65%),linear-gradient(135deg,rgba(35,20,29,.96),rgba(16,12,16,.94))!important;box-shadow:0 18px 48px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.045)!important}
 #page-home .hero:before{content:"TANINFY  /  YOUR PERSONAL SOUNDSPACE";display:block;position:relative;z-index:1;color:#d5a0ad;font-size:10px;letter-spacing:2.2px;font-weight:700;margin-bottom:13px}
 #page-home .hero:after{content:"هر حال‌وهوا،\A یک موسیقی برای تو.";white-space:pre-line;display:block;position:absolute;left:32px;top:55px;color:#fff7fa;font-size:clamp(21px,2.3vw,30px);line-height:1.75;font-weight:700;letter-spacing:-.6px;z-index:1}
 #page-home .hero-copy,#page-home .visual{display:none!important}
@@ -7016,8 +6997,8 @@ if (typeof audioPlayer !== "undefined") {
 #page-home .section-title p{font-size:12px!important;margin-top:4px;color:var(--explore-muted)!important}
 #page-home .section-title:after{border-radius:999px!important;background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important;padding:7px 15px!important;font-size:11px!important;backdrop-filter:blur(14px)}
 #page-home .curated-playlists{gap:20px!important;margin-top:18px!important}
-#page-home .curated-card{border-radius:19px!important;padding:8px!important;background:var(--explore-glass)!important;border:1px solid var(--explore-line)!important;box-shadow:0 12px 30px rgba(0,0,0,.13)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:transform .22s ease,border-color .22s ease,background .22s ease!important}
-#page-home .curated-card:hover{transform:translateY(-4px)!important;border-color:rgba(213,160,173,.28)!important;background:rgba(255,255,255,.065)!important}
+#page-home .curated-card{border-radius:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:transform .22s ease!important}
+#page-home .curated-card:hover{transform:translateY(-4px)!important;background:transparent!important;border:0!important;box-shadow:none!important}
 #page-home .curated-card .curated-cover{border-radius:14px!important;box-shadow:0 8px 22px rgba(0,0,0,.22)!important}
 #page-home .curated-info{padding:12px 5px 5px!important}
 #page-home .curated-info h2{font-size:14px!important}
@@ -7037,7 +7018,8 @@ if (typeof audioPlayer !== "undefined") {
 #page-home #trackList .heart-btn{align-self:flex-end!important;margin:0 3px 3px!important;width:30px!important;height:30px!important;border-radius:50%!important;background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important}
 body.light-theme #page-home .hero{background:radial-gradient(80% 130% at 100% 0%,rgba(174,95,120,.20),transparent 62%),linear-gradient(135deg,#fff9fb,#f2e8ed)!important;border-color:rgba(74,35,49,.12)!important}
 body.light-theme #page-home .hero:after{color:#34232a}
-body.light-theme #page-home .curated-card,body.light-theme #page-home #trackList .track{background:rgba(255,255,255,.66)!important;border-color:rgba(74,35,49,.11)!important}
+body.light-theme #page-home .curated-card{background:transparent!important;border:0!important;box-shadow:none!important}
+body.light-theme #page-home #trackList .track{background:rgba(255,255,255,.66)!important;border-color:rgba(74,35,49,.11)!important}
 body.light-theme #page-home #trackList .track-title{color:#34232a!important}
 body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 @media(max-width:1000px){
@@ -7054,7 +7036,7 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
  #page-home .section-title h2{font-size:18px!important}
  #page-home .section-title p{font-size:10px!important}
  #page-home .curated-playlists{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
- #page-home .curated-card{padding:6px!important;border-radius:15px!important}
+ #page-home .curated-card{padding:0!important;border-radius:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
  #page-home .curated-card .curated-cover{border-radius:11px!important}
  #page-home .curated-info{padding:9px 3px 4px!important}
  #page-home .curated-info h2{font-size:12px!important}
@@ -7101,6 +7083,32 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   margin-right: 0 !important;
 }
 
+</style>
+
+<style>
+/* Requested Taninfy playlist refinements */
+#page-home .explore-heading > span{display:none !important;}
+/* Playlist cards: remove the glass/card tile behind the square cover. */
+.curated-card{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+}
+.curated-card:hover{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+.curated-card .curated-cover{
+  border:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+/* Playlist detail: no favorite-heart column or button on songs. */
+.playlist-detail-song{grid-template-columns:30px 52px minmax(0,1fr) auto !important;}
+.playlist-detail-song .playlist-detail-song-heart{display:none !important;}
 </style>
 </body>
 </html>
