@@ -454,7 +454,7 @@ window.TANINFY_SONGS = [
     artist: "Hoomaan",
     genre: "Pop",
     album: "",
-    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20fess%20(320).mp3",
+    src: "https://dl.behmusics.com/music/1403/08/Irani/Hoomaan%20-%20Fess.mp3",
     cover: "https://th.bing.com/th/id/OIP.itJMWjwvQkdIdjfq6BXPvQAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
@@ -472,7 +472,7 @@ window.TANINFY_SONGS = [
     artist: "Isam & Koorosh",
     genre: "Pop",
     album: "",
-    src: "https://www.appahangx.com/s-dl/71620",
+    src: "https://dl.behmusics.com/music/1401/12/Irani/Isam%20&%20Koorosh%20-%20OnlyFans.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/5265172480263753921724802637708517248026379763.webp",
     featured: true
   },
@@ -481,7 +481,7 @@ window.TANINFY_SONGS = [
     artist: "Hiphopologist & Sogand",
     genre: "Pop",
     album: "",
-    src: "https://solahangs.musitraf.com/Music/1403/09/H/320/Hiphopologist%20%26%20Sogand%20-%20Marize%20Ham%20%28320%29.mp3",
+    src: "https://dl.behmusics.com/music/1403/09/Irani/Hiphopologist%20&%20Sogand%20-%20Marize%20Ham.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2024/11/Hiphopologist-Sogand-Marize-Ham-img.jpg.webp",
     featured: true
   },
