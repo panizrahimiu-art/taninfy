@@ -3675,6 +3675,47 @@ body.light-theme #favoriteList .favorite-song-cover {
 }
 </style>
 
+
+<style>
+/* Playlist detail typography */
+.playlist-detail-song .playlist-detail-song-title {
+  color: #f8f1f3 !important;
+}
+.playlist-detail-song .playlist-detail-song-artist {
+  color: #91868b !important;
+}
+body.light-theme .playlist-detail-song .playlist-detail-song-title {
+  color: #34232a !important;
+}
+body.light-theme .playlist-detail-song .playlist-detail-song-artist {
+  color: #796b71 !important;
+}
+
+/* Favorite artists: larger circular avatars */
+#favoriteArtistList .favorite-artist-row {
+  flex-basis: 128px !important;
+  width: 128px !important;
+  min-width: 128px !important;
+}
+#favoriteArtistList .favorite-artist-row img {
+  width: 100px !important;
+  height: 100px !important;
+}
+#favoriteArtistList .favorite-artist-open strong {
+  max-width: 128px !important;
+}
+#favoriteArtistList .favorite-artist-remove {
+  margin-left: 73px !important;
+  margin-top: 73px !important;
+}
+
+/* Keep the playlist detail list compact */
+.playlist-detail-song-cover {
+  width: 64px !important;
+  height: 64px !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -6504,8 +6545,34 @@ if (typeof audioPlayer !== "undefined") {
 
 </script>
 
+
+<script>
+document.addEventListener("click", function (event) {
+  const btn = event.target.closest("#playlistDetailShuffle");
+  if (!btn) return;
+  if (!Array.isArray(window.taninfyOpenPlaylistIndices) || !window.taninfyOpenPlaylistIndices.length) return;
+
+  const shuffled = [...window.taninfyOpenPlaylistIndices];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  window.taninfyOpenPlaylistIndices = shuffled;
+
+  if (typeof renderPlaylistDetailSongs === "function") {
+    renderPlaylistDetailSongs(shuffled);
+  }
+  if (typeof playSong === "function") {
+    playSong(shuffled[0]);
+  }
+});
+</script>
+
 </body>
 </html>
+
+
+
 
 
 
