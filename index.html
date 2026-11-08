@@ -5306,6 +5306,147 @@ body.light-theme .player .player-inner {
 }
 </style>
 
+
+<style id="taninfy-explore-exact-final">
+/* ONLY requested Explore layout changes — nothing else */
+#trackList{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:30px 22px !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+}
+
+#trackList .track.music-card{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  width:100% !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  gap:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+}
+
+#trackList .track-cover-wrap{
+  position:relative !important;
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:1/1 !important;
+  min-width:0 !important;
+  max-width:none !important;
+  flex:none !important;
+  border-radius:18px !important;
+  overflow:hidden !important;
+}
+
+#trackList .track-cover-thumb{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  border-radius:18px !important;
+}
+
+/* Play is hidden until hover / click */
+#trackList .track-cover-play{
+  opacity:0 !important;
+  visibility:hidden !important;
+  position:absolute !important;
+  left:50% !important;
+  top:50% !important;
+  transform:translate(-50%,-50%) !important;
+  width:52px !important;
+  height:52px !important;
+  border-radius:50% !important;
+  transition:opacity .18s ease, visibility .18s ease !important;
+  z-index:3 !important;
+}
+
+#trackList .track.music-card:hover .track-cover-play,
+#trackList .track.music-card:focus-within .track-cover-play,
+#trackList .track.music-card.is-playing .track-cover-play{
+  opacity:1 !important;
+  visibility:visible !important;
+}
+
+#trackList .track-info{
+  width:100% !important;
+  min-width:0 !important;
+  padding:10px 2px 0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  text-align:right !important;
+  box-sizing:border-box !important;
+}
+
+#trackList .track-title,
+#trackList .track-artist{
+  display:block !important;
+  width:100% !important;
+  min-width:0 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+  writing-mode:horizontal-tb !important;
+}
+
+#trackList .track-title{
+  font-size:15px !important;
+  line-height:1.5 !important;
+}
+
+#trackList .track-artist{
+  margin-top:3px !important;
+  font-size:12px !important;
+  line-height:1.5 !important;
+}
+
+/* Explore heart stays available */
+#trackList .heart-btn{
+  display:grid !important;
+}
+
+/* Phone: exactly 2 columns */
+@media (max-width:760px){
+  #trackList{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:28px 14px !important;
+    padding:0 10px !important;
+  }
+
+  #trackList .track-cover-wrap{
+    width:100% !important;
+    aspect-ratio:1/1 !important;
+  }
+
+  #trackList .track-info{
+    padding-top:9px !important;
+  }
+
+  #trackList .track-title{
+    font-size:14px !important;
+  }
+
+  #trackList .track-artist{
+    font-size:11px !important;
+  }
+}
+
+@media (max-width:430px){
+  #trackList{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:24px 12px !important;
+    padding:0 8px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
