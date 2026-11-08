@@ -422,4 +422,76 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.bQArh4U4WDG_RPuCqZWu8QHaHa?w=108&h=108&c=1&bgcl=6d3831&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
     featured: true
   },
+  {
+    title: "Dobare",
+    artist: "Saaren",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.melozika.com/music/0027/01.%20Saaren%20-%20Dobare.mp3",
+    cover: "https://echomusic.app/cdn/1579779b98ce9edb98dd85606f2c119d/71633514/echomusic-img6a735b91c0324-500-27893.jpg",
+    featured: true
+  },
+  {
+    title: "Farsanga",
+    artist: "Koorosh & Hooman",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.bandmusic.ir/files/mp3/s1/Koorosh%20,%20Hoomaan%20&%20Arman%20Miladi%20-%20Farsanga.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.M-eXef2S7NLi75tG1JIH7gHaHa?r=0&w=1080&h=1080&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Jigh",
+    artist: "Chvrsi & Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.melonmusic.ir/Music/Chvrsi%20-%20Jigh%20(320).mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.Ok0p6oAVpSol28BvVAR2tAHaHa?r=0&w=600&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Fess",
+    artist: "Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20fess%20(320).mp3",
+    cover: "https://th.bing.com/th/id/OIP.itJMWjwvQkdIdjfq6BXPvQAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+  },
+  {
+    title: "Dare Mire",
+    artist: "Hoomaan & Sijal",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.iran-music.com/music/2021/12/25/2021hoomaan-ft-sijal-dare.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b2737c0fcabee5519352ebb22407",
+    featured: true
+  },
+  {
+    title: "OnlyFans",
+    artist: "Isam & Koorosh",
+    genre: "Pop",
+    album: "",
+    src: "https://www.appahangx.com/s-dl/71620",
+    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/5265172480263753921724802637708517248026379763.webp",
+    featured: true
+  },
+  {
+    title: "Marize Ham",
+    artist: "Hiphopologist & Sogand",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1403/09/H/320/Hiphopologist%20%26%20Sogand%20-%20Marize%20Ham%20%28320%29.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2024/11/Hiphopologist-Sogand-Marize-Ham-img.jpg.webp",
+    featured: true
+  },
+  {
+    title: "Marize Ham",
+    artist: "Hiphopologist & Sogand",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1403/09/H/320/Hiphopologist%20%26%20Sogand%20-%20Marize%20Ham%20%28320%29.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2024/11/Hiphopologist-Sogand-Marize-Ham-img.jpg.webp",
+    featured: true
+  },
 ];
