@@ -4456,6 +4456,186 @@ body.light-theme .player .player-inner {
 }
 </style>
 
+
+<style id="taninfy-mobile-playlist-final">
+/* =========================================================
+   TANINFY — MOBILE PLAYLIST FINAL POLISH
+   Bigger controls + breathing room between playlist songs
+========================================================= */
+@media (max-width: 650px) {
+  /* Hero controls: make the icons/buttons actually readable */
+  .playlist-detail-actions {
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+    margin-top:18px !important;
+  }
+
+  .playlist-detail-actions button,
+  .playlist-detail-actions .playlist-action,
+  .playlist-detail-actions .play-playlist,
+  .playlist-detail-actions .shuffle-playlist,
+  .playlist-detail-actions .favorite-playlist {
+    width:64px !important;
+    height:64px !important;
+    min-width:64px !important;
+    min-height:64px !important;
+    padding:0 !important;
+    border-radius:50% !important;
+    display:grid !important;
+    place-items:center !important;
+    font-size:24px !important;
+    line-height:1 !important;
+  }
+
+  .playlist-detail-actions button svg,
+  .playlist-detail-actions button i,
+  .playlist-detail-actions button span {
+    font-size:23px !important;
+    width:23px !important;
+    height:23px !important;
+    line-height:1 !important;
+  }
+
+  /* The main play button gets a little more visual weight */
+  .playlist-detail-actions button.play-playlist,
+  .playlist-detail-actions button[aria-label*="پخش"],
+  .playlist-detail-actions button[title*="پخش"] {
+    width:72px !important;
+    height:72px !important;
+    min-width:72px !important;
+    min-height:72px !important;
+    font-size:28px !important;
+  }
+
+  /* Song list: stop the rows from visually merging into each other */
+  .playlist-detail-songs {
+    margin-top:30px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    gap:12px !important;
+  }
+
+  .playlist-detail-song {
+    min-height:88px !important;
+    height:auto !important;
+    padding:10px 12px !important;
+    border-radius:16px !important;
+    border:1px solid rgba(255,255,255,.075) !important;
+    background:rgba(255,255,255,.018) !important;
+    display:grid !important;
+    align-items:center !important;
+  }
+
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover {
+    width:62px !important;
+    height:62px !important;
+    min-width:62px !important;
+    border-radius:13px !important;
+  }
+
+  .playlist-detail-song-info {
+    min-width:0 !important;
+    padding-inline:4px !important;
+  }
+
+  .playlist-detail-song-info strong {
+    font-size:14px !important;
+    line-height:1.35 !important;
+  }
+
+  .playlist-detail-song-info span {
+    font-size:11px !important;
+    line-height:1.5 !important;
+    margin-top:3px !important;
+  }
+
+  .playlist-detail-song-play,
+  .playlist-detail-song-heart,
+  .playlist-detail-song-cover-play {
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    border-radius:50% !important;
+    font-size:18px !important;
+  }
+
+  /* More separation at the bottom so the fixed player doesn't eat the last row */
+  .playlist-detail-songs {
+    padding-bottom:24px !important;
+  }
+}
+
+@media (max-width:430px) {
+  .playlist-detail-actions { gap:10px !important; }
+  .playlist-detail-actions button {
+    width:60px !important;
+    height:60px !important;
+    min-width:60px !important;
+    min-height:60px !important;
+  }
+  .playlist-detail-actions button.play-playlist,
+  .playlist-detail-actions button[aria-label*="پخش"],
+  .playlist-detail-actions button[title*="پخش"] {
+    width:68px !important;
+    height:68px !important;
+    min-width:68px !important;
+    min-height:68px !important;
+  }
+  .playlist-detail-song {
+    min-height:84px !important;
+    padding:9px 10px !important;
+  }
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover {
+    width:58px !important;
+    height:58px !important;
+    min-width:58px !important;
+  }
+}
+</style>
+
+
+<style id="taninfy-playlist-song-hero-fix">
+.playlist-detail-kicker{display:none!important}
+.playlist-detail-meta h2{margin-top:0!important}
+.playlist-detail-meta p{font-size:14px!important;opacity:.9}
+@media(max-width:650px){
+  .playlist-detail-meta h2{font-size:27px!important;line-height:1.15!important}
+  .playlist-detail-meta p{font-size:13px!important;margin-top:5px!important}
+}
+</style>
+
+<style id="taninfy-mobile-playlist-covers-final">
+@media (max-width:650px){
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:68px !important;
+    height:68px !important;
+    min-width:68px !important;
+    min-height:68px !important;
+    border-radius:14px !important;
+  }
+  .playlist-detail-song{
+    min-height:94px !important;
+    padding:11px 12px !important;
+  }
+}
+@media (max-width:430px){
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:64px !important;
+    height:64px !important;
+    min-width:64px !important;
+    min-height:64px !important;
+    border-radius:14px !important;
+  }
+  .playlist-detail-song{
+    min-height:90px !important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -4772,7 +4952,6 @@ body.light-theme .player .player-inner {
         </div>
 
         <div class="playlist-detail-meta">
-          <span class="playlist-detail-kicker">TANINFY PLAYLIST</span>
           <h2 id="playlistDetailTitle">Playlist</h2>
           <p id="playlistDetailCount">0 آهنگ</p>
 
@@ -5397,14 +5576,33 @@ function updatePlaylistDetailPlaying() {
     if (active) playingSong = songCatalog[index];
   });
 
+  const titleEl = document.getElementById("playlistDetailTitle");
+  const countEl = document.getElementById("playlistDetailCount");
   const cover = document.getElementById("playlistDetailCover");
-  if (!cover) return;
 
   const currentIsInPlaylist =
     Number.isInteger(currentTrackIndex) &&
     taninfyOpenPlaylistIndices.includes(currentTrackIndex);
 
   const activeSong = currentIsInPlaylist ? songCatalog[currentTrackIndex] : null;
+
+  /* When a song is selected, the hero becomes the song info:
+     title = song title, subtitle = artist. The playlist name/count
+     are restored when no song from this playlist is active. */
+  if (activeSong) {
+    if (titleEl) titleEl.textContent = activeSong.title || "بدون نام";
+    if (countEl) countEl.textContent = activeSong.artist || "هنرمند نامشخص";
+  } else if (taninfyOpenPlaylist) {
+    if (titleEl) titleEl.textContent = taninfyOpenPlaylist.name || "Playlist";
+    if (countEl) {
+      const playlistSongs = (Array.isArray(taninfyOpenPlaylist.songs) ? taninfyOpenPlaylist.songs : [])
+        .map(getPlaylistSong)
+        .filter(Boolean);
+      countEl.textContent = `${playlistSongs.length} آهنگ`;
+    }
+  }
+
+  if (!cover) return;
 
   if (activeSong && activeSong.cover) {
     cover.src = activeSong.cover;
@@ -5419,7 +5617,6 @@ function updatePlaylistDetailPlaying() {
     setPlaylistDetailBackground(getPlaylistCoverForDetail(taninfyOpenPlaylist, playlistSongs));
   }
 }
-
 function renderPlaylistDetailSongs(indices) {
   const list = document.getElementById("playlistDetailSongs");
   const count = document.getElementById("playlistDetailListCount");
