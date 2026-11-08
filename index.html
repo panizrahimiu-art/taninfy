@@ -2032,6 +2032,22 @@ footer {
   color: #8f8086;
   font-size: 10px;
 }
+/* Artist album detail */
+.artist-album-detail { width:min(760px,100%); margin:0 auto 28px; display:none; text-align:right; }
+.artist-album-detail.active { display:block; animation:taninfyAlbumIn .22s ease; }
+@keyframes taninfyAlbumIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.artist-album-detail-head { display:grid; grid-template-columns:110px 1fr; gap:18px; align-items:center; padding:18px; margin-bottom:18px; border:1px solid rgba(213,160,173,.12); border-radius:20px; background:linear-gradient(135deg,rgba(88,17,39,.34),rgba(20,12,16,.78)); box-shadow:0 18px 55px rgba(0,0,0,.18); }
+.artist-album-detail-cover-wrap{width:110px;height:110px}
+.artist-album-detail-cover-wrap img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+.artist-album-detail-meta span{color:#a6536b;font-size:9px;letter-spacing:3px}
+.artist-album-detail-meta h2{margin:6px 0 3px;font-size:25px;color:#f8f1f3}
+.artist-album-detail-meta p{margin:0;color:#91868b;font-size:11px}
+.artist-album-back{border:0;background:transparent;color:#d5a0ad;cursor:pointer;font:inherit;font-size:11px;padding:0 0 10px}
+body.light-theme .artist-album-detail-head{background:linear-gradient(135deg,#fff,#f3e9ed);border-color:rgba(74,35,49,.12)}
+body.light-theme .artist-album-detail-meta h2{color:#34232a!important}
+body.light-theme .artist-album-detail-meta p{color:#796b71}
+body.light-theme .artist-album-back{color:#34232a}
+
 .artist-profile-songs {
   max-width: 760px;
   margin: 0 auto;
@@ -4315,6 +4331,19 @@ body.light-theme .playlist-detail-song .playlist-detail-song-artist {
     <div class="artist-albums-heading">ALBUMS</div>
     <div class="artist-profile-albums" id="artistProfileAlbums"></div>
 
+    <div class="artist-album-detail" id="artistAlbumDetail" aria-hidden="true">
+      <div class="artist-album-detail-head">
+        <button id="artistAlbumBack" type="button" class="artist-album-back">← همه آلبوم‌ها</button>
+        <div class="artist-album-detail-cover-wrap"><img id="artistAlbumDetailCover" src="" alt=""></div>
+        <div class="artist-album-detail-meta">
+          <span>ALBUM</span>
+          <h2 id="artistAlbumDetailName">آلبوم</h2>
+          <p id="artistAlbumDetailCount">0 آهنگ</p>
+        </div>
+      </div>
+      <div class="artist-profile-songs" id="artistAlbumDetailSongs"></div>
+    </div>
+
     <div class="artist-profile-songs" id="artistProfileSongs"></div>
   </div>
 </div>
@@ -5387,68 +5416,82 @@ function openArtistProfile(name, addHistory = true) {
   if (!artist) return;
 
   artistProfileName.textContent = artist.name;
-  artistProfileCount.textContent =
-    `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
+  artistProfileCount.textContent = `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
   artistProfileAvatar.removeAttribute("src");
   if (artist.image) artistProfileAvatar.src = artist.image;
   syncArtistFavoriteButton(artist.name);
   artistProfileAlbums.innerHTML = "";
   artistProfileSongs.innerHTML = "";
 
-  function renderAlbumSongs(album) {
-    artistProfileSongs.innerHTML = "";
+  const albumDetail = document.getElementById("artistAlbumDetail");
+  const albumDetailCover = document.getElementById("artistAlbumDetailCover");
+  const albumDetailName = document.getElementById("artistAlbumDetailName");
+  const albumDetailCount = document.getElementById("artistAlbumDetailCount");
+  const albumDetailSongs = document.getElementById("artistAlbumDetailSongs");
+  const albumBack = document.getElementById("artistAlbumBack");
+
+  function showAlbumDetail(album) {
+    if (!albumDetail || !albumDetailSongs) return;
+    artistProfileAlbums.style.display = "none";
+    document.querySelector(".artist-albums-heading")?.style.setProperty("display", "none");
+    artistProfileSongs.style.display = "none";
+    albumDetail.style.display = "block";
+    albumDetail.classList.add("active");
+    albumDetail.setAttribute("aria-hidden", "false");
+    albumDetailName.textContent = album.name || "آلبوم";
+    albumDetailCount.textContent = `${album.songs.length} آهنگ`;
+    albumDetailCover.src = album.cover || "";
+    albumDetailSongs.innerHTML = "";
 
     album.songs.forEach(({ song, index }) => {
       const row = document.createElement("div");
       row.className = "artist-profile-song";
-      row.innerHTML = `
-        <img src="${song.cover || ""}" alt="">
-        <div>
-          <strong>${escapeHtml(song.title || "بدون نام")}</strong>
-          <span>${escapeHtml(song.artist || artist.name)}</span>
-        </div>
-        <button type="button" aria-label="پخش">▶</button>`;
+      row.innerHTML = `<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
+      const play = () => { if (Number.isInteger(index) && songCatalog[index]) setPlayerTrack(index, true); };
+      row.addEventListener("click", play);
+      row.querySelector("button")?.addEventListener("click", e => { e.stopPropagation(); play(); });
+      albumDetailSongs.appendChild(row);
+    });
+    albumDetail.scrollIntoView({behavior:"smooth",block:"start"});
+  }
 
-      row.addEventListener("click", () => setPlayerTrack(index, true));
+  function showArtistSongs() {
+    if (albumDetail) { albumDetail.style.display="none"; albumDetail.classList.remove("active"); albumDetail.setAttribute("aria-hidden","true"); }
+    artistProfileAlbums.style.display="";
+    document.querySelector(".artist-albums-heading")?.style.removeProperty("display");
+    artistProfileSongs.style.display="";
+  }
+  if (albumBack) albumBack.onclick = showArtistSongs;
+
+  function renderArtistSongs(album) {
+    artistProfileSongs.innerHTML = "";
+    album.songs.forEach(({song,index}) => {
+      const row=document.createElement("div"); row.className="artist-profile-song";
+      row.innerHTML=`<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
+      const play=()=>{ if(Number.isInteger(index)&&songCatalog[index]) setPlayerTrack(index,true); };
+      row.addEventListener("click",play);
+      row.querySelector("button")?.addEventListener("click",e=>{e.stopPropagation();play();});
       artistProfileSongs.appendChild(row);
     });
   }
 
   artist.albums.forEach((album, albumIndex) => {
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = "artist-album-card" + (albumIndex === 0 ? " active" : "");
-    card.innerHTML = `
-      <img src="${album.cover || ""}" alt="">
-      <strong>${escapeHtml(album.name)}</strong>
-      <span>${album.songs.length} آهنگ</span>`;
-
-    card.addEventListener("click", () => {
-      document.querySelectorAll(".artist-album-card").forEach(item => {
-        item.classList.remove("active");
-      });
-      card.classList.add("active");
-      renderAlbumSongs(album);
+    const card=document.createElement("button"); card.type="button";
+    card.className="artist-album-card"+(albumIndex===0?" active":"");
+    card.innerHTML=`<img src="${album.cover || ""}" alt=""><strong>${escapeHtml(album.name)}</strong><span>${album.songs.length} آهنگ</span>`;
+    card.addEventListener("click",e=>{
+      e.preventDefault(); e.stopPropagation();
+      document.querySelectorAll(".artist-album-card").forEach(item=>item.classList.remove("active"));
+      card.classList.add("active"); showAlbumDetail(album);
     });
-
     artistProfileAlbums.appendChild(card);
   });
 
-  if (artist.albums.length) {
-    renderAlbumSongs(artist.albums[0]);
-  }
-
+  if (artist.albums.length) renderArtistSongs(artist.albums[0]);
   artistProfile.classList.add("active");
-  artistProfile.setAttribute("aria-hidden", "false");
+  artistProfile.setAttribute("aria-hidden","false");
   searchSuggestions.classList.remove("active");
-
-  if (addHistory) {
-    history.pushState(
-      { taninfy: true, artist: artist.name },
-      "",
-      "#artist-" + encodeURIComponent(artist.name)
-    );
-  }
+  if (addHistory) history.pushState({taninfy:true,artist:artist.name},"","#artist-"+encodeURIComponent(artist.name));
 }
 function closeArtistProfile(goBack = true) {
   artistProfile.classList.remove("active");
@@ -6575,8 +6618,10 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
     publicProfile: true, showPlaylists: true
   };
   let settings;
-  try { settings = { ...defaults, ...JSON.parse(localStorage.getItem(storageKey) || "{}") }; }
-  catch (_) { settings = { ...defaults }; }
+  let storedSettings = null;
+  try { storedSettings = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (_) { storedSettings = null; }
+  settings = { ...defaults, ...(storedSettings && typeof storedSettings === "object" ? storedSettings : {}) };
+  if (!storedSettings || !["dark", "light"].includes(settings.theme)) settings.theme = "dark";
   delete settings.autoplay; delete settings.shuffle; delete settings.repeat;
   delete settings.volume; delete settings.newMusic; delete settings.artistNews;
   window.taninfySettings = settings;
@@ -6708,6 +6753,8 @@ document.addEventListener("click", function (event) {
 
 </body>
 </html>
+
+
 
 
 
