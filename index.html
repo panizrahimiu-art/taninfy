@@ -3044,21 +3044,25 @@ body.light-theme .page { color:#34232a; }
   width: 190px !important;
   height: 190px !important;
   margin: 0 auto;
+  border-radius: 50% !important;
 }
 #trackList .track-cover-thumb {
   width: 190px !important;
   height: 190px !important;
+  border-radius: 50% !important;
 }
 @media (max-width: 900px) {
   #trackList .track-cover-wrap, #trackList .track-cover-thumb {
     width: 180px !important;
     height: 180px !important;
+    border-radius: 50% !important;
   }
 }
 @media (max-width: 650px) {
   #trackList .track-cover-wrap, #trackList .track-cover-thumb {
     width: 170px !important;
     height: 170px !important;
+    border-radius: 50% !important;
   }
 }
 </style>
@@ -5668,6 +5672,23 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+<style>
+/* Explore covers: circular, no square frame */
+#trackList .track-cover-wrap,
+#trackList .track-cover-thumb,
+#trackList .track-cover-play {
+  border-radius: 50% !important;
+}
+</style>
 
 
 
