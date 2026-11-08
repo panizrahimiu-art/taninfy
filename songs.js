@@ -701,4 +701,94 @@ window.TANINFY_SONGS = [
     cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
     featured: true
    },
+   {
+    title: "Pas Man Chi",
+    artist: "Wantons",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.sakhamusic.ir/94/bahman/07/Wantons%20-%20Pas%20Man%20Chi.mp3",
+    cover: "https://systemmusic.ir/wp-content/uploads/2023/03/wantons-pas-man-chi.jpg",
+    featured: true
+   },
+   {
+    title: "Boro",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1402/07/I/320/Isam%20-%20Boro%20%28320%29.mp3",
+    cover: "https://th.bing.com/th/id/OIP.1mLgAJ3n71dWXD9dp7SnlwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Fekr Nemikardam",
+    artist: "Behzad Leito & Chvrsi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1404/01/24/Behzad%20Leito%20&%20Chvrsi%20-%20Fekr%20Nemikardam.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2025/04/Behzad-Leito-&-Chvrsi-Fekr-Nemikardam.webp",
+    featured: true
+   },
+   {
+    title: "Akharin Shab",
+    artist: "Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Akharin%20Shab%20%20(320).mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.fANlpRrZyB9doGqV7mCLvQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Euphoria",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1404/01/30/Isam%20-%20Euphoria.mp3",
+    cover: "https://th.bing.com/th/id/OIP.XFnRe2aapABhYKw3wbzesQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Shayad Nashe",
+    artist: "Sami Low & Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.bandmusic.ir/files/mp3/s1/Sami%20Low%20-%20Shayad%20Nashe%20(Ft%20Raha%20,%20Arown%20&%20Hoomaan)%20(BandMusic).mp3",
+    cover: "https://th.bing.com/th/id/OIP.PmAK5b0nANB9SPtpcIGjbwHaHa?w=108&h=108&c=1&bgcl=9cbedb&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Door Azin Shahr",
+    artist: "Alipasha & Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://svd.delsamusic.com/music/ds401/dsf/Alipasha%20-%20Door%20Azin%20Shahr%20(Feat.%20PDC%20&%20Hoomaan)%20(320).mp3",
+    cover: "https://delsamusic.com/wp-content/uploads/2023/09/alipasha-door-azin-shahr-feat-pdc-hoomaan.jpg",
+    featured: true
+   },
+   {
+    title: "Kavire Del",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1404/09/I/320/Isam%20-%20Kavire%20Del%20%28320%29.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2025/12/Isam-Kavire-Del-img.jpg.webp",
+    featured: true
+   },
+   {
+    title: "Miss U Baby",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1404/02/I/320/Isam%20-%20Miss%20U%20Baby%20%28Still%20Do%29%20%28320%29.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2025/04/Isam-Miss-U-Baby-img.jpg.webp",
+    featured: true
+   },
+   {
+    title: "Khaterate Bad",
+    artist: "Parsalip & Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.bandmusic.ir/files/mp3/s1/Parsalip%20Ft%20Arta%20%E2%80%93%20Khaterate%20Bad.mp3",
+    cover: "https://www.playmusic.ir/images/thumbnails/music/2024/11/05/76776_400.webp",
+    featured: true
+   },
 ];
