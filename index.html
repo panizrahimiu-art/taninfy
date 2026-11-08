@@ -3864,6 +3864,401 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 .playlist-detail-song-cover-wrap { border-radius:10px !important; }
 </style>
 
+
+<style id="taninfy-visual-unified-fix">
+/* =========================================================
+   TANINFY — UNIFIED VISUAL SYSTEM
+   Final visual pass: cleaner luxury / less crowded / consistent
+========================================================= */
+:root{
+  --tf-bg:#090709;
+  --tf-surface:#120d10;
+  --tf-surface-2:#171014;
+  --tf-text:#f6eef1;
+  --tf-muted:#a99ca1;
+  --tf-accent:#8d3048;
+  --tf-accent-2:#b96e83;
+  --tf-line:rgba(255,255,255,.075);
+  --tf-radius:18px;
+  --tf-shadow:0 18px 55px rgba(0,0,0,.28);
+}
+
+/* Base rhythm */
+body{
+  background:var(--tf-bg);
+  color:var(--tf-text);
+}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:28px}
+.page-heading{letter-spacing:-.025em}
+.page-heading h1,.page-heading h2{font-weight:700;line-height:1.05}
+
+/* Header — slimmer and more premium */
+header,.site-header,.topbar{
+  min-height:68px!important;
+  height:68px!important;
+  background:rgba(9,7,9,.78)!important;
+  border-bottom:1px solid var(--tf-line)!important;
+  box-shadow:0 8px 35px rgba(0,0,0,.12)!important;
+  backdrop-filter:blur(18px)!important;
+}
+
+/* General cards: remove the feeling of many different card systems */
+.music-card,
+.track,
+.artist-directory-card,
+.curated-card{
+  border-color:var(--tf-line)!important;
+  box-shadow:none!important;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+}
+.music-card:hover,.track:hover,.artist-directory-card:hover,.curated-card:hover{
+  transform:translateY(-3px)!important;
+  border-color:rgba(185,110,131,.34)!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.18)!important;
+}
+
+/* Explore — compact editorial cards */
+#trackList{
+  gap:16px!important;
+}
+.track.music-card{
+  background:linear-gradient(145deg,rgba(24,16,20,.92),rgba(13,10,12,.96))!important;
+  border-radius:18px!important;
+  padding:10px!important;
+  min-height:78px!important;
+}
+.track-cover-wrap{
+  width:58px!important;
+  height:58px!important;
+  min-width:58px!important;
+  border-radius:15px!important;
+  overflow:hidden!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.24)!important;
+}
+.track-cover-thumb{
+  width:100%!important;height:100%!important;
+  object-fit:cover!important;
+  border-radius:15px!important;
+}
+.track-cover-play{
+  width:34px!important;height:34px!important;
+  border-radius:50%!important;
+  background:rgba(8,6,8,.58)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  backdrop-filter:blur(8px)!important;
+}
+.track-info{min-width:0!important;padding-inline:3px!important}
+.track-title{
+  font-size:14px!important;
+  font-weight:650!important;
+  letter-spacing:-.01em!important;
+}
+.track-artist{
+  font-size:11px!important;
+  color:var(--tf-muted)!important;
+  margin-top:4px!important;
+}
+.heart-btn{
+  width:38px!important;height:38px!important;
+  min-width:38px!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  border:1px solid transparent!important;
+  color:#bcaeb3!important;
+}
+.heart-btn:hover{background:rgba(185,110,131,.10)!important;color:#d5a0ad!important}
+
+/* Favorite artists — one clean horizontal gallery */
+.favorite-artist-row{
+  width:128px!important;
+  min-width:128px!important;
+  padding:4px 0!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.favorite-artist-row:hover{transform:translateY(-4px)!important}
+.favorite-artist-row img{
+  width:86px!important;height:86px!important;
+  border-radius:50%!important;
+  object-fit:cover!important;
+  border:1px solid rgba(213,160,173,.20)!important;
+  box-shadow:0 10px 30px rgba(0,0,0,.22)!important;
+}
+.favorite-artist-row strong{
+  margin-top:9px!important;
+  font-size:12px!important;
+  font-weight:650!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.favorite-artist-row span{font-size:10px!important;color:var(--tf-muted)!important}
+.favorite-artist-remove{
+  width:26px!important;height:26px!important;
+  right:14px!important;top:2px!important;
+  background:rgba(10,8,10,.75)!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+}
+
+/* Artist directory — gallery, not boxes */
+.artist-directory{
+  grid-template-columns:repeat(auto-fill,minmax(130px,1fr))!important;
+  gap:28px 20px!important;
+}
+.artist-directory-card{
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+  border-radius:0!important;
+}
+.artist-directory-photo{width:min(100%,112px)!important}
+.artist-directory-open{box-shadow:0 14px 38px rgba(0,0,0,.24)!important}
+.artist-directory-favorite{
+  width:30px!important;height:30px!important;
+  font-size:19px!important;
+  border-width:1px!important;
+}
+.artist-directory-card h3,.artist-directory-card strong{
+  font-size:13px!important;
+  font-weight:650!important;
+  margin-top:10px!important;
+}
+
+/* Artist profile — cinematic, spacious */
+.artist-profile-content{max-width:1120px!important}
+.artist-profile-avatar-wrap{box-shadow:0 24px 70px rgba(0,0,0,.28)!important}
+.artist-profile-avatar{border-radius:50%!important}
+.artist-profile-kicker,.artist-albums-heading{
+  letter-spacing:.16em!important;
+  color:#bdaeb3!important;
+}
+.artist-profile-songs{gap:10px!important}
+.artist-profile-song{
+  border-radius:15px!important;
+  border:1px solid var(--tf-line)!important;
+  background:rgba(255,255,255,.025)!important;
+}
+
+/* Albums — gallery cards instead of heavy panels */
+.artist-profile-albums{
+  display:flex!important;
+  gap:18px!important;
+  overflow-x:auto!important;
+  padding:6px 2px 14px!important;
+  scrollbar-width:none!important;
+}
+.artist-profile-albums::-webkit-scrollbar{display:none}
+.artist-profile-album,
+.artist-album-card{
+  flex:0 0 142px!important;
+  border-radius:16px!important;
+  border:1px solid var(--tf-line)!important;
+  background:rgba(255,255,255,.025)!important;
+  padding:8px!important;
+}
+.artist-profile-album img,.artist-album-card img{
+  border-radius:12px!important;
+}
+.artist-album-detail-head{
+  border:1px solid var(--tf-line)!important;
+  border-radius:24px!important;
+  box-shadow:none!important;
+  background:linear-gradient(135deg,rgba(30,18,23,.95),rgba(13,10,12,.92))!important;
+}
+
+/* Playlist main — cover first, no unnecessary panel clutter */
+.curated-playlists{
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr))!important;
+  gap:24px!important;
+}
+.curated-card{
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  overflow:visible!important;
+}
+.curated-cover{
+  aspect-ratio:1!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+  background:#171014!important;
+  box-shadow:0 16px 42px rgba(0,0,0,.25)!important;
+}
+.playlist-cover-image{border-radius:20px!important;transition:transform .45s ease,filter .45s ease!important}
+.curated-card:hover .playlist-cover-image{transform:scale(1.045)!important;filter:saturate(1.05)!important}
+.curated-info{padding:12px 3px 0!important}
+.curated-info h2{
+  font-size:15px!important;
+  font-weight:680!important;
+  margin:0!important;
+}
+.playlist-song-count{font-size:11px!important;color:var(--tf-muted)!important;margin-top:5px!important}
+
+/* Playlist detail — less blur, more album-art atmosphere */
+.playlist-detail{
+  border-radius:24px!important;
+  padding:24px 28px 70px!important;
+  background:linear-gradient(180deg,rgba(10,8,10,.68),rgba(10,8,10,.94))!important;
+  box-shadow:0 28px 80px rgba(0,0,0,.22)!important;
+}
+.playlist-detail::before{
+  inset:-25px!important;
+  filter:blur(16px) saturate(1.08)!important;
+  opacity:.48!important;
+}
+.playlist-detail::after{opacity:.72!important}
+.playlist-detail-hero{gap:28px!important;align-items:end!important}
+.playlist-detail-cover-wrap{
+  width:240px!important;height:240px!important;
+  border-radius:22px!important;
+  box-shadow:0 22px 55px rgba(0,0,0,.38)!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+}
+.playlist-detail-cover{border-radius:22px!important}
+.playlist-detail-meta h2{
+  font-size:clamp(30px,5vw,54px)!important;
+  letter-spacing:-.035em!important;
+}
+.playlist-detail-kicker{font-size:10px!important;letter-spacing:.18em!important}
+.playlist-detail-actions button{
+  border-radius:999px!important;
+  min-height:42px!important;
+  padding-inline:17px!important;
+}
+.playlist-detail-songs{margin-top:28px!important}
+.playlist-detail-list-head{padding-inline:10px!important}
+.playlist-detail-song{
+  min-height:72px!important;
+  padding:8px 10px!important;
+  border-bottom:1px solid rgba(255,255,255,.055)!important;
+  border-radius:14px!important;
+  backdrop-filter:blur(5px)!important;
+}
+.playlist-detail-song:hover{background:rgba(255,255,255,.045)!important}
+.playlist-detail-song-cover-wrap{width:52px!important;height:52px!important}
+.playlist-detail-song-cover{border-radius:12px!important}
+.playlist-detail-song-info strong{font-size:13px!important}
+.playlist-detail-song-info span{font-size:10px!important}
+
+/* Full player — clean focal point */
+.full-player{
+  background:radial-gradient(65% 55% at 75% 0%,rgba(185,110,131,.18),transparent 60%),#090709!important;
+}
+.full-player .full-player-cover,
+.full-player img{
+  border-radius:24px!important;
+  box-shadow:0 30px 90px rgba(0,0,0,.42)!important;
+}
+.full-song-info h1,.full-song-info h2{letter-spacing:-.035em!important}
+
+/* Floating mini player */
+.player{
+  position:fixed!important;
+  left:50%!important;
+  bottom:18px!important;
+  transform:translateX(-50%)!important;
+  width:min(900px,calc(100% - 34px))!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:22px!important;
+  background:rgba(13,10,12,.78)!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.35)!important;
+  backdrop-filter:blur(22px)!important;
+  z-index:1200!important;
+}
+.player-inner{min-height:70px!important;padding:8px 14px!important}
+.mini-player-cover{width:48px!important;height:48px!important;border-radius:12px!important}
+.player-label{opacity:.48!important;font-size:9px!important;letter-spacing:.14em!important}
+.player-controls{gap:5px!important}
+.skip-btn,.play-main{border-radius:50%!important}
+
+/* Light theme — genuinely dark text, not gray */
+body.light-theme{
+  --tf-bg:#f5eff1;
+  --tf-surface:#fffafb;
+  --tf-surface-2:#f1e8eb;
+  --tf-text:#171113;
+  --tf-muted:#5c5055;
+  --tf-line:rgba(49,30,37,.11);
+  background:linear-gradient(180deg,#fbf8f9 0%,#f4edef 100%)!important;
+  color:#171113!important;
+}
+body.light-theme .track.music-card,
+body.light-theme .artist-profile-song,
+body.light-theme .artist-album-card,
+body.light-theme .artist-profile-album{
+  background:rgba(255,255,255,.78)!important;
+  border-color:rgba(49,30,37,.10)!important;
+}
+body.light-theme .track-title,
+body.light-theme .artist-directory-card h3,
+body.light-theme .artist-directory-card strong,
+body.light-theme .curated-info h2,
+body.light-theme .playlist-song-count,
+body.light-theme .artist-profile-song,
+body.light-theme .artist-album-card,
+body.light-theme .artist-profile-album{
+  color:#171113!important;
+}
+body.light-theme .track-artist,
+body.light-theme .favorite-artist-row span,
+body.light-theme .playlist-song-count{
+  color:#5c5055!important;
+}
+body.light-theme .curated-cover{box-shadow:0 14px 35px rgba(70,35,45,.12)!important}
+body.light-theme .player{
+  background:rgba(255,250,251,.86)!important;
+  border-color:rgba(49,30,37,.10)!important;
+  box-shadow:0 18px 50px rgba(70,35,45,.16)!important;
+}
+body.light-theme .player .now-playing strong,
+body.light-theme .player .now-playing span,
+body.light-theme .player .player-label{color:#171113!important}
+body.light-theme .playlist-detail{
+  background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(247,239,242,.98))!important;
+}
+body.light-theme .playlist-detail-song{border-bottom-color:rgba(49,30,37,.09)!important}
+body.light-theme .playlist-detail-song:hover{background:rgba(120,40,65,.055)!important}
+
+/* Remove the visual "red square" feeling around Explore covers */
+.track-cover-wrap::before,.track-cover-wrap::after{display:none!important}
+
+/* Mobile — preserve the same visual language */
+@media (max-width:760px){
+  .wrap{padding-inline:17px}
+  header,.site-header,.topbar{height:62px!important;min-height:62px!important}
+  .track.music-card{min-height:70px!important;padding:8px!important}
+  .track-cover-wrap{width:52px!important;height:52px!important;min-width:52px!important}
+  .track-title{font-size:13px!important}
+  .artist-directory{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px 12px!important}
+  .artist-directory-photo{width:88px!important}
+  .artist-directory-favorite{width:26px!important;height:26px!important;font-size:17px!important}
+  .favorite-artist-row{width:100px!important;min-width:100px!important}
+  .favorite-artist-row img{width:72px!important;height:72px!important}
+  .curated-playlists{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px 14px!important}
+  .curated-cover{border-radius:16px!important}
+  .playlist-cover-image{border-radius:16px!important}
+  .playlist-detail{padding:16px 14px 55px!important;border-radius:20px!important}
+  .playlist-detail-hero{grid-template-columns:92px 1fr!important;gap:14px!important;align-items:center!important}
+  .playlist-detail-cover-wrap{width:92px!important;height:92px!important;border-radius:15px!important}
+  .playlist-detail-cover{border-radius:15px!important}
+  .playlist-detail-meta h2{font-size:25px!important}
+  .playlist-detail-actions{gap:7px!important;flex-wrap:wrap!important}
+  .playlist-detail-actions button{min-height:36px!important;padding-inline:12px!important;font-size:10px!important}
+  .playlist-detail-song{min-height:62px!important;padding:6px!important}
+  .playlist-detail-song-cover-wrap{width:46px!important;height:46px!important}
+  .playlist-detail-song-info strong{font-size:12px!important}
+  .player{
+    width:calc(100% - 22px)!important;
+    bottom:10px!important;
+    border-radius:18px!important;
+  }
+  .player-inner{min-height:62px!important;padding:6px 9px!important}
+  .mini-player-cover{width:44px!important;height:44px!important}
+  .player-label{display:none!important}
+}
+</style>
+
 </head>
 
 <body>
@@ -4503,26 +4898,21 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 <script src="artists.js"></script>
 <script>
 
-/* PAGE NAVIGATION — stable hash/history routing */
+/* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
+
 const availablePages = ["home", "profile", "favorites", "artists", "playlist", "settings", "login", "contact"];
 
-function currentPageName() {
-  const hash = String(location.hash || "").replace(/^#/, "");
-  return availablePages.includes(hash) ? hash : "home";
-}
-
 function showPage(name, addHistory = true) {
-  const safeName = availablePages.includes(name) ? name : "home";
-  const target = document.getElementById("page-" + safeName);
+  const target = document.getElementById("page-" + name);
   if (!target) return;
 
   pages.forEach(page => page.classList.toggle("active", page === target));
   closeMenu();
   window.scrollTo({ top: 0, behavior: "auto" });
 
-  if (addHistory && location.hash !== "#" + safeName) {
-    history.pushState({ taninfy: true, page: safeName }, "", "#" + safeName);
+  if (addHistory) {
+    history.pushState({ taninfy: true, page: name }, "", "#" + name);
   }
 }
 
@@ -4534,35 +4924,45 @@ document.querySelectorAll("[data-page]").forEach(link => {
 });
 
 function loadPageFromHash() {
-  showPage(currentPageName(), false);
+  const name = location.hash.replace("#", "");
+  showPage(availablePages.includes(name) ? name : "home", false);
 }
 
 window.addEventListener("load", function() {
-  const page = currentPageName();
+  const hash = location.hash.replace("#", "");
+  const page = availablePages.includes(hash) ? hash : "home";
+  // Create a Taninfy guard entry so a normal browser Back does not immediately
+  // throw the visitor out of the site.
   history.replaceState({ taninfy: true, page }, "", "#" + page);
+  history.pushState({ taninfy: true, page }, "", "#" + page);
   showPage(page, false);
 });
 
 window.addEventListener("popstate", function(event) {
-  const state = event.state || {};
-
-  if (state.taninfy && state.fullPlayer) {
-    document.getElementById("fullPlayer")?.classList.remove("active");
+  // Browser Back closes an open full player first instead of leaving Taninfy.
+  if (document.getElementById("fullPlayer")?.classList.contains("active")) {
+    document.getElementById("fullPlayer").classList.remove("active");
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
     return;
   }
 
-  if (state.taninfy && state.artist) {
-    if (typeof closeArtistProfile === "function") closeArtistProfile(false);
+  // Closing an artist profile is the next Back action.
+  if (document.getElementById("artistProfile")?.classList.contains("active")) {
+    closeArtistProfile(false);
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
     return;
   }
 
-  if (state.taninfy && state.playlistDetail) {
-    closeTaninfyPlaylist(false);
-    return;
+  if (event.state && event.state.taninfy) {
+    showPage(event.state.page || "home", false);
+    // Keep one Taninfy guard behind the current page.
+    history.pushState({ taninfy: true, page: event.state.page || "home" }, "", "#" + (event.state.page || "home"));
+  } else {
+    history.pushState({ taninfy: true, page: "home" }, "", "#home");
+    showPage("home", false);
   }
-
-  showPage(state.taninfy && state.page ? state.page : currentPageName(), false);
 });
+
 
 /* DROPDOWN MENU */
 const menuToggle = document.getElementById("menuToggle");
@@ -4669,8 +5069,7 @@ function renderTrackCatalog() {
 
     const cover = document.createElement("img");
     cover.className = "track-cover-thumb";
-    cover.src = safeCoverUrl(song.cover);
-    applyCoverFallback(cover);
+    cover.src = song.cover || "";
     cover.alt = `کاور ${song.title || "آهنگ"}`;
     cover.loading = "lazy";
 
@@ -4716,15 +5115,6 @@ window.renderTaninfyExplore = renderTrackCatalog;
    from songs.js / TANINFY_SONGS.
 ========================================= */
 
-function normalizeSongReference(value) {
-  return String(value || "")
-    .normalize("NFKC")
-    .replace(/[\u200B-\u200D\uFEFF]/g, "")
-    .replace(/\s+/g, " ")
-    .trim()
-    .toLocaleLowerCase();
-}
-
 function getPlaylistSong(songRef) {
   if (!songRef) return null;
 
@@ -4736,11 +5126,13 @@ function getPlaylistSong(songRef) {
 
   if (!ref) return null;
 
-  const refId = normalizeSongReference(ref);
-  const byId = songCatalog.find(song => normalizeSongReference(song?.id) === refId);
+  const byId = songCatalog.find(song => String(song?.id ?? "").trim() === ref);
   if (byId) return byId;
 
-  return songCatalog.find(song => normalizeSongReference(song?.title) === refId) || null;
+  const normalized = ref.toLocaleLowerCase();
+  return songCatalog.find(song =>
+    String(song?.title ?? "").trim().toLocaleLowerCase() === normalized
+  ) || null;
 }
 
 function getTaninfyPlaylists() {
@@ -4782,8 +5174,7 @@ function resetPlaylistDetailCover() {
     .filter(Boolean);
 
   const playlistCoverUrl = getPlaylistCoverForDetail(taninfyOpenPlaylist, songs);
-  cover.src = safeCoverUrl(playlistCoverUrl);
-  applyCoverFallback(cover);
+  cover.src = playlistCoverUrl || "";
   cover.classList.remove("is-song-cover");
   cover.alt = taninfyOpenPlaylist.name || "Playlist cover";
 }
@@ -4819,8 +5210,7 @@ function updatePlaylistDetailPlaying() {
   const activeSong = currentIsInPlaylist ? songCatalog[currentTrackIndex] : null;
 
   if (activeSong && activeSong.cover) {
-    cover.src = safeCoverUrl(activeSong.cover);
-    applyCoverFallback(cover);
+    cover.src = activeSong.cover;
     cover.alt = `کاور ${activeSong.title || "آهنگ"}`;
     cover.classList.add("is-song-cover");
     setPlaylistDetailBackground(activeSong.cover);
@@ -4866,8 +5256,7 @@ function renderPlaylistDetailSongs(indices) {
 
     const cover = document.createElement("img");
     cover.className = "playlist-detail-song-cover";
-    cover.src = safeCoverUrl(song.cover);
-    applyCoverFallback(cover);
+    cover.src = song.cover || "";
     cover.alt = `کاور ${song.title || "آهنگ"}`;
     cover.loading = "lazy";
 
@@ -5058,17 +5447,9 @@ function openTaninfyPlaylist(playlist) {
 
   updatePlaylistDetailPlaying();
   document.getElementById("page-playlist")?.scrollIntoView({behavior:"smooth", block:"start"});
-
-  if (!(history.state && history.state.playlistDetail)) {
-    history.pushState({
-      taninfy: true,
-      page: "playlist",
-      playlistDetail: playlist.id || playlist.name || "playlist"
-    }, "", "#playlist/" + encodeURIComponent(playlist.id || playlist.name || "playlist"));
-  }
 }
 
-function closeTaninfyPlaylist(fromHistory = true) {
+function closeTaninfyPlaylist() {
   const grid = document.getElementById("curatedPlaylistGrid");
   const detail = document.getElementById("playlistDetail");
   const intro = document.querySelector(".curated-intro");
@@ -5083,10 +5464,9 @@ function closeTaninfyPlaylist(fromHistory = true) {
   if (heading) heading.style.display = "";
 
   renderTaninfyPlaylists();
-  if (fromHistory && history.state && history.state.playlistDetail) history.back();
 }
 
-document.getElementById("playlistDetailBack")?.addEventListener("click", () => closeTaninfyPlaylist(true));
+document.getElementById("playlistDetailBack")?.addEventListener("click", closeTaninfyPlaylist);
 
 function renderTaninfyPlaylists() {
   const grids = [
@@ -5128,8 +5508,7 @@ function renderTaninfyPlaylists() {
 
         const coverImg = document.createElement("img");
         coverImg.className = "playlist-cover-image";
-        coverImg.src = safeCoverUrl(playlistCoverUrl);
-        applyCoverFallback(coverImg);
+        coverImg.src = playlistCoverUrl;
         coverImg.alt = playlist.name || "Playlist cover";
         coverImg.loading = "lazy";
         cover.appendChild(coverImg);
@@ -5163,18 +5542,6 @@ function renderTaninfyPlaylists() {
 }
 
 window.renderTaninfyPlaylists = renderTaninfyPlaylists;
-
-(function validateTaninfyPlaylists() {
-  const playlists = getTaninfyPlaylists();
-  playlists.forEach(playlist => {
-    const refs = Array.isArray(playlist?.songs) ? playlist.songs : [];
-    const missing = refs.filter(ref => !getPlaylistSong(ref));
-    if (missing.length) {
-      console.warn(`[Taninfy] Playlist "${playlist?.name || "Unnamed"}" has ${missing.length} missing song reference(s):`, missing);
-    }
-  });
-})();
-
 renderTaninfyPlaylists();
 
 
@@ -5219,8 +5586,7 @@ function addSongToArtist(map, name, song, index) {
   const artist = map.get(key);
   artist.songs.push({ song, index });
 
-  const rawAlbumName = String(song.album || "").trim();
-  const albumName = (!rawAlbumName || rawAlbumName === "اسم آلبوم" || rawAlbumName === "نام آلبوم") ? "Singles" : rawAlbumName;
+  const albumName = String(song.album || "Singles").trim() || "Singles";
   const albumKey = albumName.toLocaleLowerCase();
   if (!artist.albums.has(albumKey)) {
     artist.albums.set(albumKey, { name: albumName, cover: song.cover || "", songs: [] });
@@ -5282,8 +5648,7 @@ function renderArtistDirectory() {
     open.className = "artist-directory-open";
     open.setAttribute("aria-label", `مشاهده پروفایل ${artist.name}`);
     const img = document.createElement("img");
-    img.src = safeCoverUrl(artist.image);
-    applyCoverFallback(img);
+    if (artist.image) img.src = artist.image;
     img.alt = artist.name;
     img.loading = "lazy";
     open.appendChild(img);
@@ -5465,8 +5830,7 @@ function openArtistProfile(name, addHistory = true) {
   artistProfileName.textContent = artist.name;
   artistProfileCount.textContent = `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
   artistProfileAvatar.removeAttribute("src");
-  artistProfileAvatar.src = safeCoverUrl(artist.image);
-  applyCoverFallback(artistProfileAvatar);
+  if (artist.image) artistProfileAvatar.src = artist.image;
   syncArtistFavoriteButton(artist.name);
   artistProfileAlbums.innerHTML = "";
   artistProfileSongs.innerHTML = "";
@@ -5526,8 +5890,7 @@ function openArtistProfile(name, addHistory = true) {
   artist.albums.forEach((album, albumIndex) => {
     const card=document.createElement("button"); card.type="button";
     card.className="artist-album-card"+(albumIndex===0?" active":"");
-    card.innerHTML=`<img src="${safeCoverUrl(album.cover)}" alt=""><strong>${escapeHtml(album.name)}</strong><span>${album.songs.length} آهنگ</span>`;
-    applyCoverFallback(card.querySelector("img"));
+    card.innerHTML=`<img src="${album.cover || ""}" alt=""><strong>${escapeHtml(album.name)}</strong><span>${album.songs.length} آهنگ</span>`;
     card.addEventListener("click",e=>{
       e.preventDefault(); e.stopPropagation();
       document.querySelectorAll(".artist-album-card").forEach(item=>item.classList.remove("active"));
@@ -5574,33 +5937,6 @@ if (artistFavoriteBtn) {
 document.addEventListener("click", function(event) {
   if (!event.target.closest(".music-search-wrap")) searchSuggestions?.classList.remove("active");
 });
-
-/* GLOBAL IMAGE FALLBACK — broken/empty external covers never leave a blank card. */
-const TANINFY_DEFAULT_COVER = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#241018"/><stop offset="1" stop-color="#08070a"/></linearGradient></defs>
-  <rect width="800" height="800" fill="url(#g)"/>
-  <circle cx="400" cy="360" r="155" fill="none" stroke="#a34a63" stroke-width="18" opacity=".7"/>
-  <circle cx="400" cy="360" r="45" fill="#d5a0ad" opacity=".9"/>
-  <path d="M520 250v250c0 72-52 120-125 120-55 0-96-27-96-67 0-43 43-70 100-70 25 0 47 4 65 12V250z" fill="#d5a0ad" opacity=".9"/>
-  <text x="400" y="690" text-anchor="middle" fill="#f8f1f3" font-family="Arial,sans-serif" font-size="42" letter-spacing="8">TANINFY</text>
-</svg>`);
-
-function safeCoverUrl(url) {
-  const value = String(url || "").trim();
-  return value && !value.includes("DIRECT-COVER-IMAGE-URL") ? value : TANINFY_DEFAULT_COVER;
-}
-
-function applyCoverFallback(img) {
-  if (!img || img.dataset.fallbackBound === "1") return;
-  img.dataset.fallbackBound = "1";
-  img.addEventListener("error", function() {
-    if (img.src !== TANINFY_DEFAULT_COVER) img.src = TANINFY_DEFAULT_COVER;
-  }, { once: true });
-  if (!img.getAttribute("src")) img.src = TANINFY_DEFAULT_COVER;
-}
-
-document.querySelectorAll("img").forEach(applyCoverFallback);
 
 /* AUDIO PLAYER */
 const audioPlayer = document.getElementById("audioPlayer");
@@ -6330,8 +6666,7 @@ function openFullPlayer(track) {
   fullArtist.textContent = track.artist || "Unknown Artist";
 
   if (track.cover && !String(track.cover).includes("DIRECT-COVER-IMAGE-URL")) {
-    fullCover.src = safeCoverUrl(track.cover);
-    applyCoverFallback(fullCover);
+    fullCover.src = track.cover;
     fullCover.style.opacity = "1";
   } else {
     fullCover.removeAttribute("src");
@@ -6341,20 +6676,10 @@ function openFullPlayer(track) {
   fullPlayer.classList.add("active");
   syncFullFavoriteButton(track);
   updateFullPlayButton();
-
-  if (!(history.state && history.state.fullPlayer)) {
-    history.pushState({
-      taninfy: true,
-      page: currentPageName(),
-      fullPlayer: true
-    }, "", location.hash || "#" + currentPageName());
-  }
 }
 
-function closeFullMusicPlayer(fromHistory = true) {
-  if (!fullPlayer.classList.contains("active")) return;
+function closeFullMusicPlayer() {
   fullPlayer.classList.remove("active");
-  if (fromHistory && history.state && history.state.fullPlayer) history.back();
 }
 
 closeFullPlayer.addEventListener("click", closeFullMusicPlayer);
@@ -6756,8 +7081,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   let storedSettings = null;
   try { storedSettings = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (_) { storedSettings = null; }
   settings = { ...defaults, ...(storedSettings && typeof storedSettings === "object" ? storedSettings : {}) };
-  if (!["dark", "light"].includes(settings.theme)) settings.theme = "dark";
-  if (!storedSettings) settings.theme = "dark";
+  if (!storedSettings || !["dark", "light"].includes(settings.theme)) settings.theme = "dark";
   delete settings.autoplay; delete settings.shuffle; delete settings.repeat;
   delete settings.volume; delete settings.newMusic; delete settings.artistNews;
   window.taninfySettings = settings;
