@@ -4324,6 +4324,138 @@ body.light-theme .playlist-detail-song:hover{background:rgba(120,40,65,.055)!imp
 }
 </style>
 
+
+<style id="taninfy-final-mobile-covers-mini-centered">
+/* =========================================================
+   TANINFY — FINAL MOBILE COVER + MINI PLAYER FIX
+========================================================= */
+
+/* Mobile Explore covers: larger again */
+@media (max-width: 760px) {
+  #trackList .track.music-card {
+    min-height: 104px !important;
+    padding: 9px !important;
+  }
+
+  #trackList .track-cover-wrap {
+    width: 86px !important;
+    height: 86px !important;
+    min-width: 86px !important;
+    flex-basis: 86px !important;
+    border-radius: 16px !important;
+  }
+
+  #trackList .track-cover-thumb {
+    width: 86px !important;
+    height: 86px !important;
+    border-radius: 16px !important;
+  }
+
+  #trackList .track-cover-play {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  #trackList .track.music-card {
+    min-height: 110px !important;
+  }
+
+  #trackList .track-cover-wrap {
+    width: 92px !important;
+    height: 92px !important;
+    min-width: 92px !important;
+    flex-basis: 92px !important;
+    border-radius: 17px !important;
+  }
+
+  #trackList .track-cover-thumb {
+    width: 92px !important;
+    height: 92px !important;
+    border-radius: 17px !important;
+  }
+}
+
+/* Mini player: the OUTER wrapper is full-width; the actual pill is centered
+   inside it. This prevents the bar from being pushed into a corner. */
+.player {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 18px !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  transform: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  overflow: visible !important;
+  padding: 0 17px !important;
+  box-sizing: border-box !important;
+  z-index: 3000 !important;
+  pointer-events: none !important;
+}
+
+.player .player-inner {
+  width: min(900px, 100%) !important;
+  max-width: 900px !important;
+  height: 72px !important;
+  min-height: 72px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(255,255,255,.09) !important;
+  border-radius: 22px !important;
+  background: rgba(13,10,12,.82) !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35) !important;
+  backdrop-filter: blur(22px) !important;
+  -webkit-backdrop-filter: blur(22px) !important;
+  pointer-events: auto !important;
+}
+
+@media (max-width: 1100px) and (min-width: 651px) {
+  .player {
+    bottom: 16px !important;
+    padding-inline: 16px !important;
+  }
+  .player .player-inner {
+    height: 68px !important;
+    min-height: 68px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .player {
+    bottom: 76px !important;
+    padding-inline: 10px !important;
+  }
+
+  .player .player-inner {
+    width: 100% !important;
+    max-width: none !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 6px 9px !important;
+    border-radius: 18px !important;
+  }
+
+  .mini-player-cover {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+}
+
+body.light-theme .player .player-inner {
+  background: rgba(255,250,251,.88) !important;
+  border-color: rgba(49,30,37,.10) !important;
+  box-shadow: 0 18px 50px rgba(70,35,45,.16) !important;
+}
+</style>
+
 </head>
 
 <body>
