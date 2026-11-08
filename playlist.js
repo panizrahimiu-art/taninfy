@@ -1,52 +1,7069 @@
-window.TANINFY_PLAYLISTS = [
-  {
-    id: "Gone",
-    name: "Gone",
-    cover: "https://th.bing.com/th/id/OIP.IIPSEYT8eN_vYousa5Hs1gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090809">
 
-    songs: [
-      "Jigh",
-      "Fess",
-      "Dare Mire",
-      "OnlyFans",
-      "Marize Ham",
-      "Harchiam Beshe",
-      "Road 61",
-      "Farsanga",
-      "Dobare",
-      "Age Bere",
-      "Delm Az Donya Gerefte",
-      "Yadet Nist",
-      "Extasy",
-      "Yebaram Man",
-      "Zemestoon",
-      "Pas Man Chi",
-      "Haminim Ke Hastim"
-    ]
-  },
-  {
-    id: "Highway",
-    name: "Highway",
-    cover: "https://solahang.ir/wp-content/uploads/2023/05/Ezza-Highway-img.jpg",
+<title>Taninfy | Music</title>
 
-    songs: [
-      "Highway",
-      "Delam Tang Mishe",
-      "Busy Body",
-      "Tiffany",
-      "Chera Rafti",
-      "Lvrs",
-      "HeyBato",
-      "Mese Man Nashod",
-      "Boro",
-      "Fekr Nemikardam",
-      "Akharin Shab",
-      "Euphoria",
-      "Shayad Nashe",
-      "Door Azin Shahr",
-      "Kavire Del",
-      "Miss U Baby",
-      "Khaterate Bad"
-    ]
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ================================
+   FULL MUSIC PLAYER — NOW PLAYING
+================================ */
+
+.full-player {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+
+  background:
+    radial-gradient(70% 55% at 82% 4%, rgba(95, 17, 45, .52) 0%, rgba(95, 17, 45, 0) 62%),
+    radial-gradient(70% 55% at 0% 100%, rgba(84, 16, 40, .45) 0%, rgba(84, 16, 40, 0) 64%),
+    radial-gradient(55% 45% at 100% 72%, rgba(76, 14, 36, .34) 0%, rgba(76, 14, 36, 0) 65%),
+    #070607;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity .28s ease,
+    visibility .28s ease;
+}
+
+.full-player.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* subtle abstract wine shapes */
+.full-player::before,
+.full-player::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  filter: blur(.2px);
+}
+
+.full-player::before {
+  width: 52vw;
+  height: 48vh;
+  right: -17vw;
+  top: -25vh;
+  border-radius: 50%;
+  background: rgba(105, 18, 49, .28);
+  transform: rotate(-26deg);
+}
+
+.full-player::after {
+  width: 55vw;
+  height: 46vh;
+  left: -24vw;
+  bottom: -25vh;
+  border-radius: 50%;
+  background: rgba(83, 14, 38, .25);
+  transform: rotate(25deg);
+}
+
+.full-player-content {
+  width: min(86vw, 760px);
+  height: 100%;
+  padding: 0 0 38px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TOP BAR */
+
+.full-player-topbar {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  z-index: 10;
+}
+
+.full-player-close,
+.full-player-more {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255,255,255,.92);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.full-player-close {
+  font-size: 39px;
+  font-family: Arial, sans-serif;
+  font-weight: 200;
+  line-height: .5;
+  padding: 0 0 11px;
+}
+
+.full-player-more {
+  font-size: 25px;
+  letter-spacing: 4px;
+  line-height: 1;
+  padding-bottom: 10px;
+}
+
+.full-player-close:hover,
+.full-player-more:hover {
+  background: transparent;
+  border-color: transparent;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.full-player-more:active,
+.full-player-close:active {
+  transform: scale(.94);
+}
+
+/* COVER */
+
+.full-cover-wrap {
+  width: min(72vw, 620px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 42px;
+
+  border-radius: 28px;
+  overflow: hidden;
+
+  box-shadow: 0 28px 80px rgba(0,0,0,.58);
+}
+
+.full-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TITLE + ARTIST */
+
+.full-song-info {
+  width: 100%;
+}
+
+.full-song-info h1 {
+  color: #f8f0f1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 4vw, 39px);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: .2px;
+  margin: 0 0 10px;
+}
+
+.full-song-info p {
+  color: #a94d68;
+  font-family: Arial, sans-serif;
+  font-size: clamp(13px, 2vw, 18px);
+  font-weight: 500;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  margin: 0 0 42px;
+}
+
+/* PROGRESS */
+
+.full-progress-area {
+  width: 100%;
+  direction: ltr;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+
+  color: rgba(255,255,255,.78);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#fullProgress {
+  width: 100%;
+  min-width: 0;
+  appearance: none;
+  direction: ltr;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #d47791 0%,
+    #d47791 var(--progress, 0%),
+    rgba(255,255,255,.18) var(--progress, 0%),
+    rgba(255,255,255,.18) 100%
+  );
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+#fullProgress::-webkit-slider-thumb {
+  appearance: none;
+  width: 23px;
+  height: 23px;
+  border: 0;
+  border-radius: 50%;
+  background: #f8eff1;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+  cursor: pointer;
+}
+
+#fullProgress::-moz-range-thumb {
+  width: 23px;
+  height: 23px;
+  border: 0;
+  border-radius: 50%;
+  background: #f8eff1;
+  cursor: pointer;
+}
+
+/* MAIN CONTROLS */
+
+.full-controls {
+  width: 100%;
+  direction: ltr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.45fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-top: 42px;
+  gap: 12px;
+}
+
+.full-control-btn,
+.full-play-btn {
+  border: 0;
+  background: transparent;
+  color: #f8eff1;
+  cursor: pointer;
+  transition: transform .18s ease, color .18s ease, background .18s ease;
+}
+
+.full-control-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 31px;
+  font-family: Arial, sans-serif;
+}
+
+.full-control-btn:hover {
+  transform: scale(1.1);
+}
+
+.full-control-btn.active {
+  color: #d9879f;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: 0 0 14px rgba(180,60,90,.5);
+}
+
+.full-play-btn {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: rgba(74, 12, 34, .58);
+  border: 1px solid rgba(155, 45, 79, .55);
+  color: #f8eff1;
+  font-size: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 0 0 1px rgba(90,20,45,.16),
+    0 12px 35px rgba(0,0,0,.25);
+}
+
+.full-play-btn:hover {
+  transform: scale(1.06);
+  background: rgba(95, 16, 44, .72);
+}
+
+/* hide the secondary pills — the reference player is clean */
+.full-extra-controls {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .full-player-content {
+    width: 82vw;
+    padding: 0 0 24px;
   }
-];
+
+  .full-player-topbar {
+    top: 24px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .full-cover-wrap {
+    width: 82vw;
+    max-width: 620px;
+    margin-bottom: 40px;
+    border-radius: 27px;
+  }
+
+  .full-song-info h1 {
+    font-size: clamp(23px, 6.3vw, 32px);
+  }
+
+  .full-song-info p {
+    font-size: 13px;
+    letter-spacing: 6px;
+    margin-bottom: 38px;
+  }
+
+  .full-progress-area {
+    gap: 12px;
+    font-size: 13px;
+  }
+
+  #fullProgress::-webkit-slider-thumb {
+    width: 22px;
+    height: 22px;
+  }
+
+  .full-controls {
+    margin-top: 40px;
+    gap: 3px;
+  }
+
+  .full-control-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+  }
+
+  .full-play-btn {
+    width: 88px;
+    height: 88px;
+    font-size: 29px;
+  }
+}
+
+/* Desktop/laptop height fix: keep the full cover completely visible */
+@media (min-width: 701px) and (max-height: 850px) {
+  .full-player-content {
+    width: min(82vw, 700px);
+    height: 100dvh;
+    padding: 74px 0 24px;
+    justify-content: flex-start;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .full-player-content::-webkit-scrollbar {
+    display: none;
+  }
+
+  .full-cover-wrap {
+    width: min(58vh, 560px, 70vw);
+    margin-bottom: 28px;
+  }
+
+  .full-song-info p {
+    margin-bottom: 28px;
+  }
+
+  .full-controls {
+    margin-top: 28px;
+  }
+}
+
+@media (min-width: 701px) and (max-height: 700px) {
+  .full-player-content {
+    padding-top: 62px;
+    padding-bottom: 18px;
+  }
+
+  .full-cover-wrap {
+    width: min(48vh, 470px, 65vw);
+    margin-bottom: 20px;
+  }
+
+  .full-song-info h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+  }
+
+  .full-song-info p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .full-controls {
+    margin-top: 20px;
+  }
+
+  .full-control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+  }
+
+  .full-play-btn {
+    width: 76px;
+    height: 76px;
+    font-size: 28px;
+  }
+}
+
+:root {
+  --bg: #090809;
+  --panel: #141114;
+  --wine: #641d30;
+  --wine2: #8d3048;
+  --pink: #d08a9b;
+  --text: #f5eff0;
+  --muted: #a59a9d;
+  --line: rgba(255,255,255,.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+  line-height: 1.8;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1100px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  background: rgba(9,8,9,.94);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(15px);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 800;
+  direction: ltr;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #8d3048;
+  border-radius: 50%;
+  color: var(--pink);
+  background: #211017;
+}
+
+.brand-name {
+  color: var(--pink);
+}
+
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(208,138,155,.25);
+  border-radius: 8px;
+  background: #151014;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 1px;
+  background: var(--pink);
+}
+
+/* DROPDOWN MENU */
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  opacity: 0;
+  visibility: hidden;
+  transition: .25s;
+  z-index: 40;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(330px, 86vw);
+  padding: 28px;
+  background: #100c0f;
+  border-left: 1px solid rgba(208,138,155,.25);
+  transform: translateX(105%);
+  transition: transform .3s ease;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+body.menu-open .side-menu {
+  transform: translateX(0);
+}
+
+body.menu-open .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.menu-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+  direction: ltr;
+}
+
+.menu-label {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.menu-close {
+  width: 35px;
+  height: 35px;
+  color: var(--pink);
+  background: transparent;
+  border: 1px solid rgba(208,138,155,.3);
+  font-size: 25px;
+}
+
+.menu-profile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 22px 0 2px;
+  padding: 13px 12px;
+  border: 1px solid rgba(213,160,173,.14);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(129,26,53,.15), rgba(255,255,255,.025));
+  direction: ltr;
+}
+.menu-profile img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(213,160,173,.35);
+  flex: 0 0 auto;
+}
+.menu-profile-info {
+  min-width: 0;
+  text-align: left;
+}
+.menu-profile-info strong,
+.menu-profile-info span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.menu-profile-info strong {
+  color: #f8f1f3;
+  font-size: 13px;
+}
+.menu-profile-info span {
+  color: #c98193;
+  font-size: 10px;
+  margin-top: 2px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 18px;
+}
+
+.menu-links a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 17px 2px;
+  direction: ltr;
+  border-bottom: 1px solid rgba(208,138,155,.17);
+  color: #e9dfe2;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.menu-links a:hover {
+  color: var(--pink);
+  padding-left: 10px;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  color: var(--pink);
+  font-size: 19px;
+}
+
+.menu-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: #81747a;
+  font-size: 10px;
+  letter-spacing: 2px;
+  direction: ltr;
+}
+
+/* FAVORITE ARTISTS + PLAYER ACTIONS */
+.artist-profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.artist-favorite-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(213,160,173,.18);
+  border-radius: 50%;
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  font-size: 23px;
+  display: grid;
+  place-items: center;
+  transition: .2s ease;
+}
+
+.artist-favorite-btn:hover {
+  background: rgba(129,26,53,.18);
+  border-color: rgba(213,160,173,.35);
+  transform: scale(1.05);
+}
+
+.artist-favorite-btn.active {
+  color: #ef8da7;
+  text-shadow: 0 0 14px rgba(239,141,167,.35);
+}
+
+.favorite-artist-row {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 8px;
+  border-bottom: 1px solid rgba(213,160,173,.08);
+}
+
+.favorite-artist-row img {
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #21141a;
+}
+
+.favorite-artist-row strong,
+.favorite-artist-row span {
+  display: block;
+}
+
+.favorite-artist-row span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.favorite-artist-open {
+  border: 0;
+  background: transparent;
+  color: #f8f1f3;
+  text-align: right;
+  cursor: pointer;
+}
+
+.favorite-artist-remove {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(213,160,173,.12);
+  background: transparent;
+  color: #ef8da7;
+  font-size: 20px;
+}
+
+.full-player-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+  direction: ltr;
+}
+
+.full-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(213,160,173,.16);
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  font-size: 25px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.full-action-btn:hover {
+  transform: scale(1.07);
+  background: rgba(129,26,53,.18);
+}
+
+.full-action-btn.active {
+  color: #ef8da7;
+  border-color: rgba(239,141,167,.3);
+  text-shadow: 0 0 14px rgba(239,141,167,.35);
+}
+
+.playlist-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,.65);
+}
+
+.playlist-picker-overlay.active {
+  display: flex;
+}
+
+.playlist-picker {
+  width: min(420px, 92vw);
+  max-height: 78vh;
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid rgba(213,160,173,.16);
+  border-radius: 16px;
+  background: linear-gradient(145deg,#181015,#0e0b0d);
+  box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
+
+.playlist-picker h3 {
+  margin: 0 0 5px;
+}
+
+.playlist-picker p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 17px;
+}
+
+.playlist-picker-list {
+  display: grid;
+  gap: 8px;
+}
+
+.playlist-picker-item {
+  width: 100%;
+  border: 1px solid rgba(213,160,173,.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.025);
+  color: #f8f1f3;
+  text-align: right;
+}
+
+.playlist-picker-item:hover {
+  background: rgba(129,26,53,.18);
+  border-color: rgba(213,160,173,.3);
+}
+
+.playlist-picker-new {
+  margin-top: 13px;
+  width: 100%;
+  border: 1px dashed rgba(213,160,173,.24);
+  border-radius: 10px;
+  padding: 12px;
+  background: transparent;
+  color: var(--pink);
+}
+
+.playlist-picker-close {
+  margin-top: 8px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px;
+}
+
+@media (max-width: 700px) {
+  .favorite-artist-row {
+    grid-template-columns: 48px 1fr auto;
+  }
+  .favorite-artist-row img {
+    width: 48px;
+    height: 48px;
+  }
+  .full-player-actions {
+    margin-top: 18px;
+  }
+}
+
+/* PAGE SYSTEM */
+
+.page {
+  display: none;
+  min-height: calc(100vh - 76px);
+  padding: 50px 0 100px;
+  animation: appear .25s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-heading {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-heading small {
+  color: var(--pink);
+  letter-spacing: 2px;
+  direction: ltr;
+  display: block;
+}
+
+.page-heading h1 {
+  font-size: 35px;
+  margin: 8px 0 0;
+}
+
+/* HOME PAGE */
+
+.hero {
+  min-height: 540px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5vw, 65px);
+  line-height: 1.3;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--pink);
+}
+
+.hero p {
+  max-width: 440px;
+  color: var(--muted);
+  line-height: 2.2;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8d3048, #541728);
+  border-color: #9a3b54;
+  color: white;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: #151114;
+  border-color: var(--line);
+  color: #e5d9dd;
+}
+
+.visual {
+  height: 400px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.orbit {
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(208,138,155,.22);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: absolute;
+}
+
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 25px;
+  border: 1px solid rgba(208,138,155,.16);
+  border-radius: 50%;
+}
+
+.disc {
+  width: 245px;
+  height: 245px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 40% 35%, #552034, #1b0e14 60%, #090809);
+  box-shadow: 0 0 80px rgba(100,29,48,.3);
+  animation: rotateDisc 30s linear infinite;
+}
+
+@keyframes rotateDisc {
+  to { transform: rotate(360deg); }
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wave span {
+  width: 4px;
+  height: var(--h);
+  border-radius: 5px;
+  background: linear-gradient(to top, #641d30, #e3a2b3);
+}
+
+.visual-label {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  background: #151114;
+  border: 1px solid rgba(208,138,155,.2);
+  padding: 10px 15px;
+  color: var(--pink);
+  font-size: 11px;
+}
+
+/* MUSIC MIXES */
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.section-title p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.mix-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.mix {
+  min-height: 155px;
+  padding: 22px;
+  background: linear-gradient(145deg, #21141a, #100d0f);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: .2s;
+}
+
+.mix:hover {
+  border-color: #8d3048;
+  transform: translateY(-3px);
+}
+
+.mix small {
+  color: var(--pink);
+  font-size: 11px;
+}
+
+.mix h3 {
+  margin: 20px 0 5px;
+  font-size: 19px;
+}
+
+.mix p {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0;
+}
+
+/* TRACKS */
+
+.tracks {
+  margin-top: 55px;
+  padding-bottom: 40px;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: 40px 1fr auto auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.track-number {
+  color: #83747a;
+  font-size: 12px;
+}
+
+.track-info strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.track-info span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.track button {
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  color: var(--pink);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.heart-btn.active {
+  color: #f08ca8;
+}
+
+/* OTHER PAGES */
+
+.panel {
+  background: linear-gradient(145deg, #191216, #100d0f);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 18px;
+}
+
+.panel h2 {
+  font-size: 19px;
+  margin-top: 0;
+}
+
+.panel p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.field {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid rgba(208,138,155,.2);
+  border-radius: 6px;
+  background: #0d0a0c;
+  color: var(--text);
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--wine2);
+}
+
+textarea.field {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-status {
+  color: var(--pink);
+  font-size: 12px;
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.list-item strong {
+  display: block;
+  font-size: 13px;
+}
+
+.list-item span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--pink);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 5px 12px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid rgba(208,138,155,.3);
+  color: var(--pink);
+  padding: 10px 16px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 0;
+  color: #81767a;
+  font-size: 11px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+}
+
+/* MINI PLAYER */
+
+.player {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background: rgba(15, 12, 14, 0.96);
+  border-top: 1px solid rgba(179, 90, 112, 0.25);
+  padding: 9px 0;
+  backdrop-filter: blur(15px);
+}
+
+.player.visible {
+  display: block;
+}
+
+.player-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.now-playing-wrap {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  flex: 1;
+}
+
+.mini-player-cover {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 7px;
+  object-fit: cover;
+  display: none;
+  background: #21141a;
+  border: 1px solid rgba(213,160,173,.18);
+  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+}
+
+.mini-player-cover.has-cover {
+  display: block;
+}
+
+.now-playing {
+  min-width: 0;
+}
+
+.now-playing strong,
+.now-playing span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.now-playing strong {
+  display: block;
+  font-size: 11px;
+}
+
+.now-playing span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.player-controls button {
+  background: transparent;
+  border: 0;
+  color: var(--pink);
+  font-size: 17px;
+}
+
+.player-controls .play-main {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--wine2);
+  color: white;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.buffer-ring {
+  position: absolute;
+  inset: -2px;
+  width: 38px;
+  height: 38px;
+  transform: rotate(-90deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.buffer-ring-bg,
+.buffer-ring-progress {
+  fill: none;
+  stroke-width: 2;
+}
+
+.buffer-ring-bg {
+  stroke: rgba(255,255,255,.16);
+}
+
+.buffer-ring-progress {
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-dasharray: 106.81;
+  stroke-dashoffset: 106.81;
+  transition: stroke-dashoffset .12s linear;
+}
+
+.player.is-buffering .buffer-ring {
+  opacity: 1;
+}
+
+.play-icon {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+}
+
+.player-controls .play-main:disabled {
+  opacity: .75;
+  cursor: wait;
+}
+
+.player-label {
+  color: #8f8086;
+  font-size: 10px;
+  direction: ltr;
+}
+
+
+/* AUTH + PROFILE */
+.auth-panel { max-width: 560px; margin-inline: auto; text-align: center; }
+.auth-mark { width: 54px; height: 54px; border-radius: 50%; margin: 0 auto 18px; display:grid; place-items:center; background: linear-gradient(145deg, #3b1724, #160c11); border:1px solid rgba(208,138,155,.35); color: var(--pink); font-family: Georgia, serif; font-size: 24px; }
+.auth-panel p { max-width: 430px; margin: 0 auto 20px; line-height: 1.9; }
+.google-btn { width: 100%; }
+.signed-user { margin-top: 20px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; display:flex; align-items:center; gap:12px; text-align:left; }
+.signed-user img { width:40px; height:40px; border-radius:50%; object-fit:cover; border:1px solid rgba(208,138,155,.35); }
+.signed-user div { flex:1; min-width:0; }
+.signed-user strong, .signed-user span { display:block; }
+.signed-user span { color:var(--muted); font-size:10px; margin-top:3px; }
+.profile-card { grid-template-columns: auto 1fr; align-items:center; gap:20px; background: radial-gradient(circle at 15% 15%, rgba(112,35,60,.18), transparent 38%), linear-gradient(145deg,#191216,#100d0f); }
+.profile-avatar-wrap { width:92px; height:92px; border-radius:50%; padding:3px; background:linear-gradient(135deg,var(--wine2),var(--pink)); }
+.profile-avatar { width:100%; height:100%; border-radius:50%; object-fit:cover; display:block; border:3px solid #120d0f; }
+.profile-main { min-width:0; }
+.profile-kicker { color:var(--pink); font-size:9px; letter-spacing:2px; }
+.profile-main h2 { margin:5px 0 3px; }
+.profile-main p { margin:0; color:var(--pink); font-size:12px; }
+.profile-details { grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:5px; }
+.profile-details div { border-top:1px solid var(--line); padding-top:12px; }
+.profile-details span { display:block; color:#81767a; font-size:9px; letter-spacing:1.5px; margin-bottom:5px; }
+.profile-details strong { font-size:12px; }
+
+/* SUCCESS CHECK ANIMATION */
+.success-check-overlay { position:fixed; inset:0; z-index:200; display:grid; place-items:center; background:rgba(8,6,7,.68); backdrop-filter:blur(7px); opacity:0; pointer-events:none; transition:opacity .2s ease; }
+.success-check-overlay.active { opacity:1; pointer-events:auto; }
+.success-check-box { min-width:210px; text-align:center; }
+.success-check-circle { width:78px; height:78px; margin:0 auto 14px; position:relative; }
+.success-check-circle svg { width:100%; height:100%; transform:rotate(-90deg); }
+.success-ring { fill:none; stroke:rgba(255,255,255,.18); stroke-width:4; }
+.success-ring-progress { fill:none; stroke:var(--wine2); stroke-width:4; stroke-linecap:round; stroke-dasharray:226; stroke-dashoffset:226; }
+.success-check { fill:none; stroke:var(--pink); stroke-width:5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:70; stroke-dashoffset:70; opacity:0; }
+.success-check-overlay.animate .success-ring-progress { animation: successRing 1s ease forwards; }
+.success-check-overlay.animate .success-check { animation: successTick .42s .82s ease forwards; }
+.success-check-text { color:#fff; font-size:12px; opacity:0; transform:translateY(5px); transition:all .3s ease .95s; }
+.success-check-overlay.animate .success-check-text { opacity:1; transform:none; }
+@keyframes successRing { to { stroke-dashoffset:0; } }
+@keyframes successTick { to { stroke-dashoffset:0; opacity:1; } }
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 20px;
+  }
+
+  .hero-copy {
+    order: 2;
+  }
+
+  .visual {
+    height: 280px;
+    order: 1;
+  }
+
+  .orbit {
+    width: 250px;
+    height: 250px;
+  }
+
+  .disc {
+    width: 190px;
+    height: 190px;
+  }
+
+  .mix-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .player-label {
+    display: none;
+  }
+
+  .page-heading h1 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 430px) {
+  .wrap {
+    width: calc(100% - 28px);
+  }
+
+  .mix-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .track {
+    grid-template-columns: 22px 1fr auto;
+    gap: 9px;
+  }
+
+  .track .heart-btn {
+    grid-column: 3;
+  }
+
+  .player-inner {
+    gap: 8px;
+  }
+
+  .now-playing-wrap {
+    gap: 8px;
+  }
+
+  .mini-player-cover {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .player-controls {
+    gap: 8px;
+  }
+
+  .brand {
+    font-size: 21px;
+  }
+}
+  /* =================================
+   TANINFY — PREMIUM DARK REDESIGN
+================================= */
+
+:root {
+  --bg: #080708;
+  --panel: #110d10;
+  --wine: #591021;
+  --wine2: #811a35;
+  --pink: #d5a0ad;
+  --text: #f8f1f3;
+  --muted: #91868b;
+  --line: rgba(213, 160, 173, 0.12);
+}
+
+/* Smooth experience */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(89, 16, 33, 0.15),
+      transparent 55%
+    ),
+    #080708;
+}
+
+/* Header */
+
+header {
+  background: rgba(8, 7, 8, 0.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(22px);
+}
+
+.brand {
+  letter-spacing: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.brand:hover {
+  opacity: 0.8;
+}
+
+.brand-mark {
+  border-color: rgba(213, 160, 173, 0.4);
+  box-shadow: 0 0 25px rgba(129, 26, 53, 0.15);
+}
+
+/* Menu button */
+
+.menu-toggle {
+  border-color: var(--line);
+  transition: background 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  background: #241018;
+  border-color: var(--pink);
+}
+
+/* Side menu */
+
+.side-menu {
+  background:
+    linear-gradient(
+      160deg,
+      #170d12 0%,
+      #0b090a 65%
+    );
+  border-left-color: rgba(213, 160, 173, 0.2);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+}
+
+.menu-links a {
+  transition:
+    color 0.25s ease,
+    padding 0.25s ease,
+    background 0.25s ease;
+}
+
+.menu-links a:hover {
+  padding-left: 12px;
+  color: #fff;
+  background: rgba(129, 26, 53, 0.1);
+}
+
+.menu-icon {
+  transition: transform 0.25s ease;
+}
+
+.menu-links a:hover .menu-icon {
+  transform: scale(1.1);
+}
+
+/* Main headline */
+
+.hero {
+  min-height: 480px;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.hero h1 em {
+  background: linear-gradient(
+    110deg,
+    #f2d8df,
+    #c17b90 55%,
+    #81203a
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Buttons */
+
+.btn {
+  border-radius: 5px;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #8c2843,
+    #501020
+  );
+
+  border-color: rgba(213, 160, 173, 0.3);
+  box-shadow: 0 5px 22px rgba(89, 16, 33, 0.12);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(129, 26, 53, 0.22);
+}
+
+.btn-secondary:hover {
+  background: #1c1116;
+  border-color: rgba(213, 160, 173, 0.35);
+}
+
+/* Vinyl animation */
+
+.disc {
+  background:
+    repeating-radial-gradient(
+      circle,
+      transparent 0px,
+      transparent 5px,
+      rgba(213, 160, 173, 0.035) 6px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at 40% 35%,
+      #552034,
+      #1b0e14 60%,
+      #090809
+    );
+
+  box-shadow:
+    0 0 60px rgba(89, 16, 33, 0.18),
+    inset 0 0 35px rgba(0, 0, 0, 0.35);
+}
+
+/* Music collections */
+
+.mix {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    #1b1015,
+    #100c0e 75%
+  );
+
+  border-color: rgba(213, 160, 173, 0.1);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.mix::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -45px;
+  top: -45px;
+  border-radius: 50%;
+  background: rgba(129, 26, 53, 0.12);
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.mix:hover {
+  transform: translateY(-4px);
+  border-color: rgba(213, 160, 173, 0.3);
+  background: linear-gradient(
+    145deg,
+    #251019,
+    #100c0e 75%
+  );
+}
+
+.mix h3 {
+  position: relative;
+  z-index: 1;
+}
+
+/* Track list */
+
+.track {
+  transition: background 0.25s ease;
+  border-bottom-color: rgba(213, 160, 173, 0.08);
+}
+
+.track:hover {
+  background: rgba(129, 26, 53, 0.07);
+}
+
+.track-play,
+.heart-btn {
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.track-play:hover,
+.heart-btn:hover {
+  background: rgba(129, 26, 53, 0.2);
+  border-color: rgba(213, 160, 173, 0.35);
+}
+
+.heart-btn.active {
+  color: #ef8da7;
+}
+
+/* Separate pages */
+
+.panel {
+  background: linear-gradient(
+    145deg,
+    #181015,
+    #0e0b0d
+  );
+
+  border-color: rgba(213, 160, 173, 0.1);
+  border-radius: 8px;
+}
+
+.field {
+  border-color: rgba(213, 160, 173, 0.14);
+  border-radius: 5px;
+  transition: border-color 0.25s ease;
+}
+
+.field:focus {
+  border-color: #a34a63;
+  box-shadow: 0 0 0 3px rgba(129, 26, 53, 0.1);
+}
+
+/* Bottom music player */
+
+.player {
+  background: rgba(12, 9, 11, 0.94);
+  border-top-color: rgba(213, 160, 173, 0.17);
+  backdrop-filter: blur(22px);
+}
+
+.player-controls .play-main {
+  background: linear-gradient(
+    135deg,
+    #9b304d,
+    #64152b
+  );
+
+  box-shadow: 0 0 18px rgba(129, 26, 53, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.player-controls .play-main:hover {
+  transform: scale(1.08);
+}
+
+/* Footer */
+
+footer {
+  border-top-color: rgba(213, 160, 173, 0.1);
+}
+
+/* SEARCH + ARTIST PROFILES */
+.music-search-wrap {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto 26px;
+  z-index: 30;
+}
+.music-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid rgba(213,160,173,.14);
+  border-radius: 16px;
+  background: rgba(15,10,13,.86);
+  box-shadow: 0 12px 35px rgba(0,0,0,.18);
+  backdrop-filter: blur(18px);
+}
+.music-search-icon { color: #d5a0ad; font-size: 23px; line-height: 1; }
+.music-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f8f1f3;
+  font: inherit;
+  direction: rtl;
+}
+.music-search input::placeholder { color: #8f8086; }
+.music-search button {
+  border: 0;
+  background: transparent;
+  color: #a9959c;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease;
+}
+.music-search.has-value button { opacity: 1; pointer-events: auto; }
+.search-suggestions {
+  position: absolute;
+  left: 0; right: 0; top: calc(100% + 8px);
+  display: none;
+  max-height: 390px;
+  overflow: auto;
+  padding: 8px;
+  border: 1px solid rgba(213,160,173,.12);
+  border-radius: 16px;
+  background: rgba(13,9,11,.98);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.search-suggestions.active { display: block; }
+.search-suggestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #f8f1f3;
+  text-align: right;
+  cursor: pointer;
+}
+.search-suggestion:hover { background: rgba(129,26,53,.16); }
+.search-suggestion-cover {
+  width: 44px; height: 44px; object-fit: cover; border-radius: 10px; flex: 0 0 auto;
+  background: #24151a;
+}
+.search-suggestion-info { flex: 1; min-width: 0; }
+.search-suggestion-info strong, .search-suggestion-info span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.search-suggestion-info strong { font-size: 14px; }
+.search-suggestion-info span { margin-top: 3px; color: #94878d; font-size: 12px; }
+.search-suggestion-type { color: #c98193; font-size: 10px; letter-spacing: 1.4px; direction: ltr; }
+
+.artist-profile {
+  position: fixed; inset: 0; z-index: 100000;
+  overflow: auto;
+  background:
+    radial-gradient(60% 45% at 50% 0%, rgba(105,18,49,.35), transparent 70%),
+    #080708;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+.artist-profile.active { opacity: 1; visibility: visible; pointer-events: auto; }
+.artist-profile-topbar {
+  position: sticky; top: 0; z-index: 5;
+  height: 78px; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  color: #8f8086; letter-spacing: 3px; font-size: 10px;
+  background: rgba(8,7,8,.72); backdrop-filter: blur(18px);
+}
+.artist-back, .artist-more {
+  width: 44px; height: 44px; border: 0; background: transparent;
+  color: #f8f1f3; cursor: pointer; font-size: 28px;
+}
+.artist-more { font-size: 18px; letter-spacing: 4px; }
+.artist-profile-content { width: min(900px, calc(100% - 36px)); margin: 0 auto; padding: 25px 0 90px; text-align: center; }
+.artist-profile-avatar-wrap { width: 150px; height: 150px; margin: 10px auto 20px; border-radius: 50%; padding: 2px; background: linear-gradient(145deg,#a24b65,#3a0d1b); }
+.artist-profile-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #1a1014; }
+.artist-profile-kicker { color: #a6536b; letter-spacing: 4px; font-size: 10px; }
+.artist-profile h1 { margin: 8px 0 5px; font-size: clamp(32px, 7vw, 58px); font-weight: 400; }
+.artist-profile-count { color: #8f8086; margin: 0 0 24px; }
+
+.artist-albums-heading {
+  width: min(760px, 100%);
+  margin: 0 auto 12px;
+  text-align: left;
+  color: #a6536b;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.artist-profile-albums {
+  width: min(760px, 100%);
+  margin: 0 auto 28px;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3px 2px 12px;
+  direction: ltr;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(213,160,173,.28) transparent;
+}
+.artist-profile-albums::-webkit-scrollbar { height: 5px; }
+.artist-profile-albums::-webkit-scrollbar-track { background: transparent; }
+.artist-profile-albums::-webkit-scrollbar-thumb {
+  background: rgba(213,160,173,.28);
+  border-radius: 20px;
+}
+.artist-album-card {
+  flex: 0 0 142px;
+  border: 1px solid rgba(213,160,173,.1);
+  border-radius: 13px;
+  background: linear-gradient(145deg,#181015,#0e0b0d);
+  color: #f8f1f3;
+  padding: 9px;
+  text-align: left;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform .22s ease, border-color .22s ease, background .22s ease;
+}
+.artist-album-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(213,160,173,.3);
+}
+.artist-album-card.active {
+  border-color: #a34a63;
+  background: linear-gradient(145deg,#251019,#110c0f);
+  box-shadow: 0 10px 30px rgba(89,16,33,.18);
+}
+.artist-album-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  object-fit: cover;
+  border-radius: 9px;
+  background: #21141a;
+}
+.artist-album-card strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.artist-album-card span {
+  display: block;
+  margin-top: 3px;
+  color: #8f8086;
+  font-size: 10px;
+}
+/* Artist album detail */
+.artist-album-detail { width:min(760px,100%); margin:0 auto 28px; display:none; text-align:right; }
+.artist-album-detail.active { display:block; animation:taninfyAlbumIn .22s ease; }
+@keyframes taninfyAlbumIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.artist-album-detail-head { display:grid; grid-template-columns:110px 1fr; gap:18px; align-items:center; padding:18px; margin-bottom:18px; border:1px solid rgba(213,160,173,.12); border-radius:20px; background:linear-gradient(135deg,rgba(88,17,39,.34),rgba(20,12,16,.78)); box-shadow:0 18px 55px rgba(0,0,0,.18); }
+.artist-album-detail-cover-wrap{width:110px;height:110px}
+.artist-album-detail-cover-wrap img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+.artist-album-detail-meta span{color:#a6536b;font-size:9px;letter-spacing:3px}
+.artist-album-detail-meta h2{margin:6px 0 3px;font-size:25px;color:#f8f1f3}
+.artist-album-detail-meta p{margin:0;color:#91868b;font-size:11px}
+.artist-album-back{border:0;background:transparent;color:#d5a0ad;cursor:pointer;font:inherit;font-size:11px;padding:0 0 10px}
+body.light-theme .artist-album-detail-head{background:linear-gradient(135deg,#fff,#f3e9ed);border-color:rgba(74,35,49,.12)}
+body.light-theme .artist-album-detail-meta h2{color:#34232a!important}
+body.light-theme .artist-album-detail-meta p{color:#796b71}
+body.light-theme .artist-album-back{color:#34232a}
+
+.artist-profile-songs {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: right;
+}
+
+
+.artist-profile-song {
+  display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 14px;
+  padding: 13px 10px; border-bottom: 1px solid rgba(213,160,173,.09); cursor: pointer;
+}
+.artist-profile-song:hover { background: rgba(129,26,53,.09); border-radius: 12px; }
+.artist-profile-song img { width: 54px; height: 54px; object-fit: cover; border-radius: 9px; }
+.artist-profile-song strong, .artist-profile-song span { display: block; }
+.artist-profile-song span { margin-top: 4px; color: #8f8086; font-size: 12px; }
+.artist-profile-song button { border: 0; background: transparent; color: #f8f1f3; font-size: 18px; cursor: pointer; }
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile refinements */
+
+@media (max-width: 750px) {
+  .hero {
+    min-height: auto;
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .visual {
+    height: 260px;
+  }
+
+  .mix-grid {
+    gap: 10px;
+  }
+
+  .tracks {
+    margin-top: 35px;
+  }
+}
+
+/* ==========================================
+   TANINFY — ANG HAMI INSPIRED LAYOUT
+   Original Taninfy black / wine / rose palette
+========================================== */
+:root{
+  --bg:#080708; --panel:#110d10; --wine:#591021; --wine2:#811a35;
+  --pink:#d5a0ad; --text:#f8f1f3; --muted:#91868b;
+  --line:rgba(213,160,173,.13);
+}
+html,body{background:#080708;color:#f8f1f3}
+body{font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.65}
+.topbar{
+  position:fixed;top:0;left:120px;right:0;height:62px;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:0 28px 0 24px;background:rgba(12,9,11,.96);
+  border-bottom:1px solid rgba(213,160,173,.13);backdrop-filter:blur(18px)
+}
+.topbar-left,.topbar-right{display:flex;align-items:center;gap:13px;min-width:0}
+.topbar .menu-toggle{display:none}
+.topbar-arrow{border:0;background:transparent;color:#f8f1f3;font:32px Arial;line-height:1;padding:0 2px;cursor:pointer}
+.topbar-arrow.forward{color:#806f76}
+.top-search{
+  width:min(520px,48vw);height:40px;border:1px solid rgba(213,160,173,.2);
+  border-radius:24px;display:flex;align-items:center;gap:12px;padding:0 16px;
+  background:#151014
+}
+.top-search span{font:25px Arial;color:#d5a0ad;transform:rotate(-20deg)}
+.top-search input{border:0;outline:0;background:transparent;color:#f8f1f3;width:100%;font:14px "Vazirmatn",sans-serif}
+.top-search input::placeholder{color:#91868b}
+.top-login{background:linear-gradient(135deg,#8c2843,#501020);color:#fff!important;padding:9px 19px;border-radius:24px;font-size:13px;white-space:nowrap;border:1px solid rgba(213,160,173,.22)}
+.top-login:hover{filter:brightness(1.15)}
+.app-sidebar{
+  position:fixed;z-index:90;top:0;bottom:0;left:0;width:120px;
+  display:flex;flex-direction:column;align-items:center;padding:18px 10px 20px;
+  background:#100c0f;border-right:1px solid rgba(213,160,173,.13)
+}
+.sidebar-brand{display:flex;flex-direction:column;align-items:center;gap:0;margin:0 0 30px;color:#f8f1f3}
+.sidebar-logo{width:48px;height:48px;border:2px solid #d5a0ad;border-radius:50%;display:grid;place-items:center;font:36px Georgia;color:#d5a0ad;line-height:1}
+.sidebar-brand strong{font-size:17px;letter-spacing:-.5px;color:#d5a0ad}
+.sidebar-nav{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:8px}
+.sidebar-nav a,.sidebar-bottom a{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  padding:11px 4px;color:#8f8086;font-size:12px;font-weight:600;border-radius:12px;transition:.2s
+}
+.sidebar-nav a span,.sidebar-bottom a span{font-size:25px;line-height:1.1}
+.sidebar-nav a:hover,.sidebar-nav a.active,.sidebar-bottom a:hover{color:#f8f1f3;background:rgba(129,26,53,.2)}
+.sidebar-bottom{margin-top:auto;width:100%;text-align:center}
+.sidebar-bottom small{display:block;color:#806f76;font-size:8px;letter-spacing:1px;margin-top:15px}
+.menu-overlay,.side-menu{display:none!important}
+main{margin-left:120px;padding-top:62px}
+.page{min-height:calc(100vh - 62px);padding:34px 0 100px}
+.wrap{width:min(100% - 64px,1600px)}
+.explore-wrap .explore-heading{display:flex;align-items:center;gap:24px;margin:0 0 25px}
+.explore-heading h1{font-size:42px;line-height:1.2;margin:0;font-weight:800;color:#f8f1f3}
+.explore-heading span{background:#191216;border:1px solid rgba(213,160,173,.14);border-radius:24px;padding:8px 18px;font-size:13px;color:#d9cbd0}
+.hero{min-height:0;display:block;padding:0;margin:0 0 42px}
+.hero-copy{display:none}
+.visual{display:none}
+#mixes{margin-top:0}
+.section-title{align-items:center;margin:0 0 15px}
+.section-title h2{font-size:25px;color:#f8f1f3;font-weight:700}
+.section-title p{color:#91868b}
+.section-title:after{content:"See All";font-size:13px;color:#f8f1f3;background:#191216;border:1px solid rgba(213,160,173,.14);border-radius:24px;padding:8px 20px}
+.mix-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.mix{
+  min-height:190px;padding:20px;border:1px solid rgba(213,160,173,.12);border-radius:10px;
+  overflow:hidden;background:linear-gradient(135deg,#351522,#160e12);color:#fff;position:relative;
+  box-shadow:0 8px 24px rgba(0,0,0,.16)
+}
+.mix:nth-child(2){background:linear-gradient(135deg,#542338,#1c1017)}
+.mix:nth-child(3){background:linear-gradient(135deg,#68263d,#211016)}
+.mix small{color:#d5a0ad;font-size:10px;letter-spacing:1.5px}
+.mix h3{font-size:21px;margin:48px 0 4px;color:#fff}
+.mix p{color:#c2aeb5}
+.mix::after{width:170px;height:170px;right:auto;left:-42px;top:30px;background:rgba(213,160,173,.1);filter:blur(1px)}
+.tracks{margin-top:46px}
+.music-search-wrap{max-width:100%;margin:0 0 25px}
+.music-search{background:#151014;border:1px solid rgba(213,160,173,.16);border-radius:24px;box-shadow:none;min-height:44px}
+.music-search input{color:#f8f1f3}
+.music-search input::placeholder{color:#91868b}
+.music-search-icon{color:#d5a0ad}
+.search-suggestions{background:#100c0f;border-color:rgba(213,160,173,.14);color:#f8f1f3}
+.track-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.track{grid-template-columns:32px 1fr auto auto;padding:13px 8px;border-bottom:1px solid rgba(213,160,173,.1)}
+.track:hover{background:rgba(129,26,53,.09)}
+.track-number{color:#806f76}
+.track-info strong{color:#f8f1f3;font-size:14px}
+.track-info span{color:#91868b}
+.track button{color:#d5a0ad;border-color:rgba(213,160,173,.16)}
+.track-play:hover,.heart-btn:hover{background:rgba(129,26,53,.2);border-color:rgba(213,160,173,.35)}
+.heart-btn.active{color:#ef8da7}
+.page-heading{border-color:rgba(213,160,173,.13)}
+.page-heading h1,.panel h2,.list-item strong{color:#f8f1f3}
+.page-heading small,.form-status{color:#d5a0ad}
+.panel{background:linear-gradient(145deg,#181015,#0e0b0d);border:1px solid rgba(213,160,173,.12);border-radius:12px;box-shadow:0 5px 22px rgba(0,0,0,.12)}
+.panel p,.form-note,.list-item span{color:#91868b}
+.field{background:#0d0a0c;color:#f8f1f3;border-color:rgba(213,160,173,.18);border-radius:8px}
+.field:focus{border-color:#a34a63;box-shadow:0 0 0 3px rgba(129,26,53,.1)}
+.btn{border-radius:24px}
+.btn-primary{background:linear-gradient(135deg,#8c2843,#501020);border-color:rgba(213,160,173,.25);box-shadow:none}
+.btn-primary:hover{filter:brightness(1.15)}
+.btn-secondary,.back-btn{background:#191216;border-color:rgba(213,160,173,.16);color:#e9dfe2;border-radius:24px}
+footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);color:#81767a}
+.player{left:120px;background:rgba(12,9,11,.96);border-top:1px solid rgba(213,160,173,.17);box-shadow:0 -5px 20px rgba(0,0,0,.18)}
+.now-playing strong{color:#f8f1f3}.now-playing span{color:#91868b}
+.player-controls button{color:#d5a0ad}
+.player-controls .play-main{background:linear-gradient(135deg,#9b304d,#64152b);color:#fff}
+.player-label{color:#91868b}
+.full-player{background:#090809!important}
+@media(max-width:900px){
+  .topbar{left:86px}
+  .app-sidebar{width:86px}
+  main,footer{margin-left:86px}
+  .wrap{width:calc(100% - 38px)}
+  .track-list{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .topbar{left:0;height:58px;padding:0 12px}
+  .topbar .menu-toggle{display:flex;width:34px;height:34px;border:0;background:transparent;gap:4px}
+  .topbar .menu-toggle span{background:#d5a0ad;width:18px}
+  .topbar-arrow{display:none}
+  .top-search{width:min(58vw,360px);height:37px;padding:0 11px}
+  .top-search input{font-size:11px}
+  .top-login{font-size:10px;padding:8px 11px}
+  .app-sidebar{top:auto;left:0;right:0;bottom:0;width:auto;height:66px;padding:4px 8px;background:#100c0f;border-right:0;border-top:1px solid rgba(213,160,173,.15)}
+  .sidebar-brand,.sidebar-bottom{display:none}
+  .sidebar-nav{height:100%;flex-direction:row;justify-content:space-around;gap:2px}
+  .sidebar-nav a{flex:1;padding:5px 1px;font-size:9px;gap:2px}
+  .sidebar-nav a span{font-size:19px}
+  main{margin:0;padding-top:58px;padding-bottom:66px}
+  footer{margin:0}
+  .page{padding:24px 0 35px;min-height:calc(100vh - 124px)}
+  .wrap{width:calc(100% - 28px)}
+  .explore-wrap .explore-heading{gap:12px;margin-bottom:19px}
+  .explore-heading h1{font-size:32px}
+  .explore-heading span{font-size:10px;padding:6px 10px}
+  .section-title h2{font-size:19px}
+  .mix-grid{grid-template-columns:1fr;gap:11px}
+  .mix{min-height:135px}
+  .mix h3{margin-top:25px}
+  .tracks{margin-top:32px}
+  .player{left:0;bottom:66px}
+  .player-inner{width:calc(100% - 24px)}
+}
+
+
+/* Curated Taninfy playlists */
+.curated-intro{color:var(--muted);margin:-8px 0 24px}
+.curated-playlists{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.curated-card{display:block;min-height:0;overflow:hidden;border:0;border-radius:16px;background:transparent;box-shadow:none;cursor:pointer}
+.curated-cover{position:relative;width:100%;aspect-ratio:1/1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:16px;background:radial-gradient(circle at 50% 45%,#78344c,#241018 72%);box-shadow:0 16px 40px rgba(0,0,0,.20)}
+.curated-cover:before,.curated-cover:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,220,230,.17);border-radius:50%;transform:rotate(-25deg)}
+.curated-cover:after{width:145px;height:145px}
+.curated-cover span{position:absolute;top:12px;left:14px;color:rgba(255,255,255,.65);font-size:12px}
+.curated-cover b{font-size:66px;color:#f0cbd5;text-shadow:0 8px 35px rgba(0,0,0,.3);z-index:1;font-weight:400}
+.curated-cover small{position:absolute;bottom:13px;letter-spacing:2px;font-size:8px;color:rgba(255,255,255,.7)}
+.curated-cover img.playlist-cover-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0;}
+.curated-cover.has-image:before,.curated-cover.has-image:after{display:none;}
+.curated-cover.has-image{background:#21141a;}
+.curated-cover.has-image:after{content:"";position:absolute;inset:0;width:auto;height:auto;border:0;border-radius:0;background:linear-gradient(to top,rgba(10,7,9,.62),rgba(10,7,9,.08) 55%,rgba(10,7,9,.15));transform:none;}
+.curated-cover.has-image span,.curated-cover.has-image small{z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.8);}
+
+.curated-dark .curated-cover{background:radial-gradient(circle at 50% 45%,#553047,#120b12 75%)}
+.curated-nostalgia .curated-cover{background:radial-gradient(circle at 50% 45%,#98566a,#28151d 75%)}
+.curated-energy .curated-cover{background:radial-gradient(circle at 50% 45%,#874052,#291018 75%)}
+.curated-info{padding:11px 2px 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.curated-info>span{font-size:9px;letter-spacing:1.5px;color:#d5a0ad}
+.curated-info h2{font-size:15px;margin:0 0 2px;color:#f8f1f3;font-weight:600}
+.curated-info p{font-size:12px;color:#a99ba1;line-height:1.9;margin:0 0 15px}
+.curated-info button{border:1px solid rgba(213,160,173,.22);border-radius:22px;background:#26131b;color:#f1dce2;padding:8px 14px;font:12px "Vazirmatn",sans-serif;cursor:pointer}
+.curated-info button:hover{background:#3a1926}
+.curated-info button span{margin-right:8px}
+.top-account{display:inline-flex;align-items:center;gap:9px;padding:5px 13px 5px 7px;border:1px solid rgba(213,160,173,.2);border-radius:24px;background:#1b1116;color:#f8f1f3!important;font-size:12px;max-width:190px}
+.top-account img{width:29px;height:29px;border-radius:50%;object-fit:cover}
+.top-account span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:760px){
+ .curated-playlists{grid-template-columns:1fr}
+ .curated-card{grid-template-columns:130px 1fr;min-height:175px}
+ .curated-cover{min-height:175px}
+ .curated-info{padding:14px}
+ .curated-info h2{font-size:17px}
+ .curated-info p{font-size:11px}
+ .top-account{max-width:115px;font-size:10px;padding:4px 8px 4px 5px}
+ .top-account img{width:25px;height:25px}
+}
+
+
+/* Explore song covers + general artist directory */
+.track-cover-wrap{position:relative;width:190px;height:190px;flex:0 0 190px;border-radius:12px;overflow:hidden;}
+.track-cover-wrap .track-cover-thumb{display:block;width:100%;height:100%;border-radius:12px;}
+.track-cover-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(12,7,11,.38);color:#fff;font-size:25px;opacity:.92;transition:background .2s,opacity .2s;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.7);border-radius:12px}
+.track-cover-wrap:hover .track-cover-play,.track.is-playing .track-cover-play{background:rgba(95,20,48,.62);opacity:1}
+.track-cover-play.active{font-size:22px}
+.track{grid-template-columns:32px 190px minmax(0,1fr) auto auto;align-items:center;gap:15px;padding:15px 10px;min-height:220px}
+.track-cover-thumb{width:190px;height:190px;border-radius:12px;object-fit:cover;background:#21141a;box-shadow:0 5px 16px rgba(0,0,0,.25)}
+.track-info{min-width:0}
+.track-info strong,.track-info span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.artist-directory{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:22px}
+.artist-directory-card{min-width:0;border:1px solid rgba(213,160,173,.13);border-radius:13px;background:linear-gradient(145deg,#191116,#0e0b0d);padding:15px 12px 17px;color:#f8f1f3;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px;transition:transform .22s,border-color .22s,background .22s}
+.artist-directory-card:hover{transform:translateY(-5px);border-color:rgba(213,160,173,.4);background:linear-gradient(145deg,#28131c,#110c10)}
+.artist-directory-card img{width:min(100%,145px);aspect-ratio:1;border-radius:50%;object-fit:cover;background:#24151c;border:2px solid rgba(213,160,173,.25);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.artist-directory-card strong{font-size:14px;margin-top:5px}
+.artist-directory-card span{font-size:11px;color:#a99ba1}
+.artists-intro{margin:8px 0 0;color:#91868b;font-size:13px}
+#artistProfile .artist-favorite-btn{display:none!important}
+.artist-directory-photo{width:min(100%,145px);aspect-ratio:1;position:relative;flex:0 0 auto}
+.artist-directory-open{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;border-radius:50%;overflow:hidden}
+.artist-directory-photo .artist-directory-open img{width:100%;height:100%;display:block}
+.artist-directory-favorite{position:absolute;right:2px;bottom:2px;width:36px;height:36px;border-radius:50%;border:2px solid #d5a0ad;background:#171017;color:#fff;font-size:25px;line-height:1;display:grid;place-items:center;box-shadow:0 4px 14px #0008;z-index:2}
+.artist-directory-favorite.active{background:#d5a0ad;color:#211017}
+.artist-directory-card{cursor:default}
+.artist-directory-card strong,.artist-directory-card span{pointer-events:none}
+@media(max-width:650px){.artist-directory-photo{width:min(100%,125px)}.artist-directory-favorite{width:33px;height:33px;font-size:23px}}
+@media(max-width:650px){
+ .track{grid-template-columns:25px 150px minmax(0,1fr) 38px 38px;gap:9px;padding:12px 3px;min-height:176px}
+ .track-cover-thumb{width:150px;height:150px;border-radius:11px}
+ .track-cover-wrap{width:150px;height:150px;flex-basis:150px;border-radius:11px}
+ .artist-directory{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+ .artist-directory-card{padding:12px 8px 14px}
+ .artist-directory-card img{width:min(100%,125px)}
+}
+
+
+/* SETTINGS — responsive controls */
+.settings-intro{color:var(--muted);margin:8px 0 0;font-size:13px}
+.settings-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.settings-card{margin:0;padding:23px 24px}
+.settings-card-heading{display:flex;align-items:center;gap:13px;padding-bottom:17px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.settings-card-heading h2{margin:0 0 2px;font-size:17px}
+.settings-card-heading p{margin:0;font-size:11px;color:var(--muted)}
+.settings-symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:rgba(213,160,173,.1);color:var(--pink);font-size:23px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:15px 0;border-bottom:1px solid var(--line)}
+.setting-row:last-child{border-bottom:0}
+.setting-row>div:first-child strong,.setting-row>div:first-child span{display:block}
+.setting-row strong{font-size:12px}
+.setting-row span{font-size:10px;color:var(--muted);margin-top:3px}
+.setting-column{align-items:flex-start;flex-direction:column}
+.segmented-control{display:flex;padding:3px;border:1px solid var(--line);border-radius:8px;background:rgba(0,0,0,.12)}
+.segmented-control button{border:0;border-radius:6px;padding:6px 14px;background:transparent;color:var(--muted);font-size:11px}
+.segmented-control button.active{background:var(--wine2);color:#fff}
+.accent-options{display:flex;align-items:center;gap:12px;margin-top:12px}
+.accent-swatch{width:27px;height:27px;border-radius:50%;border:2px solid transparent;background:var(--swatch);box-shadow:0 0 0 1px var(--line)}
+.accent-swatch.active{outline:2px solid var(--text);outline-offset:3px}
+.custom-accent{width:29px;height:29px;border:1px dashed var(--line);border-radius:50%;display:grid;place-items:center;color:var(--pink);position:relative;cursor:pointer}
+.custom-accent input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.settings-select{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:7px 12px;font-size:11px}
+.switch{position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto}
+.switch input{opacity:0;width:0;height:0}
+.switch span{position:absolute;inset:0;border-radius:30px;background:#51454a;transition:.2s;cursor:pointer}
+.switch span:before{content:"";position:absolute;width:18px;height:18px;right:3px;top:3px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked+span{background:var(--wine2)}
+.switch input:checked+span:before{transform:translateX(-18px)}
+.settings-range{width:100%;accent-color:var(--pink);cursor:pointer}
+.settings-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:18px 0;color:var(--muted);font-size:11px}
+body.light-theme{--bg:#f4eff1;--panel:#fff;--text:#281c21;--muted:#796b71;--line:rgba(74,35,49,.14);background:#f4eff1;color:var(--text)}
+body.light-theme header{background:rgba(250,247,248,.94)}
+body.light-theme .side-menu{background:linear-gradient(160deg,#fff7fa,#f0e7eb)}
+body.light-theme .menu-links a,body.light-theme .menu-profile-info strong{color:#34232a}
+body.light-theme .panel,body.light-theme .settings-card{background:linear-gradient(145deg,#fff,#f8f1f4)}
+body.light-theme .field,body.light-theme .settings-select{background:#fff;color:#34232a}
+body.light-theme .player{background:rgba(255,250,252,.96)}
+body.light-theme .now-playing strong{color:#34232a}
+body.light-theme .music-search{background:rgba(255,255,255,.92)}
+body.light-theme .music-search input{color:#34232a}
+body.light-theme .mix{background:linear-gradient(145deg,#fff,#f4e9ee)}
+body.light-theme .track:hover{background:rgba(129,26,53,.06)}
+body.light-theme .full-player{background:radial-gradient(70% 55% at 82% 4%,rgba(213,160,173,.3),transparent 62%),#f5edf0}
+body.light-theme .full-song-info h1,body.light-theme .full-player-close,body.light-theme .full-player-more,body.light-theme .full-control-btn{color:#34232a}
+body.light-theme .full-progress-area{color:#57464d}
+body.light-theme .full-play-btn{color:#fff}
+@media(max-width:760px){.settings-layout{grid-template-columns:1fr}.settings-card{padding:19px}.settings-bottom{align-items:flex-start;flex-direction:column}}
+
+
+/* TANINFY LIGHT THEME + ACCESSIBILITY FIXES */
+:root { --text-scale: 1; }
+body.light-theme .topbar,
+body.light-theme .app-sidebar {
+  background: rgba(250,247,248,.97) !important;
+  border-color: rgba(74,35,49,.14) !important;
+}
+body.light-theme .topbar-arrow,
+body.light-theme .topbar .menu-toggle,
+body.light-theme .sidebar-brand,
+body.light-theme .sidebar-nav a,
+body.light-theme .sidebar-bottom a { color:#34232a; }
+body.light-theme .top-search,
+body.light-theme .music-search,
+body.light-theme .menu-toggle {
+  background:#fff !important;
+  border-color:rgba(74,35,49,.16) !important;
+}
+body.light-theme .top-search input,
+body.light-theme .music-search input { color:#34232a !important; }
+body.light-theme .explore-heading h1,
+body.light-theme .section-title h2,
+body.light-theme .page-heading h1,
+body.light-theme .hero h1,
+body.light-theme .track-info strong,
+body.light-theme .list-item strong,
+body.light-theme .panel h2 { color:#34232a !important; }
+body.light-theme .explore-heading span,
+body.light-theme .mix,
+body.light-theme .artist-directory-card,
+body.light-theme .curated-card,
+body.light-theme .track,
+body.light-theme .settings-card,
+body.light-theme .panel {
+  color:#34232a;
+  background:linear-gradient(145deg,#fff,#f6edf1) !important;
+  border-color:rgba(74,35,49,.13) !important;
+}
+body.light-theme .mix h3,
+body.light-theme .mix p,
+body.light-theme .mix small,
+body.light-theme .artist-directory-card strong,
+body.light-theme .artist-directory-card span { color:#34232a !important; }
+body.light-theme .track-info span,
+body.light-theme .artists-intro,
+body.light-theme .section-title p,
+body.light-theme .page-heading p,
+body.light-theme .panel p { color:#796b71; }
+body.light-theme .track:hover,
+body.light-theme .sidebar-nav a:hover,
+body.light-theme .sidebar-nav a.active { background:rgba(129,26,53,.09) !important; }
+body.light-theme .full-player {
+  background:radial-gradient(70% 55% at 82% 4%,rgba(213,160,173,.3),transparent 62%),
+             radial-gradient(70% 55% at 0% 100%,rgba(213,160,173,.22),transparent 64%),#f5edf0 !important;
+}
+body.light-theme .full-player::before,
+body.light-theme .full-player::after { background:rgba(129,26,53,.08); }
+body.light-theme .full-song-info h1,
+body.light-theme .full-player-close,
+body.light-theme .full-player-more,
+body.light-theme .full-control-btn,
+body.light-theme .full-action-btn { color:#34232a !important; }
+body.light-theme .full-song-info p { color:var(--wine2) !important; }
+body.light-theme .full-progress-area { color:#57464d !important; }
+body.light-theme .full-play-btn { color:#fff !important; }
+body.light-theme .artist-profile { background:radial-gradient(60% 45% at 50% 0%,rgba(213,160,173,.2),transparent 70%),#f4eff1 !important; color:#34232a !important; }
+body.light-theme .artist-profile-topbar { background:rgba(250,247,248,.92) !important; color:#796b71 !important; }
+body.light-theme .artist-profile h1, body.light-theme .artist-profile-song strong { color:#34232a !important; }
+body.light-theme .artist-profile-song span, body.light-theme .artist-profile-count { color:#796b71 !important; }
+body.light-theme .artist-back, body.light-theme .artist-profile-song button { color:#34232a !important; }
+body.light-theme .full-action-btn { border-color:rgba(74,35,49,.2); }
+body.light-theme .player { background:rgba(255,250,252,.97) !important; }
+body.light-theme .now-playing strong { color:#34232a !important; }
+body.light-theme .now-playing span { color:#796b71 !important; }
+body.light-theme .field { background:#fff !important; color:#34232a !important; }
+body.light-theme .settings-select { background:#fff !important; color:#34232a !important; }
+body.light-theme .page { color:#34232a; }
+.track { grid-template-columns:32px 116px minmax(0,1fr) auto auto; min-height:142px; }
+.track-cover-thumb { width:116px; height:116px; }
+@media(max-width:650px) {
+  .track { grid-template-columns:25px 92px minmax(0,1fr) 38px 38px; min-height:112px; }
+  .track-cover-thumb { width:92px; height:92px; }
+  .track-cover-wrap{width:92px;height:92px;flex-basis:92px}
+}
+.full-action-btn { min-width:48px; }
+
+/* =========================================
+   FINAL USER REQUESTED TWEAKS — MINI PLAYER
+========================================= */
+.player {
+  left: 140px !important;
+  right: 20px !important;
+  bottom: 18px !important;
+  border: 1px solid rgba(213,160,173,.18) !important;
+  border-radius: 22px !important;
+  background: rgba(12, 9, 11, .82) !important;
+  opacity: .88;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,.28);
+}
+
+@media(max-width:650px) {
+  .player {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 78px !important;
+    border-radius: 20px !important;
+  }
+}
+
+
+/* ================================
+   TANINFY — JS PLAYLIST CARDS
+================================ */
+.curated-playlists{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  margin-top:24px;
+}
+.curated-card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:150px 1fr;
+  min-height:190px;
+  border:1px solid rgba(213,160,173,.12);
+  border-radius:18px;
+  background:linear-gradient(145deg,#1a1015,#0e0b0d 78%);
+  box-shadow:0 18px 50px rgba(0,0,0,.18);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.curated-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(213,160,173,.3);
+  box-shadow:0 25px 65px rgba(0,0,0,.28);
+}
+.curated-cover{
+  position:relative;
+  min-height:190px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding:16px;
+  background:
+    radial-gradient(circle at 70% 25%,rgba(213,160,173,.22),transparent 42%),
+    linear-gradient(145deg,#4d1428,#160b10);
+}
+.curated-cover span{
+  font:700 12px Arial,sans-serif;
+  color:rgba(255,255,255,.55);
+  letter-spacing:2px;
+}
+.curated-cover b{
+  font:400 58px Georgia,serif;
+  color:rgba(255,255,255,.88);
+  line-height:1;
+}
+.curated-cover small{
+  position:absolute;
+  left:16px;
+  top:16px;
+  color:rgba(255,255,255,.48);
+  font:700 8px Arial,sans-serif;
+  letter-spacing:2px;
+}
+.curated-info{
+  padding:24px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+}
+.curated-info>span{
+  color:var(--pink);
+  font:700 9px Arial,sans-serif;
+  letter-spacing:2px;
+}
+.curated-info h2{
+  margin:9px 0 5px;
+  font-size:21px;
+}
+.curated-info p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+  margin:0 0 17px;
+}
+.curated-info button{
+  align-self:flex-start;
+  border:0;
+  background:transparent;
+  color:var(--pink);
+  padding:0;
+  font-size:11px;
+  cursor:pointer;
+}
+.curated-info button:hover{color:#fff}
+.playlist-song-count{
+  color:#8f8086;
+  font-size:10px;
+  margin-top:3px;
+}
+.playlist-empty-state{
+  margin-top:24px;
+}
+@media(max-width:750px){
+  .curated-playlists{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .curated-card{grid-template-columns:115px 1fr;min-height:165px}
+  .curated-cover{min-height:165px}
+  .curated-cover b{font-size:45px}
+  .curated-info{padding:18px 16px}
+}
+
+
+
+/* TANINFY — REFERENCE-INSPIRED FULL PLAYER */
+.full-player {
+  isolation: isolate;
+  background: #08070d !important;
+}
+.full-player::before,
+.full-player::after { display: none !important; }
+.full-player-backdrop {
+  position: absolute;
+  inset: -7%;
+  z-index: -2;
+  width: 114%;
+  height: 114%;
+  object-fit: cover;
+  opacity: .58;
+  filter: blur(48px) brightness(.48) saturate(1.18);
+  transform: scale(1.08);
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+.full-player::marker { display: none; }
+.full-player-content {
+  width: min(72vw, 600px) !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  max-height: calc(100dvh - 64px);
+  padding: clamp(22px, 4vw, 42px) !important;
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-radius: clamp(28px, 5vw, 48px);
+  border: 1px solid rgba(238, 225, 255, .23);
+  background: linear-gradient(145deg, rgba(112, 99, 128, .30), rgba(25, 23, 35, .60)) !important;
+  -webkit-backdrop-filter: blur(34px) saturate(125%);
+  backdrop-filter: blur(34px) saturate(125%);
+  box-shadow: 0 24px 80px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.12);
+  text-align: left;
+  justify-content: center;
+}
+.full-player-content::-webkit-scrollbar { display: none; }
+.full-player-topbar { display: none !important; }
+.full-cover-wrap {
+  width: 100% !important;
+  max-width: 560px;
+  aspect-ratio: 1 / 1 !important;
+  height: auto !important;
+  margin: 0 auto clamp(22px, 3.5vh, 36px) !important;
+  border-radius: clamp(18px, 3vw, 28px) !important;
+  overflow: hidden;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.full-cover {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.full-song-info { text-align: left; }
+.full-song-info h1 {
+  color: #fff !important;
+  font-family: "Vazirmatn", Tahoma, sans-serif !important;
+  font-size: clamp(24px, 4vw, 36px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  margin: 0 0 2px !important;
+}
+.full-song-info p {
+  color: rgba(245,239,250,.72) !important;
+  font-family: "Vazirmatn", Tahoma, sans-serif !important;
+  font-size: clamp(16px, 2.5vw, 22px) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  margin: 0 0 clamp(20px, 3vh, 30px) !important;
+}
+.full-progress-area {
+  grid-template-columns: auto minmax(0,1fr) auto !important;
+  gap: 12px !important;
+  font-size: 14px !important;
+  color: rgba(255,255,255,.75) !important;
+}
+#fullProgress {
+  height: 4px !important;
+  background: linear-gradient(to right, #f4eff8 0%, #f4eff8 var(--progress,0%), rgba(255,255,255,.25) var(--progress,0%), rgba(255,255,255,.25) 100%) !important;
+}
+#fullProgress::-webkit-slider-thumb { width: 18px !important; height: 18px !important; background: #fff !important; }
+#fullProgress::-moz-range-thumb { width: 18px !important; height: 18px !important; background: #fff !important; }
+.full-controls {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  width: 100% !important;
+  margin-top: clamp(22px, 3.5vh, 34px) !important;
+  gap: 8px !important;
+  justify-items: center !important;
+}
+#shuffleBtn, #repeatBtn, .full-player-actions { display: none !important; }
+.full-control-btn {
+  width: 58px !important;
+  height: 58px !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  font-size: 34px !important;
+}
+#fullPrevBtn { grid-column: 1; }
+#fullPlayBtn { grid-column: 2; }
+#fullNextBtn { grid-column: 3; }
+.full-play-btn {
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  min-height: 58px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  font-size: 36px !important;
+}
+.full-play-btn:hover { background: transparent !important; }
+@media (max-width: 700px) {
+  .full-player-content {
+    width: min(76vw, 500px) !important;
+    max-height: calc(100dvh - 48px);
+    padding: clamp(20px, 5vw, 30px) !important;
+  }
+  .full-cover-wrap {
+    width: 100% !important;
+    max-width: none;
+    aspect-ratio: 1 / 1 !important;
+    margin-bottom: 22px !important;
+  }
+  .full-song-info p { margin-bottom: 22px !important; }
+  .full-controls { margin-top: 24px !important; gap: 4px !important; }
+  .full-control-btn, .full-play-btn { width: 50px !important; height: 50px !important; min-width: 50px !important; min-height: 50px !important; font-size: 30px !important; }
+}
+@media (max-height: 700px) {
+  .full-player-content { max-height: calc(100dvh - 24px); padding-top: 18px !important; padding-bottom: 18px !important; }
+  .full-cover-wrap { max-width: min(48vh, 390px); margin-bottom: 16px !important; }
+  .full-song-info p { margin-bottom: 16px !important; }
+  .full-controls { margin-top: 16px !important; }
+}
+body.light-theme .full-player-content {
+  background: linear-gradient(145deg, rgba(112,99,128,.30), rgba(25,23,35,.60)) !important;
+  color: #fff !important;
+}
+body.light-theme .full-song-info h1,
+body.light-theme .full-control-btn,
+body.light-theme .full-play-btn { color: #fff !important; }
+body.light-theme .full-song-info p,
+body.light-theme .full-progress-area { color: rgba(245,239,250,.78) !important; }
+
+</style>
+
+<style>
+/* TANINFY — PREMIUM SONG CARD LAYOUT */
+#trackList.track-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 20px;
+  border-top: 0;
+}
+
+#trackList .music-card.track {
+  display: block;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+#trackList .music-card.track:hover {
+  background: transparent;
+}
+
+#trackList .track-cover-wrap {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  overflow: hidden;
+  border-radius: 13px;
+  background: #181014;
+  border: 1px solid rgba(213,160,173,.09);
+  box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+#trackList .track-cover-thumb {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #181014;
+  transition: transform .45s ease, filter .35s ease;
+}
+
+#trackList .track-cover-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8,5,7,.20);
+  color: #fff;
+  font-size: 20px;
+  opacity: 0;
+  transition: opacity .25s ease, background .25s ease, transform .25s ease;
+  pointer-events: none;
+  text-shadow: 0 2px 12px rgba(0,0,0,.8);
+}
+
+#trackList .track-cover-play::before {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(95,20,48,.45);
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+
+#trackList .track-cover-play {
+  z-index: 1;
+}
+
+#trackList .track-cover-play::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid #fff;
+  margin-left: 3px;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.5));
+}
+
+#trackList .track-cover-play {
+  font-size: 0;
+}
+
+#trackList .music-card:hover .track-cover-thumb,
+#trackList .music-card.is-playing .track-cover-thumb {
+  transform: scale(1.045);
+  filter: brightness(.64);
+}
+
+#trackList .music-card:hover .track-cover-play,
+#trackList .music-card.is-playing .track-cover-play,
+#trackList .music-card:focus-visible .track-cover-play {
+  opacity: 1;
+  background: rgba(12,7,11,.32);
+}
+
+#trackList .music-card:active .track-cover-play {
+  transform: scale(.98);
+}
+
+#trackList .track-info {
+  min-width: 0;
+  padding: 12px 2px 0;
+}
+
+#trackList .track-info strong,
+#trackList .track-info span {
+  display: block;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: none;
+}
+
+#trackList .track-title {
+  color: #f8f1f3;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+#trackList .track-artist {
+  color: #9b8d93;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 1px;
+}
+
+#trackList .heart-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 50%;
+  background: rgba(10,7,9,.48);
+  color: #f3e7ea;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  font-size: 17px;
+  opacity: 0;
+  transition: opacity .25s ease, transform .2s ease, background .2s ease;
+  z-index: 3;
+}
+
+#trackList .music-card:hover .heart-btn,
+#trackList .music-card:focus-visible .heart-btn {
+  opacity: 1;
+}
+
+#trackList .heart-btn:hover {
+  transform: scale(1.08);
+  background: rgba(95,20,48,.72);
+}
+
+#trackList .heart-btn.active {
+  opacity: 1;
+  color: #e7a9ba;
+  background: rgba(95,20,48,.72);
+}
+
+@media (max-width: 1000px) {
+  #trackList.track-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px 17px;
+  }
+}
+
+@media (max-width: 650px) {
+  #trackList.track-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 14px;
+  }
+
+  #trackList .track-cover-wrap {
+    border-radius: 11px;
+  }
+
+  #trackList .track-info {
+    padding-top: 9px;
+  }
+
+  #trackList .track-title {
+    font-size: 12.5px;
+  }
+
+  #trackList .track-artist {
+    font-size: 10.5px;
+  }
+
+  #trackList .heart-btn {
+    opacity: 1;
+    width: 31px;
+    height: 31px;
+    top: 7px;
+    left: 7px;
+  }
+}
+
+@media (max-width: 360px) {
+  #trackList.track-list {
+    gap: 19px 11px;
+  }
+}
+</style>
+
+<style>
+/* =========================================
+   TANINFY — LUXURY MINI PLAYER
+========================================= */
+.player {
+  left: 150px !important;
+  right: 24px !important;
+  bottom: 18px !important;
+  height: 72px;
+  padding: 0 !important;
+  border: 1px solid rgba(213,160,173,.16) !important;
+  border-radius: 20px !important;
+  background:
+    linear-gradient(135deg, rgba(20,12,16,.94), rgba(10,8,10,.91)) !important;
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.035) !important;
+  backdrop-filter: blur(24px) saturate(120%);
+  -webkit-backdrop-filter: blur(24px) saturate(120%);
+  overflow: hidden;
+  opacity: 1 !important;
+}
+
+.player::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(213,160,173,.38), transparent);
+  pointer-events: none;
+}
+
+.player::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: 25%;
+  top: -120px;
+  border-radius: 50%;
+  background: rgba(129,26,53,.12);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.player-inner {
+  width: min(100% - 34px, 1180px) !important;
+  height: 72px;
+  position: relative;
+  z-index: 1;
+  display: grid !important;
+  grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+  align-items: center;
+  gap: 24px !important;
+}
+
+.now-playing-wrap {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mini-player-cover {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(213,160,173,.2) !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+.now-playing strong {
+  font-size: 12px !important;
+  color: #f7eef1 !important;
+  letter-spacing: -.1px;
+}
+
+.now-playing span {
+  margin-top: 2px;
+  font-size: 10px !important;
+  color: #9c8d93 !important;
+}
+
+.player-controls {
+  direction: ltr !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 20px !important;
+}
+
+.player-controls button {
+  border: 0 !important;
+  outline: none;
+  background: transparent !important;
+  color: #c99aa7 !important;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.player-controls .skip-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.player-controls .skip-btn svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.player-controls .skip-btn:hover {
+  color: #f3c5d0 !important;
+  background: rgba(129,26,53,.16) !important;
+  transform: scale(1.08);
+}
+
+.player-controls .play-main {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #a83251 0%, #741a34 100%) !important;
+  border: 1px solid rgba(241,190,202,.24) !important;
+  color: #fff !important;
+  box-shadow:
+    0 7px 22px rgba(129,26,53,.34),
+    inset 0 1px 0 rgba(255,255,255,.14);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.player-controls .play-main:hover {
+  transform: scale(1.07) !important;
+  box-shadow:
+    0 9px 28px rgba(129,26,53,.48),
+    inset 0 1px 0 rgba(255,255,255,.16);
+}
+
+.player-controls .play-icon {
+  font-size: 15px;
+  line-height: 1;
+  transform: translateX(1px);
+}
+
+.player-label {
+  justify-self: end;
+  color: #75666c !important;
+  font-size: 9px !important;
+  letter-spacing: 1.5px;
+  opacity: .7;
+}
+
+@media(max-width:900px) {
+  .player {
+    left: 96px !important;
+    right: 14px !important;
+  }
+
+  .player-inner {
+    grid-template-columns: minmax(170px,1fr) auto !important;
+  }
+
+  .player-label {
+    display: none !important;
+  }
+}
+
+@media(max-width:650px) {
+  .player {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 76px !important;
+    height: 64px;
+    border-radius: 18px !important;
+  }
+
+  .player-inner {
+    width: calc(100% - 20px) !important;
+    height: 64px;
+    grid-template-columns: minmax(0,1fr) auto !important;
+    gap: 10px !important;
+  }
+
+  .mini-player-cover {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+  }
+
+  .now-playing-wrap {
+    gap: 9px;
+  }
+
+  .now-playing strong {
+    font-size: 10px !important;
+  }
+
+  .now-playing span {
+    font-size: 9px !important;
+  }
+
+  .player-controls {
+    gap: 7px !important;
+  }
+
+  .player-controls .skip-btn {
+    width: 29px;
+    height: 29px;
+  }
+
+  .player-controls .skip-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .player-controls .play-main {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
+  }
+}
+
+/* =========================================
+   TANINFY — PLAYLIST REDESIGN
+   Cards: cover + name + song count
+   Detail: large playlist cover + compact song list
+========================================= */
+
+.curated-playlists{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px 20px;
+  margin-top:24px;
+}
+
+.curated-card{
+  display:block !important;
+  min-height:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  overflow:visible !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+
+.curated-card:hover{
+  transform:translateY(-4px);
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.curated-card .curated-cover{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0 !important;
+  height:auto;
+  padding:0 !important;
+  display:block;
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid rgba(213,160,173,.12);
+  background:#181014;
+  box-shadow:0 14px 38px rgba(0,0,0,.25);
+}
+
+.curated-card .curated-cover.has-image{
+  background:#181014;
+}
+
+.curated-card .curated-cover img.playlist-cover-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease,filter .35s ease;
+}
+
+.curated-card:hover .curated-cover img.playlist-cover-image{
+  transform:scale(1.035);
+  filter:brightness(.82);
+}
+
+.curated-card .curated-cover span,
+.curated-card .curated-cover b,
+.curated-card .curated-cover small{
+  display:none !important;
+}
+
+.curated-card .curated-info{
+  padding:12px 2px 0 !important;
+  display:block !important;
+}
+
+.curated-card .curated-info > span,
+.curated-card .curated-info p,
+.curated-card .curated-info button{
+  display:none !important;
+}
+
+.curated-card .curated-info h2{
+  margin:0;
+  color:#f8f1f3;
+  font-size:14px;
+  line-height:1.55;
+  font-weight:600;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.curated-card .playlist-song-count{
+  margin-top:3px;
+  color:#91868b;
+  font-size:10px;
+}
+
+.playlist-detail{
+  margin-top:30px;
+  padding:0 0 70px;
+  animation:appear .25s ease;
+}
+
+.playlist-detail-top{
+  margin-bottom:18px;
+}
+
+.playlist-detail-back{
+  border:0;
+  background:transparent;
+  color:#b98a99;
+  font-size:12px;
+  padding:5px 0;
+  cursor:pointer;
+}
+
+.playlist-detail-back:hover{
+  color:#fff;
+}
+
+.playlist-detail-hero{
+  display:grid;
+  grid-template-columns:minmax(260px,360px) minmax(0,1fr);
+  align-items:end;
+  gap:34px;
+  padding:8px 0 30px;
+  border-bottom:1px solid rgba(213,160,173,.12);
+}
+
+.playlist-detail-cover-wrap{
+  width:100%;
+  aspect-ratio:1 / 1;
+  border-radius:16px;
+  overflow:hidden;
+  background:#181014;
+  border:1px solid rgba(213,160,173,.12);
+  box-shadow:0 22px 65px rgba(0,0,0,.34);
+}
+
+.playlist-detail-cover{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .25s ease,transform .35s ease;
+}
+/* ===== TANINFY PLAYLIST — DYNAMIC LUXURY BACKDROP ===== */
+.playlist-detail{
+  --playlist-bg-image:none;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  border-radius:22px;
+  padding:18px 22px 78px;
+  background:linear-gradient(180deg,rgba(9,7,9,.72) 0%,rgba(9,7,9,.88) 38%,rgba(9,7,9,.98) 100%);
+  box-shadow:0 30px 90px rgba(0,0,0,.22);
+}
+.playlist-detail::before{
+  content:"";
+  position:absolute;
+  inset:-45px;
+  z-index:-2;
+  background-image:
+    linear-gradient(180deg,rgba(8,6,8,.42) 0%,rgba(8,6,8,.78) 52%,rgba(8,6,8,.97) 100%),
+    var(--playlist-bg-image);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  filter:blur(26px) saturate(1.18);
+  transform:scale(1.08);
+  opacity:.72;
+  transition:background-image .55s ease,opacity .4s ease,filter .4s ease;
+}
+.playlist-detail::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 18% 12%,rgba(213,160,173,.13),transparent 32%),
+    radial-gradient(circle at 82% 18%,rgba(145,43,72,.15),transparent 34%),
+    linear-gradient(180deg,transparent 0%,rgba(8,6,8,.18) 45%,rgba(8,6,8,.45) 100%);
+}
+.playlist-detail-hero,
+.playlist-detail-list-head,
+.playlist-detail-songs{
+  position:relative;
+  z-index:1;
+}
+.playlist-detail-cover-wrap{
+  box-shadow:0 28px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06);
+}
+.playlist-detail-meta h2{
+  text-shadow:0 8px 35px rgba(0,0,0,.45);
+}
+.playlist-detail-song{
+  backdrop-filter:blur(12px);
+}
+.playlist-detail-song:hover{
+  background:rgba(255,255,255,.055);
+}
+.playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(142,34,61,.28),rgba(255,255,255,.035));
+  box-shadow:inset 3px 0 0 rgba(213,160,173,.75);
+}
+
+/* روشن: تمام نوشته‌های محیط پلی‌لیست مشکی/تیره */
+body.light-theme .playlist-detail{
+  color:#111;
+  background:linear-gradient(180deg,rgba(255,255,255,.84) 0%,rgba(250,246,247,.94) 45%,rgba(246,239,241,.98) 100%);
+  box-shadow:0 25px 70px rgba(70,35,45,.10);
+}
+body.light-theme .playlist-detail::before{
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.60) 0%,rgba(255,255,255,.80) 48%,rgba(248,241,243,.96) 100%),
+    var(--playlist-bg-image);
+  opacity:.38;
+  filter:blur(28px) saturate(.95);
+}
+body.light-theme .playlist-detail::after{
+  background:
+    radial-gradient(circle at 18% 12%,rgba(150,66,91,.10),transparent 32%),
+    radial-gradient(circle at 82% 18%,rgba(120,40,65,.08),transparent 34%),
+    linear-gradient(180deg,transparent 0%,rgba(255,255,255,.22) 55%,rgba(248,241,243,.48) 100%);
+}
+body.light-theme .playlist-detail-back,
+body.light-theme .playlist-detail-kicker,
+body.light-theme .playlist-detail-meta h2,
+body.light-theme .playlist-detail-meta p,
+body.light-theme .playlist-detail-list-head,
+body.light-theme .playlist-detail-list-head span,
+body.light-theme .playlist-detail-song-info strong,
+body.light-theme .playlist-detail-song-info span,
+body.light-theme .playlist-detail-number,
+body.light-theme .playlist-detail-empty,
+body.light-theme .playlist-detail-actions button{
+  color:#111 !important;
+}
+body.light-theme .playlist-detail-list-head span:last-child,
+body.light-theme .playlist-detail-song-info span{
+  color:#2b2528 !important;
+}
+body.light-theme .playlist-detail-song{
+  border-bottom-color:rgba(40,28,33,.12);
+}
+body.light-theme .playlist-detail-song:hover{
+  background:rgba(255,255,255,.58);
+}
+body.light-theme .playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(130,34,61,.10),rgba(255,255,255,.45));
+  box-shadow:inset 3px 0 0 rgba(120,35,58,.72);
+}
+body.light-theme .playlist-secondary-action{
+  background:rgba(255,255,255,.55);
+  border-color:rgba(40,28,33,.16);
+}
+body.light-theme .playlist-main-action{
+  color:#fff !important;
+}
+
+
+.playlist-detail-cover.is-song-cover{
+  transform:scale(1.015);
+}
+
+.playlist-detail-meta{
+  min-width:0;
+  padding-bottom:7px;
+}
+
+.playlist-detail-kicker{
+  color:#b96e83;
+  font:700 9px Arial,sans-serif;
+  letter-spacing:2.5px;
+}
+
+.playlist-detail-meta h2{
+  margin:8px 0 5px;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1.15;
+  color:#f8f1f3;
+  font-weight:700;
+}
+
+.playlist-detail-meta p{
+  margin:0;
+  color:#91868b;
+  font-size:12px;
+}
+
+.playlist-detail-actions{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-top:25px;
+}
+
+.playlist-main-action,
+.playlist-secondary-action{
+  border:1px solid rgba(213,160,173,.18);
+  color:#f8f1f3;
+  background:rgba(255,255,255,.025);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.playlist-main-action{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#9b304d,#64152b);
+  border-color:rgba(213,160,173,.3);
+  font-size:19px;
+  box-shadow:0 8px 25px rgba(89,16,33,.25);
+}
+
+.playlist-secondary-action{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  font-size:21px;
+}
+
+.playlist-main-action:hover,
+.playlist-secondary-action:hover{
+  transform:scale(1.06);
+  background:rgba(129,26,53,.22);
+}
+
+.playlist-secondary-action.active{
+  color:#ef8da7;
+  border-color:rgba(239,141,167,.35);
+}
+
+.playlist-detail-list-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin:26px 0 6px;
+  color:#f8f1f3;
+  font-size:13px;
+  font-weight:600;
+}
+
+.playlist-detail-list-head span:last-child{
+  color:#91868b;
+  font-size:10px;
+  font-weight:400;
+}
+
+.playlist-detail-songs{
+  width:100%;
+}
+
+.playlist-detail-song{
+  display:grid;
+  grid-template-columns:30px 52px minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  min-height:76px;
+  padding:10px 7px;
+  border-bottom:1px solid rgba(213,160,173,.08);
+  border-radius:10px;
+  transition:background .2s ease,border-color .2s ease;
+  cursor:pointer;
+}
+
+.playlist-detail-song:hover{
+  background:rgba(129,26,53,.08);
+}
+
+.playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(129,26,53,.18),rgba(129,26,53,.05));
+  border-bottom-color:rgba(213,160,173,.2);
+}
+
+.playlist-detail-number{
+  color:#71646a;
+  font-size:10px;
+  text-align:center;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-number{
+  color:#d5a0ad;
+}
+
+.playlist-detail-song-cover{
+  width:52px;
+  height:52px;
+  border-radius:9px;
+  object-fit:cover;
+  display:block;
+  background:#21141a;
+  border:1px solid rgba(213,160,173,.1);
+}
+
+.playlist-detail-song-info{
+  min-width:0;
+}
+
+.playlist-detail-song-info strong,
+.playlist-detail-song-info span{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.playlist-detail-song-info strong{
+  color:#f8f1f3;
+  font-size:12px;
+  font-weight:600;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-song-info strong{
+  color:#efb0bd;
+}
+
+.playlist-detail-song-info span{
+  color:#91868b;
+  font-size:10px;
+  margin-top:2px;
+}
+
+.playlist-detail-song-play{
+  width:35px;
+  height:35px;
+  border:1px solid rgba(213,160,173,.13);
+  border-radius:50%;
+  background:transparent;
+  color:#d5a0ad;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+}
+
+.playlist-detail-song-cover-wrap{
+  position:relative;
+  width:52px;
+  height:52px;
+}
+
+.playlist-detail-song-cover-wrap .playlist-detail-song-cover{
+  width:100%;
+  height:100%;
+}
+
+.playlist-detail-song-cover-play{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:rgba(8,5,7,.42);
+  color:#fff;
+  opacity:0;
+  transition:.2s;
+  pointer-events:none;
+  font-size:12px;
+}
+
+.playlist-detail-song:hover .playlist-detail-song-cover-play,
+.playlist-detail-song.is-playing .playlist-detail-song-cover-play{
+  opacity:1;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-song-cover-play{
+  background:rgba(95,20,48,.58);
+}
+
+.playlist-detail-empty{
+  padding:30px 10px;
+  color:#91868b;
+  text-align:center;
+  font-size:12px;
+}
+
+@media(max-width:1000px){
+  .curated-playlists{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:750px){
+  .curated-playlists{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px 14px;
+  }
+
+  .playlist-detail-hero{
+    grid-template-columns:190px minmax(0,1fr);
+    gap:22px;
+  }
+
+  .playlist-detail-meta h2{
+    font-size:27px;
+  }
+}
+
+@media(max-width:520px){
+  .curated-playlists{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px 12px;
+  }
+
+  .curated-card .curated-cover{
+    border-radius:11px;
+  }
+
+  .curated-card .curated-info h2{
+    font-size:12px;
+  }
+
+  .curated-card .playlist-song-count{
+    font-size:9px;
+  }
+
+  .playlist-detail-hero{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:20px;
+  }
+
+  .playlist-detail-cover-wrap{
+    width:min(74vw,300px);
+    margin:0 auto;
+  }
+
+  .playlist-detail-meta{
+    text-align:right;
+  }
+
+  .playlist-detail-meta h2{
+    font-size:26px;
+  }
+
+  .playlist-detail-actions{
+    margin-top:18px;
+  }
+
+  .playlist-detail-song{
+    grid-template-columns:22px 48px minmax(0,1fr) 34px;
+    gap:9px;
+    min-height:68px;
+    padding:8px 2px;
+  }
+
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:48px;
+    height:48px;
+  }
+
+  .playlist-detail-song-info strong{
+    font-size:11px;
+  }
+
+  .playlist-detail-song-info span{
+    font-size:9px;
+  }
+
+  .playlist-detail-song-play{
+    width:34px;
+    height:34px;
+  }
+}
+
+</style>
+
+
+<style>
+/* TANINFY — FINAL VISUAL TWEAKS */
+
+/* Playlist title: white in dark theme, dark in light theme */
+.curated-card .curated-info h2 {
+  color: #f8f1f3 !important;
+}
+
+body.light-theme .curated-card .curated-info h2 {
+  color: #34232a !important;
+}
+
+body.light-theme .curated-card .playlist-song-count {
+  color: #796b71 !important;
+}
+
+/* Playlist detail song covers: slightly smaller than the main playlist cover,
+   while still staying clearly visible in the list */
+.playlist-detail-song {
+  grid-template-columns: 30px 64px minmax(0,1fr) auto auto;
+  min-height: 84px;
+  gap: 14px;
+}
+
+.playlist-detail-song-cover {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+}
+
+/* Favorite artists: one horizontal, scrollable row of circular profiles */
+#favoriteArtistList {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 12px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+#favoriteArtistList::-webkit-scrollbar {
+  height: 5px;
+}
+
+#favoriteArtistList::-webkit-scrollbar-thumb {
+  background: rgba(213,160,173,.35);
+  border-radius: 20px;
+}
+
+#favoriteArtistList .favorite-artist-row {
+  flex: 0 0 112px;
+  width: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  padding: 4px 0 8px;
+  border: 0;
+  min-width: 92px;
+}
+
+#favoriteArtistList .favorite-artist-row img {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(213,160,173,.22);
+  box-shadow: 0 7px 22px rgba(0,0,0,.22);
+}
+
+#favoriteArtistList .favorite-artist-open {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+#favoriteArtistList .favorite-artist-open strong {
+  display: block;
+  max-width: 112px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+#favoriteArtistList .favorite-artist-open span {
+  display: none;
+}
+
+#favoriteArtistList .favorite-artist-remove {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin-left: 62px;
+  margin-top: 62px;
+  border: 1px solid rgba(213,160,173,.18);
+  background: rgba(20,12,16,.9);
+  font-size: 12px;
+  z-index: 2;
+}
+
+#favoriteArtistList .favorite-artist-row {
+  position: relative;
+}
+
+/* Favorite songs: compact list with very small rounded-square covers */
+#favoriteList .list-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0,1fr) auto;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 0;
+}
+
+#favoriteList .favorite-song-cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: #21141a;
+  border: 1px solid rgba(213,160,173,.1);
+}
+
+#favoriteList .list-item strong {
+  font-size: 12px;
+}
+
+#favoriteList .list-item span {
+  font-size: 10px;
+}
+
+#favoriteList .remove-btn {
+  font-size: 10px;
+  padding: 6px 9px;
+}
+
+/* Light theme for the new favorite-song list */
+body.light-theme #favoriteList .favorite-song-cover {
+  background: #eee5e8;
+  border-color: rgba(74,35,49,.12);
+}
+</style>
+
+
+<style>
+/* REMOVE THE SHARP OUTER HOVER BOX AROUND SONG COVERS */
+#trackList .music-card.track,
+#trackList .music-card.track:hover,
+#trackList .music-card.track:focus,
+#trackList .music-card.track:focus-visible,
+#trackList .music-card.track:active {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#trackList .track-cover-wrap {
+  border-radius: 13px !important;
+  overflow: hidden !important;
+}
+</style>
+
+
+<style>
+/* Playlist detail typography */
+.playlist-detail-song .playlist-detail-song-title {
+  color: #f8f1f3 !important;
+}
+.playlist-detail-song .playlist-detail-song-artist {
+  color: #91868b !important;
+}
+body.light-theme .playlist-detail-song .playlist-detail-song-title {
+  color: #34232a !important;
+}
+body.light-theme .playlist-detail-song .playlist-detail-song-artist {
+  color: #796b71 !important;
+}
+
+/* Favorite artists: larger circular avatars */
+#favoriteArtistList .favorite-artist-row {
+  flex-basis: 128px !important;
+  width: 128px !important;
+  min-width: 128px !important;
+}
+#favoriteArtistList .favorite-artist-row img {
+  width: 100px !important;
+  height: 100px !important;
+}
+#favoriteArtistList .favorite-artist-open strong {
+  max-width: 128px !important;
+}
+#favoriteArtistList .favorite-artist-remove {
+  margin-left: 73px !important;
+  margin-top: 73px !important;
+}
+
+/* Keep the playlist detail list compact */
+.playlist-detail-song-cover {
+  width: 64px !important;
+  height: 64px !important;
+}
+</style>
+
+<style>
+/* FINAL STABILITY / PLAYLIST FIXES */
+.curated-card:focus,
+.curated-card:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--pink) 60%, transparent);
+  outline-offset: 4px;
+}
+.curated-card .curated-cover { border:0 !important; }
+body.light-theme .curated-card { background:transparent !important; color:#111 !important; }
+body.light-theme .curated-card .curated-info h2 { color:#111 !important; }
+body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; }
+.playlist-detail-cover,
+.playlist-detail-cover-wrap { border-radius:18px !important; }
+.playlist-detail-song-cover,
+.playlist-detail-song-cover-wrap { border-radius:10px !important; }
+</style>
+
+</head>
+
+<body>
+
+<div class="success-check-overlay" id="successCheckOverlay" aria-hidden="true">
+  <div class="success-check-box">
+    <div class="success-check-circle">
+      <svg viewBox="0 0 80 80" aria-hidden="true">
+        <circle class="success-ring" cx="40" cy="40" r="36"></circle>
+        <circle class="success-ring-progress" cx="40" cy="40" r="36"></circle>
+        <path class="success-check" d="M23 41 L34 52 L57 28"></path>
+      </svg>
+    </div>
+    <div class="success-check-text" id="successCheckText">با موفقیت انجام شد</div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="topbar-arrow" type="button" aria-label="بازگشت" onclick="history.back()">‹</button>
+    <button class="topbar-arrow forward" type="button" aria-label="جلو" onclick="history.forward()">›</button>
+    <label class="top-search">
+      <span>⌕</span>
+      <input id="topMusicSearch" type="search" placeholder="جستجوی آهنگ، خواننده یا پلی لیست..." autocomplete="off">
+    </label>
+  </div>
+  <div class="topbar-right">
+    <a class="top-login" id="topLoginLink" href="#login" data-page="login">ورود | ثبت‌نام</a>
+    <a class="top-account" id="topAccountLink" href="#profile" data-page="profile" style="display:none;">
+      <img id="topAccountAvatar" alt="">
+      <span id="topAccountName">حساب کاربری</span>
+    </a>
+  </div>
+</header>
+
+<aside class="app-sidebar">
+  <a class="sidebar-brand" href="#" data-page="home">
+    <span class="sidebar-logo">♫</span><strong>taninfy</strong>
+  </a>
+  <nav class="sidebar-nav">
+    <a class="active" href="#home" data-page="home"><span>◉</span>اکسپلور</a>
+    <a href="#playlist" data-page="playlist"><span>♫</span>پلی لیست</a>
+    <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
+    <a href="#favorites" data-page="favorites"><span>♡</span>مورد علاقه</a>
+    <a href="#profile" data-page="profile"><span>♙</span>پروفایل</a>
+    <a href="#settings" data-page="settings"><span>⚙</span>تنظیمات</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <small>YOUR MOOD, YOUR SOUND</small>
+  </div>
+</aside>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<aside class="side-menu" id="sideMenu">
+
+  <div class="menu-head">
+    <span class="menu-label">TANINFY / MENU</span>
+    <button class="menu-close" id="menuClose" aria-label="بستن منو">×</button>
+  </div>
+
+  <div class="menu-profile" id="menuProfile" style="display:none;">
+    <img id="menuProfileAvatar" alt="Profile photo">
+    <div class="menu-profile-info">
+      <strong id="menuProfileName">Taninfy User</strong>
+      <span id="menuProfileNickname">@username</span>
+    </div>
+  </div>
+
+  <nav class="menu-links">
+
+    <a href="#home" data-page="home">
+      <span class="menu-icon">◉</span>
+      <span>اکسپلور</span>
+    </a>
+
+    <a href="#playlist" data-page="playlist">
+      <span class="menu-icon">♫</span>
+      <span>پلی لیست</span>
+    </a>
+
+    <a href="#artists" data-page="artists">
+      <span class="menu-icon">♬</span>
+      <span>هنرمندان</span>
+    </a>
+
+    <a href="#favorites" data-page="favorites">
+      <span class="menu-icon">♡</span>
+      <span>مورد علاقه</span>
+    </a>
+
+    <a href="#profile" data-page="profile">
+      <span class="menu-icon">♙</span>
+      <span>پروفایل</span>
+    </a>
+
+    <a href="#settings" data-page="settings">
+      <span class="menu-icon">⚙</span>
+      <span>تنظیمات</span>
+    </a>
+
+  </nav>
+
+  <div class="menu-footer">YOUR MOOD, YOUR SOUND</div>
+
+</aside>
+
+<main>
+
+<!-- HOME PAGE -->
+
+<section class="page active" id="page-home">
+
+  <div class="wrap explore-wrap">
+    <div class="explore-heading">
+      <h1>Explore</h1>
+      <span>موسیقی برای هر حال‌وهوا</span>
+    </div>
+
+
+
+    <section id="mixes">
+
+      <div class="section-title">
+        <div>
+          <h2>پلی لیست های منتخب</h2>
+          <p>برای هر لحظه، یک حال متفاوت.</p>
+        </div>
+      </div>
+
+      <div class="curated-playlists" id="homePlaylistGrid"></div>
+
+    </section>
+
+    <section class="tracks" id="tracks">
+
+      <div class="section-title">
+        <div>
+          <h2>آهنگ‌های منتخب</h2>
+          <p>انتخابی برای حال‌وهوای تو.</p>
+        </div>
+      </div>
+
+      <div class="track-list" id="trackList"></div>
+
+    </section>
+
+  </div>
+
+</section>
+
+<!-- PROFILE PAGE -->
+
+<section class="page" id="page-profile">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>YOUR SPACE</small>
+      <h1>Profile</h1>
+    </div>
+
+    <div class="panel profile-panel" id="profileGuestPanel">
+      <h2>پروفایل تو</h2>
+      <p>برای ساخت پروفایل شخصی، اول با Google وارد Taninfy شو.</p>
+      <button class="btn btn-primary" type="button" id="profileLoginBtn">Sign in with Google</button>
+    </div>
+
+    <div class="panel profile-card" id="profileCard" style="display:none;">
+      <div class="profile-avatar-wrap">
+        <img id="profileAvatar" class="profile-avatar" alt="Profile photo">
+      </div>
+      <div class="profile-main">
+        <span class="profile-kicker">TANINFY PROFILE</span>
+        <h2 id="profileDisplayName">Your Name</h2>
+        <p id="profileNicknameDisplay">@nickname</p>
+      </div>
+      <div class="profile-details">
+        <div><span>NAME</span><strong id="profileNameDisplay">—</strong></div>
+        <div><span>NICKNAME</span><strong id="profileNicknameDisplay2">—</strong></div>
+      </div>
+    </div>
+
+    <div class="panel" id="profileEditPanel" style="display:none;">
+      <h2>ویرایش پروفایل</h2>
+      <form class="form" id="profileForm">
+        <input class="field" id="profileName" type="text" placeholder="نام شما" required>
+        <input class="field" id="profileNickname" type="text" placeholder="Nickname" maxlength="24" required>
+        <button class="btn btn-primary" type="submit">ذخیره پروفایل</button>
+        <div class="form-status" id="profileStatus"></div>
+      </form>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAVORITES PAGE -->
+
+<section class="page" id="page-favorites">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>YOUR COLLECTION</small>
+      <h1>Favorites ♡</h1>
+    </div>
+
+    <div class="panel">
+      <h2>هنرمندان موردعلاقه</h2>
+      <div id="favoriteArtistList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>آهنگ‌های موردعلاقه</h2>
+      <div id="favoriteList"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PLAYLIST PAGE -->
+
+<section class="page" id="page-artists">
+  <div class="wrap">
+    <div class="page-heading">
+      <small>TANINFY / ARTISTS</small>
+      <h1>هنرمندان</h1>
+      <p class="artists-intro">خواننده‌ها و هنرمندان Taninfy را کشف کن؛ برای دیدن آهنگ‌ها وارد پروفایل هر هنرمند شو.</p>
+    </div>
+    <div class="artist-directory" id="artistDirectory"></div>
+  </div>
+</section>
+
+<section class="page" id="page-playlist">
+  <div class="wrap">
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>TANINFY / PLAYLISTS</small>
+      <h1>پلی لیست‌های من ♫</h1>
+    </div>
+
+    <p class="curated-intro">
+      پلی لیست‌ها از فایل <b>playlist.js</b> خوانده می‌شوند؛ برای هر آهنگ فقط نام یا شناسهٔ آن را بنویس.
+    </p>
+
+    <div class="curated-playlists" id="curatedPlaylistGrid"></div>
+
+    <section class="playlist-detail" id="playlistDetail" style="display:none;">
+      <div class="playlist-detail-top">
+        <button class="playlist-detail-back" id="playlistDetailBack" type="button">← همه پلی لیست‌ها</button>
+      </div>
+
+      <div class="playlist-detail-hero">
+        <div class="playlist-detail-cover-wrap">
+          <img id="playlistDetailCover" class="playlist-detail-cover" src="" alt="">
+        </div>
+
+        <div class="playlist-detail-meta">
+          <span class="playlist-detail-kicker">TANINFY PLAYLIST</span>
+          <h2 id="playlistDetailTitle">Playlist</h2>
+          <p id="playlistDetailCount">0 آهنگ</p>
+
+          <div class="playlist-detail-actions">
+            <button id="playlistDetailPlay" class="playlist-main-action" type="button" title="پخش پلی لیست">▶</button>
+            <button id="playlistDetailShuffle" class="playlist-secondary-action" type="button" title="پخش تصادفی">⤨</button>
+            <button id="playlistDetailFavorite" class="playlist-secondary-action" type="button" title="لایک پلی لیست">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="playlist-detail-list-head">
+        <span>آهنگ‌ها</span>
+        <span id="playlistDetailListCount">0 آهنگ</span>
+      </div>
+
+      <div id="playlistDetailSongs" class="playlist-detail-songs"></div>
+    </section>
+
+    <div class="panel playlist-empty-state" id="playlistEmptyState" style="display:none;">
+      <h2>هنوز پلی لیستی ساخته نشده</h2>
+      <p>داخل فایل <b>playlist.js</b> اسم پلی لیست و آهنگ‌ها را اضافه کن.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN / SIGNUP PAGE -->
+
+<section class="page" id="page-login">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>WELCOME TO TANINFY</small>
+      <h1>Sign in / Log in</h1>
+    </div>
+
+    <div class="panel auth-panel">
+      <div class="auth-mark">T</div>
+      <h2 id="authTitle">ورود به Taninfy</h2>
+      <p id="authDescription">با حساب Google وارد شو؛ ایمیل به‌صورت خودکار از حساب Google دریافت می‌شود و لازم نیست دوباره واردش کنی.</p>
+      <button class="btn btn-primary google-btn" type="button" id="googleLoginBtn">Continue with Google</button>
+      <div class="form-status" id="loginStatus"></div>
+      <div id="userAccountBox" class="signed-user" style="display:none;">
+        <img id="signedUserAvatar" alt="Profile photo">
+        <div><strong id="signedUserName"></strong><span>حساب Google متصل است</span></div>
+        <button class="btn btn-secondary" type="button" id="logoutBtn">Log out</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SETTINGS PAGE -->
+<section class="page" id="page-settings">
+  <div class="wrap">
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+    <div class="page-heading">
+      <small>TANINFY / PREFERENCES</small>
+      <h1>تنظیمات</h1>
+      <p class="settings-intro">تجربه شنیدن موسیقی را مطابق سلیقه‌ات تنظیم کن.</p>
+    </div>
+
+    <div class="settings-layout">
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">◐</span><div><h2>ظاهر و پوسته</h2><p>رنگ و حال‌وهوای Taninfy را انتخاب کن.</p></div></div>
+        <div class="setting-row"><div><strong>حالت نمایش</strong><span>روشن یا تاریک</span></div>
+          <div class="segmented-control" role="group" aria-label="حالت نمایش">
+            <button type="button" data-theme-mode="dark">تاریک</button><button type="button" data-theme-mode="light">روشن</button>
+          </div>
+        </div>
+        <div class="setting-row setting-column"><div><strong>رنگ اصلی سایت</strong><span>رنگ دکمه‌ها و جزئیات</span></div>
+          <div class="accent-options">
+            <button type="button" class="accent-swatch" data-accent="#d5a0ad" style="--swatch:#d5a0ad" aria-label="صورتی چرک"></button>
+            <button type="button" class="accent-swatch" data-accent="#b58bd8" style="--swatch:#b58bd8" aria-label="بنفش"></button>
+            <button type="button" class="accent-swatch" data-accent="#7fa9d8" style="--swatch:#7fa9d8" aria-label="آبی"></button>
+            <button type="button" class="accent-swatch" data-accent="#83b69a" style="--swatch:#83b69a" aria-label="سبز"></button>
+            <button type="button" class="accent-swatch" data-accent="#d2ad75" style="--swatch:#d2ad75" aria-label="طلایی"></button>
+            <label class="custom-accent">＋ <input id="customAccent" type="color" value="#d5a0ad" aria-label="انتخاب رنگ دلخواه"></label>
+          </div>
+        </div>
+        <div class="setting-row"><div><strong>اندازه نوشته‌ها</strong><span>برای خوانایی بهتر</span></div>
+          <select id="textScale" class="settings-select"><option value="0.95">کوچک</option><option value="1" selected>معمولی</option><option value="1.08">بزرگ</option></select>
+        </div>
+      </section>
+
+      <section class="panel settings-card">
+        <div class="settings-card-heading"><span class="settings-symbol">♧</span><div><h2>حریم خصوصی</h2><p>کنترل نمایش اطلاعات حساب.</p></div></div>
+        <div class="setting-row"><div><strong>نمایش عمومی پروفایل</strong><span>اجازه بده دیگران پروفایلت را ببینند.</span></div><label class="switch"><input id="settingPublicProfile" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>نمایش پلی لیست‌ها</strong><span>پلی لیست‌ها در پروفایلت نمایش داده شوند.</span></div><label class="switch"><input id="settingShowPlaylists" type="checkbox" checked><span></span></label></div>
+        <div class="setting-row"><div><strong>ارتباط با ما</strong><span>ارسال نظر، پیشنهاد یا پیام به Taninfy.</span></div><button type="button" class="btn btn-secondary" data-page="contact">ورود به صفحه ارتباط</button></div>
+      </section>
+
+    </div>
+    <div class="settings-bottom"><span id="settingsStatus" role="status">تنظیمات به‌صورت خودکار ذخیره می‌شوند.</span><button type="button" class="btn btn-secondary" id="resetSettings">بازگردانی تنظیمات پیش‌فرض</button></div>
+  </div>
+</section>
+
+<!-- CONTACT PAGE -->
+
+<section class="page" id="page-contact">
+
+  <div class="wrap">
+
+    <button class="back-btn" data-page="home">← بازگشت به صفحه اصلی</button>
+
+    <div class="page-heading">
+      <small>GET IN TOUCH</small>
+      <h1>ارتباط با ما</h1>
+    </div>
+
+    <div class="panel">
+
+      <h2>با ما در ارتباط باش</h2>
+
+      <p>نظرات، پیشنهادها و پیام‌هات رو برای ما بنویس.</p>
+
+      <form class="form" id="contactForm">
+
+        <input class="field" type="text" placeholder="نام" required>
+
+        <input class="field" type="email" placeholder="ایمیل" required>
+
+        <textarea class="field" placeholder="پیام شما..." required></textarea>
+
+        <button class="btn btn-primary" type="submit">ارسال پیام</button>
+
+        <div class="form-status" id="contactStatus"></div>
+
+      </form>
+
+      <p class="form-note">
+        ارسال واقعی پیام نیازمند اتصال فرم به یک سرویس دریافت پیام است.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- ARTIST PROFILE OVERLAY -->
+<div class="artist-profile" id="artistProfile" aria-hidden="true">
+  <div class="artist-profile-topbar">
+    <button id="closeArtistProfile" class="artist-back" aria-label="بازگشت">⌄</button>
+    <span>ARTIST</span>
+    <div class="artist-profile-actions">
+      <button id="artistFavoriteBtn" class="artist-favorite-btn" type="button" aria-label="افزودن هنرمند به موردعلاقه‌ها" title="افزودن به موردعلاقه‌ها">＋</button>
+
+    </div>
+  </div>
+  <div class="artist-profile-content">
+    <div class="artist-profile-avatar-wrap">
+      <img id="artistProfileAvatar" class="artist-profile-avatar" src="" alt="Artist">
+    </div>
+    <div class="artist-profile-kicker">TANINFY ARTIST</div>
+    <h1 id="artistProfileName">Artist</h1>
+    <p id="artistProfileCount"></p>
+
+    <div class="artist-albums-heading">ALBUMS</div>
+    <div class="artist-profile-albums" id="artistProfileAlbums"></div>
+
+    <div class="artist-album-detail" id="artistAlbumDetail" aria-hidden="true">
+      <div class="artist-album-detail-head">
+        <button id="artistAlbumBack" type="button" class="artist-album-back">← همه آلبوم‌ها</button>
+        <div class="artist-album-detail-cover-wrap"><img id="artistAlbumDetailCover" src="" alt=""></div>
+        <div class="artist-album-detail-meta">
+          <span>ALBUM</span>
+          <h2 id="artistAlbumDetailName">آلبوم</h2>
+          <p id="artistAlbumDetailCount">0 آهنگ</p>
+        </div>
+      </div>
+      <div class="artist-profile-songs" id="artistAlbumDetailSongs"></div>
+    </div>
+
+    <div class="artist-profile-songs" id="artistProfileSongs"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>♫ TANINFY</span>
+    <span>یک گوشه‌ی کوچک برای صداهای بزرگ.</span>
+    <span>© Taninfy</span>
+  </div>
+</footer>
+
+<!-- AUDIO ENGINE -->
+<audio id="audioPlayer" preload="auto"></audio>
+
+<!-- MINI PLAYER -->
+
+<div class="player">
+
+  <div class="wrap player-inner">
+
+    <div class="now-playing-wrap">
+      <img
+        id="miniPlayerCover"
+        class="mini-player-cover"
+        src=""
+        alt="کاور آهنگ"
+      >
+      <div class="now-playing">
+        <strong id="nowTitle">هنوز چیزی انتخاب نشده</strong>
+        <span id="nowArtist">TANINFY MUSIC</span>
+      </div>
+    </div>
+
+    <div class="player-controls">
+      <button id="previousTrack" class="skip-btn" aria-label="آهنگ قبلی">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 10 12l8 5.5V6.5Z"></path></svg>
+      </button>
+
+      <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">
+        <svg class="buffer-ring" viewBox="0 0 40 40" aria-hidden="true">
+          <circle class="buffer-ring-bg" cx="20" cy="20" r="17"></circle>
+          <circle class="buffer-ring-progress" id="bufferRingProgress" cx="20" cy="20" r="17"></circle>
+        </svg>
+        <span class="play-icon" id="playIcon">▶</span>
+      </button>
+
+      <button id="nextTrack" class="skip-btn" aria-label="آهنگ بعدی">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14 12l-8 5.5V6.5Z"></path></svg>
+      </button>
+    </div>
+
+    <div class="player-label">YOUR MOOD, YOUR SOUND</div>
+
+  </div>
+
+</div>
+
+<script src="songs.js"></script>
+<script src="playlist.js"></script>
+<div class="playlist-picker-overlay" id="playlistPickerOverlay" aria-hidden="true">
+  <div class="playlist-picker" role="dialog" aria-modal="true">
+    <h3>Add to playlist</h3>
+    <p id="playlistPickerSong">انتخاب کن این آهنگ به کدام پلی لیست اضافه شود.</p>
+    <div class="playlist-picker-list" id="playlistPickerList"></div>
+    <button class="playlist-picker-new" id="playlistPickerNew" type="button">＋ ساخت پلی لیست جدید</button>
+    <button class="playlist-picker-close" id="playlistPickerClose" type="button">لغو</button>
+  </div>
+</div>
+
+<!-- FULL MUSIC PLAYER -->
+<div class="full-player" id="fullPlayer">
+  <img class="full-player-backdrop" id="fullPlayerBackdrop" alt="" aria-hidden="true">
+
+  <div class="full-player-topbar">
+    <button class="full-player-close" id="closeFullPlayer" aria-label="بستن پلیر">⌄</button>
+    <button class="full-player-more" id="fullPlayerMore" aria-label="گزینه‌های بیشتر">•••</button>
+  </div>
+
+  <div class="full-player-content">
+
+    <div class="full-cover-wrap">
+      <img id="fullCover"
+           src=""
+           alt="Album Cover"
+           class="full-cover">
+    </div>
+
+    <div class="full-song-info">
+      <h1 id="fullTitle">Song Title</h1>
+      <p id="fullArtist">Artist Name</p>
+    </div>
+
+    <div class="full-progress-area">
+      <span id="fullCurrentTime">0:00</span>
+
+      <input
+        type="range"
+        id="fullProgress"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <span id="fullDuration">0:00</span>
+    </div>
+
+    <div class="full-controls">
+
+      <button id="shuffleBtn" class="full-control-btn" title="Shuffle" aria-label="Shuffle">
+        ⤨
+      </button>
+
+      <button id="fullPrevBtn" class="full-control-btn" title="Previous" aria-label="Previous">
+        ⏮
+      </button>
+
+      <button id="fullPlayBtn" class="full-play-btn" aria-label="Play or pause">
+        ▶
+      </button>
+
+      <button id="fullNextBtn" class="full-control-btn" title="Next" aria-label="Next">
+        ⏭
+      </button>
+
+      <button id="repeatBtn" class="full-control-btn" title="Repeat" aria-label="Repeat">
+        ↻
+      </button>
+
+    </div>
+
+    <div class="full-player-actions">
+      <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite">♡</button>
+      <button id="fullPlaylistBtn" class="full-action-btn" type="button" aria-label="Add to playlist" title="Add to playlist">＋</button>
+      <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ">↓</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="artists.js"></script>
+<script>
+
+/* PAGE NAVIGATION */
+const pages = document.querySelectorAll(".page");
+
+const availablePages = ["home", "profile", "favorites", "artists", "playlist", "settings", "login", "contact"];
+
+function showPage(name, addHistory = true) {
+  const target = document.getElementById("page-" + name);
+  if (!target) return;
+
+  pages.forEach(page => page.classList.toggle("active", page === target));
+  closeMenu();
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  if (addHistory) {
+    history.pushState({ taninfy: true, page: name }, "", "#" + name);
+  }
+}
+
+document.querySelectorAll("[data-page]").forEach(link => {
+  link.addEventListener("click", function(event) {
+    event.preventDefault();
+    if (this.dataset.page === "playlist" && typeof closeTaninfyPlaylist === "function") {
+      closeTaninfyPlaylist();
+    }
+    showPage(this.dataset.page, true);
+  });
+});
+
+function loadPageFromHash() {
+  const name = location.hash.replace("#", "");
+  showPage(availablePages.includes(name) ? name : "home", false);
+}
+
+window.addEventListener("load", function() {
+  const hash = location.hash.replace("#", "");
+  const page = availablePages.includes(hash) ? hash : "home";
+  // Create a Taninfy guard entry so a normal browser Back does not immediately
+  // throw the visitor out of the site.
+  history.replaceState({ taninfy: true, page }, "", "#" + page);
+  history.pushState({ taninfy: true, page }, "", "#" + page);
+  showPage(page, false);
+});
+
+window.addEventListener("popstate", function(event) {
+  // Browser Back closes an open full player first instead of leaving Taninfy.
+  if (document.getElementById("fullPlayer")?.classList.contains("active")) {
+    document.getElementById("fullPlayer").classList.remove("active");
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
+    return;
+  }
+
+  // Closing an artist profile is the next Back action.
+  if (document.getElementById("artistProfile")?.classList.contains("active")) {
+    closeArtistProfile(false);
+    history.pushState({ taninfy: true, page: event.state?.page || "home" }, "", "#" + (event.state?.page || "home"));
+    return;
+  }
+
+  if (event.state && event.state.taninfy) {
+    showPage(event.state.page || "home", false);
+    // Keep one Taninfy guard behind the current page.
+    history.pushState({ taninfy: true, page: event.state.page || "home" }, "", "#" + (event.state.page || "home"));
+  } else {
+    history.pushState({ taninfy: true, page: "home" }, "", "#home");
+    showPage("home", false);
+  }
+});
+
+
+/* DROPDOWN MENU */
+const menuToggle = document.getElementById("menuToggle");
+const menuClose = document.getElementById("menuClose");
+const menuOverlay = document.getElementById("menuOverlay");
+
+function openMenu() {
+  document.body.classList.add("menu-open");
+}
+
+function closeMenu() {
+  document.body.classList.remove("menu-open");
+}
+
+if (menuToggle) menuToggle.addEventListener("click", openMenu);
+if (menuClose) menuClose.addEventListener("click", closeMenu);
+if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeMenu();
+});
+
+
+/* MUSIC CATALOG */
+const trackList = document.getElementById("trackList");
+const songCatalog = Array.isArray(window.TANINFY_SONGS) ? window.TANINFY_SONGS : [];
+
+function shuffleItems(items) {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function getExploreRecommendations() {
+  // آهنگ‌های ناقص و تکراری از پیشنهادها حذف می‌شوند؛ ایندکس اصلی برای پخش حفظ می‌شود.
+  const seen = new Set();
+  const all = songCatalog.map((song, index) => ({ song, index }))
+    .filter(({ song }) => song && song.title && song.artist && song.src && song.featured !== false)
+    .filter(({ song }) => {
+      const key = String(song.src || `${song.title}|${song.artist}`).trim().toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+  const history = window.taninfyListeningStats || {};
+  const artistCounts = history.artistCounts || {};
+  let savedFavoriteArtists = [];
+  try { savedFavoriteArtists = JSON.parse(localStorage.getItem("taninfy-favorite-artists") || "[]"); } catch (_) {}
+  const favoriteNames = new Set(savedFavoriteArtists.map(item => artistKey(item.name)));
+  const topArtists = Object.entries(artistCounts)
+    .sort((a, b) => Number(b[1] || 0) - Number(a[1] || 0))
+    .slice(0, 8).map(([name]) => artistKey(name));
+
+  const listened = all.filter(({song}) => topArtists.includes(artistKey(song.artist)));
+  const favorites = all.filter(({song}) => favoriteNames.has(artistKey(song.artist)));
+  const now = Date.now();
+  const fresh = all.filter(({song}) => song.isNew === true ||
+    (song.uploadedAt && now - new Date(song.uploadedAt).getTime() <= 30 * 86400000));
+
+  const chosen = new Map();
+  const take = (items, limit) => {
+    shuffleItems(items).slice(0, limit).forEach(item => chosen.set(item.index, item));
+  };
+  take(listened, 15);
+  take(favorites.filter(item => !chosen.has(item.index)), 15);
+  take(fresh.filter(item => !chosen.has(item.index)), 10);
+  take(all.filter(item => !chosen.has(item.index)), 10);
+
+  // اگر یکی از دسته‌ها کم‌تعداد بود، ظرفیت خالی با آهنگ‌های یکتای دیگر پر می‌شود.
+  if (chosen.size < 50) {
+    take(all.filter(item => !chosen.has(item.index)), 50 - chosen.size);
+  }
+  return shuffleItems([...chosen.values()]).slice(0, 50);
+}
+
+function renderTrackCatalog() {
+  trackList.innerHTML = "";
+  if (!songCatalog.length) {
+    trackList.innerHTML = '<p class="form-note">هنوز آهنگی اضافه نشده. لینک آهنگ‌ها را در فایل songs.js وارد کن.</p>';
+    return;
+  }
+
+  const recommendations = getExploreRecommendations();
+  if (!recommendations.length) {
+    trackList.innerHTML = '<p class="form-note">هنوز آهنگ کامل و قابل پخشی برای نمایش وجود ندارد.</p>';
+    return;
+  }
+
+  recommendations.forEach(({ song, index }) => {
+    const row = document.createElement("article");
+    row.className = "track music-card";
+    row.dataset.songId = song.id || String(index);
+    row.dataset.songIndex = String(index);
+    row.setAttribute("tabindex", "0");
+    row.setAttribute("role", "button");
+    row.setAttribute("aria-label", `پخش ${song.title || "آهنگ"}`);
+
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "track-cover-wrap";
+
+    const cover = document.createElement("img");
+    cover.className = "track-cover-thumb";
+    cover.src = song.cover || "";
+    cover.alt = `کاور ${song.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
+    const coverPlay = document.createElement("span");
+    coverPlay.className = "track-cover-play";
+    coverPlay.setAttribute("aria-hidden", "true");
+    coverPlay.textContent = "▶";
+
+    coverWrap.append(cover, coverPlay);
+
+    const info = document.createElement("div");
+    info.className = "track-info";
+
+    const title = document.createElement("strong");
+    title.className = "track-title";
+    title.textContent = song.title || "بدون نام";
+
+    const artist = document.createElement("span");
+    artist.className = "track-artist";
+    artist.textContent = song.artist || "هنرمند نامشخص";
+
+    info.append(title, artist);
+
+    const heart = document.createElement("button");
+    heart.className = "heart-btn";
+    heart.type = "button";
+    heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
+    heart.textContent = "♡";
+
+    row.append(coverWrap, info, heart);
+    trackList.appendChild(row);
+  });
+}
+
+renderTrackCatalog();
+window.renderTaninfyExplore = renderTrackCatalog;
+
+/* =========================================
+   TANINFY — PLAYLIST.JS CONNECTION
+   Playlist entries can contain only song IDs
+   or exact song titles. The full song data
+   (src, cover, artist, etc.) always comes
+   from songs.js / TANINFY_SONGS.
+========================================= */
+
+function getPlaylistSong(songRef) {
+  if (!songRef) return null;
+
+  const ref = String(
+    typeof songRef === "object"
+      ? (songRef.id ?? songRef.songId ?? songRef.title ?? "")
+      : songRef
+  ).trim();
+
+  if (!ref) return null;
+
+  const byId = songCatalog.find(song => String(song?.id ?? "").trim() === ref);
+  if (byId) return byId;
+
+  const normalized = ref.toLocaleLowerCase();
+  return songCatalog.find(song =>
+    String(song?.title ?? "").trim().toLocaleLowerCase() === normalized
+  ) || null;
+}
+
+function getTaninfyPlaylists() {
+  const curated = Array.isArray(window.TANINFY_PLAYLISTS)
+    ? window.TANINFY_PLAYLISTS
+    : [];
+
+  // Read only playlists the user has already created and saved locally.
+  // No sample or default playlists are added here.
+  let personal = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem("taninfy-playlists") || "[]");
+    if (Array.isArray(saved)) personal = saved;
+  } catch (error) {
+    personal = [];
+  }
+
+  return [...curated, ...personal];
+}
+
+function playlistCover(playlist, songs) {
+  if (playlist?.cover) return playlist.cover;
+  const firstSong = songs.find(Boolean);
+  return firstSong?.cover || "";
+}
+
+let taninfyOpenPlaylist = null;
+let taninfyOpenPlaylistIndices = [];
+
+function getPlaylistCoverForDetail(playlist, songs) {
+  return playlistCover(playlist, songs) || "";
+}
+
+function setPlaylistDetailBackground(imageUrl) {
+  const detail = document.getElementById("playlistDetail");
+  if (!detail) return;
+  if (imageUrl) {
+    const safeUrl = String(imageUrl).replace(/"/g, '\\\"');
+    detail.style.setProperty("--playlist-bg-image", `url("${safeUrl}")`);
+  } else {
+    detail.style.setProperty("--playlist-bg-image", "none");
+  }
+}
+
+function resetPlaylistDetailCover() {
+  const cover = document.getElementById("playlistDetailCover");
+  if (!cover || !taninfyOpenPlaylist) return;
+
+  const songs = (Array.isArray(taninfyOpenPlaylist.songs) ? taninfyOpenPlaylist.songs : [])
+    .map(getPlaylistSong)
+    .filter(Boolean);
+
+  const playlistCoverUrl = getPlaylistCoverForDetail(taninfyOpenPlaylist, songs);
+  cover.src = playlistCoverUrl || "";
+  cover.classList.remove("is-song-cover");
+  cover.alt = taninfyOpenPlaylist.name || "Playlist cover";
+}
+
+function updatePlaylistDetailPlaying() {
+  const detail = document.getElementById("playlistDetail");
+  if (!detail || detail.style.display === "none") return;
+
+  const rows = detail.querySelectorAll(".playlist-detail-song");
+  let playingSong = null;
+
+  rows.forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const active = index === currentTrackIndex && !audioPlayer.paused;
+    row.classList.toggle("is-playing", active);
+
+    const playButton = row.querySelector(".playlist-detail-song-play");
+    const coverPlay = row.querySelector(".playlist-detail-song-cover-play");
+
+    if (playButton) playButton.textContent = active ? "Ⅱ" : "▶";
+    if (coverPlay) coverPlay.textContent = active ? "Ⅱ" : "▶";
+
+    if (active) playingSong = songCatalog[index];
+  });
+
+  const cover = document.getElementById("playlistDetailCover");
+  if (!cover) return;
+
+  const currentIsInPlaylist =
+    Number.isInteger(currentTrackIndex) &&
+    taninfyOpenPlaylistIndices.includes(currentTrackIndex);
+
+  const activeSong = currentIsInPlaylist ? songCatalog[currentTrackIndex] : null;
+
+  if (activeSong && activeSong.cover) {
+    cover.src = activeSong.cover;
+    cover.alt = `کاور ${activeSong.title || "آهنگ"}`;
+    cover.classList.add("is-song-cover");
+    setPlaylistDetailBackground(activeSong.cover);
+  } else {
+    resetPlaylistDetailCover();
+    const playlistSongs = (Array.isArray(taninfyOpenPlaylist?.songs) ? taninfyOpenPlaylist.songs : [])
+      .map(getPlaylistSong)
+      .filter(Boolean);
+    setPlaylistDetailBackground(getPlaylistCoverForDetail(taninfyOpenPlaylist, playlistSongs));
+  }
+}
+
+function renderPlaylistDetailSongs(indices) {
+  const list = document.getElementById("playlistDetailSongs");
+  const count = document.getElementById("playlistDetailListCount");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  if (!indices.length) {
+    list.innerHTML = '<div class="playlist-detail-empty">این پلی لیست هنوز آهنگی ندارد.</div>';
+    if (count) count.textContent = "0 آهنگ";
+    return;
+  }
+
+  if (count) count.textContent = `${indices.length} آهنگ`;
+
+  indices.forEach((index, position) => {
+    const song = songCatalog[index];
+    if (!song) return;
+
+    const row = document.createElement("article");
+    row.className = "playlist-detail-song";
+    row.dataset.songIndex = String(index);
+    row.dataset.songId = song.id || String(index);
+
+    const number = document.createElement("span");
+    number.className = "playlist-detail-number";
+    number.textContent = String(position + 1).padStart(2, "0");
+
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "playlist-detail-song-cover-wrap";
+
+    const cover = document.createElement("img");
+    cover.className = "playlist-detail-song-cover";
+    cover.src = song.cover || "";
+    cover.alt = `کاور ${song.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
+    const coverPlay = document.createElement("span");
+    coverPlay.className = "playlist-detail-song-cover-play";
+    coverPlay.textContent = "▶";
+    coverWrap.append(cover, coverPlay);
+
+    const info = document.createElement("div");
+    info.className = "playlist-detail-song-info";
+
+    const title = document.createElement("strong");
+    title.textContent = song.title || "بدون نام";
+
+    const artist = document.createElement("span");
+    artist.textContent = song.artist || "هنرمند نامشخص";
+
+    info.append(title, artist);
+
+    const playButton = document.createElement("button");
+    playButton.type = "button";
+    playButton.className = "playlist-detail-song-play";
+    playButton.title = "پخش";
+    playButton.textContent = "▶";
+
+    playButton.addEventListener("click", event => {
+      event.stopPropagation();
+      setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
+    });
+
+    row.addEventListener("click", event => {
+      if (event.target.closest("button")) return;
+      setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
+    });
+
+    row.append(number, coverWrap, info, playButton);
+    list.appendChild(row);
+  });
+
+  syncPlaylistDetailHearts();
+  updatePlaylistDetailPlaying();
+}
+
+function syncPlaylistDetailHearts() {
+  document.querySelectorAll(".playlist-detail-song").forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const song = songCatalog[index];
+    const button = row.querySelector(".playlist-detail-song-heart");
+    if (!song || !button) return;
+
+    const songId = song.id || String(index);
+    const active = favorites.some(item =>
+      item.songId === songId ||
+      (item.title === song.title && item.artist === song.artist)
+    );
+
+    button.classList.toggle("active", active);
+    button.textContent = active ? "♥" : "♡";
+  });
+}
+
+function openTaninfyPlaylist(playlist) {
+  const refs = Array.isArray(playlist?.songs) ? playlist.songs : [];
+  const resolvedSongs = refs.map(getPlaylistSong).filter(Boolean);
+
+  // Empty personal playlists can still be opened and displayed.
+  taninfyOpenPlaylist = playlist;
+  taninfyOpenPlaylistIndices = resolvedSongs
+    .map(song => songCatalog.indexOf(song))
+    .filter(index => index >= 0);
+
+  /* The card can live on the Explore page or the Playlists page.
+     Always navigate to the Playlists page before opening its detail view. */
+  showPage("playlist", false);
+
+  const grid = document.getElementById("curatedPlaylistGrid");
+  const detail = document.getElementById("playlistDetail");
+  const intro = document.querySelector(".curated-intro");
+  const heading = document.querySelector("#page-playlist .page-heading");
+
+  if (!detail || !grid) return;
+
+  grid.style.display = "none";
+  if (intro) intro.style.display = "none";
+  if (heading) heading.style.display = "none";
+
+  detail.style.display = "block";
+
+  const title = document.getElementById("playlistDetailTitle");
+  const count = document.getElementById("playlistDetailCount");
+
+  if (title) title.textContent = playlist.name || "Playlist";
+  if (count) count.textContent = `${resolvedSongs.length} آهنگ`;
+
+  resetPlaylistDetailCover();
+  setPlaylistDetailBackground(getPlaylistCoverForDetail(playlist, resolvedSongs));
+  renderPlaylistDetailSongs(taninfyOpenPlaylistIndices);
+
+  const playButton = document.getElementById("playlistDetailPlay");
+  if (playButton) {
+    playButton.onclick = () => {
+      const firstIndex = taninfyOpenPlaylistIndices[0];
+      if (Number.isInteger(firstIndex)) setPlayerTrack(firstIndex, true, taninfyOpenPlaylistIndices);
+    };
+  }
+
+  const shuffleButton = document.getElementById("playlistDetailShuffle");
+  if (shuffleButton) {
+    shuffleButton.onclick = () => {
+      if (taninfyOpenPlaylistIndices.length <= 1) {
+        const onlyIndex = taninfyOpenPlaylistIndices[0];
+        if (Number.isInteger(onlyIndex)) setPlayerTrack(onlyIndex, true, taninfyOpenPlaylistIndices);
+        return;
+      }
+
+      let randomIndex;
+      do {
+        randomIndex = taninfyOpenPlaylistIndices[
+          Math.floor(Math.random() * taninfyOpenPlaylistIndices.length)
+        ];
+      } while (randomIndex === currentTrackIndex);
+
+      setPlayerTrack(randomIndex, true, taninfyOpenPlaylistIndices);
+    };
+  }
+
+  const favoriteButton = document.getElementById("playlistDetailFavorite");
+  if (favoriteButton) {
+    const favoritePlaylistKey = `taninfy-playlist-favorite-${playlist.name || ""}`;
+    const update = () => {
+      const active = localStorage.getItem(favoritePlaylistKey) === "1";
+      favoriteButton.classList.toggle("active", active);
+      favoriteButton.textContent = active ? "♥" : "♡";
+    };
+
+    favoriteButton.onclick = () => {
+      const active = localStorage.getItem(favoritePlaylistKey) === "1";
+      if (active) localStorage.removeItem(favoritePlaylistKey);
+      else localStorage.setItem(favoritePlaylistKey, "1");
+      update();
+    };
+
+    update();
+  }
+
+  updatePlaylistDetailPlaying();
+  document.getElementById("page-playlist")?.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function closeTaninfyPlaylist() {
+  const grid = document.getElementById("curatedPlaylistGrid");
+  const detail = document.getElementById("playlistDetail");
+  const intro = document.querySelector(".curated-intro");
+  const heading = document.querySelector("#page-playlist .page-heading");
+
+  taninfyOpenPlaylist = null;
+  taninfyOpenPlaylistIndices = [];
+
+  if (detail) detail.style.display = "none";
+  if (grid) grid.style.display = "";
+  if (intro) intro.style.display = "";
+  if (heading) heading.style.display = "";
+
+  renderTaninfyPlaylists();
+}
+
+document.getElementById("playlistDetailBack")?.addEventListener("click", closeTaninfyPlaylist);
+
+function renderTaninfyPlaylists() {
+  const grids = [
+    document.getElementById("homePlaylistGrid"),
+    document.getElementById("curatedPlaylistGrid")
+  ].filter(Boolean);
+
+  const empty = document.getElementById("playlistEmptyState");
+  if (!grids.length) return;
+
+  const playlistData = getTaninfyPlaylists();
+  grids.forEach(grid => grid.innerHTML = "");
+
+  if (!playlistData.length) {
+    if (empty) empty.style.display = "block";
+    return;
+  }
+
+  if (empty) empty.style.display = "none";
+
+  grids.forEach(grid => {
+    playlistData.forEach((playlist, playlistIndex) => {
+      const refs = Array.isArray(playlist.songs) ? playlist.songs : [];
+      const resolvedSongs = refs.map(getPlaylistSong).filter(Boolean);
+
+      const card = document.createElement("article");
+      card.className = "curated-card";
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", `باز کردن پلی لیست ${playlist.name || "Playlist"}`);
+
+      const cover = document.createElement("div");
+      cover.className = "curated-cover";
+
+      const playlistCoverUrl = playlistCover(playlist, resolvedSongs);
+
+      if (playlistCoverUrl) {
+        cover.classList.add("has-image");
+
+        const coverImg = document.createElement("img");
+        coverImg.className = "playlist-cover-image";
+        coverImg.src = playlistCoverUrl;
+        coverImg.alt = playlist.name || "Playlist cover";
+        coverImg.loading = "lazy";
+        cover.appendChild(coverImg);
+      }
+
+      const info = document.createElement("div");
+      info.className = "curated-info";
+
+      const title = document.createElement("h2");
+      title.textContent = playlist.name || "Playlist";
+
+      const count = document.createElement("div");
+      count.className = "playlist-song-count";
+      count.textContent = `${resolvedSongs.length} آهنگ`;
+
+      info.append(title, count);
+      card.append(cover, info);
+
+      const open = () => openTaninfyPlaylist(playlist);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
+        }
+      });
+
+      grid.appendChild(card);
+    });
+  });
+}
+
+window.renderTaninfyPlaylists = renderTaninfyPlaylists;
+renderTaninfyPlaylists();
+
+
+
+/* SEARCH + ARTIST PROFILES */
+const musicSearch = document.getElementById("musicSearch");
+const clearMusicSearch = document.getElementById("clearMusicSearch");
+const searchSuggestions = document.getElementById("searchSuggestions");
+const artistProfile = document.getElementById("artistProfile");
+const closeArtistProfileBtn = document.getElementById("closeArtistProfile");
+const artistProfileMore = document.getElementById("artistProfileMore");
+const artistFavoriteBtn = document.getElementById("artistFavoriteBtn");
+const artistProfileAvatar = document.getElementById("artistProfileAvatar");
+const artistProfileName = document.getElementById("artistProfileName");
+const artistProfileCount = document.getElementById("artistProfileCount");
+const artistProfileAlbums = document.getElementById("artistProfileAlbums");
+const artistProfileSongs = document.getElementById("artistProfileSongs");
+
+function artistKey(name) {
+  return String(name || "هنرمند نامشخص").trim().toLocaleLowerCase();
+}
+
+function splitArtistNames(value) {
+  const text = String(value || "").trim();
+  if (!text) return ["هنرمند نامشخص"];
+
+  // A collaboration is one song credit, but each credited artist gets
+  // the same song inside their own profile.
+  return text
+    .split(/\s*(?:&|×|\+|\bx\b|\bfeat\.?\b|\bft\.?\b|\bfeaturing\b|\band\b)\s*/i)
+    .map(name => name.trim())
+    .filter(Boolean);
+}
+
+function addSongToArtist(map, name, song, index) {
+  const cleanName = String(name || "هنرمند نامشخص").trim() || "هنرمند نامشخص";
+  const key = artistKey(cleanName);
+  if (!map.has(key)) {
+    map.set(key, { name: cleanName, image: "", genre: "", songs: [], albums: new Map() });
+  }
+
+  const artist = map.get(key);
+  artist.songs.push({ song, index });
+
+  const albumName = String(song.album || "Singles").trim() || "Singles";
+  const albumKey = albumName.toLocaleLowerCase();
+  if (!artist.albums.has(albumKey)) {
+    artist.albums.set(albumKey, { name: albumName, cover: song.cover || "", songs: [] });
+  }
+
+  const album = artist.albums.get(albumKey);
+  album.songs.push({ song, index });
+  if (!album.cover && song.cover) album.cover = song.cover;
+}
+
+function getArtists() {
+  const map = new Map();
+  const profileData = Array.isArray(window.TANINFY_ARTISTS) ? window.TANINFY_ARTISTS : [];
+
+  // Keep artist profiles separate even if an artist-data entry itself contains
+  // a collaboration credit such as "Isam & Koorosh".
+  profileData.forEach(profile => {
+    if (!profile || !profile.name) return;
+    splitArtistNames(profile.name).forEach(name => {
+      const key = artistKey(name);
+      if (!map.has(key)) {
+        map.set(key, {
+          name, image: profile.image || "", genre: profile.genre || "",
+          songs: [], albums: new Map()
+        });
+      } else if (!map.get(key).image && profile.image) {
+        map.get(key).image = profile.image;
+      }
+    });
+  });
+
+  songCatalog.forEach((song, index) => {
+    splitArtistNames(song.artist || "هنرمند نامشخص").forEach(name => {
+      addSongToArtist(map, name, song, index);
+    });
+  });
+
+  return [...map.values()].map(artist => ({ ...artist, albums: [...artist.albums.values()] }));
+}
+
+function renderArtistDirectory() {
+  const box = document.getElementById("artistDirectory");
+  if (!box) return;
+  const artists = getArtists();
+  box.innerHTML = "";
+
+  if (!artists.length) {
+    box.innerHTML = '<p class="form-note">هنوز هنرمندی به کتابخانه Taninfy اضافه نشده است.</p>';
+    return;
+  }
+
+  artists.sort((a, b) => a.name.localeCompare(b.name, "fa")).forEach(artist => {
+    const card = document.createElement("div");
+    card.className = "artist-directory-card";
+    const photoWrap = document.createElement("div");
+    photoWrap.className = "artist-directory-photo";
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "artist-directory-open";
+    open.setAttribute("aria-label", `مشاهده پروفایل ${artist.name}`);
+    const img = document.createElement("img");
+    if (artist.image) img.src = artist.image;
+    img.alt = artist.name;
+    img.loading = "lazy";
+    open.appendChild(img);
+    const favorite = document.createElement("button");
+    favorite.type = "button";
+    favorite.className = "artist-directory-favorite";
+    const syncFavorite = () => {
+      const active = isFavoriteArtist(artist.name);
+      favorite.classList.toggle("active", active);
+      favorite.textContent = active ? "✓" : "+";
+      favorite.setAttribute("aria-label", active ? "حذف از هنرمندان موردعلاقه" : "افزودن به هنرمندان موردعلاقه");
+    };
+    syncFavorite();
+    favorite.addEventListener("click", async event => {
+      event.stopPropagation();
+      const ok = await toggleFavoriteArtist(artist);
+      if (ok) { syncFavorite(); renderArtistDirectory(); }
+    });
+    open.addEventListener("click", () => openArtistProfile(artist.name, true));
+    photoWrap.append(open, favorite);
+    const name = document.createElement("strong");
+    name.textContent = artist.name;
+    const count = document.createElement("span");
+    count.textContent = `${artist.songs.length} آهنگ`;
+    card.append(photoWrap, name, count);
+    box.appendChild(card);
+  });
+}
+
+function renderSearchSuggestions(query = "") {
+  const q = query.trim().toLocaleLowerCase();
+  searchSuggestions.innerHTML = "";
+  if (!q) { searchSuggestions.classList.remove("active"); return; }
+
+  const artists = getArtists().filter(a => a.name.toLocaleLowerCase().includes(q));
+  const songs = songCatalog
+    .map((song, index) => ({ song, index }))
+    .filter(({ song }) => `${song.title || ""} ${song.artist || ""}`.toLocaleLowerCase().includes(q));
+
+  // Artist profile is intentionally first when the artist name matches.
+  artists.slice(0, 5).forEach(artist => {
+    const button = document.createElement("button");
+    button.className = "search-suggestion";
+    button.type = "button";
+    button.innerHTML = `
+      <img class="search-suggestion-cover" src="${artist.image || ""}" alt="">
+      <span class="search-suggestion-info"><strong>${escapeHtml(artist.name)}</strong><span>${artist.songs.length} آهنگ</span></span>
+      <span class="search-suggestion-type">ARTIST PROFILE</span>
+      <span class="search-artist-heart" aria-hidden="true">${isFavoriteArtist(artist.name) ? "♥" : "♡"}</span>`;
+    button.addEventListener("click", (event) => {
+      if (event.target.closest(".search-artist-heart")) return;
+      openArtistProfile(artist.name, true);
+    });
+    const suggestionHeart = button.querySelector(".search-artist-heart");
+    suggestionHeart.addEventListener("click", async (event) => {
+      event.stopPropagation();
+      await toggleFavoriteArtist(artist);
+      suggestionHeart.textContent = isFavoriteArtist(artist.name) ? "♥" : "♡";
+    });
+    searchSuggestions.appendChild(button);
+  });
+
+  songs.slice(0, 7).forEach(({ song, index }) => {
+    const button = document.createElement("button");
+    button.className = "search-suggestion";
+    button.type = "button";
+    button.innerHTML = `
+      <img class="search-suggestion-cover" src="${song.cover || ""}" alt="">
+      <span class="search-suggestion-info"><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || "هنرمند نامشخص")}</span></span>
+      <span class="search-suggestion-type">SONG</span>`;
+    button.addEventListener("click", () => {
+      searchSuggestions.classList.remove("active");
+      setPlayerTrack(index, true);
+    });
+    searchSuggestions.appendChild(button);
+  });
+
+  searchSuggestions.classList.toggle("active", searchSuggestions.children.length > 0);
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>\"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+}
+
+const favoriteArtistKey = "taninfy-favorite-artists";
+let favoriteArtists = JSON.parse(localStorage.getItem(favoriteArtistKey) || "[]");
+
+function saveFavoriteArtists() {
+  localStorage.setItem(favoriteArtistKey, JSON.stringify(favoriteArtists));
+}
+
+function isFavoriteArtist(name) {
+  return favoriteArtists.some(item => artistKey(item.name) === artistKey(name));
+}
+
+async function toggleFavoriteArtist(artist) {
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای ذخیره هنرمند، اول وارد حساب Taninfy شو.";
+    if (typeof showPage === "function") showPage("login");
+    return false;
+  }
+
+  const index = favoriteArtists.findIndex(item => artistKey(item.name) === artistKey(artist.name));
+  if (index >= 0) {
+    favoriteArtists.splice(index, 1);
+  } else {
+    favoriteArtists.push({
+      name: artist.name,
+      image: artist.image || ""
+    });
+  }
+
+  saveFavoriteArtists();
+  renderFavoriteArtists();
+  renderTrackCatalog();
+  renderArtistDirectory();
+  syncHearts();
+  return true;
+}
+
+function syncArtistFavoriteButton(name) {
+  if (!artistFavoriteBtn) return;
+  const active = isFavoriteArtist(name);
+  artistFavoriteBtn.classList.toggle("active", active);
+  artistFavoriteBtn.textContent = active ? "✓" : "＋";
+  artistFavoriteBtn.setAttribute("aria-label", active ? "حذف هنرمند از موردعلاقه‌ها" : "افزودن هنرمند به موردعلاقه‌ها");
+}
+
+function renderFavoriteArtists() {
+  const box = document.getElementById("favoriteArtistList");
+  if (!box) return;
+  box.innerHTML = "";
+
+  if (favoriteArtists.length === 0) {
+    box.innerHTML = '<p class="form-note">هنوز هنرمندی را ذخیره نکردی.</p>';
+    return;
+  }
+
+  favoriteArtists.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "favorite-artist-row";
+
+    const img = document.createElement("img");
+    if (item.image) img.src = item.image;
+    img.alt = item.name;
+
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "favorite-artist-open";
+    open.innerHTML = `<strong>${escapeHtml(item.name)}</strong><span>ARTIST PROFILE</span>`;
+    open.addEventListener("click", () => openArtistProfile(item.name, true));
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "favorite-artist-remove";
+    remove.textContent = "♥";
+    remove.setAttribute("aria-label", "حذف هنرمند از علاقه‌مندی‌ها");
+    remove.addEventListener("click", () => {
+      favoriteArtists.splice(index, 1);
+      saveFavoriteArtists();
+      renderFavoriteArtists();
+      renderTrackCatalog();
+      syncHearts();
+      syncArtistFavoriteButton(item.name);
+    });
+
+    row.append(img, open, remove);
+    box.appendChild(row);
+  });
+}
+
+renderFavoriteArtists();
+
+function openArtistProfile(name, addHistory = true) {
+  const artist = getArtists().find(a => artistKey(a.name) === artistKey(name));
+  if (!artist) return;
+
+  artistProfileName.textContent = artist.name;
+  artistProfileCount.textContent = `${artist.songs.length} آهنگ · ${artist.albums.length} آلبوم در Taninfy`;
+  artistProfileAvatar.removeAttribute("src");
+  if (artist.image) artistProfileAvatar.src = artist.image;
+  syncArtistFavoriteButton(artist.name);
+  artistProfileAlbums.innerHTML = "";
+  artistProfileSongs.innerHTML = "";
+
+  const albumDetail = document.getElementById("artistAlbumDetail");
+  const albumDetailCover = document.getElementById("artistAlbumDetailCover");
+  const albumDetailName = document.getElementById("artistAlbumDetailName");
+  const albumDetailCount = document.getElementById("artistAlbumDetailCount");
+  const albumDetailSongs = document.getElementById("artistAlbumDetailSongs");
+  const albumBack = document.getElementById("artistAlbumBack");
+
+  function showAlbumDetail(album) {
+    if (!albumDetail || !albumDetailSongs) return;
+    artistProfileAlbums.style.display = "none";
+    document.querySelector(".artist-albums-heading")?.style.setProperty("display", "none");
+    artistProfileSongs.style.display = "none";
+    albumDetail.style.display = "block";
+    albumDetail.classList.add("active");
+    albumDetail.setAttribute("aria-hidden", "false");
+    albumDetailName.textContent = album.name || "آلبوم";
+    albumDetailCount.textContent = `${album.songs.length} آهنگ`;
+    albumDetailCover.src = album.cover || "";
+    albumDetailSongs.innerHTML = "";
+
+    album.songs.forEach(({ song, index }) => {
+      const row = document.createElement("div");
+      row.className = "artist-profile-song";
+      row.innerHTML = `<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
+      const play = () => { if (Number.isInteger(index) && songCatalog[index]) setPlayerTrack(index, true, null); };
+      row.addEventListener("click", play);
+      row.querySelector("button")?.addEventListener("click", e => { e.stopPropagation(); play(); });
+      albumDetailSongs.appendChild(row);
+    });
+    albumDetail.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  function showArtistSongs() {
+    if (albumDetail) { albumDetail.style.display="none"; albumDetail.classList.remove("active"); albumDetail.setAttribute("aria-hidden","true"); }
+    artistProfileAlbums.style.display="";
+    document.querySelector(".artist-albums-heading")?.style.removeProperty("display");
+    artistProfileSongs.style.display="";
+  }
+  if (albumBack) albumBack.onclick = showArtistSongs;
+
+  function renderArtistSongs(album) {
+    artistProfileSongs.innerHTML = "";
+    album.songs.forEach(({song,index}) => {
+      const row=document.createElement("div"); row.className="artist-profile-song";
+      row.innerHTML=`<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
+      const play=()=>{ if(Number.isInteger(index)&&songCatalog[index]) setPlayerTrack(index,true,null); };
+      row.addEventListener("click",play);
+      row.querySelector("button")?.addEventListener("click",e=>{e.stopPropagation();play();});
+      artistProfileSongs.appendChild(row);
+    });
+  }
+
+  artist.albums.forEach((album, albumIndex) => {
+    const card=document.createElement("button"); card.type="button";
+    card.className="artist-album-card"+(albumIndex===0?" active":"");
+    card.innerHTML=`<img src="${album.cover || ""}" alt=""><strong>${escapeHtml(album.name)}</strong><span>${album.songs.length} آهنگ</span>`;
+    card.addEventListener("click",e=>{
+      e.preventDefault(); e.stopPropagation();
+      document.querySelectorAll(".artist-album-card").forEach(item=>item.classList.remove("active"));
+      card.classList.add("active"); showAlbumDetail(album);
+    });
+    artistProfileAlbums.appendChild(card);
+  });
+
+  if (artist.albums.length) renderArtistSongs(artist.albums[0]);
+  artistProfile.classList.add("active");
+  artistProfile.setAttribute("aria-hidden","false");
+  searchSuggestions.classList.remove("active");
+  if (addHistory) history.pushState({taninfy:true,artist:artist.name},"","#artist-"+encodeURIComponent(artist.name));
+}
+function closeArtistProfile(goBack = true) {
+  artistProfile.classList.remove("active");
+  artistProfile.setAttribute("aria-hidden", "true");
+  if (goBack && history.state && history.state.artist) history.back();
+}
+
+if (musicSearch) {
+  musicSearch.addEventListener("input", function() {
+    musicSearch.parentElement.classList.toggle("has-value", !!this.value);
+    renderSearchSuggestions(this.value);
+  });
+}
+if (clearMusicSearch) clearMusicSearch.addEventListener("click", function() {
+  musicSearch.value = "";
+  musicSearch.parentElement.classList.remove("has-value");
+  searchSuggestions.classList.remove("active");
+  musicSearch.focus();
+});
+if (closeArtistProfileBtn) closeArtistProfileBtn.addEventListener("click", () => closeArtistProfile(true));
+if (artistProfileMore) artistProfileMore.addEventListener("click", () => {});
+if (artistFavoriteBtn) {
+  artistFavoriteBtn.addEventListener("click", async function(event) {
+    event.stopPropagation();
+    const artist = getArtists().find(a => artistKey(a.name) === artistKey(artistProfileName.textContent));
+    if (!artist) return;
+    const changed = await toggleFavoriteArtist(artist);
+    if (changed) syncArtistFavoriteButton(artist.name);
+  });
+}
+document.addEventListener("click", function(event) {
+  if (!event.target.closest(".music-search-wrap")) searchSuggestions?.classList.remove("active");
+});
+
+/* AUDIO PLAYER */
+const audioPlayer = document.getElementById("audioPlayer");
+const player = document.querySelector(".player");
+const nowTitle = document.getElementById("nowTitle");
+const nowArtist = document.getElementById("nowArtist");
+const miniPlayerCover = document.getElementById("miniPlayerCover");
+const mainPlay = document.getElementById("mainPlay");
+const playIcon = document.getElementById("playIcon");
+const bufferRingProgress = document.getElementById("bufferRingProgress");
+const previousTrack = document.getElementById("previousTrack");
+const nextTrack = document.getElementById("nextTrack");
+
+let currentTrackIndex = -1;
+let isLoadingTrack = false;
+let trackedPlayIndex = -1;
+let trackedPlayRecorded = false;
+
+/* Active playback context: null = global library, array = current playlist. */
+let activePlaybackIndices = null;
+
+function getActivePlaybackIndices() {
+  if (Array.isArray(activePlaybackIndices) && activePlaybackIndices.length) {
+    return activePlaybackIndices.filter(index =>
+      Number.isInteger(index) && index >= 0 && index < songCatalog.length
+    );
+  }
+  return songCatalog.map((_, index) => index);
+}
+
+function maybeRecordMeaningfulListen() {
+  if (currentTrackIndex < 0 || audioPlayer.paused || trackedPlayRecorded) return;
+  const duration = Number(audioPlayer.duration);
+  const threshold = Number.isFinite(duration) && duration > 0 ? Math.min(30, duration * 0.5) : 30;
+  if (audioPlayer.currentTime >= threshold) {
+    trackedPlayRecorded = true;
+    const song = songCatalog[currentTrackIndex];
+    if (song && typeof window.recordTaninfyListen === "function") {
+      window.recordTaninfyListen(song).catch(error => console.warn("Listen stats could not be saved.", error));
+    }
+  }
+}
+let bufferAnimationFrame = null;
+
+function setBufferProgress(percent) {
+  if (!bufferRingProgress) return;
+  const circumference = 106.81;
+  const safePercent = Math.max(0, Math.min(100, percent));
+  bufferRingProgress.style.strokeDashoffset =
+    circumference - (circumference * safePercent / 100);
+}
+
+function updateBufferProgress() {
+  if (!audioPlayer.duration || !audioPlayer.buffered.length) {
+    setBufferProgress(0);
+    return;
+  }
+
+  let bufferedEnd = 0;
+  for (let i = 0; i < audioPlayer.buffered.length; i++) {
+    if (audioPlayer.buffered.end(i) > bufferedEnd) {
+      bufferedEnd = audioPlayer.buffered.end(i);
+    }
+  }
+
+  const percent = (bufferedEnd / audioPlayer.duration) * 100;
+  setBufferProgress(percent);
+}
+
+function startBufferProgress() {
+  stopBufferProgress();
+
+  const loop = () => {
+    updateBufferProgress();
+    if (isLoadingTrack) {
+      bufferAnimationFrame = requestAnimationFrame(loop);
+    }
+  };
+
+  bufferAnimationFrame = requestAnimationFrame(loop);
+}
+
+function stopBufferProgress() {
+  if (bufferAnimationFrame) {
+    cancelAnimationFrame(bufferAnimationFrame);
+    bufferAnimationFrame = null;
+  }
+}
+
+function setLoadingState(loading) {
+  isLoadingTrack = loading;
+
+  if (loading) {
+    player.classList.add("is-buffering");
+    mainPlay.disabled = false;
+    playIcon.textContent = "▶";
+    startBufferProgress();
+  } else {
+    player.classList.remove("is-buffering");
+    mainPlay.disabled = false;
+    stopBufferProgress();
+    updateBufferProgress();
+    playIcon.textContent = audioPlayer.paused ? "▶" : "Ⅱ";
+  }
+}
+
+function setPlayerTrack(index, autoplay = true, playbackContext = null) {
+  if (!songCatalog.length || !songCatalog[index]) return;
+
+  activePlaybackIndices = Array.isArray(playbackContext) && playbackContext.length
+    ? [...new Set(playbackContext.filter(i => Number.isInteger(i) && i >= 0 && i < songCatalog.length))]
+    : null;
+
+  if (Array.isArray(activePlaybackIndices) && !activePlaybackIndices.includes(index)) {
+    activePlaybackIndices = null;
+  }
+
+  currentTrackIndex = index;
+  trackedPlayIndex = index;
+  trackedPlayRecorded = false;
+  const track = songCatalog[index];
+
+  nowTitle.textContent = track.title || "بدون نام";
+  nowArtist.textContent = track.artist || "هنرمند نامشخص";
+
+  if (miniPlayerCover) {
+    const cover = String(track.cover || "").trim();
+
+    if (cover) {
+      miniPlayerCover.src = cover;
+      miniPlayerCover.classList.add("has-cover");
+    } else {
+      miniPlayerCover.removeAttribute("src");
+      miniPlayerCover.classList.remove("has-cover");
+    }
+  }
+
+  player.classList.add("visible");
+
+  // If the large player is already open, refresh its song information
+  // immediately when the track changes.
+  if (typeof fullPlayer !== "undefined" && fullPlayer.classList.contains("active")) {
+    openFullPlayer(track);
+  }
+
+  setBufferProgress(0);
+  fullProgress.value = 0;
+  fullCurrentTime.textContent = "0:00";
+  fullDuration.textContent = "0:00";
+  setLoadingState(true);
+
+  audioPlayer.pause();
+  audioPlayer.preload = "auto";
+  audioPlayer.src = track.src || "";
+  audioPlayer.load();
+  preloadAdjacentTrack();
+
+  updateTrackButtons();
+
+  if (autoplay) {
+    audioPlayer.play().catch(() => {
+      setLoadingState(false);
+      nowArtist.textContent = "برای پخش، لینک مستقیم فایل صوتی را بررسی کن";
+    });
+  }
+}
+
+let preloadedAudio = null;
+let preloadedTrackIndex = -1;
+
+function preloadAdjacentTrack() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length || currentTrackIndex < 0) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  if (position < 0) return;
+
+  const nextIndex = playbackIndices[(position + 1) % playbackIndices.length];
+  const nextTrack = songCatalog[nextIndex];
+  if (!nextTrack || !nextTrack.src || nextIndex === currentTrackIndex) return;
+
+  if (preloadedTrackIndex === nextIndex && preloadedAudio) return;
+  try {
+    preloadedAudio = new Audio();
+    preloadedAudio.preload = "auto";
+    preloadedAudio.src = nextTrack.src;
+    preloadedAudio.load();
+    preloadedTrackIndex = nextIndex;
+  } catch (e) {}
+}
+
+function updateTrackButtons() {
+  document.querySelectorAll("#trackList .track").forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const active = index === currentTrackIndex && !audioPlayer.paused;
+    const sideButton = row.querySelector(".track-play");
+    const coverIcon = row.querySelector(".track-cover-play");
+    if (sideButton) sideButton.textContent = active ? "Ⅱ" : "▶";
+    if (coverIcon) {
+      coverIcon.textContent = active ? "Ⅱ" : "▶";
+      coverIcon.classList.toggle("active", active);
+    }
+    row.classList.toggle("is-playing", active);
+  });
+}
+
+trackList.addEventListener("click", function(event) {
+  const heartButton = event.target.closest(".heart-btn");
+  if (heartButton) return;
+
+  const row = event.target.closest(".track");
+  if (!row) return;
+
+  const index = Number(row.dataset.songIndex);
+  if (!Number.isInteger(index) || !songCatalog[index]) return;
+
+  setPlayerTrack(index, true);
+});
+
+mainPlay.addEventListener("click", async function(event) {
+  event.stopPropagation();
+  if (currentTrackIndex < 0) return;
+
+  if (audioPlayer.paused) {
+    try {
+      await audioPlayer.play();
+    } catch (error) {
+      nowArtist.textContent = "لینک مستقیم فایل صوتی معتبر نیست";
+    }
+  } else {
+    audioPlayer.pause();
+  }
+});
+
+previousTrack.addEventListener("click", function() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const previousPosition = position <= 0 ? playbackIndices.length - 1 : position - 1;
+  setPlayerTrack(playbackIndices[previousPosition], true, activePlaybackIndices);
+});
+
+nextTrack.addEventListener("click", function() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const nextPosition = position < 0 || position >= playbackIndices.length - 1 ? 0 : position + 1;
+  setPlayerTrack(playbackIndices[nextPosition], true, activePlaybackIndices);
+});
+
+audioPlayer.addEventListener("loadstart", function() {
+  if (currentTrackIndex >= 0) setLoadingState(true);
+});
+
+audioPlayer.addEventListener("progress", updateBufferProgress);
+
+audioPlayer.addEventListener("loadedmetadata", updateBufferProgress);
+audioPlayer.addEventListener("timeupdate", maybeRecordMeaningfulListen);
+
+audioPlayer.addEventListener("canplay", function() {
+  setLoadingState(false);
+});
+
+audioPlayer.addEventListener("play", function() {
+  setLoadingState(false);
+  playIcon.textContent = "Ⅱ";
+  updateTrackButtons();
+  updateFullPlayButton();
+});
+
+audioPlayer.addEventListener("pause", function() {
+  if (!audioPlayer.ended) {
+    player.classList.remove("is-buffering");
+  }
+  playIcon.textContent = "▶";
+  updateTrackButtons();
+  updateFullPlayButton();
+});
+
+audioPlayer.addEventListener("ended", function() {
+  if (repeatEnabled) {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play().catch(() => {});
+    return;
+  }
+
+  if (shuffleEnabled) {
+    playRandomTrack();
+    return;
+  }
+
+  if (window.taninfySettings && window.taninfySettings.autoplay === false) {
+    setLoadingState(false);
+    playIcon.textContent = "▶";
+    updateTrackButtons();
+    updateFullPlayButton();
+    return;
+  }
+
+  const playbackIndices = getActivePlaybackIndices();
+  const position = playbackIndices.indexOf(currentTrackIndex);
+
+  if (position >= 0 && position < playbackIndices.length - 1) {
+    setPlayerTrack(playbackIndices[position + 1], true, activePlaybackIndices);
+  } else if (position === playbackIndices.length - 1 && Array.isArray(activePlaybackIndices)) {
+    // Playlist playback stays inside the playlist and loops to its first song.
+    setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
+  } else {
+    setLoadingState(false);
+    playIcon.textContent = "▶";
+    updateTrackButtons();
+  }
+});
+
+audioPlayer.addEventListener("error", function() {
+  setLoadingState(false);
+  if (currentTrackIndex >= 0) {
+    nowArtist.textContent = "خطا در دسترسی به فایل صوتی؛ لینک را بررسی کن";
+  }
+});
+
+
+/* FAVORITES */
+const favoriteKey = "taninfy-favorites";
+let favorites = JSON.parse(localStorage.getItem(favoriteKey) || "[]");
+
+function saveFavorites() {
+  localStorage.setItem(favoriteKey, JSON.stringify(favorites));
+}
+
+function renderFavorites() {
+  const box = document.getElementById("favoriteList");
+  box.innerHTML = "";
+
+  if (favorites.length === 0) {
+    box.innerHTML = '<p class="form-note">هنوز آهنگی به علاقه‌مندی‌ها اضافه نکردی.</p>';
+    return;
+  }
+
+  favorites.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "list-item";
+
+    const cover = document.createElement("img");
+    cover.className = "favorite-song-cover";
+    const favoriteSong = songCatalog.find(song =>
+      (item.songId && String(song?.id ?? "") === String(item.songId)) ||
+      (song?.title === item.title && song?.artist === item.artist)
+    );
+    cover.src = favoriteSong?.cover || "";
+    cover.alt = `کاور ${item.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
+    const info = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = item.title;
+    const artist = document.createElement("span");
+    artist.textContent = item.artist;
+    info.append(title, artist);
+
+    const remove = document.createElement("button");
+    remove.className = "remove-btn";
+    remove.textContent = "حذف";
+    remove.addEventListener("click", function() {
+      favorites.splice(index, 1);
+      saveFavorites();
+      renderFavorites();
+      syncHearts();
+    });
+
+    row.append(cover, info, remove);
+    box.appendChild(row);
+  });
+}
+
+function syncHearts() {
+  document.querySelectorAll(".track").forEach(row => {
+    const title = row.querySelector(".track-info strong").textContent;
+    const artist = row.querySelector(".track-info span").textContent;
+    const button = row.querySelector(".heart-btn");
+    const found = favorites.some(item => item.title === title && item.artist === artist);
+    button.classList.toggle("active", found);
+    button.textContent = found ? "♥" : "♡";
+  });
+}
+
+trackList.addEventListener("click", async function(event) {
+  const button = event.target.closest(".heart-btn");
+  if (!button) return;
+
+  event.stopPropagation();
+
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
+  const row = button.closest(".track");
+  const title = row.querySelector(".track-info strong").textContent;
+  const artist = row.querySelector(".track-info span").textContent;
+  const songId = row.dataset.songId;
+  const index = favorites.findIndex(item => item.songId === songId || (item.title === title && item.artist === artist));
+
+  if (index >= 0) favorites.splice(index, 1);
+  else favorites.push({ songId, title, artist });
+
+  saveFavorites();
+  renderFavorites();
+  syncHearts();
+});
+
+
+const playlistPickerOverlay = document.getElementById("playlistPickerOverlay");
+const playlistPickerList = document.getElementById("playlistPickerList");
+const playlistPickerSong = document.getElementById("playlistPickerSong");
+const playlistPickerNew = document.getElementById("playlistPickerNew");
+const playlistPickerClose = document.getElementById("playlistPickerClose");
+
+function closePlaylistPicker() {
+  playlistPickerOverlay?.classList.remove("active");
+  playlistPickerOverlay?.setAttribute("aria-hidden", "true");
+}
+
+function addCurrentSongToPlaylist(index) {
+  const track = songCatalog[currentTrackIndex];
+  if (!track || !playlists[index]) return;
+
+  if (!Array.isArray(playlists[index].songs)) playlists[index].songs = [];
+  const songId = track.id || String(currentTrackIndex);
+  const exists = playlists[index].songs.some(item => item.songId === songId);
+  if (!exists) {
+    playlists[index].songs.push({
+      songId,
+      title: track.title || "بدون نام",
+      artist: track.artist || "هنرمند نامشخص",
+      cover: track.cover || ""
+    });
+    localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  }
+
+  closePlaylistPicker();
+  if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
+  showSuccessCheck("آهنگ به پلی لیست اضافه شد");
+}
+
+function openPlaylistPicker() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track) return;
+
+  if (window.taninfyAuthReady) {
+    window.taninfyAuthReady.then(() => {
+      if (!window.taninfyCurrentUser) {
+        document.getElementById("loginStatus").textContent = "برای اضافه کردن آهنگ به پلی لیست، اول وارد حساب شو.";
+        if (typeof showPage === "function") showPage("login");
+        return;
+      }
+      renderPlaylistPicker(track);
+    });
+  } else {
+    renderPlaylistPicker(track);
+  }
+}
+
+function renderPlaylistPicker(track) {
+  if (!playlistPickerOverlay || !playlistPickerList) return;
+  playlistPickerSong.textContent = `${track.title || "بدون نام"} — ${track.artist || "هنرمند نامشخص"}`;
+  playlistPickerList.innerHTML = "";
+
+  playlists.forEach((playlist, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "playlist-picker-item";
+    button.textContent = playlist.name;
+    button.addEventListener("click", () => addCurrentSongToPlaylist(index));
+    playlistPickerList.appendChild(button);
+  });
+
+  playlistPickerOverlay.classList.add("active");
+  playlistPickerOverlay.setAttribute("aria-hidden", "false");
+}
+
+playlistPickerClose?.addEventListener("click", closePlaylistPicker);
+playlistPickerOverlay?.addEventListener("click", function(event) {
+  if (event.target === playlistPickerOverlay) closePlaylistPicker();
+});
+playlistPickerNew?.addEventListener("click", function() {
+  const name = window.prompt("نام پلی لیست جدید را وارد کن:");
+  if (!name || !name.trim()) return;
+  const mood = "My playlist";
+  playlists.push({ name: name.trim(), mood, songs: [] });
+  localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  addCurrentSongToPlaylist(playlists.length - 1);
+});
+
+/* TANINFY CURATED PLAYLISTS */
+document.querySelectorAll("[data-curated-browse]").forEach(button => {
+  button.addEventListener("click", () => {
+    showPage("home");
+    setTimeout(() => {
+      document.getElementById("tracks")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  });
+});
+
+/* PLAYLIST STORAGE — retained for the personal add-to-playlist picker */
+const playlistKey = "taninfy-playlists";
+let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
+
+/* PROFILE */
+const profileKey = "taninfy-profile";
+
+function getLocalProfile() {
+  return JSON.parse(localStorage.getItem(profileKey) || "{}");
+}
+
+function updateMenuProfile(user, profile = {}) {
+  const menuProfile = document.getElementById("menuProfile");
+  const menuAvatar = document.getElementById("menuProfileAvatar");
+  const menuName = document.getElementById("menuProfileName");
+  const menuNickname = document.getElementById("menuProfileNickname");
+
+  if (!menuProfile || !menuAvatar || !menuName || !menuNickname) return;
+
+  if (!user) {
+    menuProfile.style.display = "none";
+    return;
+  }
+
+  const name = profile.name || user.displayName || "Taninfy User";
+  const nickname = (profile.nickname || name.toLowerCase().replace(/\\s+/g, "").slice(0, 18))
+    .replace(/^@/, "");
+
+  menuAvatar.src =
+    user.photoURL ||
+    profile.avatar ||
+    "https://ui-avatars.com/api/?name=" +
+      encodeURIComponent(name) +
+      "&background=3a1823&color=fff&size=128";
+
+  menuName.textContent = name;
+  menuNickname.textContent = "@" + nickname;
+  menuProfile.style.display = "flex";
+}
+
+function renderProfile(user) {
+  const guest = document.getElementById("profileGuestPanel");
+  const card = document.getElementById("profileCard");
+  const edit = document.getElementById("profileEditPanel");
+  if (!guest || !card || !edit) return;
+
+  if (!user) {
+    guest.style.display = "block";
+    card.style.display = "none";
+    edit.style.display = "none";
+    updateMenuProfile(null);
+    return;
+  }
+
+  guest.style.display = "none";
+  card.style.display = "grid";
+  edit.style.display = "block";
+
+  const saved = getLocalProfile();
+  const name = saved.name || user.displayName || "Taninfy User";
+  const nickname = saved.nickname || name.toLowerCase().replace(/\s+/g, "").slice(0, 18);
+  const avatar = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=256";
+
+  document.getElementById("profileAvatar").src = avatar;
+  document.getElementById("profileDisplayName").textContent = name;
+  document.getElementById("profileNicknameDisplay").textContent = "@" + nickname.replace(/^@/, "");
+  document.getElementById("profileNameDisplay").textContent = name;
+  document.getElementById("profileNicknameDisplay2").textContent = "@" + nickname.replace(/^@/, "");
+  document.getElementById("profileName").value = name;
+  document.getElementById("profileNickname").value = nickname.replace(/^@/, "");
+
+  updateMenuProfile(user, {
+    name,
+    nickname,
+    avatar
+  });
+}
+
+document.getElementById("profileForm").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("profileStatus").textContent = "اول وارد حساب شو.";
+    return;
+  }
+
+  const profile = {
+    name: document.getElementById("profileName").value.trim(),
+    nickname: document.getElementById("profileNickname").value.trim().replace(/^@/, "")
+  };
+
+  if (!profile.name || !profile.nickname) {
+    document.getElementById("profileStatus").textContent = "نام و نام کاربری را وارد کن.";
+    return;
+  }
+
+  const saveButton = this.querySelector("button[type=\"submit\"]");
+  saveButton.disabled = true;
+  document.getElementById("profileStatus").textContent = "در حال بررسی نام کاربری...";
+
+  try {
+    if (typeof window.saveTaninfyProfile === "function") {
+      await window.saveTaninfyProfile(profile);
+    } else {
+      // Local fallback only if Firebase profile storage is unavailable.
+      localStorage.setItem(profileKey, JSON.stringify(profile));
+    }
+
+    localStorage.setItem(profileKey, JSON.stringify(profile));
+    renderProfile(window.taninfyCurrentUser);
+    document.getElementById("profileStatus").textContent = "پروفایل ذخیره شد.";
+    showSuccessCheck("پروفایل با موفقیت ذخیره شد");
+  } catch (error) {
+    console.error(error);
+    document.getElementById("profileStatus").textContent =
+      error.code === "username-already-taken"
+        ? "این نام کاربری قبلاً استفاده شده. یک نام دیگر انتخاب کن."
+        : "ذخیره پروفایل انجام نشد. دوباره امتحان کن.";
+  } finally {
+    saveButton.disabled = false;
+  }
+});
+
+document.getElementById("profileLoginBtn").addEventListener("click", function() {
+  if (typeof showPage === "function") showPage("login");
+});
+
+
+/* CONTACT FORM */
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("contactStatus").textContent = "فرم آماده است؛ برای ارسال واقعی باید به سرویس دریافت پیام متصل شود.";
+});
+
+
+/* LOGIN / GOOGLE AUTHENTICATION */
+// Firebase Authentication is initialized in the module script at the end of the page.
+
+/* FULL SCREEN MUSIC PLAYER */
+const fullPlayer = document.getElementById("fullPlayer");
+const closeFullPlayer = document.getElementById("closeFullPlayer");
+const fullCover = document.getElementById("fullCover");
+const fullTitle = document.getElementById("fullTitle");
+const fullArtist = document.getElementById("fullArtist");
+const fullPlayBtn = document.getElementById("fullPlayBtn");
+const fullPrevBtn = document.getElementById("fullPrevBtn");
+const fullNextBtn = document.getElementById("fullNextBtn");
+const shuffleBtn = document.getElementById("shuffleBtn");
+const repeatBtn = document.getElementById("repeatBtn");
+const fullPlayerMore = document.getElementById("fullPlayerMore");
+const fullFavoriteBtn = document.getElementById("fullFavoriteBtn");
+const fullPlaylistBtn = document.getElementById("fullPlaylistBtn");
+const fullProgress = document.getElementById("fullProgress");
+const fullCurrentTime = document.getElementById("fullCurrentTime");
+const fullDuration = document.getElementById("fullDuration");
+
+const fullDownloadBtn = document.getElementById("fullDownloadBtn");
+
+async function downloadCurrentSong() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track || !track.src) {
+    alert("لینک دانلود این آهنگ در دسترس نیست.");
+    return;
+  }
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    const status = document.getElementById("loginStatus");
+    if (status) status.textContent = "برای دانلود آهنگ، ابتدا ثبت‌نام یا وارد حساب Taninfy شو؛ سپس دوباره روی دانلود بزن.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
+  const safeName = ((track.artist || "Taninfy") + " - " + (track.title || "song"))
+    .replace(/[\\/:*?"<>|]/g, "-").trim();
+  const link = document.createElement("a");
+  link.href = track.src;
+  link.download = safeName + (String(track.src).match(/\.(mp3|wav|m4a|ogg)(?:[?#]|$)/i)?.[1] ? "." + String(track.src).match(/\.(mp3|wav|m4a|ogg)(?:[?#]|$)/i)[1] : ".mp3");
+  link.rel = "noopener";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+fullDownloadBtn?.addEventListener("click", downloadCurrentSong);
+
+let shuffleEnabled = false;
+let repeatEnabled = false;
+
+function syncFullFavoriteButton(track) {
+  if (!fullFavoriteBtn || !track) return;
+  const active = favorites.some(item => item.songId === track.id || (item.title === track.title && item.artist === track.artist));
+  fullFavoriteBtn.classList.toggle("active", active);
+  fullFavoriteBtn.textContent = active ? "♥" : "♡";
+}
+
+async function toggleCurrentSongFavorite() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track) return;
+
+  if (window.taninfyAuthReady) await window.taninfyAuthReady;
+  if (!window.taninfyCurrentUser) {
+    document.getElementById("loginStatus").textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
+    if (typeof showPage === "function") showPage("login");
+    return;
+  }
+
+  const index = favorites.findIndex(item => item.songId === track.id || (item.title === track.title && item.artist === track.artist));
+  if (index >= 0) favorites.splice(index, 1);
+  else favorites.push({ songId: track.id || String(currentTrackIndex), title: track.title || "بدون نام", artist: track.artist || "هنرمند نامشخص" });
+
+  saveFavorites();
+  renderFavorites();
+  syncHearts();
+  syncFullFavoriteButton(track);
+}
+
+function openFullPlayer(track) {
+  if (!track) return;
+
+  fullTitle.textContent = track.title || "Unknown Song";
+  fullArtist.textContent = track.artist || "Unknown Artist";
+
+  const fullPlayerBackdrop = document.getElementById("fullPlayerBackdrop");
+  if (track.cover && !String(track.cover).includes("DIRECT-COVER-IMAGE-URL")) {
+    fullCover.src = track.cover;
+    fullCover.style.opacity = "1";
+    if (fullPlayerBackdrop) {
+      fullPlayerBackdrop.src = track.cover;
+      fullPlayerBackdrop.style.opacity = ".58";
+    }
+  } else {
+    fullCover.removeAttribute("src");
+    fullCover.style.opacity = "0";
+    if (fullPlayerBackdrop) {
+      fullPlayerBackdrop.removeAttribute("src");
+      fullPlayerBackdrop.style.opacity = "0";
+    }
+  }
+
+  fullPlayer.classList.add("active");
+  syncFullFavoriteButton(track);
+  updateFullPlayButton();
+}
+
+function closeFullMusicPlayer() {
+  fullPlayer.classList.remove("active");
+}
+
+closeFullPlayer?.addEventListener("click", closeFullMusicPlayer);
+
+if (fullFavoriteBtn) {
+  fullFavoriteBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    toggleCurrentSongFavorite();
+  });
+}
+
+if (fullPlaylistBtn) {
+  fullPlaylistBtn.addEventListener("click", function(event) {
+    event.stopPropagation();
+    openPlaylistPicker();
+  });
+}
+
+fullPlayerMore.addEventListener("click", async function() {
+  const track = songCatalog[currentTrackIndex];
+  if (!track) return;
+
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title: track.title || "Taninfy",
+        text: `${track.title || "Song"} — ${track.artist || "Taninfy"}`
+      });
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(window.location.href);
+      fullPlayerMore.title = "Link copied";
+      setTimeout(() => fullPlayerMore.title = "More", 1200);
+    }
+  } catch (error) {}
+});
+
+fullPlayer.addEventListener("click", function(event) {
+  if (event.target === fullPlayer) closeFullMusicPlayer();
+});
+
+fullPlayBtn.addEventListener("click", function() {
+  if (audioPlayer.paused) audioPlayer.play().catch(() => {});
+  else audioPlayer.pause();
+});
+
+function updateFullPlayButton() {
+  fullPlayBtn.textContent = audioPlayer.paused ? "▶" : "❚❚";
+}
+
+function formatFullTime(seconds) {
+  if (!seconds || isNaN(seconds)) return "0:00";
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
+}
+
+audioPlayer.addEventListener("timeupdate", function() {
+  if (!audioPlayer.duration) return;
+
+  fullProgress.value = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+  fullCurrentTime.textContent = formatFullTime(audioPlayer.currentTime);
+});
+
+audioPlayer.addEventListener("loadedmetadata", function() {
+  fullDuration.textContent = formatFullTime(audioPlayer.duration);
+  fullCurrentTime.textContent = "0:00";
+  fullProgress.value = 0;
+});
+
+fullProgress.addEventListener("input", function() {
+  if (!audioPlayer.duration) return;
+  audioPlayer.currentTime = (this.value / 100) * audioPlayer.duration;
+});
+
+fullPrevBtn.addEventListener("click", function() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const previousPosition = position <= 0 ? playbackIndices.length - 1 : position - 1;
+  setPlayerTrack(playbackIndices[previousPosition], true, activePlaybackIndices);
+});
+
+fullNextBtn.addEventListener("click", function() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  if (shuffleEnabled) {
+    playRandomTrack();
+    return;
+  }
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const nextPosition = position < 0 || position >= playbackIndices.length - 1 ? 0 : position + 1;
+  setPlayerTrack(playbackIndices[nextPosition], true, activePlaybackIndices);
+});
+
+shuffleBtn.addEventListener("click", function() {
+  shuffleEnabled = !shuffleEnabled;
+  shuffleBtn.classList.toggle("active", shuffleEnabled);
+  shuffleBtn.title = shuffleEnabled ? "Shuffle on" : "Shuffle";
+});
+
+repeatBtn.addEventListener("click", function() {
+  repeatEnabled = !repeatEnabled;
+  repeatBtn.classList.toggle("active", repeatEnabled);
+  repeatBtn.title = repeatEnabled ? "Repeat song on" : "Repeat";
+});
+
+function playRandomTrack() {
+  const playbackIndices = getActivePlaybackIndices();
+  if (playbackIndices.length <= 1) {
+    if (playbackIndices.length === 1) {
+      setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
+    }
+    return;
+  }
+
+  let randomIndex;
+  do {
+    randomIndex = playbackIndices[Math.floor(Math.random() * playbackIndices.length)];
+  } while (randomIndex === currentTrackIndex);
+
+  setPlayerTrack(randomIndex, true, activePlaybackIndices);
+}
+
+/* Clicking the mini-player body opens the large player.
+   Its buttons keep their own controls. */
+player.addEventListener("click", function(event) {
+  if (event.target.closest("button") || event.target.closest("input")) return;
+
+  if (currentTrackIndex >= 0 && songCatalog[currentTrackIndex]) {
+    openFullPlayer(songCatalog[currentTrackIndex]);
+  }
+});
+
+/* INITIALIZE */
+renderFavorites();
+renderFavoriteArtists();
+renderArtistDirectory();
+syncHearts();
+
+</script>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  runTransaction
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAYfNEIpJ_kWOR5XLqgfenBAJOMbmq6Qow",
+  authDomain: "taninfy-cc186.firebaseapp.com",
+  projectId: "taninfy-cc186",
+  storageBucket: "taninfy-cc186.firebasestorage.app",
+  messagingSenderId: "209069893864",
+  appId: "1:209069893864:web:c78e3bb04cf868e270c15d",
+  measurementId: "G-H24NR6WBZE"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+
+window.taninfyListeningStats = { songCounts: {}, artistCounts: {} };
+window.loadTaninfyListeningStats = async function(user) {
+  if (!user) {
+    window.taninfyListeningStats = { songCounts: {}, artistCounts: {} };
+    return;
+  }
+  try {
+    const statsRef = doc(db, "listeningStats", user.uid);
+    const statsSnap = await getDoc(statsRef);
+    window.taninfyListeningStats = statsSnap.exists()
+      ? { songCounts: statsSnap.data().songCounts || {}, artistCounts: statsSnap.data().artistCounts || {} }
+      : { songCounts: {}, artistCounts: {} };
+    if (typeof window.renderTaninfyExplore === "function") window.renderTaninfyExplore();
+  } catch (error) {
+    console.warn("Listening history could not be loaded.", error);
+  }
+};
+
+window.recordTaninfyListen = async function(song) {
+  const user = window.taninfyCurrentUser;
+  if (!user || !song) return;
+  const songKey = encodeURIComponent(String(song.id || `${song.artist}-${song.title}`));
+  const artistName = String(song.artist || "Unknown");
+  const statsRef = doc(db, "listeningStats", user.uid);
+  await runTransaction(db, async transaction => {
+    const snap = await transaction.get(statsRef);
+    const data = snap.exists() ? snap.data() : {};
+    const songCounts = { ...(data.songCounts || {}) };
+    const artistCounts = { ...(data.artistCounts || {}) };
+    songCounts[songKey] = Number(songCounts[songKey] || 0) + 1;
+    artistCounts[artistName] = Number(artistCounts[artistName] || 0) + 1;
+    transaction.set(statsRef, { songCounts, artistCounts, updatedAt: Date.now() }, { merge: true });
+    window.taninfyListeningStats = { songCounts, artistCounts };
+  });
+  if (typeof window.renderTaninfyExplore === "function") window.renderTaninfyExplore();
+};
+window.taninfyCurrentUser = null;
+
+function normalizeUsername(value) {
+  return String(value || "")
+    .trim()
+    .replace(/^@/, "")
+    .toLocaleLowerCase()
+    .replace(/\\s+/g, "");
+}
+
+window.saveTaninfyProfile = async function(profile) {
+  const user = window.taninfyCurrentUser;
+  if (!user) throw new Error("not-authenticated");
+
+  const nickname = normalizeUsername(profile.nickname);
+  if (!nickname) throw new Error("invalid-username");
+
+  const profileRef = doc(db, "profiles", user.uid);
+  const usernameRef = doc(db, "usernames", nickname);
+
+  const currentProfileSnap = await getDoc(profileRef);
+  const oldNickname = normalizeUsername(
+    currentProfileSnap.exists() ? currentProfileSnap.data().nickname : ""
+  );
+  const oldUsernameRef = oldNickname ? doc(db, "usernames", oldNickname) : null;
+
+  await runTransaction(db, async (transaction) => {
+    const usernameSnap = await transaction.get(usernameRef);
+
+    if (usernameSnap.exists() && usernameSnap.data().uid !== user.uid) {
+      const error = new Error("username-already-taken");
+      error.code = "username-already-taken";
+      throw error;
+    }
+
+    if (oldUsernameRef && oldNickname !== nickname) {
+      const oldSnap = await transaction.get(oldUsernameRef);
+      if (oldSnap.exists() && oldSnap.data().uid === user.uid) {
+        transaction.delete(oldUsernameRef);
+      }
+    }
+
+    transaction.set(usernameRef, {
+      uid: user.uid,
+      nickname
+    });
+
+    transaction.set(profileRef, {
+      uid: user.uid,
+      name: profile.name,
+      nickname,
+      avatar: user.photoURL || "",
+      updatedAt: Date.now()
+    }, { merge: true });
+  });
+
+  return { ...profile, nickname };
+};
+
+async function loadTaninfyProfile(user) {
+  if (!user) return;
+
+  try {
+    const snap = await getDoc(doc(db, "profiles", user.uid));
+
+    if (snap.exists()) {
+      const remoteProfile = snap.data();
+      localStorage.setItem(profileKey, JSON.stringify({
+        name: remoteProfile.name || user.displayName || "Taninfy User",
+        nickname: remoteProfile.nickname || "",
+        avatar: remoteProfile.avatar || user.photoURL || ""
+      }));
+      renderProfile(user);
+    }
+  } catch (error) {
+    console.warn("Taninfy profile could not be loaded from Firestore.", error);
+  }
+}
+window.taninfyAuthReady = new Promise(resolve => {
+  onAuthStateChanged(auth, async user => {
+    window.taninfyCurrentUser = user || null;
+    renderProfile(user || null);
+    if (user) {
+      await loadTaninfyProfile(user);
+      await window.loadTaninfyListeningStats(user);
+    } else {
+      await window.loadTaninfyListeningStats(null);
+    }
+
+    const accountBox = document.getElementById("userAccountBox");
+    const loginBtn = document.getElementById("googleLoginBtn");
+    const signedAvatar = document.getElementById("signedUserAvatar");
+    const signedName = document.getElementById("signedUserName");
+    const topLoginLink = document.getElementById("topLoginLink");
+    const topAccountLink = document.getElementById("topAccountLink");
+    const topAccountAvatar = document.getElementById("topAccountAvatar");
+    const topAccountName = document.getElementById("topAccountName");
+
+    if (user) {
+      const name = user.displayName || "Taninfy User";
+      signedName.textContent = name;
+      signedAvatar.src = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=96";
+      accountBox.style.display = "flex";
+      if (topLoginLink) topLoginLink.style.display = "none";
+      if (topAccountLink) topAccountLink.style.display = "inline-flex";
+      if (topAccountAvatar) topAccountAvatar.src = user.photoURL || "https://ui-avatars.com/api/?name=" + encodeURIComponent(name) + "&background=3a1823&color=fff&size=96";
+      if (topAccountName) topAccountName.textContent = name;
+      loginBtn.textContent = "Google account connected";
+      loginBtn.disabled = true;
+      loginBtn.style.opacity = ".65";
+    } else {
+      accountBox.style.display = "none";
+      if (topLoginLink) topLoginLink.style.display = "inline-flex";
+      if (topAccountLink) topAccountLink.style.display = "none";
+      loginBtn.textContent = "Continue with Google";
+      loginBtn.disabled = false;
+      loginBtn.style.opacity = "1";
+    }
+    resolve(user || null);
+  });
+});
+
+window.showSuccessCheck = function(message) {
+  const overlay = document.getElementById("successCheckOverlay");
+  const text = document.getElementById("successCheckText");
+  if (!overlay) return;
+  text.textContent = message || "با موفقیت انجام شد";
+  overlay.classList.remove("active", "animate");
+  void overlay.offsetWidth;
+  overlay.classList.add("active", "animate");
+  setTimeout(() => overlay.classList.remove("active", "animate"), 1700);
+};
+
+document.getElementById("googleLoginBtn").addEventListener("click", async () => {
+  const status = document.getElementById("loginStatus");
+  const btn = document.getElementById("googleLoginBtn");
+  status.textContent = "در حال اتصال به Google...";
+  btn.disabled = true;
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const firstLogin = !localStorage.getItem("taninfy-profile");
+    renderProfile(result.user);
+    status.textContent = "با موفقیت وارد شدی.";
+    showSuccessCheck(firstLogin ? "ثبت‌نام با موفقیت انجام شد" : "ورود با موفقیت انجام شد");
+    if (firstLogin && typeof showPage === "function") setTimeout(() => showPage("profile"), 1200);
+  } catch (error) {
+    console.error(error);
+    if (error.code === "auth/popup-closed-by-user") status.textContent = "پنجره Google بسته شد.";
+    else if (error.code === "auth/unauthorized-domain") status.textContent = "دامنه سایت هنوز در Firebase مجاز نشده است.";
+    else status.textContent = "ورود با Google انجام نشد. دوباره امتحان کن.";
+    btn.disabled = false;
+  }
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+  document.getElementById("loginStatus").textContent = "از حساب خارج شدی.";
+});
+</script>
+
+<script>
+(function(){
+  const topSearch = document.getElementById("topMusicSearch");
+  if (topSearch) {
+    topSearch.addEventListener("input", () => {
+      const query = topSearch.value.trim().toLocaleLowerCase();
+      const trackCards = document.querySelectorAll("#trackList .track");
+      trackCards.forEach(card => {
+        card.style.display = !query || card.textContent.toLocaleLowerCase().includes(query) ? "" : "none";
+      });
+      if (query) document.getElementById("tracks")?.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  }
+  document.querySelectorAll(".sidebar-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".sidebar-nav a").forEach(item => item.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+})();
+</script>
+
+
+<script>
+/* TANINFY SETTINGS — saved locally on this device */
+(function () {
+  const storageKey = "taninfy-settings";
+  const defaults = {
+    theme: "dark", accent: "#d5a0ad", textScale: "1",
+    publicProfile: true, showPlaylists: true
+  };
+  let settings;
+  let storedSettings = null;
+  try { storedSettings = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (_) { storedSettings = null; }
+  settings = { ...defaults, ...(storedSettings && typeof storedSettings === "object" ? storedSettings : {}) };
+  if (!storedSettings || !["dark", "light"].includes(settings.theme)) settings.theme = "dark";
+  delete settings.autoplay; delete settings.shuffle; delete settings.repeat;
+  delete settings.volume; delete settings.newMusic; delete settings.artistNews;
+  window.taninfySettings = settings;
+
+  const $ = id => document.getElementById(id);
+  function save() {
+    localStorage.setItem(storageKey, JSON.stringify(settings));
+    const status = $("settingsStatus");
+    if (status) status.textContent = "تنظیمات ذخیره شد.";
+  }
+  function applyTheme() {
+    document.body.classList.toggle("light-theme", settings.theme === "light");
+    document.documentElement.style.setProperty("--pink", settings.accent);
+    document.documentElement.style.setProperty("--wine2", settings.accent);
+    document.documentElement.style.setProperty("--wine", settings.accent);
+    // Apply the selected accent to components that previously used hard-coded burgundy colors.
+    let accentStyle = document.getElementById("taninfyAccentOverrides");
+    if (!accentStyle) {
+      accentStyle = document.createElement("style");
+      accentStyle.id = "taninfyAccentOverrides";
+      document.head.appendChild(accentStyle);
+    }
+    accentStyle.textContent = `
+      /* Self-contained theme overrides — no undefined template variables. */
+      body.light-theme {
+        --bg:#f4eff1;
+        --panel:#ffffff;
+        --text:#111111;
+        --muted:#5f555a;
+        --line:rgba(40,28,33,.14);
+      }
+      body.light-theme .curated-card,
+      body.light-theme .playlist-picker,
+      body.light-theme .panel,
+      body.light-theme .settings-card {
+        color:#111 !important;
+      }
+      body.light-theme .playlist-detail-song-info strong,
+      body.light-theme .playlist-detail-meta h2,
+      body.light-theme .playlist-detail-list-head,
+      body.light-theme .playlist-detail-kicker,
+      body.light-theme .playlist-detail-back,
+      body.light-theme .playlist-detail-actions button {
+        color:#111 !important;
+      }
+      body.light-theme .playlist-detail-song-info span,
+      body.light-theme .playlist-detail-list-head span:last-child {
+        color:#2b2528 !important;
+      }
+      .btn-primary, .top-login, .segmented-control button.active { background:linear-gradient(135deg, ${settings.accent}, color-mix(in srgb, ${settings.accent} 62%, #171017)) !important; border-color:${settings.accent} !important; }
+      /* Keep the navigation bar and its selected state in sync with the chosen accent. */
+      .app-sidebar { background:color-mix(in srgb, ${settings.accent} 13%, #100c0f) !important; border-color:color-mix(in srgb, ${settings.accent} 35%, transparent) !important; }
+      body.light-theme .app-sidebar { background:color-mix(in srgb, ${settings.accent} 12%, #ffffff) !important; border-color:color-mix(in srgb, ${settings.accent} 32%, #ffffff) !important; }
+      .sidebar-nav a.active, .sidebar-nav a:hover, .sidebar-bottom a:hover { background:color-mix(in srgb, ${settings.accent} 25%, transparent) !important; }
+      .sidebar-nav a.active, .sidebar-brand strong, .sidebar-logo, .topbar-arrow, .top-search span { color:${settings.accent} !important; }
+      .sidebar-logo { border-color:${settings.accent} !important; }
+      .mix, .mix:nth-child(2), .mix:nth-child(3) { background:linear-gradient(135deg, color-mix(in srgb, ${settings.accent} 38%, #171017), #171017) !important; }
+      .mix small, .mix::after, .hero h1 em, .profile-kicker, .profile-main p, .custom-accent { color:${settings.accent} !important; }
+      .mix::after { background:color-mix(in srgb, ${settings.accent} 20%, transparent) !important; }
+      .switch input:checked+span { background:${settings.accent} !important; }
+      /* Keep full-player play/pause icon transparent; accent applies only to compact play controls. */
+      .play-btn, .track-play { background:${settings.accent} !important; border-color:${settings.accent} !important; color:color-mix(in srgb, ${settings.accent} 35%, #171017) !important; }
+      .full-play-btn svg, .play-btn svg, .track-play svg { fill:currentColor !important; }
+      .track:hover { background:color-mix(in srgb, ${settings.accent} 10%, transparent) !important; }
+      .settings-symbol { color:${settings.accent} !important; background:color-mix(in srgb, ${settings.accent} 13%, transparent) !important; }
+      .btn-primary:hover { filter:brightness(1.12); }
+    `;
+    document.documentElement.style.setProperty("--text-scale", String(Number(settings.textScale) || 1));
+    /* body.zoom breaks fixed player/sidebar positioning; keep layout at 1:1. */
+    document.body.style.zoom = "1";
+    document.body.style.fontSize = `calc(16px * ${Number(settings.textScale) || 1})`;
+    document.querySelectorAll("[data-theme-mode]").forEach(btn =>
+      btn.classList.toggle("active", btn.dataset.themeMode === settings.theme));
+    document.querySelectorAll(".accent-swatch").forEach(btn =>
+      btn.classList.toggle("active", btn.dataset.accent.toLowerCase() === settings.accent.toLowerCase()));
+    if ($("customAccent")) $("customAccent").value = settings.accent;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = settings.theme === "light" ? "#f4eff1" : "#090809";
+  }
+  function syncControls() {
+    const map = {
+      settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists"
+    };
+    Object.entries(map).forEach(([id,key]) => { if ($(id)) $(id).checked = !!settings[key]; });
+    if ($("textScale")) $("textScale").value = settings.textScale;
+  }
+  document.querySelectorAll("[data-theme-mode]").forEach(btn => btn.addEventListener("click", () => {
+    settings.theme = btn.dataset.themeMode; applyTheme(); save();
+  }));
+  document.querySelectorAll(".accent-swatch").forEach(btn => btn.addEventListener("click", () => {
+    settings.accent = btn.dataset.accent; applyTheme(); save();
+  }));
+  $("customAccent")?.addEventListener("input", e => { settings.accent = e.target.value; applyTheme(); save(); });
+  $("textScale")?.addEventListener("change", e => { settings.textScale = e.target.value; applyTheme(); save(); });
+  const toggles = {
+    settingPublicProfile:"publicProfile", settingShowPlaylists:"showPlaylists"
+  };
+  Object.entries(toggles).forEach(([id,key]) => $(id)?.addEventListener("change", e => {
+    settings[key] = e.target.checked;
+    if (key === "shuffle" && typeof shuffleEnabled !== "undefined") {
+      shuffleEnabled = settings.shuffle;
+      if (typeof shuffleBtn !== "undefined" && shuffleBtn) shuffleBtn.classList.toggle("active", settings.shuffle);
+    }
+    if (key === "repeat" && typeof repeatEnabled !== "undefined") {
+      repeatEnabled = settings.repeat;
+      if (typeof repeatBtn !== "undefined" && repeatBtn) repeatBtn.classList.toggle("active", settings.repeat);
+    }
+    save();
+  }));
+  $("settingVolume")?.addEventListener("input", e => {
+    settings.volume = Number(e.target.value);
+    if (typeof audioPlayer !== "undefined") audioPlayer.volume = settings.volume / 100;
+    if ($("volumeValue")) $("volumeValue").textContent = settings.volume.toLocaleString("fa-IR") + "٪";
+    save();
+  });
+  $("resetSettings")?.addEventListener("click", () => {
+    settings = { ...defaults }; window.taninfySettings = settings;
+    applyTheme(); syncControls(); save();
+    if ($("settingsStatus")) $("settingsStatus").textContent = "تنظیمات به حالت پیش‌فرض برگشت.";
+  });
+  applyTheme();
+  syncControls();
+})();
+
+/* Keep the dedicated playlist view synchronized with the global player. */
+if (typeof audioPlayer !== "undefined") {
+  audioPlayer.addEventListener("play", updatePlaylistDetailPlaying);
+  audioPlayer.addEventListener("pause", updatePlaylistDetailPlaying);
+  audioPlayer.addEventListener("ended", updatePlaylistDetailPlaying);
+}
+
+</script>
+
+
+
+
+<style>
+
+/* TANINFY — iOS-inspired Explore refinement (scoped to Explore only) */
+#page-home{
+  --explore-glass:rgba(255,255,255,.045);
+  --explore-line:rgba(255,220,230,.10);
+  --explore-muted:#aa9ba2;
+}
+#page-home .explore-heading{gap:14px!important;align-items:center!important;margin-bottom:25px!important}
+#page-home .explore-heading h1{font-size:clamp(32px,3vw,42px)!important;letter-spacing:-1.6px!important;font-weight:750!important}
+#page-home .explore-heading span{background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important;border-radius:999px!important;padding:8px 14px!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+#page-home .hero{display:flex!important;align-items:center;min-height:168px!important;padding:27px 32px!important;margin:0 0 38px!important;position:relative;overflow:hidden;border:1px solid var(--explore-line);border-radius:25px!important;background:radial-gradient(80% 130% at 100% 0%,rgba(154,63,94,.30),transparent 62%),radial-gradient(70% 110% at 0% 100%,rgba(90,38,62,.26),transparent 65%),linear-gradient(135deg,rgba(35,20,29,.96),rgba(16,12,16,.94))!important;box-shadow:0 18px 48px rgba(0,0,0,.20),inset 0 1px rgba(255,255,255,.045)!important}
+#page-home .hero:before{content:"TANINFY  /  YOUR PERSONAL SOUNDSPACE";display:block;position:relative;z-index:1;color:#d5a0ad;font-size:10px;letter-spacing:2.2px;font-weight:700;margin-bottom:13px}
+#page-home .hero:after{content:none!important;display:none!important}
+#page-home .hero-copy,#page-home .visual{display:none!important}
+#page-home .hero:before{align-self:flex-start}
+#page-home #mixes,#page-home .tracks{position:relative}
+#page-home .section-title{display:flex;justify-content:space-between;align-items:center;margin:0 0 17px!important;padding:0 2px}
+#page-home .section-title h2{font-size:clamp(18px,1.7vw,23px)!important;font-weight:700!important;letter-spacing:-.45px}
+#page-home .section-title p{font-size:12px!important;margin-top:4px;color:var(--explore-muted)!important}
+#page-home .section-title:after{border-radius:999px!important;background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important;padding:7px 15px!important;font-size:11px!important;backdrop-filter:blur(14px)}
+#page-home .curated-playlists{gap:20px!important;margin-top:18px!important}
+#page-home .curated-card{border-radius:0!important;padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transition:transform .22s ease!important}
+#page-home .curated-card:hover{transform:translateY(-4px)!important;border:0!important;background:transparent!important;box-shadow:none!important}
+#page-home .curated-card .curated-cover{border-radius:14px!important;border:0!important;box-shadow:none!important}
+#page-home .curated-info{padding:12px 5px 5px!important}
+#page-home .curated-info h2{font-size:14px!important}
+#page-home .curated-info p{font-size:11px!important;margin-bottom:10px!important}
+#page-home .curated-info button{border-radius:999px!important;background:rgba(213,160,173,.09)!important;border-color:rgba(213,160,173,.20)!important;backdrop-filter:blur(12px)}
+#page-home .tracks{margin-top:42px!important}
+#page-home #trackList.track-list{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+#page-home #trackList .track{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;min-width:0!important;min-height:0!important;padding:9px!important;border:1px solid var(--explore-line)!important;border-radius:19px!important;background:var(--explore-glass)!important;box-shadow:0 10px 28px rgba(0,0,0,.12)!important;transition:transform .22s ease,border-color .22s ease,background .22s ease!important;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+#page-home #trackList .track:hover{transform:translateY(-3px);background:rgba(255,255,255,.065)!important;border-color:rgba(213,160,173,.27)!important}
+#page-home #trackList .track-cover-wrap{width:100%!important;height:auto!important;aspect-ratio:1/1!important;flex:0 0 auto!important;border-radius:13px!important;overflow:hidden!important}
+#page-home #trackList .track-cover-thumb{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:13px!important}
+#page-home #trackList .track-cover-play{border-radius:13px!important;opacity:0!important;background:rgba(10,7,10,.25)!important;backdrop-filter:blur(2px);transition:opacity .2s ease,background .2s ease!important}
+#page-home #trackList .track:hover .track-cover-play,#page-home #trackList .track.is-playing .track-cover-play{opacity:1!important;background:rgba(10,7,10,.38)!important}
+#page-home #trackList .track-info{min-width:0!important;padding:11px 4px 3px!important;text-align:left!important}
+#page-home #trackList .track-title{display:block!important;color:#fff5f8!important;font-size:13px!important;line-height:1.7!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;display:-webkit-box!important;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden!important;min-height:2.9em}
+#page-home #trackList .track-artist{display:block!important;color:var(--explore-muted)!important;font-size:10.5px!important;margin-top:2px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+#page-home #trackList .heart-btn{align-self:flex-end!important;margin:0 3px 3px!important;width:30px!important;height:30px!important;border-radius:50%!important;background:rgba(255,255,255,.045)!important;border:1px solid var(--explore-line)!important}
+body.light-theme #page-home .hero{background:radial-gradient(80% 130% at 100% 0%,rgba(174,95,120,.20),transparent 62%),linear-gradient(135deg,#fff9fb,#f2e8ed)!important;border-color:rgba(74,35,49,.12)!important}
+body.light-theme #page-home .hero:after{content:none!important;display:none!important}
+body.light-theme #page-home .curated-card,body.light-theme #page-home #trackList .track{background:rgba(255,255,255,.66)!important;border-color:rgba(74,35,49,.11)!important}
+body.light-theme #page-home #trackList .track-title{color:#34232a!important}
+body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
+@media(max-width:1000px){
+ #page-home #trackList.track-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+ #page-home .curated-playlists{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:650px){
+ #page-home .explore-heading{flex-wrap:wrap!important;margin-bottom:18px!important}
+ #page-home .explore-heading h1{font-size:31px!important}
+ #page-home .explore-heading span{font-size:10px!important}
+ #page-home .hero{min-height:142px!important;padding:22px 19px!important;border-radius:20px!important;margin-bottom:30px!important}
+ #page-home .hero:before{font-size:8px;letter-spacing:1.5px}
+ #page-home .hero:after{left:19px;top:48px;font-size:22px;line-height:1.65}
+ #page-home .section-title h2{font-size:18px!important}
+ #page-home .section-title p{font-size:10px!important}
+ #page-home .curated-playlists{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ #page-home .curated-card{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+ #page-home .curated-card .curated-cover{border-radius:11px!important}
+ #page-home .curated-info{padding:9px 3px 4px!important}
+ #page-home .curated-info h2{font-size:12px!important}
+ #page-home .curated-info p{font-size:10px!important;line-height:1.7!important}
+ #page-home .curated-info button{font-size:10px!important;padding:7px 10px!important}
+ #page-home .tracks{margin-top:31px!important}
+ #page-home #trackList.track-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ #page-home #trackList .track{padding:7px!important;border-radius:15px!important}
+ #page-home #trackList .track-cover-wrap,#page-home #trackList .track-cover-thumb{border-radius:10px!important}
+ #page-home #trackList .track-info{padding:8px 2px 2px!important}
+ #page-home #trackList .track-title{font-size:11.5px!important;min-height:2.9em}
+ #page-home #trackList .track-artist{font-size:9.5px!important}
+}
+
+</style>
+
+<style>
+
+
+/* TANINFY: remove the glass tile behind each Explore song cover */
+#page-home #trackList .track{
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#page-home #trackList .track:hover{
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(-2px) !important;
+}
+#page-home #trackList .track-cover-wrap{
+  border-radius: 13px !important;
+  box-shadow: none !important;
+}
+#page-home #trackList .track-info{
+  padding: 10px 0 3px !important;
+}
+#page-home #trackList .heart-btn{
+  margin-right: 0 !important;
+}
+
+</style>
+</body>
+</html>
+
+
+<style>
+/* TANINFY — EXPLORE COVER SIZE FIX */
+#trackList.track-list{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:34px 24px !important;
+}
+#trackList .track-cover-wrap{
+  width:100% !important;
+  aspect-ratio:1 / 1 !important;
+  border-radius:16px !important;
+}
+#trackList .track-cover-thumb{
+  width:100% !important;
+  height:100% !important;
+  border-radius:16px !important;
+}
+#trackList .track-info{
+  padding-top:12px !important;
+}
+#trackList .track-title{
+  font-size:15px !important;
+}
+#trackList .track-artist{
+  font-size:11.5px !important;
+}
+@media(max-width:1000px){
+  #trackList.track-list{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:28px 18px !important;
+  }
+}
+@media(max-width:650px){
+  #trackList.track-list{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:22px 13px !important;
+  }
+  #trackList .track-cover-wrap,#trackList .track-cover-thumb{
+    border-radius:13px !important;
+  }
+  #trackList .track-info{padding-top:8px !important;}
+  #trackList .track-title{font-size:12.5px !important;}
+  #trackList .track-artist{font-size:10.5px !important;}
+}
+</style>
+
+<style>
+/* Final full-player refinements */
+.full-player-content { width: min(68vw, 560px) !important; box-sizing: border-box !important; }
+.full-play-btn, #fullPlayBtn { background: transparent !important; background-color: transparent !important; background-image: none !important; border: 0 !important; border-color: transparent !important; border-radius: 0 !important; box-shadow: none !important; outline: 0 !important; color: #fff !important; }
+.full-play-btn:hover, .full-play-btn:focus, .full-play-btn:active, #fullPlayBtn:hover, #fullPlayBtn:focus, #fullPlayBtn:active { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
+@media (max-width: 700px) { .full-player-content { width: min(88vw, 540px) !important; } }
+</style>
