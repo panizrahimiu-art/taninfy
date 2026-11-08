@@ -55,7 +55,7 @@ window.TANINFY_SONGS = [
   },
   {
     title: "Delm Az Donya Gerefte",
-    artist: "Hoomaan",
+    artist: "Hoomaan & Khalse",
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Delm%20Az%20Donya%20Gerefte%20(320).mp3",
