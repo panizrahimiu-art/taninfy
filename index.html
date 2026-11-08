@@ -3864,6 +3864,80 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 .playlist-detail-song-cover-wrap { border-radius:10px !important; }
 </style>
 
+
+<style>
+/* TANINFY — GLASS CLASSIC PLAYER (iPod-inspired) */
+.player {
+  display: none; position: fixed !important; z-index: 999 !important;
+  left: auto !important; right: 28px !important; bottom: 22px !important;
+  width: min(356px, calc(100vw - 28px)); height: auto !important;
+  padding: 18px !important; border: 1px solid rgba(255,255,255,.19) !important;
+  border-radius: 34px !important;
+  background: linear-gradient(145deg, rgba(80,76,78,.82), rgba(37,34,36,.88)) !important;
+  box-shadow: 0 22px 65px rgba(0,0,0,.48), inset 0 1px 0 rgba(255,255,255,.19), inset 0 -1px 0 rgba(0,0,0,.24) !important;
+  backdrop-filter: blur(30px) saturate(125%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(125%) !important;
+  overflow: hidden; opacity: 1 !important;
+}
+.player.visible { display: block !important; }
+.player::before { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background:linear-gradient(135deg,rgba(255,255,255,.09),transparent 42%,rgba(0,0,0,.12)); }
+.player::after { content:none !important; }
+.player-inner {
+  width:100% !important; height:auto !important; margin:0 !important; padding:0 !important;
+  position:relative; z-index:1; display:flex !important; flex-direction:column;
+  align-items:stretch !important; gap:0 !important;
+}
+.player-screen {
+  width:100%; aspect-ratio:1 / 1; padding:0; margin:0 0 14px;
+  border-radius:23px; overflow:hidden; background:rgba(0,0,0,.88);
+  box-shadow:0 8px 22px rgba(0,0,0,.24), inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.mini-player-cover {
+  display:block !important; width:100% !important; height:100% !important; min-width:0 !important;
+  object-fit:cover; border:0 !important; border-radius:0 !important; box-shadow:none !important;
+  background:linear-gradient(145deg,#21141a,#080708);
+}
+.now-playing { width:100%; min-width:0; text-align:left; direction:ltr; padding:0 3px; margin-bottom:16px; }
+.now-playing strong { display:block; color:#fff !important; font-size:15px !important; font-weight:650; line-height:1.45; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.now-playing span { display:block; color:rgba(255,255,255,.68) !important; font-size:12px !important; margin-top:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mini-progress-area { display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:10px; direction:ltr; color:rgba(255,255,255,.72); font:11px Arial,sans-serif; margin:0 3px 18px; }
+#miniProgress, #miniVolume { appearance:none; -webkit-appearance:none; width:100%; min-width:0; height:4px; border:0; border-radius:20px; outline:none; cursor:pointer; }
+#miniProgress { background:linear-gradient(to right,#fff 0%,#fff var(--progress,0%),rgba(255,255,255,.35) var(--progress,0%),rgba(255,255,255,.35) 100%); }
+#miniVolume { background:linear-gradient(to right,#fff 0%,#fff var(--volume,80%),rgba(255,255,255,.34) var(--volume,80%),rgba(255,255,255,.34) 100%); }
+#miniProgress::-webkit-slider-thumb, #miniVolume::-webkit-slider-thumb { appearance:none; -webkit-appearance:none; width:13px; height:13px; border-radius:50%; background:#fff; border:0; box-shadow:0 1px 4px rgba(0,0,0,.24); }
+#miniProgress::-moz-range-thumb, #miniVolume::-moz-range-thumb { width:13px; height:13px; border-radius:50%; background:#fff; border:0; }
+.player-controls { display:flex !important; align-items:center; justify-content:center !important; gap:34px !important; direction:ltr !important; margin:0 0 18px; }
+.player-controls button { color:#fff !important; background:transparent !important; border:0 !important; box-shadow:none !important; }
+.player-controls .skip-btn { width:45px; height:45px; }
+.player-controls .skip-btn svg { width:31px; height:31px; stroke-width:2.1; }
+.player-controls .play-main { width:58px !important; height:58px !important; min-width:58px; background:transparent !important; border:0 !important; box-shadow:none !important; }
+.player-controls .play-icon { font-size:27px; transform:none; }
+.player-controls .buffer-ring { display:none; }
+.mini-volume-area { display:flex; align-items:center; gap:12px; direction:ltr; padding:0 3px 2px; }
+.volume-icon { display:grid; place-items:center; width:22px; height:22px; color:rgba(255,255,255,.8); flex:0 0 auto; }
+.volume-icon svg { width:21px; height:21px; fill:currentColor; stroke:currentColor; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+.volume-icon.loud svg { width:24px; height:24px; }
+.player-label { display:none !important; }
+@media(max-width:650px) {
+  .player { left:50% !important; right:auto !important; transform:translateX(-50%); bottom:82px !important; width:min(330px,calc(100vw - 28px)); padding:14px !important; border-radius:29px !important; }
+  .player-screen { border-radius:19px; margin-bottom:11px; }
+  .now-playing { margin-bottom:13px; }
+  .now-playing strong { font-size:13px !important; }
+  .now-playing span { font-size:11px !important; }
+  .mini-progress-area { margin-bottom:14px; gap:8px; font-size:10px; }
+  .player-controls { gap:29px !important; margin-bottom:14px; }
+  .player-controls .skip-btn { width:40px; height:40px; }
+  .player-controls .skip-btn svg { width:28px; height:28px; }
+  .player-controls .play-main { width:52px !important; height:52px !important; min-width:52px; }
+  .mini-volume-area { gap:9px; }
+}
+@media(max-height:700px) and (max-width:650px) {
+  .player { width:min(290px,calc(100vw - 28px)); padding:11px !important; bottom:70px !important; }
+  .player-screen { max-height:29vh; aspect-ratio:1 / 1; }
+  .now-playing { margin-bottom:9px; } .mini-progress-area { margin-bottom:10px; } .player-controls { margin-bottom:9px; }
+}
+</style>
+
 </head>
 
 <body>
@@ -4378,28 +4452,27 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
 <!-- MINI PLAYER -->
 
-<div class="player">
+<div class="player" aria-label="پخش‌کننده موسیقی طنین‌فای">
+  <div class="player-inner">
+    <div class="player-screen">
+      <img id="miniPlayerCover" class="mini-player-cover" src="" alt="کاور آهنگ">
+    </div>
 
-  <div class="wrap player-inner">
+    <div class="now-playing">
+      <strong id="nowTitle">هنوز چیزی انتخاب نشده</strong>
+      <span id="nowArtist">TANINFY MUSIC</span>
+    </div>
 
-    <div class="now-playing-wrap">
-      <img
-        id="miniPlayerCover"
-        class="mini-player-cover"
-        src=""
-        alt="کاور آهنگ"
-      >
-      <div class="now-playing">
-        <strong id="nowTitle">هنوز چیزی انتخاب نشده</strong>
-        <span id="nowArtist">TANINFY MUSIC</span>
-      </div>
+    <div class="mini-progress-area">
+      <span id="miniCurrentTime">0:00</span>
+      <input type="range" id="miniProgress" min="0" max="100" value="0" aria-label="موقعیت آهنگ">
+      <span id="miniDuration">0:00</span>
     </div>
 
     <div class="player-controls">
       <button id="previousTrack" class="skip-btn" aria-label="آهنگ قبلی">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 10 12l8 5.5V6.5Z"></path></svg>
       </button>
-
       <button class="play-main" id="mainPlay" aria-label="پخش یا توقف">
         <svg class="buffer-ring" viewBox="0 0 40 40" aria-hidden="true">
           <circle class="buffer-ring-bg" cx="20" cy="20" r="17"></circle>
@@ -4407,16 +4480,21 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
         </svg>
         <span class="play-icon" id="playIcon">▶</span>
       </button>
-
       <button id="nextTrack" class="skip-btn" aria-label="آهنگ بعدی">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14 12l-8 5.5V6.5Z"></path></svg>
       </button>
     </div>
 
-    <div class="player-label">YOUR MOOD, YOUR SOUND</div>
-
+    <div class="mini-volume-area">
+      <span class="volume-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11"/></svg>
+      </span>
+      <input type="range" id="miniVolume" min="0" max="1" step="0.01" value="0.8" aria-label="تنظیم صدا">
+      <span class="volume-icon loud" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11"/></svg>
+      </span>
+    </div>
   </div>
-
 </div>
 
 <script src="songs.js"></script>
@@ -5774,6 +5852,50 @@ mainPlay.addEventListener("click", async function(event) {
   } else {
     audioPlayer.pause();
   }
+});
+
+const miniProgress = document.getElementById("miniProgress");
+const miniCurrentTime = document.getElementById("miniCurrentTime");
+const miniDuration = document.getElementById("miniDuration");
+const miniVolume = document.getElementById("miniVolume");
+
+function formatMiniPlayerTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60).toString().padStart(2, "0");
+  return `${mins}:${secs}`;
+}
+
+function updateMiniPlayerProgress() {
+  const duration = audioPlayer.duration;
+  if (!Number.isFinite(duration) || duration <= 0) return;
+  const percent = (audioPlayer.currentTime / duration) * 100;
+  miniProgress.value = percent;
+  miniProgress.style.setProperty("--progress", `${percent}%`);
+  miniCurrentTime.textContent = formatMiniPlayerTime(audioPlayer.currentTime);
+}
+
+audioPlayer.addEventListener("timeupdate", updateMiniPlayerProgress);
+audioPlayer.addEventListener("loadedmetadata", function() {
+  miniDuration.textContent = formatMiniPlayerTime(audioPlayer.duration);
+  updateMiniPlayerProgress();
+});
+audioPlayer.addEventListener("durationchange", function() {
+  miniDuration.textContent = formatMiniPlayerTime(audioPlayer.duration);
+});
+
+miniProgress.addEventListener("input", function() {
+  if (!Number.isFinite(audioPlayer.duration) || audioPlayer.duration <= 0) return;
+  audioPlayer.currentTime = (Number(this.value) / 100) * audioPlayer.duration;
+  this.style.setProperty("--progress", `${this.value}%`);
+});
+
+miniVolume.value = String(audioPlayer.volume);
+miniVolume.style.setProperty("--volume", `${audioPlayer.volume * 100}%`);
+miniVolume.addEventListener("input", function() {
+  const volume = Math.max(0, Math.min(1, Number(this.value)));
+  audioPlayer.volume = volume;
+  this.style.setProperty("--volume", `${volume * 100}%`);
 });
 
 previousTrack.addEventListener("click", function() {
