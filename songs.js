@@ -526,7 +526,7 @@ window.TANINFY_SONGS = [
     artist: "Hoomaan & Arown",
     genre: "Pop",
     album: "",
-    src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20&%20Arown%20%E2%80%93%20Zemestoon%20(320).mp3",
+    src: "https://dl.behmusics.com/music/1401/12/Irani/Hoomaan%20&%20Arown%20-%20Zemestoon.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.0WLxkCOhojSCIUmJ7VQQbgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
@@ -535,7 +535,7 @@ window.TANINFY_SONGS = [
     artist: "Arta & Hoomaan",
     genre: "Pop",
     album: "",
-    src: "https://solahangs.musitraf.com/Music/1403/04/A/320/Arta%20%26%20Hoomaan%20-%20Age%20Bere%20%28320%29.mp3",
+    src: "https://dl.behmusics.com/music/1403/10/Irani/Arta%20&%20Hoomaan%20-%20Age%20Bere.mp3",
     cover: "https://i.ytimg.com/vi/gJWBwRkpiqg/maxresdefault.jpg",
     featured: true
    },
