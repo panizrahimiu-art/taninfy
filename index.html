@@ -2612,7 +2612,7 @@ body.light-theme .page { color:#34232a; }
 }
 .full-player::marker { display: none; }
 .full-player-content {
-  width: min(82vw, 680px) !important;
+  width: min(78vw, 640px) !important;
   height: auto !important;
   max-height: calc(100dvh - 64px);
   padding: clamp(22px, 4vw, 42px) !important;
@@ -2718,7 +2718,7 @@ body.light-theme .page { color:#34232a; }
 .full-play-btn:hover { background: transparent !important; }
 @media (max-width: 700px) {
   .full-player-content {
-    width: min(82vw, 560px) !important;
+    width: min(78vw, 530px) !important;
     max-height: calc(100dvh - 48px);
     padding: clamp(20px, 5vw, 30px) !important;
   }
@@ -7070,6 +7070,37 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 
 </style>
 
+<style>
+
+
+/* TANINFY: remove the glass tile behind each Explore song cover */
+#page-home #trackList .track{
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#page-home #trackList .track:hover{
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  transform: translateY(-2px) !important;
+}
+#page-home #trackList .track-cover-wrap{
+  border-radius: 13px !important;
+  box-shadow: none !important;
+}
+#page-home #trackList .track-info{
+  padding: 10px 0 3px !important;
+}
+#page-home #trackList .heart-btn{
+  margin-right: 0 !important;
+}
+
+</style>
 </body>
 </html>
 
