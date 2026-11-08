@@ -4636,6 +4636,166 @@ body.light-theme .player .player-inner {
   }
 }
 </style>
+
+<style id="taninfy-final-playlist-explore-polish">
+/* FINAL PLAYLIST + EXPLORE POLISH */
+
+/* Playlist hero: only shuffle + like */
+.playlist-detail-actions{
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  margin-top:24px!important;
+}
+.playlist-detail-actions #playlistDetailShuffle,
+.playlist-detail-actions #playlistDetailFavorite{
+  width:50px!important;
+  height:50px!important;
+  min-width:50px!important;
+  min-height:50px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  font-size:21px!important;
+  line-height:1!important;
+}
+.playlist-detail-actions #playlistDetailShuffle{
+  background:linear-gradient(135deg,#8d3048,#5d172b)!important;
+  border-color:rgba(213,160,173,.32)!important;
+  color:#fff!important;
+}
+.playlist-detail-actions #playlistDetailFavorite{
+  background:rgba(255,255,255,.035)!important;
+  color:#f3dce2!important;
+}
+.playlist-detail-actions #playlistDetailFavorite.active{
+  color:#ef8da7!important;
+  border-color:rgba(239,141,167,.4)!important;
+  background:rgba(141,48,72,.14)!important;
+}
+
+/* Playlist detail: more breathing room, less visual crowding */
+.playlist-detail{
+  padding:32px 34px 82px!important;
+}
+.playlist-detail-hero{
+  gap:34px!important;
+}
+.playlist-detail-meta{
+  padding-bottom:4px!important;
+}
+.playlist-detail-list-head{
+  margin-top:38px!important;
+  margin-bottom:14px!important;
+  padding:0 10px!important;
+}
+.playlist-detail-songs{
+  margin-top:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  gap:8px!important;
+}
+.playlist-detail-song{
+  min-height:82px!important;
+  padding:10px 14px!important;
+  border:1px solid rgba(255,255,255,.055)!important;
+  border-radius:15px!important;
+  background:rgba(255,255,255,.018)!important;
+}
+.playlist-detail-song:hover{
+  background:rgba(141,48,72,.07)!important;
+  border-color:rgba(185,110,131,.18)!important;
+}
+
+/* Explore song covers — larger on laptop + phone */
+#trackList .track.music-card{
+  min-height:122px!important;
+  padding:11px!important;
+}
+#trackList .track-cover-wrap{
+  width:102px!important;
+  height:102px!important;
+  min-width:102px!important;
+  flex-basis:102px!important;
+  border-radius:17px!important;
+}
+#trackList .track-cover-thumb{
+  border-radius:17px!important;
+}
+
+@media (max-width:760px){
+  /* Explore: keep covers clearly large on phones */
+  #trackList .track.music-card{
+    min-height:116px!important;
+    padding:10px!important;
+  }
+  #trackList .track-cover-wrap{
+    width:96px!important;
+    height:96px!important;
+    min-width:96px!important;
+    flex-basis:96px!important;
+    border-radius:17px!important;
+  }
+  #trackList .track-cover-thumb{border-radius:17px!important}
+
+  /* Playlist: spacious mobile layout */
+  .playlist-detail{
+    padding:20px 14px 70px!important;
+  }
+  .playlist-detail-hero{
+    gap:18px!important;
+  }
+  .playlist-detail-actions{
+    gap:12px!important;
+    margin-top:18px!important;
+  }
+  .playlist-detail-actions #playlistDetailShuffle,
+  .playlist-detail-actions #playlistDetailFavorite{
+    width:58px!important;
+    height:58px!important;
+    min-width:58px!important;
+    min-height:58px!important;
+    font-size:24px!important;
+  }
+  .playlist-detail-list-head{
+    margin-top:32px!important;
+    margin-bottom:12px!important;
+  }
+  .playlist-detail-songs{gap:10px!important}
+  .playlist-detail-song{
+    min-height:94px!important;
+    padding:11px 12px!important;
+    border-radius:17px!important;
+  }
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:68px!important;
+    height:68px!important;
+    min-width:68px!important;
+    min-height:68px!important;
+  }
+}
+
+@media (max-width:430px){
+  #trackList .track.music-card{min-height:110px!important}
+  #trackList .track-cover-wrap{
+    width:90px!important;
+    height:90px!important;
+    min-width:90px!important;
+    flex-basis:90px!important;
+  }
+  .playlist-detail-song{min-height:92px!important}
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:64px!important;
+    height:64px!important;
+    min-width:64px!important;
+    min-height:64px!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -4956,7 +5116,6 @@ body.light-theme .player .player-inner {
           <p id="playlistDetailCount">0 آهنگ</p>
 
           <div class="playlist-detail-actions">
-            <button id="playlistDetailPlay" class="playlist-main-action" type="button" title="پخش پلی لیست">▶</button>
             <button id="playlistDetailShuffle" class="playlist-secondary-action" type="button" title="پخش تصادفی">⤨</button>
             <button id="playlistDetailFavorite" class="playlist-secondary-action" type="button" title="لایک پلی لیست">♡</button>
           </div>
