@@ -3038,6 +3038,30 @@ body.light-theme .page { color:#34232a; }
 #trackList .track-cover-thumb{width:86px;height:86px;}
 @media(max-width:650px){#trackList .track-cover-wrap{width:76px;height:76px;}#trackList .track-cover-thumb{width:76px;height:76px;}}
 </style>
+<style>
+/* Final balance: Explore song covers only slightly smaller than playlist covers */
+#trackList .track-cover-wrap {
+  width: 190px !important;
+  height: 190px !important;
+  margin: 0 auto;
+}
+#trackList .track-cover-thumb {
+  width: 190px !important;
+  height: 190px !important;
+}
+@media (max-width: 900px) {
+  #trackList .track-cover-wrap, #trackList .track-cover-thumb {
+    width: 180px !important;
+    height: 180px !important;
+  }
+}
+@media (max-width: 650px) {
+  #trackList .track-cover-wrap, #trackList .track-cover-thumb {
+    width: 170px !important;
+    height: 170px !important;
+  }
+}
+</style>
 </head>
 
 <body>
