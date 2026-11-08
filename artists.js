@@ -24,4 +24,14 @@ window.TANINFY_ARTISTS = [
     image: "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/73/6d/7c/736d7cfb-c79d-c9a9-4170-5e71d008dea1/886449666430.jpg/1200x1200bf-60.jpg",
     genre: "pop"
   },
+  {
+    name: "Khalse",
+    image: "https://i.scdn.co/image/ab6761610000e5eb130e337f25108cc3cf1b61e3",
+    genre: "pop"
+  },
+  {
+    name: "Koorosh",
+    image: "https://tse3.mm.bing.net/th/id/OIP.8JwVWPRid2I43ri-PHApcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    genre: "pop"
+  },
 ];
