@@ -414,12 +414,12 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    title: "Fou",
-    artist: "Shahin Najafi",
+    title: "Corteiz",
+    artist: "Chvrsi",
     genre: "Pop",
-    album: "",
-    src: "https://dl.musicdrum.ir/uploads/2022/10/Shahin-Najafi-Fou-Album-Radikal.mp3",
-    cover: "https://th.bing.com/th/id/OIP.bQArh4U4WDG_RPuCqZWu8QHaHa?w=108&h=108&c=1&bgcl=6d3831&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Corteiz.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F3134f94e3225e48c81067453f186fc8c.563x1000x1.png",
     featured: true
   },
   {
@@ -537,6 +537,33 @@ window.TANINFY_SONGS = [
     album: "",
     src: "https://solahangs.musitraf.com/Music/1403/04/A/320/Arta%20%26%20Hoomaan%20-%20Age%20Bere%20%28320%29.mp3",
     cover: "https://i.ytimg.com/vi/gJWBwRkpiqg/maxresdefault.jpg",
+    featured: true
+   },
+   {
+    title: "Vekalat",
+    artist: "Chvrsi",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Sepehr%20Khalse%20-%20Vekalat.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Qol",
+    artist: "Chvrsi & Mahsa Dehdari",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Mahsa%20Dehdari%20-%20Qol.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Mastane",
+    artist: "Chvrsi & Canis",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Canis%20-%20Mastane.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
    },
 ];
