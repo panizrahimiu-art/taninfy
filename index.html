@@ -4259,6 +4259,71 @@ body.light-theme .playlist-detail-song:hover{background:rgba(120,40,65,.055)!imp
 }
 </style>
 
+
+<style id="taninfy-mini-player-final-fix">
+/* =========================================================
+   TANINFY — MINI PLAYER FINAL RESPONSIVE FIX
+   Desktop: centered floating bar, never pushed into a corner
+   Mobile: compact floating bar with safe side margins
+========================================================= */
+.player {
+  left: 20px !important;
+  right: 20px !important;
+  bottom: 18px !important;
+  width: auto !important;
+  max-width: none !important;
+  height: 72px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  z-index: 3000 !important;
+}
+
+.player .player-inner {
+  width: 100% !important;
+  max-width: 1180px !important;
+  height: 72px !important;
+  min-height: 72px !important;
+  margin: 0 auto !important;
+  padding: 0 16px !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1100px) and (min-width: 651px) {
+  .player {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    height: 68px !important;
+    border-radius: 20px !important;
+  }
+  .player .player-inner {
+    height: 68px !important;
+    min-height: 68px !important;
+    padding: 0 13px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .player {
+    left: 10px !important;
+    right: 10px !important;
+    bottom: 76px !important;
+    width: auto !important;
+    height: 64px !important;
+    border-radius: 18px !important;
+  }
+  .player .player-inner {
+    width: 100% !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    padding: 6px 9px !important;
+    margin: 0 !important;
+    gap: 8px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -5067,34 +5132,18 @@ function renderTrackCatalog() {
     const coverWrap = document.createElement("div");
     coverWrap.className = "track-cover-wrap";
 
-    const coverWrapHasImage = !!String(song.cover || "").trim();
     const cover = document.createElement("img");
     cover.className = "track-cover-thumb";
+    cover.src = song.cover || "";
     cover.alt = `کاور ${song.title || "آهنگ"}`;
     cover.loading = "lazy";
-
-    const noCoverIcon = document.createElement("span");
-    noCoverIcon.className = "track-no-cover-icon";
-    noCoverIcon.textContent = "♫";
-    noCoverIcon.setAttribute("aria-hidden", "true");
-
-    if (coverWrapHasImage) {
-      cover.src = String(song.cover).trim();
-      cover.addEventListener("error", () => {
-        cover.style.display = "none";
-        coverWrap.classList.add("no-cover");
-      }, { once: true });
-    } else {
-      cover.style.display = "none";
-      coverWrap.classList.add("no-cover");
-    }
 
     const coverPlay = document.createElement("span");
     coverPlay.className = "track-cover-play";
     coverPlay.setAttribute("aria-hidden", "true");
     coverPlay.textContent = "▶";
 
-    coverWrap.append(cover, noCoverIcon, coverPlay);
+    coverWrap.append(cover, coverPlay);
 
     const info = document.createElement("div");
     info.className = "track-info";
@@ -7236,69 +7285,3 @@ if (typeof audioPlayer !== "undefined") {
 
 </body>
 </html>
-
-<style id="taninfy-final-explore-cover-fix">
-/* FINAL: Explore cover size — desktop smaller than playlist covers, mobile stays as before */
-@media (min-width: 651px) {
-  #trackList .track.music-card {
-    grid-template-columns: 32px 180px minmax(0,1fr) auto auto !important;
-    min-height: 208px !important;
-  }
-  #trackList .track-cover-wrap {
-    width: 180px !important;
-    height: 180px !important;
-    min-width: 180px !important;
-    flex: 0 0 180px !important;
-    border-radius: 16px !important;
-  }
-  #trackList .track-cover-thumb {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    border-radius: 16px !important;
-  }
-}
-
-@media (max-width: 650px) {
-  #trackList .track.music-card {
-    grid-template-columns: 25px 150px minmax(0,1fr) 38px 38px !important;
-    min-height: 176px !important;
-  }
-  #trackList .track-cover-wrap {
-    width: 150px !important;
-    height: 150px !important;
-    min-width: 150px !important;
-    flex-basis: 150px !important;
-    border-radius: 15px !important;
-  }
-}
-
-/* Songs without a cover: clean theme-colored music symbol */
-#trackList .track-cover-wrap.no-cover {
-  background: radial-gradient(circle at 50% 45%, rgba(141,48,72,.42), rgba(20,12,16,.98) 72%) !important;
-  border: 1px solid rgba(185,110,131,.20) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-#trackList .track-cover-wrap.no-cover .track-cover-thumb {
-  display: none !important;
-}
-#trackList .track-no-cover-icon {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #b96e83 !important;
-  font-size: 58px;
-  line-height: 1;
-  font-family: Arial, sans-serif;
-  text-shadow: 0 8px 28px rgba(141,48,72,.35);
-  pointer-events: none;
-}
-#trackList .track-cover-wrap:not(.no-cover) .track-no-cover-icon {
-  display: none !important;
-}
-</style>
-
