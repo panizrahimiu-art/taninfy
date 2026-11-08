@@ -39,4 +39,14 @@ window.TANINFY_ARTISTS = [
     image: "https://images.genius.com/91a118c98cb3d5f6b33c710ffc0092eb.959x959x1.jpg",
     genre: "pop"
   },
+  {
+    name: "Chvrsi",
+    image: "https://tse2.mm.bing.net/th/id/OIP.Sma6SaVtclubv5Z2BK7-CQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    genre: "pop"
+  },
+  {
+    name: "Arta",
+    image: "https://iranshartbandi.com/wp-content/uploads/2024/01/%D8%A8%DB%8C%D9%88%DA%AF%D8%B1%D8%A7%D9%81%DB%8C-%DA%A9%D8%A7%D9%85%D9%84-%D8%A2%D8%B1%D8%AA%D8%A7-%D9%88%D8%A7%D9%86%D8%AA%D9%88%D9%86%D8%B2.jpg",
+    genre: "pop"
+  },
 ];
