@@ -486,12 +486,39 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    title: "Marize Ham",
-    artist: "Hiphopologist & Sogand",
+    title: "Harchiam Beshe",
+    artist: "Wantons",
     genre: "Pop",
     album: "",
-    src: "https://solahangs.musitraf.com/Music/1403/09/H/320/Hiphopologist%20%26%20Sogand%20-%20Marize%20Ham%20%28320%29.mp3",
-    cover: "https://solahang.ir/wp-content/uploads/2024/11/Hiphopologist-Sogand-Marize-Ham-img.jpg.webp",
+    src: "http://dl.mahtabmusic.ir/1396/06/single/Wantons%20-%20Harchiam%20Beshe%20(Ft%20Nassim%20&%20AFX).mp3",
+    cover: "https://dl.mahtabmusic.ir/1396/06/cover/Wantons_Harchiam-Beshe-(Ft-Nassim-&-AFX).jpg",
+    featured: true
+  },
+  {
+    title: "Road 61",
+    artist: "PapaBoyz & heliyom",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/26/Tamara%20ft%20Papa%20Boys%20-%20Road%2061.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2023/11/Tamara-ft-Papa-Boys-Road-61-MokhtalefMusic.jpg",
+    featured: true
+  },
+  {
+    title: "Yebaram Man",
+    artist: "Koorosh & Arta & Behzad Leito & Raha",
+    genre: "Pop",
+    album: "",
+    src: "https://xx.sahand-music.ir/Archive/K/Koorosh/Koorosh%20-%20420/Koorosh%20-%20420/Koorosh%20-%20Yebaram%20Man%20(Ft%20Arta,%20Behzad%20Leito,%20&%20Raha).mp3",
+    cover: "https://c.saavncdn.com/177/420-English-2019-20190607173225-500x500.jpg",
+    featured: true
+  },
+  {
+    title: "Yadet Nist",
+    artist: "Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.bandmusic.ir/files/1402/11/09/Arta%20-%20Yadet%20Nist.mp33",
+    cover: "https://bedunim.ir/wp-content/uploads/2024/01/Arta-Yadet-Nist-320-mp3-image.jpg",
     featured: true
   },
 ];
