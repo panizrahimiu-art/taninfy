@@ -34,4 +34,9 @@ window.TANINFY_ARTISTS = [
     image: "https://tse3.mm.bing.net/th/id/OIP.8JwVWPRid2I43ri-PHApcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     genre: "pop"
   },
+  {
+    name: "Sogand",
+    image: "https://images.genius.com/91a118c98cb3d5f6b33c710ffc0092eb.959x959x1.jpg",
+    genre: "pop"
+  },
 ];
