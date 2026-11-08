@@ -517,7 +517,7 @@ window.TANINFY_SONGS = [
     artist: "Arta",
     genre: "Pop",
     album: "",
-    src: "https://dl.bandmusic.ir/files/1402/11/09/Arta%20-%20Yadet%20Nist.mp33",
+    src: "https://dl.behmusics.com/music/1402/11/Irani/Arta%20-%20Yadet%20Nist.mp3",
     cover: "https://bedunim.ir/wp-content/uploads/2024/01/Arta-Yadet-Nist-320-mp3-image.jpg",
     featured: true
    },  
