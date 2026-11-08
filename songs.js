@@ -176,7 +176,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "اسم آلبوم",
     src: "https://bedunim.ir/wp-content/uploads/2025/03/We-Are-The-People.mp3",
-    cover: "https://tse2.mm.bing.net/th/id/OIP.F7EGLx6w59OGoNJzNWetBQHaEK?r=0&w=866&h=487&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://i.scdn.co/image/ab67616d0000b273fffbc6bb8f405c2dacf8d64b",
     featured: true
   },
   {
