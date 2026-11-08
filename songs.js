@@ -445,7 +445,7 @@ window.TANINFY_SONGS = [
     artist: "Chvrsi & Hoomaan",
     genre: "Pop",
     album: "",
-    src: "https://dl.melonmusic.ir/Music/Chvrsi%20-%20Jigh%20(320).mp3",
+    src: "https://dl.behmusics.com/music/1403/08/Album/Chvrsi%20-%20Zaar/Chvrsi%20-%20Zaar%20%5B320%5D/10.Chvrsi%20&%20Hoomaan%20-%20Jigh.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.Ok0p6oAVpSol28BvVAR2tAHaHa?r=0&w=600&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
