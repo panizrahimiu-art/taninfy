@@ -566,4 +566,76 @@ window.TANINFY_SONGS = [
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
    },
+   {
+    title: "Daam",
+    artist: "Chvrsi & Saeed Dehghan",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Daam.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Salwatt",
+    artist: "Chvrsi & Catchybeatz & Putak",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20CatchyBeatz%20ft%20Putak%20-%20Salwatt.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Boro Boro",
+    artist: "Chvrsi & Shayan Eshraghi",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Shayan%20Eshraghi%20-%20Boro%20Boro.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Fight Club",
+    artist: "Chvrsi",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Fight%20Club.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Skiki",
+    artist: "Chvrsi & Young Sudden",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Young%20Sudden%20-%20Skiki.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Skit",
+    artist: "Chvrsi & Reza Sadeghi",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Reza%20Sadeghi%20-%20Skit.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Araftey",
+    artist: "Chvrsi & Hossein Bashiri",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Hossein%20Bashiri%20-%20Araftey.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
+   {
+    title: "Outro",
+    artist: "Chvrsi",
+    genre: "Pop",
+    album: "DAAM",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Outro%20Daam.mp3",
+    cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
+    featured: true
+   },
 ];
