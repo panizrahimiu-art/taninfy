@@ -3030,6 +3030,481 @@ body.light-theme .page { color:#34232a; }
     min-width: 40px;
   }
 }
+
+/* =========================================
+   TANINFY — PLAYLIST REDESIGN
+   Cards: cover + name + song count
+   Detail: large playlist cover + compact song list
+========================================= */
+
+.curated-playlists{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:24px 20px;
+  margin-top:24px;
+}
+
+.curated-card{
+  display:block !important;
+  min-height:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  overflow:visible !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  cursor:pointer;
+  transition:transform .25s ease;
+}
+
+.curated-card:hover{
+  transform:translateY(-4px);
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+.curated-card .curated-cover{
+  width:100%;
+  aspect-ratio:1 / 1;
+  min-height:0 !important;
+  height:auto;
+  padding:0 !important;
+  display:block;
+  position:relative;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid rgba(213,160,173,.12);
+  background:#181014;
+  box-shadow:0 14px 38px rgba(0,0,0,.25);
+}
+
+.curated-card .curated-cover.has-image{
+  background:#181014;
+}
+
+.curated-card .curated-cover img.playlist-cover-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease,filter .35s ease;
+}
+
+.curated-card:hover .curated-cover img.playlist-cover-image{
+  transform:scale(1.035);
+  filter:brightness(.82);
+}
+
+.curated-card .curated-cover span,
+.curated-card .curated-cover b,
+.curated-card .curated-cover small{
+  display:none !important;
+}
+
+.curated-card .curated-info{
+  padding:12px 2px 0 !important;
+  display:block !important;
+}
+
+.curated-card .curated-info > span,
+.curated-card .curated-info p,
+.curated-card .curated-info button{
+  display:none !important;
+}
+
+.curated-card .curated-info h2{
+  margin:0;
+  color:#f8f1f3;
+  font-size:14px;
+  line-height:1.55;
+  font-weight:600;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.curated-card .playlist-song-count{
+  margin-top:3px;
+  color:#91868b;
+  font-size:10px;
+}
+
+.playlist-detail{
+  margin-top:30px;
+  padding:0 0 70px;
+  animation:appear .25s ease;
+}
+
+.playlist-detail-top{
+  margin-bottom:18px;
+}
+
+.playlist-detail-back{
+  border:0;
+  background:transparent;
+  color:#b98a99;
+  font-size:12px;
+  padding:5px 0;
+  cursor:pointer;
+}
+
+.playlist-detail-back:hover{
+  color:#fff;
+}
+
+.playlist-detail-hero{
+  display:grid;
+  grid-template-columns:minmax(260px,360px) minmax(0,1fr);
+  align-items:end;
+  gap:34px;
+  padding:8px 0 30px;
+  border-bottom:1px solid rgba(213,160,173,.12);
+}
+
+.playlist-detail-cover-wrap{
+  width:100%;
+  aspect-ratio:1 / 1;
+  border-radius:16px;
+  overflow:hidden;
+  background:#181014;
+  border:1px solid rgba(213,160,173,.12);
+  box-shadow:0 22px 65px rgba(0,0,0,.34);
+}
+
+.playlist-detail-cover{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:opacity .25s ease,transform .35s ease;
+}
+
+.playlist-detail-cover.is-song-cover{
+  transform:scale(1.015);
+}
+
+.playlist-detail-meta{
+  min-width:0;
+  padding-bottom:7px;
+}
+
+.playlist-detail-kicker{
+  color:#b96e83;
+  font:700 9px Arial,sans-serif;
+  letter-spacing:2.5px;
+}
+
+.playlist-detail-meta h2{
+  margin:8px 0 5px;
+  font-size:clamp(28px,4vw,48px);
+  line-height:1.15;
+  color:#f8f1f3;
+  font-weight:700;
+}
+
+.playlist-detail-meta p{
+  margin:0;
+  color:#91868b;
+  font-size:12px;
+}
+
+.playlist-detail-actions{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-top:25px;
+}
+
+.playlist-main-action,
+.playlist-secondary-action{
+  border:1px solid rgba(213,160,173,.18);
+  color:#f8f1f3;
+  background:rgba(255,255,255,.025);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.playlist-main-action{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#9b304d,#64152b);
+  border-color:rgba(213,160,173,.3);
+  font-size:19px;
+  box-shadow:0 8px 25px rgba(89,16,33,.25);
+}
+
+.playlist-secondary-action{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  font-size:21px;
+}
+
+.playlist-main-action:hover,
+.playlist-secondary-action:hover{
+  transform:scale(1.06);
+  background:rgba(129,26,53,.22);
+}
+
+.playlist-secondary-action.active{
+  color:#ef8da7;
+  border-color:rgba(239,141,167,.35);
+}
+
+.playlist-detail-list-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin:26px 0 6px;
+  color:#f8f1f3;
+  font-size:13px;
+  font-weight:600;
+}
+
+.playlist-detail-list-head span:last-child{
+  color:#91868b;
+  font-size:10px;
+  font-weight:400;
+}
+
+.playlist-detail-songs{
+  width:100%;
+}
+
+.playlist-detail-song{
+  display:grid;
+  grid-template-columns:30px 52px minmax(0,1fr) auto auto;
+  align-items:center;
+  gap:14px;
+  min-height:76px;
+  padding:10px 7px;
+  border-bottom:1px solid rgba(213,160,173,.08);
+  border-radius:10px;
+  transition:background .2s ease,border-color .2s ease;
+  cursor:pointer;
+}
+
+.playlist-detail-song:hover{
+  background:rgba(129,26,53,.08);
+}
+
+.playlist-detail-song.is-playing{
+  background:linear-gradient(90deg,rgba(129,26,53,.18),rgba(129,26,53,.05));
+  border-bottom-color:rgba(213,160,173,.2);
+}
+
+.playlist-detail-number{
+  color:#71646a;
+  font-size:10px;
+  text-align:center;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-number{
+  color:#d5a0ad;
+}
+
+.playlist-detail-song-cover{
+  width:52px;
+  height:52px;
+  border-radius:9px;
+  object-fit:cover;
+  display:block;
+  background:#21141a;
+  border:1px solid rgba(213,160,173,.1);
+}
+
+.playlist-detail-song-info{
+  min-width:0;
+}
+
+.playlist-detail-song-info strong,
+.playlist-detail-song-info span{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.playlist-detail-song-info strong{
+  color:#f8f1f3;
+  font-size:12px;
+  font-weight:600;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-song-info strong{
+  color:#efb0bd;
+}
+
+.playlist-detail-song-info span{
+  color:#91868b;
+  font-size:10px;
+  margin-top:2px;
+}
+
+.playlist-detail-song-play{
+  width:35px;
+  height:35px;
+  border:1px solid rgba(213,160,173,.13);
+  border-radius:50%;
+  background:transparent;
+  color:#d5a0ad;
+  display:grid;
+  place-items:center;
+  font-size:12px;
+}
+
+.playlist-detail-song-heart{
+  width:35px;
+  height:35px;
+  border:0;
+  background:transparent;
+  color:#d5a0ad;
+  font-size:19px;
+  display:grid;
+  place-items:center;
+}
+
+.playlist-detail-song-heart.active{
+  color:#ef8da7;
+}
+
+.playlist-detail-song-cover-wrap{
+  position:relative;
+  width:52px;
+  height:52px;
+}
+
+.playlist-detail-song-cover-wrap .playlist-detail-song-cover{
+  width:100%;
+  height:100%;
+}
+
+.playlist-detail-song-cover-play{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:rgba(8,5,7,.42);
+  color:#fff;
+  opacity:0;
+  transition:.2s;
+  pointer-events:none;
+  font-size:12px;
+}
+
+.playlist-detail-song:hover .playlist-detail-song-cover-play,
+.playlist-detail-song.is-playing .playlist-detail-song-cover-play{
+  opacity:1;
+}
+
+.playlist-detail-song.is-playing .playlist-detail-song-cover-play{
+  background:rgba(95,20,48,.58);
+}
+
+.playlist-detail-empty{
+  padding:30px 10px;
+  color:#91868b;
+  text-align:center;
+  font-size:12px;
+}
+
+@media(max-width:1000px){
+  .curated-playlists{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:750px){
+  .curated-playlists{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px 14px;
+  }
+
+  .playlist-detail-hero{
+    grid-template-columns:190px minmax(0,1fr);
+    gap:22px;
+  }
+
+  .playlist-detail-meta h2{
+    font-size:27px;
+  }
+}
+
+@media(max-width:520px){
+  .curated-playlists{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:18px 12px;
+  }
+
+  .curated-card .curated-cover{
+    border-radius:11px;
+  }
+
+  .curated-card .curated-info h2{
+    font-size:12px;
+  }
+
+  .curated-card .playlist-song-count{
+    font-size:9px;
+  }
+
+  .playlist-detail-hero{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:20px;
+  }
+
+  .playlist-detail-cover-wrap{
+    width:min(74vw,300px);
+    margin:0 auto;
+  }
+
+  .playlist-detail-meta{
+    text-align:right;
+  }
+
+  .playlist-detail-meta h2{
+    font-size:26px;
+  }
+
+  .playlist-detail-actions{
+    margin-top:18px;
+  }
+
+  .playlist-detail-song{
+    grid-template-columns:22px 48px minmax(0,1fr) 34px 34px;
+    gap:9px;
+    min-height:68px;
+    padding:8px 2px;
+  }
+
+  .playlist-detail-song-cover-wrap,
+  .playlist-detail-song-cover{
+    width:48px;
+    height:48px;
+  }
+
+  .playlist-detail-song-info strong{
+    font-size:11px;
+  }
+
+  .playlist-detail-song-info span{
+    font-size:9px;
+  }
+
+  .playlist-detail-song-play,
+  .playlist-detail-song-heart{
+    width:34px;
+    height:34px;
+  }
+}
+
 </style>
 
 </head>
@@ -3336,6 +3811,37 @@ body.light-theme .page { color:#34232a; }
     </p>
 
     <div class="curated-playlists" id="curatedPlaylistGrid"></div>
+
+    <section class="playlist-detail" id="playlistDetail" style="display:none;">
+      <div class="playlist-detail-top">
+        <button class="playlist-detail-back" id="playlistDetailBack" type="button">← همه پلی لیست‌ها</button>
+      </div>
+
+      <div class="playlist-detail-hero">
+        <div class="playlist-detail-cover-wrap">
+          <img id="playlistDetailCover" class="playlist-detail-cover" src="" alt="">
+        </div>
+
+        <div class="playlist-detail-meta">
+          <span class="playlist-detail-kicker">TANINFY PLAYLIST</span>
+          <h2 id="playlistDetailTitle">Playlist</h2>
+          <p id="playlistDetailCount">0 آهنگ</p>
+
+          <div class="playlist-detail-actions">
+            <button id="playlistDetailPlay" class="playlist-main-action" type="button" title="پخش پلی لیست">▶</button>
+            <button id="playlistDetailShuffle" class="playlist-secondary-action" type="button" title="پخش تصادفی">⤨</button>
+            <button id="playlistDetailFavorite" class="playlist-secondary-action" type="button" title="لایک پلی لیست">♡</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="playlist-detail-list-head">
+        <span>آهنگ‌ها</span>
+        <span id="playlistDetailListCount">0 آهنگ</span>
+      </div>
+
+      <div id="playlistDetailSongs" class="playlist-detail-songs"></div>
+    </section>
 
     <div class="panel playlist-empty-state" id="playlistEmptyState" style="display:none;">
       <h2>هنوز پلی لیستی ساخته نشده</h2>
@@ -3876,6 +4382,300 @@ function playlistCover(playlist, songs) {
   return firstSong?.cover || "";
 }
 
+let taninfyOpenPlaylist = null;
+let taninfyOpenPlaylistIndices = [];
+
+function getPlaylistCoverForDetail(playlist, songs) {
+  return playlistCover(playlist, songs) || "";
+}
+
+function resetPlaylistDetailCover() {
+  const cover = document.getElementById("playlistDetailCover");
+  if (!cover || !taninfyOpenPlaylist) return;
+
+  const songs = (Array.isArray(taninfyOpenPlaylist.songs) ? taninfyOpenPlaylist.songs : [])
+    .map(getPlaylistSong)
+    .filter(Boolean);
+
+  const playlistCoverUrl = getPlaylistCoverForDetail(taninfyOpenPlaylist, songs);
+  cover.src = playlistCoverUrl || "";
+  cover.classList.remove("is-song-cover");
+  cover.alt = taninfyOpenPlaylist.name || "Playlist cover";
+}
+
+function updatePlaylistDetailPlaying() {
+  const detail = document.getElementById("playlistDetail");
+  if (!detail || detail.style.display === "none") return;
+
+  const rows = detail.querySelectorAll(".playlist-detail-song");
+  let playingSong = null;
+
+  rows.forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const active = index === currentTrackIndex && !audioPlayer.paused;
+    row.classList.toggle("is-playing", active);
+
+    const playButton = row.querySelector(".playlist-detail-song-play");
+    const coverPlay = row.querySelector(".playlist-detail-song-cover-play");
+
+    if (playButton) playButton.textContent = active ? "Ⅱ" : "▶";
+    if (coverPlay) coverPlay.textContent = active ? "Ⅱ" : "▶";
+
+    if (active) playingSong = songCatalog[index];
+  });
+
+  const cover = document.getElementById("playlistDetailCover");
+  if (!cover) return;
+
+  if (playingSong && playingSong.cover) {
+    cover.src = playingSong.cover;
+    cover.alt = `کاور ${playingSong.title || "آهنگ"}`;
+    cover.classList.add("is-song-cover");
+  } else {
+    resetPlaylistDetailCover();
+  }
+}
+
+function renderPlaylistDetailSongs(indices) {
+  const list = document.getElementById("playlistDetailSongs");
+  const count = document.getElementById("playlistDetailListCount");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  if (!indices.length) {
+    list.innerHTML = '<div class="playlist-detail-empty">این پلی لیست هنوز آهنگی ندارد.</div>';
+    if (count) count.textContent = "0 آهنگ";
+    return;
+  }
+
+  if (count) count.textContent = `${indices.length} آهنگ`;
+
+  indices.forEach((index, position) => {
+    const song = songCatalog[index];
+    if (!song) return;
+
+    const row = document.createElement("article");
+    row.className = "playlist-detail-song";
+    row.dataset.songIndex = String(index);
+    row.dataset.songId = song.id || String(index);
+
+    const number = document.createElement("span");
+    number.className = "playlist-detail-number";
+    number.textContent = String(position + 1).padStart(2, "0");
+
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "playlist-detail-song-cover-wrap";
+
+    const cover = document.createElement("img");
+    cover.className = "playlist-detail-song-cover";
+    cover.src = song.cover || "";
+    cover.alt = `کاور ${song.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
+    const coverPlay = document.createElement("span");
+    coverPlay.className = "playlist-detail-song-cover-play";
+    coverPlay.textContent = "▶";
+    coverWrap.append(cover, coverPlay);
+
+    const info = document.createElement("div");
+    info.className = "playlist-detail-song-info";
+
+    const title = document.createElement("strong");
+    title.textContent = song.title || "بدون نام";
+
+    const artist = document.createElement("span");
+    artist.textContent = song.artist || "هنرمند نامشخص";
+
+    info.append(title, artist);
+
+    const playButton = document.createElement("button");
+    playButton.type = "button";
+    playButton.className = "playlist-detail-song-play";
+    playButton.title = "پخش";
+    playButton.textContent = "▶";
+
+    const heart = document.createElement("button");
+    heart.type = "button";
+    heart.className = "playlist-detail-song-heart";
+    heart.title = "علاقه‌مندی";
+    heart.textContent = "♡";
+
+    playButton.addEventListener("click", event => {
+      event.stopPropagation();
+      setPlayerTrack(index, true);
+    });
+
+    heart.addEventListener("click", async event => {
+      event.stopPropagation();
+
+      if (window.taninfyAuthReady) await window.taninfyAuthReady;
+      if (!window.taninfyCurrentUser) {
+        const status = document.getElementById("loginStatus");
+        if (status) status.textContent = "برای لایک کردن آهنگ، اول باید در Taninfy ثبت‌نام کنی.";
+        if (typeof showPage === "function") showPage("login");
+        return;
+      }
+
+      const songId = song.id || String(index);
+      const foundIndex = favorites.findIndex(item =>
+        item.songId === songId ||
+        (item.title === song.title && item.artist === song.artist)
+      );
+
+      if (foundIndex >= 0) {
+        favorites.splice(foundIndex, 1);
+      } else {
+        favorites.push({
+          songId,
+          title: song.title || "بدون نام",
+          artist: song.artist || "هنرمند نامشخص"
+        });
+      }
+
+      saveFavorites();
+      renderFavorites();
+      syncHearts();
+      syncPlaylistDetailHearts();
+    });
+
+    row.addEventListener("click", event => {
+      if (event.target.closest("button")) return;
+      setPlayerTrack(index, true);
+    });
+
+    row.append(number, coverWrap, info, playButton, heart);
+    list.appendChild(row);
+  });
+
+  syncPlaylistDetailHearts();
+  updatePlaylistDetailPlaying();
+}
+
+function syncPlaylistDetailHearts() {
+  document.querySelectorAll(".playlist-detail-song").forEach(row => {
+    const index = Number(row.dataset.songIndex);
+    const song = songCatalog[index];
+    const button = row.querySelector(".playlist-detail-song-heart");
+    if (!song || !button) return;
+
+    const songId = song.id || String(index);
+    const active = favorites.some(item =>
+      item.songId === songId ||
+      (item.title === song.title && item.artist === song.artist)
+    );
+
+    button.classList.toggle("active", active);
+    button.textContent = active ? "♥" : "♡";
+  });
+}
+
+function openTaninfyPlaylist(playlist) {
+  const refs = Array.isArray(playlist?.songs) ? playlist.songs : [];
+  const resolvedSongs = refs.map(getPlaylistSong).filter(Boolean);
+
+  if (!resolvedSongs.length) {
+    showSuccessCheck("آهنگی برای این پلی لیست پیدا نشد");
+    return;
+  }
+
+  taninfyOpenPlaylist = playlist;
+  taninfyOpenPlaylistIndices = resolvedSongs
+    .map(song => songCatalog.indexOf(song))
+    .filter(index => index >= 0);
+
+  const grid = document.getElementById("curatedPlaylistGrid");
+  const detail = document.getElementById("playlistDetail");
+  const intro = document.querySelector(".curated-intro");
+  const heading = document.querySelector("#page-playlist .page-heading");
+
+  if (!detail || !grid) return;
+
+  grid.style.display = "none";
+  if (intro) intro.style.display = "none";
+  if (heading) heading.style.display = "none";
+
+  detail.style.display = "block";
+
+  const title = document.getElementById("playlistDetailTitle");
+  const count = document.getElementById("playlistDetailCount");
+
+  if (title) title.textContent = playlist.name || "Playlist";
+  if (count) count.textContent = `${resolvedSongs.length} آهنگ`;
+
+  resetPlaylistDetailCover();
+  renderPlaylistDetailSongs(taninfyOpenPlaylistIndices);
+
+  const playButton = document.getElementById("playlistDetailPlay");
+  if (playButton) {
+    playButton.onclick = () => {
+      const firstIndex = taninfyOpenPlaylistIndices[0];
+      if (Number.isInteger(firstIndex)) setPlayerTrack(firstIndex, true);
+    };
+  }
+
+  const shuffleButton = document.getElementById("playlistDetailShuffle");
+  if (shuffleButton) {
+    shuffleButton.onclick = () => {
+      if (taninfyOpenPlaylistIndices.length <= 1) {
+        const onlyIndex = taninfyOpenPlaylistIndices[0];
+        if (Number.isInteger(onlyIndex)) setPlayerTrack(onlyIndex, true);
+        return;
+      }
+
+      let randomIndex;
+      do {
+        randomIndex = taninfyOpenPlaylistIndices[
+          Math.floor(Math.random() * taninfyOpenPlaylistIndices.length)
+        ];
+      } while (randomIndex === currentTrackIndex);
+
+      setPlayerTrack(randomIndex, true);
+    };
+  }
+
+  const favoriteButton = document.getElementById("playlistDetailFavorite");
+  if (favoriteButton) {
+    const favoritePlaylistKey = `taninfy-playlist-favorite-${playlist.name || ""}`;
+    const update = () => {
+      const active = localStorage.getItem(favoritePlaylistKey) === "1";
+      favoriteButton.classList.toggle("active", active);
+      favoriteButton.textContent = active ? "♥" : "♡";
+    };
+
+    favoriteButton.onclick = () => {
+      const active = localStorage.getItem(favoritePlaylistKey) === "1";
+      if (active) localStorage.removeItem(favoritePlaylistKey);
+      else localStorage.setItem(favoritePlaylistKey, "1");
+      update();
+    };
+
+    update();
+  }
+
+  updatePlaylistDetailPlaying();
+  document.getElementById("page-playlist")?.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function closeTaninfyPlaylist() {
+  const grid = document.getElementById("curatedPlaylistGrid");
+  const detail = document.getElementById("playlistDetail");
+  const intro = document.querySelector(".curated-intro");
+  const heading = document.querySelector("#page-playlist .page-heading");
+
+  taninfyOpenPlaylist = null;
+  taninfyOpenPlaylistIndices = [];
+
+  if (detail) detail.style.display = "none";
+  if (grid) grid.style.display = "";
+  if (intro) intro.style.display = "";
+  if (heading) heading.style.display = "";
+
+  renderTaninfyPlaylists();
+}
+
+document.getElementById("playlistDetailBack")?.addEventListener("click", closeTaninfyPlaylist);
+
 function renderTaninfyPlaylists() {
   const grids = [
     document.getElementById("homePlaylistGrid"),
@@ -3902,13 +4702,18 @@ function renderTaninfyPlaylists() {
 
       const card = document.createElement("article");
       card.className = "curated-card";
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", `باز کردن پلی لیست ${playlist.name || "Playlist"}`);
 
       const cover = document.createElement("div");
       cover.className = "curated-cover";
 
       const playlistCoverUrl = playlistCover(playlist, resolvedSongs);
+
       if (playlistCoverUrl) {
         cover.classList.add("has-image");
+
         const coverImg = document.createElement("img");
         coverImg.className = "playlist-cover-image";
         coverImg.src = playlistCoverUrl;
@@ -3917,129 +4722,31 @@ function renderTaninfyPlaylists() {
         cover.appendChild(coverImg);
       }
 
-      const number = document.createElement("span");
-      number.textContent = String(playlistIndex + 1).padStart(2, "0");
-
-      const icon = document.createElement("b");
-      icon.textContent = playlistCoverUrl ? "" : (playlist.icon || "♫");
-
-      const label = document.createElement("small");
-      label.textContent = playlist.label || "TANINFY PLAYLIST";
-
-      cover.append(number, icon, label);
-
       const info = document.createElement("div");
       info.className = "curated-info";
 
-      const mood = document.createElement("span");
-      mood.textContent = playlist.mood
-        ? `MOOD · ${String(playlist.mood).toUpperCase()}`
-        : "TANINFY · PLAYLIST";
-
       const title = document.createElement("h2");
       title.textContent = playlist.name || "Playlist";
-
-      const description = document.createElement("p");
-      description.textContent = playlist.description || "انتخابی از آهنگ‌های Taninfy.";
 
       const count = document.createElement("div");
       count.className = "playlist-song-count";
       count.textContent = `${resolvedSongs.length} آهنگ`;
 
-      const openButton = document.createElement("button");
-      openButton.type = "button";
-      openButton.textContent = "مشاهده آهنگ‌ها ←";
+      info.append(title, count);
+      card.append(cover, info);
 
-      openButton.addEventListener("click", () => {
-        if (!resolvedSongs.length) {
-          showSuccessCheck("آهنگی برای این پلی لیست پیدا نشد");
-          return;
+      const open = () => openTaninfyPlaylist(playlist);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          open();
         }
-
-        showPage("home");
-        setTimeout(() => {
-          const indices = resolvedSongs
-            .map(song => songCatalog.indexOf(song))
-            .filter(index => index >= 0);
-          renderPlaylistSongsInExplore(indices, playlist.name || "Playlist");
-        }, 80);
       });
 
-      info.append(mood, title, description, count, openButton);
-      card.append(cover, info);
       grid.appendChild(card);
     });
   });
-}
-
-function renderPlaylistSongsInExplore(indices, playlistName) {
-  const list = document.getElementById("trackList");
-  if (!list) return;
-
-  list.innerHTML = "";
-
-  const heading = document.createElement("div");
-  heading.className = "section-title";
-  heading.innerHTML = `
-    <div>
-      <h2>${escapeHtml(playlistName || "Playlist")}</h2>
-      <p>آهنگ‌های این پلی لیست</p>
-    </div>
-  `;
-  list.appendChild(heading);
-
-  indices.forEach(index => {
-    const song = songCatalog[index];
-    if (!song) return;
-
-    const row = document.createElement("article");
-    row.className = "track music-card";
-    row.dataset.songId = song.id || String(index);
-    row.dataset.songIndex = String(index);
-    row.setAttribute("tabindex", "0");
-    row.setAttribute("role", "button");
-    row.setAttribute("aria-label", `پخش ${song.title || "آهنگ"}`);
-
-    const coverWrap = document.createElement("div");
-    coverWrap.className = "track-cover-wrap";
-
-    const cover = document.createElement("img");
-    cover.className = "track-cover-thumb";
-    cover.src = song.cover || "";
-    cover.alt = `کاور ${song.title || "آهنگ"}`;
-    cover.loading = "lazy";
-
-    const coverPlay = document.createElement("span");
-    coverPlay.className = "track-cover-play";
-    coverPlay.setAttribute("aria-hidden", "true");
-    coverPlay.textContent = "▶";
-    coverWrap.append(cover, coverPlay);
-
-    const info = document.createElement("div");
-    info.className = "track-info";
-
-    const title = document.createElement("strong");
-    title.className = "track-title";
-    title.textContent = song.title || "بدون نام";
-
-    const artist = document.createElement("span");
-    artist.className = "track-artist";
-    artist.textContent = song.artist || "هنرمند نامشخص";
-
-    info.append(title, artist);
-
-    const heart = document.createElement("button");
-    heart.className = "heart-btn";
-    heart.type = "button";
-    heart.setAttribute("aria-label", "افزودن به علاقه‌مندی‌ها");
-    heart.textContent = "♡";
-
-    row.append(coverWrap, info, heart);
-    list.appendChild(row);
-  });
-
-  syncHearts();
-  list.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 window.renderTaninfyPlaylists = renderTaninfyPlaylists;
@@ -5605,11 +6312,18 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   applyTheme();
   syncControls();
 })();
+
+/* Keep the dedicated playlist view synchronized with the global player. */
+if (typeof audioPlayer !== "undefined") {
+  audioPlayer.addEventListener("play", updatePlaylistDetailPlaying);
+  audioPlayer.addEventListener("pause", updatePlaylistDetailPlaying);
+  audioPlayer.addEventListener("ended", updatePlaylistDetailPlaying);
+}
+
 </script>
 
 </body>
 </html>
-
 
 
 
