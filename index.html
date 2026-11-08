@@ -2247,9 +2247,9 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 
 /* Curated Taninfy playlists */
 .curated-intro{color:var(--muted);margin:-8px 0 24px}
-.curated-playlists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.curated-card{display:grid;grid-template-columns:minmax(150px, .9fr) 1.1fr;min-height:210px;overflow:hidden;border:1px solid rgba(213,160,173,.14);border-radius:15px;background:linear-gradient(135deg,#1b1015,#100c0f);box-shadow:0 12px 28px rgba(0,0,0,.14)}
-.curated-cover{position:relative;min-height:210px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#78344c,#241018 72%)}
+.curated-playlists{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.curated-card{display:block;min-height:0;overflow:hidden;border:0;border-radius:16px;background:transparent;box-shadow:none;cursor:pointer}
+.curated-cover{position:relative;width:100%;aspect-ratio:1/1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:16px;background:radial-gradient(circle at 50% 45%,#78344c,#241018 72%);box-shadow:0 16px 40px rgba(0,0,0,.20)}
 .curated-cover:before,.curated-cover:after{content:"";position:absolute;width:190px;height:190px;border:1px solid rgba(255,220,230,.17);border-radius:50%;transform:rotate(-25deg)}
 .curated-cover:after{width:145px;height:145px}
 .curated-cover span{position:absolute;top:12px;left:14px;color:rgba(255,255,255,.65);font-size:12px}
@@ -2264,9 +2264,9 @@ footer{margin-left:120px;background:#080708;border-color:rgba(213,160,173,.12);c
 .curated-dark .curated-cover{background:radial-gradient(circle at 50% 45%,#553047,#120b12 75%)}
 .curated-nostalgia .curated-cover{background:radial-gradient(circle at 50% 45%,#98566a,#28151d 75%)}
 .curated-energy .curated-cover{background:radial-gradient(circle at 50% 45%,#874052,#291018 75%)}
-.curated-info{padding:22px 20px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.curated-info{padding:11px 2px 0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
 .curated-info>span{font-size:9px;letter-spacing:1.5px;color:#d5a0ad}
-.curated-info h2{font-size:21px;margin:8px 0 5px;color:#f8f1f3}
+.curated-info h2{font-size:15px;margin:0 0 2px;color:#f8f1f3;font-weight:600}
 .curated-info p{font-size:12px;color:#a99ba1;line-height:1.9;margin:0 0 15px}
 .curated-info button{border:1px solid rgba(213,160,173,.22);border-radius:22px;background:#26131b;color:#f1dce2;padding:8px 14px;font:12px "Vazirmatn",sans-serif;cursor:pointer}
 .curated-info button:hover{background:#3a1926}
@@ -3847,6 +3847,23 @@ body.light-theme .playlist-detail-song .playlist-detail-song-artist {
 }
 </style>
 
+<style>
+/* FINAL STABILITY / PLAYLIST FIXES */
+.curated-card:focus,
+.curated-card:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--pink) 60%, transparent);
+  outline-offset: 4px;
+}
+.curated-card .curated-cover { border:0 !important; }
+body.light-theme .curated-card { background:transparent !important; color:#111 !important; }
+body.light-theme .curated-card .curated-info h2 { color:#111 !important; }
+body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; }
+.playlist-detail-cover,
+.playlist-detail-cover-wrap { border-radius:18px !important; }
+.playlist-detail-song-cover,
+.playlist-detail-song-cover-wrap { border-radius:10px !important; }
+</style>
+
 </head>
 
 <body>
@@ -4878,7 +4895,7 @@ function renderPlaylistDetailSongs(indices) {
 
     playButton.addEventListener("click", event => {
       event.stopPropagation();
-      setPlayerTrack(index, true);
+      setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
     });
 
     heart.addEventListener("click", async event => {
@@ -4916,7 +4933,7 @@ function renderPlaylistDetailSongs(indices) {
 
     row.addEventListener("click", event => {
       if (event.target.closest("button")) return;
-      setPlayerTrack(index, true);
+      setPlayerTrack(index, true, taninfyOpenPlaylistIndices);
     });
 
     row.append(number, coverWrap, info, playButton, heart);
@@ -4990,7 +5007,7 @@ function openTaninfyPlaylist(playlist) {
   if (playButton) {
     playButton.onclick = () => {
       const firstIndex = taninfyOpenPlaylistIndices[0];
-      if (Number.isInteger(firstIndex)) setPlayerTrack(firstIndex, true);
+      if (Number.isInteger(firstIndex)) setPlayerTrack(firstIndex, true, taninfyOpenPlaylistIndices);
     };
   }
 
@@ -4999,7 +5016,7 @@ function openTaninfyPlaylist(playlist) {
     shuffleButton.onclick = () => {
       if (taninfyOpenPlaylistIndices.length <= 1) {
         const onlyIndex = taninfyOpenPlaylistIndices[0];
-        if (Number.isInteger(onlyIndex)) setPlayerTrack(onlyIndex, true);
+        if (Number.isInteger(onlyIndex)) setPlayerTrack(onlyIndex, true, taninfyOpenPlaylistIndices);
         return;
       }
 
@@ -5010,7 +5027,7 @@ function openTaninfyPlaylist(playlist) {
         ];
       } while (randomIndex === currentTrackIndex);
 
-      setPlayerTrack(randomIndex, true);
+      setPlayerTrack(randomIndex, true, taninfyOpenPlaylistIndices);
     };
   }
 
@@ -5447,7 +5464,7 @@ function openArtistProfile(name, addHistory = true) {
       const row = document.createElement("div");
       row.className = "artist-profile-song";
       row.innerHTML = `<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
-      const play = () => { if (Number.isInteger(index) && songCatalog[index]) setPlayerTrack(index, true); };
+      const play = () => { if (Number.isInteger(index) && songCatalog[index]) setPlayerTrack(index, true, null); };
       row.addEventListener("click", play);
       row.querySelector("button")?.addEventListener("click", e => { e.stopPropagation(); play(); });
       albumDetailSongs.appendChild(row);
@@ -5468,7 +5485,7 @@ function openArtistProfile(name, addHistory = true) {
     album.songs.forEach(({song,index}) => {
       const row=document.createElement("div"); row.className="artist-profile-song";
       row.innerHTML=`<img src="${song.cover || ""}" alt=""><div><strong>${escapeHtml(song.title || "بدون نام")}</strong><span>${escapeHtml(song.artist || artist.name)}</span></div><button type="button" aria-label="پخش">▶</button>`;
-      const play=()=>{ if(Number.isInteger(index)&&songCatalog[index]) setPlayerTrack(index,true); };
+      const play=()=>{ if(Number.isInteger(index)&&songCatalog[index]) setPlayerTrack(index,true,null); };
       row.addEventListener("click",play);
       row.querySelector("button")?.addEventListener("click",e=>{e.stopPropagation();play();});
       artistProfileSongs.appendChild(row);
@@ -5542,6 +5559,18 @@ let currentTrackIndex = -1;
 let isLoadingTrack = false;
 let trackedPlayIndex = -1;
 let trackedPlayRecorded = false;
+
+/* Active playback context: null = global library, array = current playlist. */
+let activePlaybackIndices = null;
+
+function getActivePlaybackIndices() {
+  if (Array.isArray(activePlaybackIndices) && activePlaybackIndices.length) {
+    return activePlaybackIndices.filter(index =>
+      Number.isInteger(index) && index >= 0 && index < songCatalog.length
+    );
+  }
+  return songCatalog.map((_, index) => index);
+}
 
 function maybeRecordMeaningfulListen() {
   if (currentTrackIndex < 0 || audioPlayer.paused || trackedPlayRecorded) return;
@@ -5619,8 +5648,16 @@ function setLoadingState(loading) {
   }
 }
 
-function setPlayerTrack(index, autoplay = true) {
+function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   if (!songCatalog.length || !songCatalog[index]) return;
+
+  activePlaybackIndices = Array.isArray(playbackContext) && playbackContext.length
+    ? [...new Set(playbackContext.filter(i => Number.isInteger(i) && i >= 0 && i < songCatalog.length))]
+    : null;
+
+  if (Array.isArray(activePlaybackIndices) && !activePlaybackIndices.includes(index)) {
+    activePlaybackIndices = null;
+  }
 
   currentTrackIndex = index;
   trackedPlayIndex = index;
@@ -5676,8 +5713,13 @@ let preloadedAudio = null;
 let preloadedTrackIndex = -1;
 
 function preloadAdjacentTrack() {
-  if (!songCatalog.length || currentTrackIndex < 0) return;
-  const nextIndex = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length || currentTrackIndex < 0) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  if (position < 0) return;
+
+  const nextIndex = playbackIndices[(position + 1) % playbackIndices.length];
   const nextTrack = songCatalog[nextIndex];
   if (!nextTrack || !nextTrack.src || nextIndex === currentTrackIndex) return;
 
@@ -5735,15 +5777,21 @@ mainPlay.addEventListener("click", async function(event) {
 });
 
 previousTrack.addEventListener("click", function() {
-  if (!songCatalog.length) return;
-  const index = currentTrackIndex <= 0 ? songCatalog.length - 1 : currentTrackIndex - 1;
-  setPlayerTrack(index, true);
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const previousPosition = position <= 0 ? playbackIndices.length - 1 : position - 1;
+  setPlayerTrack(playbackIndices[previousPosition], true, activePlaybackIndices);
 });
 
 nextTrack.addEventListener("click", function() {
-  if (!songCatalog.length) return;
-  const index = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
-  setPlayerTrack(index, true);
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const nextPosition = position < 0 || position >= playbackIndices.length - 1 ? 0 : position + 1;
+  setPlayerTrack(playbackIndices[nextPosition], true, activePlaybackIndices);
 });
 
 audioPlayer.addEventListener("loadstart", function() {
@@ -5795,8 +5843,14 @@ audioPlayer.addEventListener("ended", function() {
     return;
   }
 
-  if (currentTrackIndex < songCatalog.length - 1) {
-    setPlayerTrack(currentTrackIndex + 1, true);
+  const playbackIndices = getActivePlaybackIndices();
+  const position = playbackIndices.indexOf(currentTrackIndex);
+
+  if (position >= 0 && position < playbackIndices.length - 1) {
+    setPlayerTrack(playbackIndices[position + 1], true, activePlaybackIndices);
+  } else if (position === playbackIndices.length - 1 && Array.isArray(activePlaybackIndices)) {
+    // Playlist playback stays inside the playlist and loops to its first song.
+    setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
   } else {
     setLoadingState(false);
     playIcon.textContent = "▶";
@@ -6306,21 +6360,26 @@ fullProgress.addEventListener("input", function() {
 });
 
 fullPrevBtn.addEventListener("click", function() {
-  if (!songCatalog.length) return;
-  const index = currentTrackIndex <= 0 ? songCatalog.length - 1 : currentTrackIndex - 1;
-  setPlayerTrack(index, true);
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const previousPosition = position <= 0 ? playbackIndices.length - 1 : position - 1;
+  setPlayerTrack(playbackIndices[previousPosition], true, activePlaybackIndices);
 });
 
 fullNextBtn.addEventListener("click", function() {
-  if (!songCatalog.length) return;
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
 
   if (shuffleEnabled) {
     playRandomTrack();
     return;
   }
 
-  const index = currentTrackIndex >= songCatalog.length - 1 ? 0 : currentTrackIndex + 1;
-  setPlayerTrack(index, true);
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  const nextPosition = position < 0 || position >= playbackIndices.length - 1 ? 0 : position + 1;
+  setPlayerTrack(playbackIndices[nextPosition], true, activePlaybackIndices);
 });
 
 shuffleBtn.addEventListener("click", function() {
@@ -6336,14 +6395,20 @@ repeatBtn.addEventListener("click", function() {
 });
 
 function playRandomTrack() {
-  if (songCatalog.length <= 1) return;
+  const playbackIndices = getActivePlaybackIndices();
+  if (playbackIndices.length <= 1) {
+    if (playbackIndices.length === 1) {
+      setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
+    }
+    return;
+  }
 
   let randomIndex;
   do {
-    randomIndex = Math.floor(Math.random() * songCatalog.length);
+    randomIndex = playbackIndices[Math.floor(Math.random() * playbackIndices.length)];
   } while (randomIndex === currentTrackIndex);
 
-  setPlayerTrack(randomIndex, true);
+  setPlayerTrack(randomIndex, true, activePlaybackIndices);
 }
 
 /* Clicking the mini-player body opens the large player.
@@ -6645,7 +6710,32 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       document.head.appendChild(accentStyle);
     }
     accentStyle.textContent = `
-      ${theme_rules}
+      /* Self-contained theme overrides — no undefined template variables. */
+      body.light-theme {
+        --bg:#f4eff1;
+        --panel:#ffffff;
+        --text:#111111;
+        --muted:#5f555a;
+        --line:rgba(40,28,33,.14);
+      }
+      body.light-theme .curated-card,
+      body.light-theme .playlist-picker,
+      body.light-theme .panel,
+      body.light-theme .settings-card {
+        color:#111 !important;
+      }
+      body.light-theme .playlist-detail-song-info strong,
+      body.light-theme .playlist-detail-meta h2,
+      body.light-theme .playlist-detail-list-head,
+      body.light-theme .playlist-detail-kicker,
+      body.light-theme .playlist-detail-back,
+      body.light-theme .playlist-detail-actions button {
+        color:#111 !important;
+      }
+      body.light-theme .playlist-detail-song-info span,
+      body.light-theme .playlist-detail-list-head span:last-child {
+        color:#2b2528 !important;
+      }
       .btn-primary, .top-login, .segmented-control button.active { background:linear-gradient(135deg, ${settings.accent}, color-mix(in srgb, ${settings.accent} 62%, #171017)) !important; border-color:${settings.accent} !important; }
       /* Keep the navigation bar and its selected state in sync with the chosen accent. */
       .app-sidebar { background:color-mix(in srgb, ${settings.accent} 13%, #100c0f) !important; border-color:color-mix(in srgb, ${settings.accent} 35%, transparent) !important; }
@@ -6665,7 +6755,9 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
       .btn-primary:hover { filter:brightness(1.12); }
     `;
     document.documentElement.style.setProperty("--text-scale", String(Number(settings.textScale) || 1));
-    document.body.style.zoom = String(Number(settings.textScale) || 1);
+    /* body.zoom breaks fixed player/sidebar positioning; keep layout at 1:1. */
+    document.body.style.zoom = "1";
+    document.body.style.fontSize = `calc(16px * ${Number(settings.textScale) || 1})`;
     document.querySelectorAll("[data-theme-mode]").forEach(btn =>
       btn.classList.toggle("active", btn.dataset.themeMode === settings.theme));
     document.querySelectorAll(".accent-swatch").forEach(btn =>
@@ -6729,43 +6821,7 @@ if (typeof audioPlayer !== "undefined") {
 </script>
 
 
-<script>
-document.addEventListener("click", function (event) {
-  const btn = event.target.closest("#playlistDetailShuffle");
-  if (!btn) return;
-  if (!Array.isArray(window.taninfyOpenPlaylistIndices) || !window.taninfyOpenPlaylistIndices.length) return;
 
-  const shuffled = [...window.taninfyOpenPlaylistIndices];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  window.taninfyOpenPlaylistIndices = shuffled;
-
-  if (typeof renderPlaylistDetailSongs === "function") {
-    renderPlaylistDetailSongs(shuffled);
-  }
-  if (typeof playSong === "function") {
-    playSong(shuffled[0]);
-  }
-});
-</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
