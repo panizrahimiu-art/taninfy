@@ -3507,6 +3507,174 @@ body.light-theme .page { color:#34232a; }
 
 </style>
 
+
+<style>
+/* TANINFY — FINAL VISUAL TWEAKS */
+
+/* Playlist title: white in dark theme, dark in light theme */
+.curated-card .curated-info h2 {
+  color: #f8f1f3 !important;
+}
+
+body.light-theme .curated-card .curated-info h2 {
+  color: #34232a !important;
+}
+
+body.light-theme .curated-card .playlist-song-count {
+  color: #796b71 !important;
+}
+
+/* Playlist detail song covers: slightly smaller than the main playlist cover,
+   while still staying clearly visible in the list */
+.playlist-detail-song {
+  grid-template-columns: 30px 64px minmax(0,1fr) auto auto;
+  min-height: 84px;
+  gap: 14px;
+}
+
+.playlist-detail-song-cover {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+}
+
+/* Favorite artists: one horizontal, scrollable row of circular profiles */
+#favoriteArtistList {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 2px 12px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+#favoriteArtistList::-webkit-scrollbar {
+  height: 5px;
+}
+
+#favoriteArtistList::-webkit-scrollbar-thumb {
+  background: rgba(213,160,173,.35);
+  border-radius: 20px;
+}
+
+#favoriteArtistList .favorite-artist-row {
+  flex: 0 0 92px;
+  width: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7px;
+  padding: 4px 0 8px;
+  border: 0;
+  min-width: 92px;
+}
+
+#favoriteArtistList .favorite-artist-row img {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(213,160,173,.22);
+  box-shadow: 0 7px 22px rgba(0,0,0,.22);
+}
+
+#favoriteArtistList .favorite-artist-open {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+#favoriteArtistList .favorite-artist-open strong {
+  display: block;
+  max-width: 92px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+#favoriteArtistList .favorite-artist-open span {
+  display: none;
+}
+
+#favoriteArtistList .favorite-artist-remove {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin-left: 48px;
+  margin-top: 44px;
+  border: 1px solid rgba(213,160,173,.18);
+  background: rgba(20,12,16,.9);
+  font-size: 12px;
+  z-index: 2;
+}
+
+#favoriteArtistList .favorite-artist-row {
+  position: relative;
+}
+
+/* Favorite songs: compact list with very small rounded-square covers */
+#favoriteList .list-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0,1fr) auto;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 0;
+}
+
+#favoriteList .favorite-song-cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+  background: #21141a;
+  border: 1px solid rgba(213,160,173,.1);
+}
+
+#favoriteList .list-item strong {
+  font-size: 12px;
+}
+
+#favoriteList .list-item span {
+  font-size: 10px;
+}
+
+#favoriteList .remove-btn {
+  font-size: 10px;
+  padding: 6px 9px;
+}
+
+/* Light theme for the new favorite-song list */
+body.light-theme #favoriteList .favorite-song-cover {
+  background: #eee5e8;
+  border-color: rgba(74,35,49,.12);
+}
+</style>
+
+
+<style>
+/* REMOVE THE SHARP OUTER HOVER BOX AROUND SONG COVERS */
+#trackList .music-card.track,
+#trackList .music-card.track:hover,
+#trackList .music-card.track:focus,
+#trackList .music-card.track:focus-visible,
+#trackList .music-card.track:active {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+#trackList .track-cover-wrap {
+  border-radius: 13px !important;
+  overflow: hidden !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -5439,6 +5607,16 @@ function renderFavorites() {
     const row = document.createElement("div");
     row.className = "list-item";
 
+    const cover = document.createElement("img");
+    cover.className = "favorite-song-cover";
+    const favoriteSong = songCatalog.find(song =>
+      (item.songId && String(song?.id ?? "") === String(item.songId)) ||
+      (song?.title === item.title && song?.artist === item.artist)
+    );
+    cover.src = favoriteSong?.cover || "";
+    cover.alt = `کاور ${item.title || "آهنگ"}`;
+    cover.loading = "lazy";
+
     const info = document.createElement("div");
     const title = document.createElement("strong");
     title.textContent = item.title;
@@ -5456,7 +5634,7 @@ function renderFavorites() {
       syncHearts();
     });
 
-    row.append(info, remove);
+    row.append(cover, info, remove);
     box.appendChild(row);
   });
 }
@@ -6324,6 +6502,11 @@ if (typeof audioPlayer !== "undefined") {
 
 </body>
 </html>
+
+
+
+
+
 
 
 
