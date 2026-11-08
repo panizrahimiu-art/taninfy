@@ -629,4 +629,76 @@ window.TANINFY_SONGS = [
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
    },
+   {
+    title: "Busy Body",
+    artist: "Isam x Koorosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1404/01/30/Isam%20x%20Koorosh%20-%20Busy%20Body.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.jGhoTMnqoqKJXBrGK5CRagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Delam Tang Mishe",
+    artist: "Armond",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Music/1403/02/A/320/Armond%20-%20Delam%20Tang%20Mishe%20%28320%29.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2024/05/Armond-Delam-Tang-Mishe-img.jpg.webp",
+    featured: true
+   },
+   {
+    title: "Chera Rafti",
+    artist: "Behzad Leito & Chvrsi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.kelmusic.ir/Rap/Behzad%20Leito,%20Chvrsi%20-%20Chera%20Rafti.mp3",
+    cover: "https://resanejavan.net/wp-content/uploads/2025/09/Behzad-Leito-Chvrsi-Chera-Rafti.jpg",
+    featured: true
+   },
+   {
+    title: "Lvrs",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://www.limusic.org/wp-content/uploads/2024/01/hs-Isam-Lvrs.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.uY-2WbrpgmdhvOUqcg0H3gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "HeyBato",
+    artist: "PapaBoyz & Cnjim",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.anarmusic.com//music/1403/04/05/Papaboyz%20&%20Cnjim%20-%20HeyBato.mp3",
+    cover: "https://anarmusic.com/wp-content/uploads/2024/06/Papaboyz-&-Cnjim-HeyBato.jpg",
+    featured: true
+   },
+   {
+    title: "Mese Man Nashod",
+    artist: "Behzad Leito & Cnjim",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.kelmusic.ir/Rap/Behzad%20Leito%20-%20Mese%20Man%20Nashod%20(Cnjim).mp3",
+    cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
+    featured: true
+   },
+   {
+    title: "Tiffany",
+    artist: "Isam",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.behmusics.com/music/1404/06/Irani/Isam%20-%20Tiffany.mp3",
+    cover: "https://th.bing.com/th/id/OIP.sWJDyAOyWgXl8WKZSQbdxwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Highway",
+    artist: "Behzad Leito",
+    genre: "Pop",
+    album: "",
+    src: "https://solahangs.musitraf.com/Album/1403/05/Behzad%20Leito/320/08.Behzad%20Leito%20%26%20Arown%20-%20Highway%20%28320%29.mp3",
+    cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
+    featured: true
+   },
 ];
