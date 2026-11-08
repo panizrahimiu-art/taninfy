@@ -7129,4 +7129,25 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   .full-player-actions { margin-top:10px; }
 }
 
+
+
+/* Desktop proportion refinement — dedicated full player only */
+@media (min-width: 701px) {
+  .full-player-content {
+    width: min(92vw, 590px);
+    max-height: calc(100dvh - 48px);
+    padding: 32px 42px 26px;
+    border-radius: 36px;
+  }
+  .full-cover-wrap {
+    width: min(100%, 430px);
+    margin-bottom: 22px;
+  }
+  .full-song-info h1 { font-size: clamp(24px, 2.2vw, 30px); }
+  .full-song-info p { margin-bottom: 27px; font-size: 14px; }
+  .full-controls { margin-top: 27px; }
+  .full-play-btn { width: 72px; height: 72px; }
+  .full-volume-area { width: min(78%, 340px); margin-top: 24px; }
+  .full-player-actions { margin-top: 20px; }
+}
 </style>
