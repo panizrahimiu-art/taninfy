@@ -1,10 +1,20 @@
 {
-  id: "late-night",
-  name: "🥀 Late Night",
+  name: "Gone",
+  cover: "https://th.bing.com/th/id/OIP.IIPSEYT8eN_vYousa5Hs1gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
   songs: [
-    "song-001",
-    "song-005",
-    "song-012",
-    "song-019"
+    "Jigh",
+    "Fess",
+    "Dare Mire",
+    "OnlyFans",
+    "Marize Ham",
+    "Harchiam Beshe",
+    "Road 61",
+    "Farsanga",
+    "Dobare",
+    "Delm Az Donya Gerefte",
+    "Yadet Nist",
+    "Extasy",
+    "Yebaram Man",
+    "Haminim Ke Hastim"
   ]
 }
