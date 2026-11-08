@@ -1,6 +1,6 @@
 window.TANINFY_PLAYLISTS = [
   {
-    id: "gone",
+    id: "Gone",
     name: "Gone",
     cover: "https://th.bing.com/th/id/OIP.IIPSEYT8eN_vYousa5Hs1gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
 
@@ -20,8 +20,33 @@ window.TANINFY_PLAYLISTS = [
       "Extasy",
       "Yebaram Man",
       "Zemestoon",
+      "Pas Man Chi",
       "Haminim Ke Hastim"
     ]
-  }
+  },
+  {
+    id: "Highway",
+    name: "Highway",
+    cover: "https://solahang.ir/wp-content/uploads/2023/05/Ezza-Highway-img.jpg",
 
+    songs: [
+      "Highway",
+      "Delam Tang Mishe",
+      "Busy Body",
+      "Tiffany",
+      "Chera Rafti",
+      "Lvrs",
+      "HeyBato",
+      "Mese Man Nashod",
+      "Boro",
+      "Fekr Nemikardam",
+      "Akharin Shab",
+      "Euphoria",
+      "Shayad Nashe",
+      "Door Azin Shahr",
+      "Kavire Del",
+      "Miss U Baby",
+      "Khaterate Bad"
+    ]
+  }
 ];
