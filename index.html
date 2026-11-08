@@ -2566,6 +2566,12 @@ body.light-theme .page { color:#34232a; }
   .curated-info{padding:18px 16px}
 }
 
+/* TANINFY — playlist cover images */
+.curated-cover{position:relative;overflow:hidden;}
+.curated-cover-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.curated-cover-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,6,9,.18),rgba(10,6,9,.62));z-index:1;}
+.curated-cover > span,.curated-cover > b,.curated-cover > small{z-index:2;}
+
 </style>
 
 <style>
@@ -3026,6 +3032,12 @@ body.light-theme .page { color:#34232a; }
 }
 </style>
 
+<style>
+/* Final sizing: explore covers slightly smaller than playlist covers */
+#trackList .track-cover-wrap{width:86px;height:86px;}
+#trackList .track-cover-thumb{width:86px;height:86px;}
+@media(max-width:650px){#trackList .track-cover-wrap{width:76px;height:76px;}#trackList .track-cover-thumb{width:76px;height:76px;}}
+</style>
 </head>
 
 <body>
@@ -3202,31 +3214,16 @@ body.light-theme .page { color:#34232a; }
 
       <div class="section-title">
         <div>
-          <h2>میکس‌های منتخب</h2>
+          <h2>پلی لیست های منتخب</h2>
           <p>برای هر لحظه، یک حال متفاوت.</p>
         </div>
       </div>
 
-      <div class="mix-grid">
+      <div class="curated-playlists" id="homeCuratedPlaylistGrid"></div>
 
-        <article class="mix">
-          <small>01 / NIGHT</small>
-          <h3>شب‌های طولانی</h3>
-          <p>آرام، عمیق و دور از هیاهو</p>
-        </article>
-
-        <article class="mix">
-          <small>02 / DARK</small>
-          <h3>تاریک و مرموز</h3>
-          <p>برای وقت‌هایی که سکوت کافی نیست</p>
-        </article>
-
-        <article class="mix">
-          <small>03 / NOSTALGIA</small>
-          <h3>خاطرات دور</h3>
-          <p>صداهایی که فراموش نمی‌شن</p>
-        </article>
-
+      <div class="panel playlist-empty-state" id="homePlaylistEmptyState" style="display:none;">
+        <h2>هنوز پلی لیستی ساخته نشده</h2>
+        <p>داخل فایل <b>playlist.js</b> اسم پلی لیست، کاور و آهنگ‌ها را اضافه کن.</p>
       </div>
 
     </section>
@@ -3891,19 +3888,25 @@ function playlistCover(playlist, songs) {
 }
 
 function renderTaninfyPlaylists() {
-  const grid = document.getElementById("curatedPlaylistGrid");
-  const empty = document.getElementById("playlistEmptyState");
-  if (!grid) return;
+  const grids = [
+    document.getElementById("homeCuratedPlaylistGrid"),
+    document.getElementById("curatedPlaylistGrid")
+  ].filter(Boolean);
+  const empties = [
+    document.getElementById("homePlaylistEmptyState"),
+    document.getElementById("playlistEmptyState")
+  ].filter(Boolean);
+  if (!grids.length) return;
 
   const playlistData = getTaninfyPlaylists();
-  grid.innerHTML = "";
+  grids.forEach(grid => { grid.innerHTML = ""; });
 
   if (!playlistData.length) {
-    if (empty) empty.style.display = "block";
+    empties.forEach(empty => { empty.style.display = "block"; });
     return;
   }
 
-  if (empty) empty.style.display = "none";
+  empties.forEach(empty => { empty.style.display = "none"; });
 
   playlistData.forEach((playlist, playlistIndex) => {
     const refs = Array.isArray(playlist.songs) ? playlist.songs : [];
@@ -3915,6 +3918,19 @@ function renderTaninfyPlaylists() {
     const cover = document.createElement("div");
     cover.className = "curated-cover";
 
+    const coverUrl = playlistCover(playlist, resolvedSongs);
+    if (coverUrl) {
+      const coverImg = document.createElement("img");
+      coverImg.className = "curated-cover-image";
+      coverImg.src = coverUrl;
+      coverImg.alt = `کاور ${playlist.name || "پلی لیست"}`;
+      coverImg.loading = "lazy";
+      cover.appendChild(coverImg);
+    }
+
+    const coverShade = document.createElement("div");
+    coverShade.className = "curated-cover-shade";
+
     const number = document.createElement("span");
     number.textContent = String(playlistIndex + 1).padStart(2, "0");
 
@@ -3924,7 +3940,7 @@ function renderTaninfyPlaylists() {
     const label = document.createElement("small");
     label.textContent = playlist.label || "TANINFY PLAYLIST";
 
-    cover.append(number, icon, label);
+    cover.append(coverShade, number, icon, label);
 
     const info = document.createElement("div");
     info.className = "curated-info";
@@ -3966,7 +3982,28 @@ function renderTaninfyPlaylists() {
 
     info.append(mood, title, description, count, openButton);
     card.append(cover, info);
-    grid.appendChild(card);
+    grids.forEach(grid => grid.appendChild(card.cloneNode(true)));
+
+    // Bind the real card buttons after cloning so both Home and Playlist pages work.
+    grids.forEach((grid, gridIndex) => {
+      const targetCard = grid.lastElementChild;
+      const targetButton = targetCard?.querySelector(".curated-info button");
+      if (targetButton) {
+        targetButton.addEventListener("click", () => {
+          if (!resolvedSongs.length) {
+            showSuccessCheck("آهنگی برای این پلی لیست پیدا نشد");
+            return;
+          }
+          showPage("home");
+          setTimeout(() => {
+            const indices = resolvedSongs
+              .map(song => songCatalog.indexOf(song))
+              .filter(index => index >= 0);
+            renderPlaylistSongsInExplore(indices, playlist.name || "Playlist");
+          }, 80);
+        });
+      }
+    });
   });
 }
 
@@ -5607,8 +5644,6 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 
 </body>
 </html>
-
-
 
 
 
