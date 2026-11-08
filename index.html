@@ -3560,8 +3560,8 @@ body.light-theme .curated-card .playlist-song-count {
 }
 
 #favoriteArtistList .favorite-artist-row {
-  flex: 0 0 92px;
-  width: 92px;
+  flex: 0 0 112px;
+  width: 112px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3573,8 +3573,8 @@ body.light-theme .curated-card .playlist-song-count {
 }
 
 #favoriteArtistList .favorite-artist-row img {
-  width: 66px;
-  height: 66px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid rgba(213,160,173,.22);
@@ -3589,7 +3589,7 @@ body.light-theme .curated-card .playlist-song-count {
 
 #favoriteArtistList .favorite-artist-open strong {
   display: block;
-  max-width: 92px;
+  max-width: 112px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3604,8 +3604,8 @@ body.light-theme .curated-card .playlist-song-count {
   position: absolute;
   width: 22px;
   height: 22px;
-  margin-left: 48px;
-  margin-top: 44px;
+  margin-left: 62px;
+  margin-top: 62px;
   border: 1px solid rgba(213,160,173,.18);
   background: rgba(20,12,16,.9);
   font-size: 12px;
@@ -4751,6 +4751,10 @@ function openTaninfyPlaylist(playlist) {
   taninfyOpenPlaylistIndices = resolvedSongs
     .map(song => songCatalog.indexOf(song))
     .filter(index => index >= 0);
+
+  /* The card can live on the Explore page or the Playlists page.
+     Always navigate to the Playlists page before opening its detail view. */
+  showPage("playlist", false);
 
   const grid = document.getElementById("curatedPlaylistGrid");
   const detail = document.getElementById("playlistDetail");
@@ -6502,11 +6506,6 @@ if (typeof audioPlayer !== "undefined") {
 
 </body>
 </html>
-
-
-
-
-
 
 
 
