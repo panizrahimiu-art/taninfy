@@ -52,7 +52,7 @@ window.TANINFY_PLAYLISTS = [
   {
     id: "Kalbimde Kaldın",
     name: "Kalbimde Kaldın",
-    cover: "https://galeri12.uludagsozluk.com/528/kirik-kalp_794761.jpg",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.saUJDpcx23nK32ekGOCNUQHaE6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
 
     songs: [
       "Sebebi Yar",
