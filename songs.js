@@ -908,4 +908,13 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.48zNdlF0HCr4zoMUp3FoMwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
+   {
+    title: "Fogholade",
+    artist: "BLOK3 & Poizi",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/singletracks/2026/09/Bein%20Ma%20Fogholade%20Bood%20UpMusics.mp3",
+    cover: "https://www.google.com/search?q=fogholade&client=ms-android-samsung-ss&hs=PtIW&sca_esv=98bdd051a2fad891&udm=2&biw=384&bih=747&sxsrf=AKL5yDiZAKCV15KRW0vwNGCDwg2ow1Fflw%3A1794239164983&ei=vOrxau_MO5-ikdUPxtbqwAw&gs_ssp=eJzj4tVP1zc0TCszyUkzziswYPTiTMtPz8jPSUxJBQBqfQhf&oq=gogholade&gs_lp=EhJtb2JpbGUtZ3dzLXdpei1pbWciCWdvZ2hvbGFkZSoHCAAYgAQYDTIHEC4YgAQYDTIHEAAYgAQYDTIIEAAYHhgNGAoyBhAAGB4YDTIGEAAYHhgNSPIzUNAaWMoocAJ4AJABAJgBiwKgAfoOqgEFMC45LjG4AQHIAQD4AQGYAgugAsENqAIFwgIKECMYyQIY6gIYJ8ICBRAAGIAEwgILEC4YgAQYxwEY0QPCAgoQABiABBiKBRhDwgIKEC4YgAQYigUYQ8ICEBAuGIAEGIoFGEMYxwEY0QPCAgkQABiABBgKGAvCAg8QLhiABBgKGAsYxwEY0QPCAgUQLhiABMICCRAuGIAEGAoYC8ICCBAAGIAEGKIEwgIIEAAYiQUYogSYAwqIBgGSBwUyLjYuM6AH2CyyBwUwLjYuM7gHsQ3CBwcwLjEuNi40yAdMgAgB&sclient=mobile-gws-wiz-img#sv=CAMSWRoyKhBlLU9JZGJSY0RqU01YcTVNMg5PSWRiUmNEalNNWHE1TToOT3dSdjNaSDQ4LTgzek0gBCoXCgFzEhBlLU9JZGJSY0RqU01YcTVNGAEwAUoECAEQAlABGAcglfyD0AhKCBACGAEgAigB",
+    featured: true
+   },
 ];
