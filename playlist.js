@@ -1,3 +1,4 @@
+```javascript
 window.TANINFY_PLAYLISTS = [
   {
     id: "Gone",
@@ -62,7 +63,7 @@ window.TANINFY_PLAYLISTS = [
       "Derinlerde",
       "Ateşe Düştüm",
       "M.",
-      "Kayıp Kalb",
+      "",
       "",
       "",
       "",
@@ -75,3 +76,4 @@ window.TANINFY_PLAYLISTS = [
     ]
   }
 ];
+```
