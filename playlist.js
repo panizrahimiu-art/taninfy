@@ -24,7 +24,6 @@ window.TANINFY_PLAYLISTS = [
       "Haminim Ke Hastim"
     ]
   },
-
   {
     id: "Highway",
     name: "Highway",
@@ -50,7 +49,6 @@ window.TANINFY_PLAYLISTS = [
       "Khaterate Bad"
     ]
   },
-
   {
     id: "Kalbimde Kaldın",
     name: "Kalbimde Kaldın",
