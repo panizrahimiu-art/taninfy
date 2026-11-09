@@ -926,4 +926,31 @@ window.TANINFY_SONGS = [
     cover: "https://www.google.com/search?client=ms-android-samsung-ss&hs=mYdB&sca_esv=98bdd051a2fad891&sxsrf=AKL5yDhQtwOa1wwt3nghQndZwmmTAsB2Fw:1794239240516&udm=2&fbs=ACAhTvwdifjn2dKXmjtOfBxVFl_k7xB_bJXhWBZp-REbIUHBWKGndqFlgzepAGz9MF-iY4K-cg8yWQs0wMXX_Wi62NyQSAhjNYLsRH4QlbWbUkOdlMuJnfOkxQl9enJwc-vBexcV4H1i6sBFa-NN0BwSGoCExpCZbPcA8R6WWP-YPvlgTJW3egY&q=%D8%A7%D9%87%D9%86%DA%AF+%D9%BE%D9%88%D8%A8%D9%88%D9%86+%D9%85%D9%86%D9%88+%D8%AA%D9%88+%D8%A8%D8%A7%D9%87%D9%85+%D9%85%DB%8C%D8%B1%DB%8C%D9%85+%D8%AF%D8%B3%D8%AA%D8%A7%D8%AA+%D9%85%D8%A7%D9%84+%D9%85%D9%86&sa=X&sqi=2&ved=2ahUKEwiEjMqEnvuXAxUtUqQEHQivETsQtKgLegQIIBAB&biw=384&bih=747&dpr=2.81#sv=CAMSWxoyKhBlLXNXUUsxc2s3aWF2NklNMg5zV1FLMXNrN2lhdjZJTToOZUpjNkdoMF80dy05dk0gBCoXCgFzEhBlLXNXUUsxc2s3aWF2NklNGAEwATgASgQIARACUAEYByDaobniBjoASggQAhgBIAIoAQ",
     featured: true
    },
+   {
+    title: "No One Noticed",
+    artist: "The Marías",
+    genre: "Pop",
+    album: "",
+    src: "https://download.bibis.ir/Music/English/The-Mar%C3%ADas/The-Mar%C3%ADas-No-One-Noticed_bibis.ir.mp3",
+    cover: "https://th.bing.com/th/id/OIP.iaeM_0sMNFOGUcu-cDyXYgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Boro Boro",
+    artist: "Mani",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/dlw/Mani%20%E2%80%93%20Boro%20Boro%20(320).mp3",
+    cover: "https://upmusics.com/wp-content/uploads/2025/11/Mani-Boro-Boro.jpg",
+    featured: true
+   },
+   {
+    title: "Hamdast",
+    artist: "Ashvan",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.artment.ir/Musics/1404/09/05/Hamdast_Ashvan-Mahyar.mp3",
+    cover: "https://www.playmusic.ir/images/thumbnails/music/2025/11/29/119717_400.webp",
+    featured: true
+   },
 ];
