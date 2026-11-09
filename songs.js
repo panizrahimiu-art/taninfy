@@ -234,15 +234,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    title: "Olmayanim",
-    artist: "Cinare Melikzade",
-    genre: "Pop",
-    album: "اسم آلبوم",
-    src: "https://kk.soonami.ir/Cinare%20Melikzade%20-%20Olmayanim.mp3",
-    cover: "",
-    featured: true
-  },
-  {
     title: "Oh Nana",
     artist: "Raha",
     genre: "Pop",
