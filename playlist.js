@@ -24,6 +24,7 @@ window.TANINFY_PLAYLISTS = [
       "Haminim Ke Hastim"
     ]
   },
+
   {
     id: "Highway",
     name: "Highway",
@@ -49,10 +50,11 @@ window.TANINFY_PLAYLISTS = [
       "Khaterate Bad"
     ]
   },
+
   {
     id: "Kalbimde Kaldın",
     name: "Kalbimde Kaldın",
-    cover: "https://tse4.mm.bing.net/th/id/OIP.xpWk6XG0-xMXA2UPQGA3qQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://galeri12.uludagsozluk.com/528/kirik-kalp_794761.jpg",
 
     songs: [
       "Sebebi Yar",
@@ -62,42 +64,7 @@ window.TANINFY_PLAYLISTS = [
       "Derinlerde",
       "Ateşe Düştüm",
       "M.",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  {
-    id: "",
-    name: "",
-    cover: "https://tse3.mm.bing.net/th/id/OIP.q03wjATPSsFfCzxeztaKSwHaHa?r=0&w=1024&h=1024&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-    songs: [
-      "",
-      "Wishing Well",
-      "505(slowed)",
-      "First Day Out",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
+      "Kayıp Kalb"
     ]
   }
 ];
-```
