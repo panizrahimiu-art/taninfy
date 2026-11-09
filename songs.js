@@ -827,4 +827,40 @@ window.TANINFY_SONGS = [
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
    },
+   {
+    title: "505(slowed)",
+    artist: "Arctic Monkeys",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/400048773.mp3",
+    cover: "https://th.bing.com/th/id/OIP.Boz42MkxQ4Y904fyzRnH2AHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Wishing Well",
+    artist: "Juice WRLD",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/855251083.mp3",
+    cover: "https://th.bing.com/th/id/OIP.48pGomoOSX5AP0ha3knueQHaK4?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "First Day Out",
+    artist: "Tee Grizzley",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/306555098.mp3",
+    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/19/e4/9b/19e49b40-706b-058d-20e8-f7580dde6f26/814908022596.jpg/1200x630bf-60.jpg",
+    featured: true
+   },
+   {
+    title: "First Day Out",
+    artist: "Tee Grizzley",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/306555098.mp3",
+    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/19/e4/9b/19e49b40-706b-058d-20e8-f7580dde6f26/814908022596.jpg/1200x630bf-60.jpg",
+    featured: true
+   },
 ];
