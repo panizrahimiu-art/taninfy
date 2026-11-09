@@ -896,7 +896,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://dll.biamusic.ir/Tak/Behzad%20Leito/Behzad%20Leito%20-%20Kabootar.mp3",
-    cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
+    cover: "https://th.bing.com/th/id/OIP.cLj4kAaJneEt3Mqo-9eS7AAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Çok Güzel Gülüyorsun",
+    artist: "BLOK3 & Poizi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.myavangmusic.com/downloads/BLOK3%20Poizi/Cok%20Guzel%20Guluyorsun/BLOK3%20Poizi%20-%20Cok%20Guzel%20Guluyorsun.mp3",
+    cover: "https://th.bing.com/th/id/OIP.48zNdlF0HCr4zoMUp3FoMwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
 ];
