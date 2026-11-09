@@ -4761,6 +4761,25 @@ document.addEventListener("keydown", function(event) {
 const trackList = document.getElementById("trackList");
 const songCatalog = Array.isArray(window.TANINFY_SONGS) ? window.TANINFY_SONGS : [];
 
+/* TANINFY — ARVAN OBJECT STORAGE (single-track test)
+   Only the Canozan test track is redirected to Arvan.
+   All other song metadata, covers, playlists and UI stay unchanged. */
+const TANINFY_ARVAN_BASE = "https://taninfy-music.s3.ir-central1.arvanstorage.ir/";
+const TANINFY_ARVAN_CANOZAN_SRC = TANINFY_ARVAN_BASE +
+  "A%C4%9Flama%20Ben%20A%C4%9Flar%C4%B1m%20-%20Canozan.mp3";
+const taninfyCanozanTrack = songCatalog.find(song => {
+  const title = String(song?.title || "").toLocaleLowerCase();
+  const artist = String(song?.artist || "").toLocaleLowerCase();
+  const src = String(song?.src || "").toLocaleLowerCase();
+  return (title.includes("ağlama ben ağlarım") && artist.includes("canozan")) ||
+         (title.includes("ağlama ben ağlarım") && src.includes("canozan")) ||
+         (title.includes("ağlama") && artist.includes("canozan"));
+});
+if (taninfyCanozanTrack) {
+  taninfyCanozanTrack.src = TANINFY_ARVAN_CANOZAN_SRC;
+}
+
+
 function shuffleItems(items) {
   const result = [...items];
   for (let i = result.length - 1; i > 0; i--) {
