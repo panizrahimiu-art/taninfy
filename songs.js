@@ -791,4 +791,22 @@ window.TANINFY_SONGS = [
     cover: "https://www.playmusic.ir/images/thumbnails/music/2024/11/05/76776_400.webp",
     featured: true
    },
+   {
+    title: "Ateşe Düştüm",
+    artist: "Mert Demir",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.upsong.ir/song/1402/03/mert_demir_atese_dustum.mp3",
+    cover: "https://th.bing.com/th/id/OIP.E2-EF1fzjKqMRJCaCqHWVgAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Gitme Kal Diyemedim",
+    artist: "Sırdaş",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Gitme%20Kal%20Diyemedim%20-%20S%C4%B1rda%C5%9F.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b273c4c163456b9d8a4fd393cc85",
+    featured: true
+   },
 ];
