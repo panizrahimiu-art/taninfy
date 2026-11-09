@@ -48,5 +48,30 @@ window.TANINFY_PLAYLISTS = [
       "Miss U Baby",
       "Khaterate Bad"
     ]
+  },
+  {
+    id: "Highway",
+    name: "Highway",
+    cover: "https://solahang.ir/wp-content/uploads/2023/05/Ezza-Highway-img.jpg",
+
+    songs: [
+      "Highway",
+      "Delam Tang Mishe",
+      "Busy Body",
+      "Tiffany",
+      "Chera Rafti",
+      "Lvrs",
+      "HeyBato",
+      "Mese Man Nashod",
+      "Boro",
+      "Fekr Nemikardam",
+      "Akharin Shab",
+      "Euphoria",
+      "Shayad Nashe",
+      "Door Azin Shahr",
+      "Kavire Del",
+      "Miss U Baby",
+      "Khaterate Bad"
+    ]
   }
 ];
