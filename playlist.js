@@ -56,13 +56,13 @@ window.TANINFY_PLAYLISTS = [
 
     songs: [
       "Sebebi Yar",
-      "",
+      "Belki",
       "Gitme Kal Diyemedim",
-      "",
-      "",
+      "Ağlama Ben Ağlarım",
+      "Derinlerde",
       "Ateşe Düştüm",
-      "",
-      "",
+      "M.",
+      "Kayıp Kalb",
       "",
       "",
       "",
