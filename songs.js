@@ -910,11 +910,20 @@ window.TANINFY_SONGS = [
    },
    {
     title: "Fogholade",
-    artist: "BLOK3 & Poizi",
+    artist: "Behzad Leito",
     genre: "Pop",
     album: "",
     src: "https://irsv.upmusics.com/singletracks/2026/09/Bein%20Ma%20Fogholade%20Bood%20UpMusics.mp3",
     cover: "https://www.google.com/search?q=fogholade&client=ms-android-samsung-ss&hs=PtIW&sca_esv=98bdd051a2fad891&udm=2&biw=384&bih=747&sxsrf=AKL5yDiZAKCV15KRW0vwNGCDwg2ow1Fflw%3A1794239164983&ei=vOrxau_MO5-ikdUPxtbqwAw&gs_ssp=eJzj4tVP1zc0TCszyUkzziswYPTiTMtPz8jPSUxJBQBqfQhf&oq=gogholade&gs_lp=EhJtb2JpbGUtZ3dzLXdpei1pbWciCWdvZ2hvbGFkZSoHCAAYgAQYDTIHEC4YgAQYDTIHEAAYgAQYDTIIEAAYHhgNGAoyBhAAGB4YDTIGEAAYHhgNSPIzUNAaWMoocAJ4AJABAJgBiwKgAfoOqgEFMC45LjG4AQHIAQD4AQGYAgugAsENqAIFwgIKECMYyQIY6gIYJ8ICBRAAGIAEwgILEC4YgAQYxwEY0QPCAgoQABiABBiKBRhDwgIKEC4YgAQYigUYQ8ICEBAuGIAEGIoFGEMYxwEY0QPCAgkQABiABBgKGAvCAg8QLhiABBgKGAsYxwEY0QPCAgUQLhiABMICCRAuGIAEGAoYC8ICCBAAGIAEGKIEwgIIEAAYiQUYogSYAwqIBgGSBwUyLjYuM6AH2CyyBwUwLjYuM7gHsQ3CBwcwLjEuNi40yAdMgAgB&sclient=mobile-gws-wiz-img#sv=CAMSWRoyKhBlLU9JZGJSY0RqU01YcTVNMg5PSWRiUmNEalNNWHE1TToOT3dSdjNaSDQ4LTgzek0gBCoXCgFzEhBlLU9JZGJSY0RqU01YcTVNGAEwAUoECAEQAlABGAcglfyD0AhKCBACGAEgAigB",
+    featured: true
+   },
+   {
+    title: "Manoto",
+    artist: "Behzad Leito & Pobon",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.darvishmusic.com/music/96/shahrivar/1/Behzad%20Leito%20-%20Manoto%20(ft%20Poobon).mp3",
+    cover: "https://www.google.com/search?client=ms-android-samsung-ss&hs=mYdB&sca_esv=98bdd051a2fad891&sxsrf=AKL5yDhQtwOa1wwt3nghQndZwmmTAsB2Fw:1794239240516&udm=2&fbs=ACAhTvwdifjn2dKXmjtOfBxVFl_k7xB_bJXhWBZp-REbIUHBWKGndqFlgzepAGz9MF-iY4K-cg8yWQs0wMXX_Wi62NyQSAhjNYLsRH4QlbWbUkOdlMuJnfOkxQl9enJwc-vBexcV4H1i6sBFa-NN0BwSGoCExpCZbPcA8R6WWP-YPvlgTJW3egY&q=%D8%A7%D9%87%D9%86%DA%AF+%D9%BE%D9%88%D8%A8%D9%88%D9%86+%D9%85%D9%86%D9%88+%D8%AA%D9%88+%D8%A8%D8%A7%D9%87%D9%85+%D9%85%DB%8C%D8%B1%DB%8C%D9%85+%D8%AF%D8%B3%D8%AA%D8%A7%D8%AA+%D9%85%D8%A7%D9%84+%D9%85%D9%86&sa=X&sqi=2&ved=2ahUKEwiEjMqEnvuXAxUtUqQEHQivETsQtKgLegQIIBAB&biw=384&bih=747&dpr=2.81#sv=CAMSWxoyKhBlLXNXUUsxc2s3aWF2NklNMg5zV1FLMXNrN2lhdjZJTToOZUpjNkdoMF80dy05dk0gBCoXCgFzEhBlLXNXUUsxc2s3aWF2NklNGAEwATgASgQIARACUAEYByDaobniBjoASggQAhgBIAIoAQ",
     featured: true
    },
 ];
