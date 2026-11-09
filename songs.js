@@ -855,12 +855,39 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "First Day Out",
-    artist: "Tee Grizzley",
+    title: "Crazy Story",
+    artist: "King Von",
     genre: "Pop",
     album: "",
-    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/306555098.mp3",
-    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/19/e4/9b/19e49b40-706b-058d-20e8-f7580dde6f26/814908022596.jpg/1200x630bf-60.jpg",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/1302516706.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.otNFVHcAhETPf2XPcfTrKQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Zadam Biroon",
+    artist: "Xaniar Khosravi & Dekamond",
+    genre: "Pop",
+    album: "",
+    src: "https://musicstaj.musitraf.com/song402/do/Xaniar%20&%20Dekamond%20-%20Zadam-Biroon.mp3",
+    cover: "https://th.bing.com/th/id/OIP.OJ5558V6iQunwTuLkBeUOQHaHa?w=108&h=108&c=1&bgcl=3b6e29&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "The Night We Met",
+    artist: "Lord Huron",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.upsong.ir/tg/music/1403/01/14/Lord%20Huron%20-%20The%20Night%20We%20Met%20(320).mp3",
+    cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
+    featured: true
+   },
+   {
+    title: "The Night We Met",
+    artist: "Lord Huron",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.upsong.ir/tg/music/1403/01/14/Lord%20Huron%20-%20The%20Night%20We%20Met%20(320).mp3",
+    cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
     featured: true
    },
 ];
