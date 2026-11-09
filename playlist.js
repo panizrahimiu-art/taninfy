@@ -1,4 +1,3 @@
-```javascript
 window.TANINFY_PLAYLISTS = [
   {
     id: "Gone",
