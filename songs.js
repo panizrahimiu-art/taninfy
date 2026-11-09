@@ -75,18 +75,18 @@ window.TANINFY_SONGS = [
     title: "Sebebi Yar",
     artist: "BLOK3",
     genre: "Pop",
-    album: "OBSESIF",
+    album: "KAYIP PERSONA",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
-    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
+    cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
   },
   {
     title: "Allah Allah",
     artist: "BLOK3",
     genre: "Pop",
-    album: "OBSESIF",
+    album: "KAYIP PERSONA",
     src: "https://dl.anarmusic.com/music/1405/06/02/Blok3%20-%20Allah%20Allah.mp3",
-    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
+    cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
   },
   {
@@ -102,9 +102,9 @@ window.TANINFY_SONGS = [
     title: "Kirginim",
     artist: "BLOK3",
     genre: "Pop",
-    album: "OBSESIF",
+    album: "KAYIP PERSONA",
     src: "https://dl.myavangmusic.com/downloads/BLOK3/Kirginim/BLOK3%20-%20Kirginim.mp3",
-    cover: "https://cdn-images.dzcdn.net/images/cover/a1eddbeba4471c619a06143d67a11e0d/1000x1000-000000-80-0-0.jpg",
+    cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
   },
   {
@@ -807,6 +807,33 @@ window.TANINFY_SONGS = [
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Gitme%20Kal%20Diyemedim%20-%20S%C4%B1rda%C5%9F.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273c4c163456b9d8a4fd393cc85",
+    featured: true
+   },
+   {
+    title: "Derinlerde",
+    artist: "Cem Adrian",
+    genre: "Pop",
+    album: "",
+    src: "https://opxmusic.ir/wp-content/uploads/2023/04/01-Derinlerde.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.4ZSW85_Pu61ELMcTIesVPwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Belki",
+    artist: "Dedublüman",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.upsong.ir/tg/music/1402/12/13/Dedubl%C3%BCman%20-%20belki%20(320).mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.D9lqhF6-mPfPDsz_tcp0dQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Kayıp Kalb",
+    artist: "Blok3",
+    genre: "Pop",
+    album: "KAYIP PERSONA",
+    src: "https://download.bibis.ir/Music/Turkish/BLOK3/BLOK3--Kay%C4%B1p-Kalp_bibis.ir.mp3",
+    cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
    },
 ];
