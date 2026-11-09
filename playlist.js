@@ -73,7 +73,7 @@ window.TANINFY_PLAYLISTS = [
       "",
       ""
     ]
-  }
+  },
   {
     id: "",
     name: "",
