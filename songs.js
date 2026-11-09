@@ -202,7 +202,7 @@ window.TANINFY_SONGS = [
     artist: "Canozan",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://azturk.musitraf.ir/1402/09/08/Canozan%20-%20A%C4%9Flama%20ben%20a%C4%9Flar%C4%B1m.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/A%C4%9Flama%20Ben%20A%C4%9Flar%C4%B1m%20-%20Canozan.mp3",
     cover: "https://azturk.ir/wp-content/uploads/2023/11/Canozan-A%C4%9Flama-ben-a%C4%9Flar%C4%B1m.jpg",
     featured: true
   },
