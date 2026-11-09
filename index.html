@@ -4926,29 +4926,11 @@ function getPlaylistSong(songRef) {
 }
 
 function getTaninfyPlaylists() {
-  const curated = Array.isArray(window.TANINFY_PLAYLISTS)
+  // Only the three curated playlists from playlist.js are shown.
+  // Personal playlists saved by older versions are intentionally excluded.
+  return Array.isArray(window.TANINFY_PLAYLISTS)
     ? window.TANINFY_PLAYLISTS
     : [];
-  let personal = [];
-  try {
-    const stored = JSON.parse(localStorage.getItem("taninfy-playlists") || "[]");
-    if (Array.isArray(stored)) personal = stored;
-  } catch (error) {
-    console.warn("Taninfy playlists could not be read from local storage.", error);
-  }
-
-  // Keep both playlist.js collections and playlists created by the user.
-  // If names collide, show the personal playlist once and preserve its contents.
-  const combined = [...curated];
-  personal.forEach(item => {
-    const name = String(item?.name || "").trim().toLocaleLowerCase();
-    const existingIndex = combined.findIndex(entry =>
-      String(entry?.name || "").trim().toLocaleLowerCase() === name
-    );
-    if (existingIndex >= 0) combined[existingIndex] = item;
-    else combined.push(item);
-  });
-  return combined;
 }
 
 function playlistCover(playlist, songs) {
@@ -6213,7 +6195,9 @@ document.querySelectorAll("[data-curated-browse]").forEach(button => {
 
 /* PLAYLIST STORAGE — retained for the personal add-to-playlist picker */
 const playlistKey = "taninfy-playlists";
-let playlists = JSON.parse(localStorage.getItem(playlistKey) || "[]");
+// Clear old personal playlists so only the three curated playlists remain.
+localStorage.removeItem(playlistKey);
+let playlists = [];
 
 /* PROFILE */
 const profileKey = "taninfy-profile";
