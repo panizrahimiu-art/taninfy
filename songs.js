@@ -890,4 +890,13 @@ window.TANINFY_SONGS = [
     cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
     featured: true
    },
+   {
+    title: "Kabotar",
+    artist: "Behzad Leito & Khalse",
+    genre: "Pop",
+    album: "",
+    src: "https://dll.biamusic.ir/Tak/Behzad%20Leito/Behzad%20Leito%20-%20Kabootar.mp3",
+    cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
+    featured: true
+   },
 ];
