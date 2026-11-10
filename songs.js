@@ -971,4 +971,30 @@ window.TANINFY_SONGS = [
     cover: "https://cdn.7sobh.com/thumbnail/frJnWryhxMFi/AZRsMzHCdXcG-GIG8aaBfyJvsssTOLOpx9x_idp5q_0uj_HzaupoiavoOSSHa7QCpY-w8JTCWu61tUEVYxUejrjAJAmq0Zd22YcY5DGoOXnZ3IzN6RlZzBv8WmkSANkjBTlBjGE9w0P_W2zF-rQT5SXbJPyYQqWrEus7uw-NbD6Xp9Jl0l1pwXAftoMSmkqB/Mehrad-Hidden-To-Hamishe-Bekhand.jpg",
     featured: true
    },
+   {
+    title: "Kenaret Moondam",
+    artist: "Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://dl5.download1music.ir/Music/2020/Hoomaan/Hoomaan%20-%20Kenaret%20Moondam.mp3",
+    cover: "https://www.sabalanmusic.ir/wp-content/uploads/2019/01/Hoomaan-Kenaret-Moondam.jpg",
+    featured: true
+   },
+   {
+    title: "Ghalat Kardam",
+    artist: "TM Bax",
+    genre: "Pop",
+    album: "",
+    src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
+    cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
+    featured: true
+   },
+   {
+    title: "Ghalat Kardam",
+    artist: "TM Bax",
+    genre: "Pop",
+    album: "",
+    src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
+    cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
+    featured: true
 ];
