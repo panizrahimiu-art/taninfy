@@ -962,4 +962,13 @@ window.TANINFY_SONGS = [
     cover: "https://www.google.com/search?client=ms-android-samsung-ss&hs=vAJW&sca_esv=26e1428ea9835dcb&sxsrf=AKL5yDgPEJudgZ1WgLIKX6m7-VIP6XGZpg:1794304376296&udm=2&fbs=ACAhTvwdifjn2dKXmjtOfBxVFl_koHVe5RLSnJlTH2QYaq_YVfnwA0k4pzZ9d-ZbRA0e6tx_bOCeM8fujsSep3JnvBLpsc0hOB26zURjrhjv9fCML0a-BnFeEzlQgT7ikn4jRD4_oSH_c8s0RDTzS3zSUULwNZdBuzjANj-n5HV8WSg3GABsMKL5Wyawg-aQGr4_RoZm7RWj&q=palang+zedbazi&sa=X&sqi=2&ved=2ahUKEwjO3t7XkP2XAxXKnP0HHSUxF7QQtKgLegQIFhAB&biw=384&bih=747&dpr=2.81#sv=CAMSWRoyKhBlLVFiRTNkd0N4aVNULVVNMg5RYkUzZHdDeGlTVC1VTToObmRLclZXSXc1Yi13Q00gBCoXCgFzEhBlLVFiRTNkd0N4aVNULVVNGAEwAUoECAEQAlABGAcgl4zShAtKCBACGAEgAigB",
     featured: true
    },
+   {
+    title: "To Hamishe Bekhand",
+    artist: "Mehrad Hidden",
+    genre: "Pop",
+    album: "",
+    src: "https://static0.7sobh.com/mediav2/rKo9NxjyM8aF/YXVkaW8tbWVkaXVtLm1wMw,,/Mehrad+Hidden+-+To+Hamishe+Bekhand+%5B320%5D.mp3",
+    cover: "https://cdn.7sobh.com/thumbnail/frJnWryhxMFi/AZRsMzHCdXcG-GIG8aaBfyJvsssTOLOpx9x_idp5q_0uj_HzaupoiavoOSSHa7QCpY-w8JTCWu61tUEVYxUejrjAJAmq0Zd22YcY5DGoOXnZ3IzN6RlZzBv8WmkSANkjBTlBjGE9w0P_W2zF-rQT5SXbJPyYQqWrEus7uw-NbD6Xp9Jl0l1pwXAftoMSmkqB/Mehrad-Hidden-To-Hamishe-Bekhand.jpg",
+    featured: true
+   },
 ];
