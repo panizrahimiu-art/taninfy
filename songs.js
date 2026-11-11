@@ -997,4 +997,5 @@ window.TANINFY_SONGS = [
     src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
     cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
     featured: true
+   },
 ];
