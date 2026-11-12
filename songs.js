@@ -997,5 +997,167 @@ window.TANINFY_SONGS = [
     src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
     cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
     featured: true
+   }, 
+   {
+    title: "Starboy",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238376/01.%20Starboy.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Party Monster",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238380/02.%20Party%20Monster.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "False Alarm",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238372/03.%20False%20Alarm.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Reminder",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238371/04.%20Reminder.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Rockin’",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238378/05.%20Rockin%E2%80%99.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Secrets",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238382/06.%20Secrets.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "True Colors",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238370/07.%20True%20Colors.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Stargirl Interlude",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238364/08.%20Stargirl%20Interlude.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Sidewalks",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238377/09.%20Sidewalks.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Six Feet Under",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238379/10.%20Six%20Feet%20Under.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Love To Lay",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238375/11.%20Love%20To%20Lay.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "A Lonely Night",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238373/12.%20A%20Lonely%20Night.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Attention",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238368/13.%20Attention.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Ordinary Life",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238374/14.%20Ordinary%20Life.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Nothing Without You",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238369/15.%20Nothing%20Without%20You.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "All I Know",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238384/16.%20All%20I%20Know.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "Die For You",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238381/17.%20Die%20For%20You.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
+   },
+   {
+    title: "I Feel It Coming",
+    artist: "The Weeknd",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://rozup.ir/download/4238383/18.%20I%20Feel%20It%20Coming.mp3",
+    cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
+    featured: true
    },
 ];
