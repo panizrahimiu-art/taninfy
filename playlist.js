@@ -63,6 +63,7 @@ window.TANINFY_PLAYLISTS = [
       "Ateşe Düştüm",
       "M.",
       "Kayıp Kalb"
+      "Bu Tepe Pullu Tepe"
     ]
   }
 ];
