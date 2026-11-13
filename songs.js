@@ -1259,4 +1259,67 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.nzo5xLc1f_pR1Egz6-fUXAHaJF?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
+   {
+    title: "Nemiyad",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/18-Nemiyad.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.C6QDjGUrv2tucre4c57zMQAAAA?r=0&w=320&h=320&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Kaj Kolah Khan",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/17-Kaj%20Kolah%20Khan.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.V4H1s2D0GyiRCYkaiy0WfwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Makhloogh",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/14-Makhloogh.mp3",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.ycpHol_4klFZB--TA0-N4QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Man Aamadeh Am",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/13-Man%20Aamadeh-am.mp3",
+    cover: "https://i.pinimg.com/originals/fe/d7/f9/fed7f961319fa1f4ed40b61a40cbb39c.jpg",
+    featured: true
+   },
+   {
+    title: "Pol",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/02-Pol.mp3",
+    cover: "https://th.bing.com/th/id/OIP.eT2G3DKhLTSG-dgbVKuAxwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Mordab",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/05-Mordab.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.dpxGvtpP2Oa2NMGBqr3efgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Hamsafar",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/06-Hamsafar.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.muic3BIu4eA4rbtKK_SOmwHaK-?r=0&w=735&h=1090&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
 ];
