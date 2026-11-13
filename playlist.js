@@ -38,14 +38,14 @@ window.TANINFY_PLAYLISTS = [
       "Lvrs",
       "HeyBato",
       "Mese Man Nashod",
-      "Boro",
+      "Kenaret Moondam",
       "Fekr Nemikardam",
       "Akharin Shab",
       "Euphoria",
       "Shayad Nashe",
       "Door Azin Shahr",
-      "Kavire Del",
-      "Miss U Baby",
+      "Boro Boro",
+      "To Hamishe Bekhand",
       "Khaterate Bad"
     ]
   },
