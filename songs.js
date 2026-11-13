@@ -1322,4 +1322,31 @@ window.TANINFY_SONGS = [
     cover: "https://tse4.mm.bing.net/th/id/OIP.muic3BIu4eA4rbtKK_SOmwHaK-?r=0&w=735&h=1090&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
+   {
+    title: "Gharibe Aashena",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/03-Gharibe%20Aashena.mp3",
+    cover: "https://i.pinimg.com/236x/b6/b2/cc/b6b2cc7bd83ed862d1c2c5b2c44ab631.jpg",
+    featured: true
+   },
+   {
+    title: "Do Panjererh",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/04-Do%20Panjererh.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.JcmQMTlGWgwS1ynnHirGUQHaHa?r=0&w=480&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Easy",
+    artist: "Sepehr Khalse & Behzad Leito & Catchybeatz",
+    genre: "Pop",
+    album: "",
+    src: "https://dl3.data-music.ir/music/s/sepehr-khalse/Sepehr-KhalseNadarimam-Difficult-320.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.bL1FMfxfV-pJhqh_dgp9yAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
 ];
