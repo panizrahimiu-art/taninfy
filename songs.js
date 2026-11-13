@@ -1170,11 +1170,20 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Bu Tepe Pullu Tepe",
-    artist: "Dilşah Çelik",
+    title: "Saat Divari",
+    artist: "Mohsen Chavoshi",
     genre: "Pop",
-    album: "Starboy",
-    src: "https://dl.tinixmusic.ir/20260816/Bu%20Tepe%20Pullu%20Tepe%20-%20Dil%C5%9Fah%20%C3%87elik.mp3",
+    album: "",
+    src: "https://dl.mifa-music.ir/Music1/1403/11/Mohsen%20Chavoshi%20-%20Saate%20Divari.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
+    featured: true
+   },
+   {
+    title: "Saat Divari",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mifa-music.ir/Music1/1403/11/Mohsen%20Chavoshi%20-%20Saate%20Divari.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
     featured: true
    },
