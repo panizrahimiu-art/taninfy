@@ -5861,6 +5861,63 @@ function setLoadingState(loading) {
   }
 }
 
+// Android Chrome lock-screen / notification media controls (Media Session API)
+function updateTaninfyMediaSession(track) {
+  if (!('mediaSession' in navigator) || !track) return;
+  try {
+    const artwork = String(track.cover || '').trim();
+    const metadata = {
+      title: track.title || 'بدون نام',
+      artist: track.artist || 'هنرمند نامشخص',
+      album: track.album || 'طنین‌فای',
+      artwork: artwork ? [
+        { src: artwork, sizes: '96x96' },
+        { src: artwork, sizes: '192x192' },
+        { src: artwork, sizes: '512x512' }
+      ] : []
+    };
+    navigator.mediaSession.metadata = new MediaMetadata(metadata);
+  } catch (error) {
+    console.warn('Media Session metadata could not be updated:', error);
+  }
+}
+
+function updateTaninfyPlaybackState() {
+  if (!('mediaSession' in navigator)) return;
+  try {
+    navigator.mediaSession.playbackState = audioPlayer.paused ? 'paused' : 'playing';
+  } catch (error) {}
+}
+
+if ('mediaSession' in navigator) {
+  try {
+    navigator.mediaSession.setActionHandler('play', () => {
+      if (currentTrackIndex >= 0) audioPlayer.play().catch(() => {});
+    });
+    navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
+    navigator.mediaSession.setActionHandler('previoustrack', () => previousTrack.click());
+    navigator.mediaSession.setActionHandler('nexttrack', () => {
+      if (shuffleEnabled) playRandomTrack();
+      else nextTrack.click();
+    });
+    navigator.mediaSession.setActionHandler('seekbackward', (details) => {
+      audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - (details.seekOffset || 10));
+    });
+    navigator.mediaSession.setActionHandler('seekforward', (details) => {
+      if (Number.isFinite(audioPlayer.duration)) {
+        audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + (details.seekOffset || 10));
+      }
+    });
+    navigator.mediaSession.setActionHandler('seekto', (details) => {
+      if (Number.isFinite(audioPlayer.duration) && Number.isFinite(details.seekTime)) {
+        audioPlayer.currentTime = Math.max(0, Math.min(audioPlayer.duration, details.seekTime));
+      }
+    });
+  } catch (error) {
+    console.warn('Some media session actions are not supported:', error);
+  }
+}
+
 function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   if (!songCatalog.length || !songCatalog[index]) return;
 
@@ -5876,6 +5933,7 @@ function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   trackedPlayIndex = index;
   trackedPlayRecorded = false;
   const track = songCatalog[index];
+  updateTaninfyMediaSession(track);
 
   nowTitle.textContent = track.title || "بدون نام";
   nowArtist.textContent = track.artist || "هنرمند نامشخص";
@@ -6022,6 +6080,7 @@ audioPlayer.addEventListener("canplay", function() {
 });
 
 audioPlayer.addEventListener("play", function() {
+  updateTaninfyPlaybackState();
   setLoadingState(false);
   playIcon.textContent = "Ⅱ";
   updateTrackButtons();
@@ -6029,6 +6088,7 @@ audioPlayer.addEventListener("play", function() {
 });
 
 audioPlayer.addEventListener("pause", function() {
+  updateTaninfyPlaybackState();
   if (!audioPlayer.ended) {
     player.classList.remove("is-buffering");
   }
@@ -6038,6 +6098,7 @@ audioPlayer.addEventListener("pause", function() {
 });
 
 audioPlayer.addEventListener("ended", function() {
+  updateTaninfyPlaybackState();
   if (repeatEnabled) {
     audioPlayer.currentTime = 0;
     audioPlayer.play().catch(() => {});
