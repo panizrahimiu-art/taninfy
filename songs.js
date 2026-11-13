@@ -1233,12 +1233,30 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Fandak Tab Dar",
-    artist: "Mohsen Chavoshi",
+    title: "Marghoob",
+    artist: "Shahrokh Shahid",
     genre: "Pop",
     album: "",
-    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Fandak-Tab-dar.mp3",
-    cover: "https://th.bing.com/th/id/OIP.B_HOR2AbPSGV-y7UUChdvgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    src: "https://dl.mokhtalefmusic.com/music/1402/09/12/Shahrokh%20-%20Marghoob.mp3",
+    cover: "https://sakhamusic.ir/wp-content/uploads/2025/04/Shahrokh.jpg",
+    featured: true
+   },
+   {
+    title: "Dokhtar",
+    artist: "Poobon",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1403/06/30/Poobon%20-%20Dokhtar.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2024/09/Poobon-Dokhtar.jpg",
+    featured: true
+   },
+   {
+    title: "Bemoon Ta Bemoonam",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/19-Bemoon%20Ta%20Bemoonam.mp3",
+    cover: "https://th.bing.com/th/id/OIP.nzo5xLc1f_pR1Egz6-fUXAHaJF?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
 ];
