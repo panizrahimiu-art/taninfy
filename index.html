@@ -4056,10 +4056,18 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
   </div>
   <div class="topbar-right">
     <a class="top-login" id="topLoginLink" href="#login" data-page="login">ورود | ثبت‌نام</a>
-    <a class="top-account" id="topAccountLink" href="#profile" data-page="profile" style="display:none;">
+    <button class="top-account" id="topAccountLink" type="button" aria-label="منوی حساب کاربری" aria-expanded="false" aria-controls="accountDropdown" style="display:none;">
       <img id="topAccountAvatar" alt="">
       <span id="topAccountName">حساب کاربری</span>
-    </a>
+      <span class="account-chevron" aria-hidden="true">⌄</span>
+    </button>
+    <div class="account-dropdown" id="accountDropdown" aria-hidden="true">
+      <div class="account-dropdown-heading">حساب کاربری</div>
+      <button type="button" class="account-dropdown-item" data-account-page="profile"><span>♙</span> پروفایل</button>
+      <button type="button" class="account-dropdown-item" data-account-page="settings"><span>⚙</span> تنظیمات</button>
+      <div class="account-dropdown-divider"></div>
+      <button type="button" class="account-dropdown-item account-logout" id="accountLogoutBtn"><span>↪</span> خروج از حساب</button>
+    </div>
   </div>
 </header>
 
@@ -4073,7 +4081,6 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
     <a href="#favorites" data-page="favorites"><span>♡</span>مورد علاقه</a>
     <a href="#profile" data-page="profile"><span>♙</span>پروفایل</a>
-    <a href="#settings" data-page="settings"><span>⚙</span>تنظیمات</a>
   </nav>
   <div class="sidebar-bottom">
     <small>YOUR MOOD, YOUR SOUND</small>
@@ -4122,11 +4129,6 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     <a href="#profile" data-page="profile">
       <span class="menu-icon">♙</span>
       <span>پروفایل</span>
-    </a>
-
-    <a href="#settings" data-page="settings">
-      <span class="menu-icon">⚙</span>
-      <span>تنظیمات</span>
     </a>
 
   </nav>
@@ -4692,6 +4694,52 @@ document.querySelectorAll("[data-page]").forEach(link => {
     }
     showPage(this.dataset.page, true);
   });
+});
+
+/* ACCOUNT DROPDOWN — profile and settings live under the avatar */
+const accountTrigger = document.getElementById("topAccountLink");
+const accountDropdown = document.getElementById("accountDropdown");
+const accountLogoutBtn = document.getElementById("accountLogoutBtn");
+
+function closeAccountDropdown() {
+  if (!accountDropdown || !accountTrigger) return;
+  accountDropdown.classList.remove("open");
+  accountDropdown.setAttribute("aria-hidden", "true");
+  accountTrigger.setAttribute("aria-expanded", "false");
+}
+
+accountTrigger?.addEventListener("click", event => {
+  event.preventDefault();
+  event.stopPropagation();
+  const opening = !accountDropdown?.classList.contains("open");
+  closeAccountDropdown();
+  if (opening && accountDropdown) {
+    accountDropdown.classList.add("open");
+    accountDropdown.setAttribute("aria-hidden", "false");
+    accountTrigger.setAttribute("aria-expanded", "true");
+  }
+});
+
+accountDropdown?.querySelectorAll("[data-account-page]").forEach(button => {
+  button.addEventListener("click", () => {
+    const pageName = button.dataset.accountPage;
+    closeAccountDropdown();
+    showPage(pageName, true);
+  });
+});
+
+accountLogoutBtn?.addEventListener("click", () => {
+  closeAccountDropdown();
+  document.getElementById("logoutBtn")?.click();
+});
+
+document.addEventListener("click", event => {
+  if (!accountDropdown?.contains(event.target) && !accountTrigger?.contains(event.target)) {
+    closeAccountDropdown();
+  }
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeAccountDropdown();
 });
 
 function loadPageFromHash() {
@@ -7275,6 +7323,56 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 .playlist-detail-song .playlist-detail-song-heart{display:none !important;}
 </style>
 </body>
+
+
+<style>
+/* TANINFY — Spotify-inspired navigation bar, preserving the existing icon order */
+.topbar-right{position:relative}
+.top-account{
+  display:inline-flex;align-items:center;gap:9px;max-width:210px;padding:5px 11px 5px 6px;
+  border:1px solid rgba(213,160,173,.18);border-radius:999px;background:rgba(255,255,255,.055);
+  color:#f8f1f3;cursor:pointer;transition:background .2s,border-color .2s,transform .2s
+}
+.top-account:hover,.top-account[aria-expanded="true"]{background:rgba(129,26,53,.28);border-color:rgba(213,160,173,.38)}
+.top-account img{width:34px;height:34px;flex:0 0 34px;border-radius:50%;object-fit:cover;border:1px solid rgba(213,160,173,.35)}
+.top-account span:not(.account-chevron){overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.account-chevron{color:#d5a0ad;font:18px Arial;transition:transform .2s}
+.top-account[aria-expanded="true"] .account-chevron{transform:rotate(180deg)}
+.account-dropdown{
+  position:absolute;top:calc(100% + 12px);right:0;width:220px;padding:10px;z-index:10050;
+  border:1px solid rgba(213,160,173,.2);border-radius:19px;
+  background:linear-gradient(145deg,rgba(35,20,28,.97),rgba(10,8,10,.98));
+  box-shadow:0 18px 55px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.045);
+  -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-7px) scale(.98);
+  transform-origin:top right;transition:opacity .2s ease,transform .2s ease,visibility .2s ease
+}
+.account-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1)}
+.account-dropdown-heading{padding:8px 11px 10px;color:#d5a0ad;font-size:10px;letter-spacing:1.4px}
+.account-dropdown-item{display:flex;align-items:center;gap:12px;width:100%;padding:12px 11px;border:0;border-radius:12px;background:transparent;color:#f4edf0;text-align:right;font:13px "Vazirmatn",Tahoma,sans-serif;cursor:pointer;transition:background .18s,color .18s}
+.account-dropdown-item>span{width:22px;color:#d5a0ad;font:21px Arial;text-align:center}
+.account-dropdown-item:hover{background:rgba(129,26,53,.25);color:#fff}
+.account-dropdown-divider{height:1px;margin:6px 5px;background:rgba(213,160,173,.13)}
+.account-logout{color:#e7a0ad}
+@media(max-width:650px){
+  .app-sidebar{
+    left:10px!important;right:10px!important;bottom:9px!important;width:auto!important;height:70px!important;
+    padding:5px 8px!important;border:1px solid rgba(213,160,173,.19)!important;border-radius:23px!important;
+    background:rgba(22,15,19,.86)!important;box-shadow:0 12px 38px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.055)!important;
+    -webkit-backdrop-filter:blur(24px) saturate(135%)!important;backdrop-filter:blur(24px) saturate(135%)!important
+  }
+  .sidebar-nav{height:100%;flex-direction:row;justify-content:space-around;align-items:center;gap:2px}
+  .sidebar-nav a{flex:1;min-width:0;height:56px;padding:4px 1px!important;border-radius:15px!important;font-size:9px!important;gap:2px!important}
+  .sidebar-nav a span{font-size:20px!important}
+  .sidebar-nav a.active{background:rgba(129,26,53,.3)!important;color:#f8f1f3!important}
+  main{padding-bottom:88px!important}
+  .player{bottom:86px!important}
+  .account-dropdown{top:calc(100% + 10px);right:0;width:min(220px,calc(100vw - 24px))}
+  .top-account{padding:3px;border-radius:50%;gap:0}
+  .top-account img{width:34px;height:34px}
+  .top-account span:not(.account-chevron),.account-chevron{display:none}
+}
+</style>
 </html>
 
 
