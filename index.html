@@ -5895,11 +5895,8 @@ if ('mediaSession' in navigator) {
       if (currentTrackIndex >= 0) audioPlayer.play().catch(() => {});
     });
     navigator.mediaSession.setActionHandler('pause', () => audioPlayer.pause());
-    navigator.mediaSession.setActionHandler('previoustrack', () => previousTrack.click());
-    navigator.mediaSession.setActionHandler('nexttrack', () => {
-      if (shuffleEnabled) playRandomTrack();
-      else nextTrack.click();
-    });
+    navigator.mediaSession.setActionHandler('previoustrack', () => advanceMediaSessionTrack(-1));
+    navigator.mediaSession.setActionHandler('nexttrack', () => advanceMediaSessionTrack(1));
     navigator.mediaSession.setActionHandler('seekbackward', (details) => {
       audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - (details.seekOffset || 10));
     });
@@ -6710,6 +6707,74 @@ repeatBtn.addEventListener("click", function() {
   repeatBtn.classList.toggle("active", repeatEnabled);
   repeatBtn.title = repeatEnabled ? "Repeat song on" : "Repeat";
 });
+
+// Change tracks from Android notification/lock-screen controls.
+// Wait until the new source is ready before resuming playback; otherwise
+// some Android Chrome versions pause the player after a next/previous action.
+function playMediaSessionTrack(index) {
+  if (!Number.isInteger(index) || !songCatalog[index]) return;
+
+  const expectedIndex = index;
+  setPlayerTrack(index, false, activePlaybackIndices);
+
+  const resumeNewTrack = () => {
+    if (currentTrackIndex !== expectedIndex) return;
+    audioPlayer.play().then(() => {
+      updateTaninfyPlaybackState();
+      updateTrackButtons();
+      updateFullPlayButton();
+    }).catch((error) => {
+      // Ignore a stale play request if another track was selected meanwhile.
+      if (currentTrackIndex === expectedIndex && error && error.name !== 'AbortError') {
+        console.warn('Media Session could not resume the next track:', error);
+      }
+    });
+  };
+
+  if (audioPlayer.readyState >= 3) {
+    resumeNewTrack();
+  } else {
+    audioPlayer.addEventListener('canplay', resumeNewTrack, { once: true });
+  }
+}
+
+function advanceMediaSessionTrack(direction) {
+  const playbackIndices = getActivePlaybackIndices();
+  if (!playbackIndices.length) return;
+
+  let targetIndex = -1;
+  if (shuffleEnabled) {
+    if (direction > 0) {
+      if (playbackIndices.length <= 1) return;
+      if (!shuffleQueue.length) rebuildShuffleQueue();
+      targetIndex = shuffleQueue.shift();
+      if (currentTrackIndex >= 0) shuffleHistory.push(currentTrackIndex);
+    } else {
+      while (shuffleHistory.length) {
+        const previousIndex = shuffleHistory.pop();
+        if (playbackIndices.includes(previousIndex) && previousIndex !== currentTrackIndex) {
+          targetIndex = previousIndex;
+          break;
+        }
+      }
+      if (targetIndex < 0) {
+        const position = playbackIndices.indexOf(currentTrackIndex);
+        targetIndex = playbackIndices[(position <= 0 ? playbackIndices.length - 1 : position - 1)];
+      }
+    }
+  } else {
+    const position = playbackIndices.indexOf(currentTrackIndex);
+    if (direction > 0) {
+      targetIndex = playbackIndices[position < 0 || position >= playbackIndices.length - 1 ? 0 : position + 1];
+    } else {
+      targetIndex = playbackIndices[position <= 0 ? playbackIndices.length - 1 : position - 1];
+    }
+  }
+
+  if (Number.isInteger(targetIndex) && targetIndex !== currentTrackIndex) {
+    playMediaSessionTrack(targetIndex);
+  }
+}
 
 function playRandomTrack() {
   const playbackIndices = getActivePlaybackIndices();
