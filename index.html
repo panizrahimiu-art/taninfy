@@ -4049,10 +4049,6 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     </button>
     <button class="topbar-arrow" type="button" aria-label="بازگشت" onclick="history.back()">‹</button>
     <button class="topbar-arrow forward" type="button" aria-label="جلو" onclick="history.forward()">›</button>
-    <label class="top-search">
-      <span>⌕</span>
-      <input id="topMusicSearch" type="search" placeholder="جستجوی آهنگ، خواننده یا پلی لیست..." autocomplete="off">
-    </label>
   </div>
   <div class="topbar-right">
     <a class="top-login" id="topLoginLink" href="#login" data-page="login">ورود | ثبت‌نام</a>
@@ -4226,6 +4222,22 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
   </div>
 
+</section>
+
+<!-- SEARCH PAGE -->
+<section class="page" id="page-search">
+  <div class="wrap search-page-wrap">
+    <div class="section-title">
+      <div>
+        <h1>جستجو</h1>
+        <p>آهنگ، خواننده یا پلی‌لیست موردنظرت رو پیدا کن.</p>
+      </div>
+    </div>
+    <label class="top-search search-page-input">
+      <span>⌕</span>
+      <input id="topMusicSearch" type="search" placeholder="جستجوی آهنگ، خواننده یا پلی لیست..." autocomplete="off">
+    </label>
+  </div>
 </section>
 
 <!-- PROFILE PAGE -->
@@ -4669,7 +4681,7 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
-const availablePages = ["home", "profile", "favorites", "artists", "playlist", "settings", "login", "contact"];
+const availablePages = ["home", "search", "profile", "favorites", "artists", "playlist", "settings", "login", "contact"];
 
 function showPage(name, addHistory = true) {
   const target = document.getElementById("page-" + name);
@@ -4696,13 +4708,13 @@ document.querySelectorAll("[data-page]").forEach(link => {
   });
 });
 
-/* Bottom navigation search: focus the existing global search without adding a second search UI. */
+/* Search navigation opens its own dedicated page. */
 document.querySelector('[data-action="open-search"]')?.addEventListener("click", function(event) {
   event.preventDefault();
+  showPage("search", true);
   const searchInput = document.getElementById("topMusicSearch");
-  document.querySelector(".topbar")?.classList.add("search-open");
   if (searchInput) {
-    searchInput.focus({ preventScroll: true });
+    setTimeout(() => searchInput.focus({ preventScroll: true }), 80);
   }
 });
 
@@ -7470,8 +7482,6 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 
 <style>
 /* TANINFY — bottom navigation fade + refined Spotify-like dock */
-header.topbar:not(.search-open) .top-search{display:none!important}
-header.topbar.search-open .top-search{display:flex!important}
 @media (max-width:650px){
   body::after{
     content:"";position:fixed;left:0;right:0;bottom:0;height:145px;z-index:28;
@@ -7510,5 +7520,38 @@ header.topbar.search-open .top-search{display:flex!important}
   .sidebar-nav a.active,.sidebar-nav a:hover{color:#fff!important;background:transparent!important}
   .sidebar-nav a.active span{color:#fff!important}
   body::after{display:none!important}
+}
+</style>
+
+
+<style>
+/* Dedicated search page */
+.search-page-wrap{
+  max-width:900px!important;
+  padding-top:42px!important;
+}
+.search-page-wrap .section-title{
+  margin-bottom:26px;
+}
+.search-page-wrap .section-title h1{
+  font-size:clamp(26px,4vw,38px);
+  color:#fff;
+  margin:0 0 5px;
+}
+.search-page-wrap .section-title p{
+  color:#a99aa0;
+  margin:0;
+}
+.search-page-input{
+  width:min(100%,680px)!important;
+  height:54px!important;
+  margin-top:12px;
+  border-radius:14px!important;
+  box-sizing:border-box;
+}
+.search-page-input input{font-size:15px!important}
+@media(max-width:650px){
+  .search-page-wrap{padding-top:24px!important}
+  .search-page-input{width:100%!important;height:49px!important}
 }
 </style>
