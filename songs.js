@@ -1160,4 +1160,22 @@ window.TANINFY_SONGS = [
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
    },
+   {
+    title: "Bu Tepe Pullu Tepe",
+    artist: "Dilşah Çelik",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://dl.tinixmusic.ir/20260816/Bu%20Tepe%20Pullu%20Tepe%20-%20Dil%C5%9Fah%20%C3%87elik.mp3",
+    cover: "https://th.bing.com/th/id/OIP.BMpqjVJyB2EYkX9DJ7S-RQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Bu Tepe Pullu Tepe",
+    artist: "Dilşah Çelik",
+    genre: "Pop",
+    album: "Starboy",
+    src: "https://dl.tinixmusic.ir/20260816/Bu%20Tepe%20Pullu%20Tepe%20-%20Dil%C5%9Fah%20%C3%87elik.mp3",
+    cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
+    featured: true
+   },
 ];
