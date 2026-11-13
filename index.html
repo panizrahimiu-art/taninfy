@@ -4076,11 +4076,11 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     <span class="sidebar-logo">♫</span><strong>taninfy</strong>
   </a>
   <nav class="sidebar-nav">
-    <a class="active" href="#home" data-page="home"><span>◉</span>اکسپلور</a>
+    <a class="active" href="#home" data-page="home"><span>⌂</span>خانه</a>
     <a href="#playlist" data-page="playlist"><span>♫</span>پلی لیست</a>
     <a href="#artists" data-page="artists"><span>♬</span>هنرمندان</a>
     <a href="#favorites" data-page="favorites"><span>♡</span>مورد علاقه</a>
-    <a href="#profile" data-page="profile"><span>♙</span>پروفایل</a>
+    <a href="#search" data-action="open-search" aria-label="جستجو"><span>⌕</span>جستجو</a>
   </nav>
   <div class="sidebar-bottom">
     <small>YOUR MOOD, YOUR SOUND</small>
@@ -4694,6 +4694,16 @@ document.querySelectorAll("[data-page]").forEach(link => {
     }
     showPage(this.dataset.page, true);
   });
+});
+
+/* Bottom navigation search: focus the existing global search without adding a second search UI. */
+document.querySelector('[data-action="open-search"]')?.addEventListener("click", function(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById("topMusicSearch");
+  document.querySelector(".topbar")?.classList.add("search-open");
+  if (searchInput) {
+    searchInput.focus({ preventScroll: true });
+  }
 });
 
 /* ACCOUNT DROPDOWN — profile and settings live under the avatar */
@@ -5968,6 +5978,7 @@ mainPlay.addEventListener("click", async function(event) {
 });
 
 previousTrack.addEventListener("click", function() {
+  if (shuffleEnabled) { playPreviousShuffleTrack(); return; }
   const playbackIndices = getActivePlaybackIndices();
   if (!playbackIndices.length) return;
 
@@ -6429,6 +6440,32 @@ fullDownloadBtn?.addEventListener("click", downloadCurrentSong);
 
 let shuffleEnabled = false;
 let repeatEnabled = false;
+let shuffleQueue = [];
+let shuffleHistory = [];
+
+function rebuildShuffleQueue() {
+  const pool = getActivePlaybackIndices().filter(index => index !== currentTrackIndex);
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  shuffleQueue = pool;
+}
+
+function playPreviousShuffleTrack() {
+  while (shuffleHistory.length) {
+    const previousIndex = shuffleHistory.pop();
+    if (previousIndex !== currentTrackIndex && songCatalog[previousIndex]) {
+      setPlayerTrack(previousIndex, true, activePlaybackIndices);
+      return;
+    }
+  }
+  const playbackIndices = getActivePlaybackIndices();
+  const position = playbackIndices.indexOf(currentTrackIndex);
+  if (position >= 0) {
+    setPlayerTrack(playbackIndices[(position - 1 + playbackIndices.length) % playbackIndices.length], true, activePlaybackIndices);
+  }
+}
 
 function syncFullFavoriteButton(track) {
   if (!fullFavoriteBtn || !track) return;
@@ -6563,6 +6600,7 @@ fullProgress.addEventListener("input", function() {
 });
 
 fullPrevBtn.addEventListener("click", function() {
+  if (shuffleEnabled) { playPreviousShuffleTrack(); return; }
   const playbackIndices = getActivePlaybackIndices();
   if (!playbackIndices.length) return;
 
@@ -6587,6 +6625,9 @@ fullNextBtn.addEventListener("click", function() {
 
 shuffleBtn.addEventListener("click", function() {
   shuffleEnabled = !shuffleEnabled;
+  shuffleQueue = [];
+  shuffleHistory = [];
+  if (shuffleEnabled) rebuildShuffleQueue();
   shuffleBtn.classList.toggle("active", shuffleEnabled);
   shuffleBtn.title = shuffleEnabled ? "Shuffle on" : "Shuffle";
 });
@@ -6599,19 +6640,16 @@ repeatBtn.addEventListener("click", function() {
 
 function playRandomTrack() {
   const playbackIndices = getActivePlaybackIndices();
-  if (playbackIndices.length <= 1) {
-    if (playbackIndices.length === 1) {
-      setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
-    }
-    return;
+  if (playbackIndices.length <= 1) return;
+
+  if (!shuffleQueue.length) rebuildShuffleQueue();
+  const nextIndex = shuffleQueue.shift();
+  if (!Number.isInteger(nextIndex) || nextIndex === currentTrackIndex) {
+    rebuildShuffleQueue();
+    return playRandomTrack();
   }
-
-  let randomIndex;
-  do {
-    randomIndex = playbackIndices[Math.floor(Math.random() * playbackIndices.length)];
-  } while (randomIndex === currentTrackIndex);
-
-  setPlayerTrack(randomIndex, true, activePlaybackIndices);
+  if (currentTrackIndex >= 0) shuffleHistory.push(currentTrackIndex);
+  setPlayerTrack(nextIndex, true, activePlaybackIndices);
 }
 
 /* Clicking the mini-player body opens the large player.
@@ -7427,4 +7465,21 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 .full-play-btn, #fullPlayBtn { background: transparent !important; background-color: transparent !important; background-image: none !important; border: 0 !important; border-color: transparent !important; border-radius: 0 !important; box-shadow: none !important; outline: 0 !important; color: #fff !important; }
 .full-play-btn:hover, .full-play-btn:focus, .full-play-btn:active, #fullPlayBtn:hover, #fullPlayBtn:focus, #fullPlayBtn:active { background: transparent !important; background-color: transparent !important; box-shadow: none !important; }
 @media (max-width: 700px) { .full-player-content { width: min(88vw, 540px) !important; } }
+</style>
+
+
+<style>
+/* TANINFY — bottom navigation fade + refined Spotify-like dock */
+header.topbar:not(.search-open) .top-search{display:none!important}
+header.topbar.search-open .top-search{display:flex!important}
+@media (max-width:650px){
+  body::after{
+    content:"";position:fixed;left:0;right:0;bottom:0;height:145px;z-index:28;
+    pointer-events:none;
+    background:linear-gradient(to bottom,rgba(8,7,8,0) 0%,rgba(8,7,8,.35) 34%,rgba(0,0,0,.88) 78%,#000 100%);
+  }
+  .app-sidebar{z-index:31!important}
+  .sidebar-nav a[data-action="open-search"] span{font-family:Arial,sans-serif;font-size:27px!important;font-weight:400}
+  .sidebar-nav a[data-action="open-search"]{cursor:pointer}
+}
 </style>
