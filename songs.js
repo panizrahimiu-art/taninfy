@@ -1179,12 +1179,39 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Saat Divari",
+    title: "Man Bayad Miraftam",
     artist: "Mohsen Chavoshi",
     genre: "Pop",
     album: "",
-    src: "https://dl.mifa-music.ir/Music1/1403/11/Mohsen%20Chavoshi%20-%20Saate%20Divari.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Man-Bayad-Miraftam.mp3",
+    cover: "https://i.ytimg.com/vi/v8MbHq5mCwM/maxresdefault.jpg",
+    featured: true
+   },
+   {
+    title: "Kojaie",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Kojaie.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.8uKPNorKPPXpu3ZvlNW2ZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Afsar",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Afsar.mp3",
+    cover: "https://th.bing.com/th/id/OIP.t-8AfAbD9V_-tjc3tusU_gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Bi Badan",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Bi-Badan.mp3",
+    cover: "https://th.bing.com/th/id/OIP.sgqYyN966ZayzzgajLPkpgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
 ];
