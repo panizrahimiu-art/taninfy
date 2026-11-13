@@ -1214,4 +1214,31 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.sgqYyN966ZayzzgajLPkpgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
+   {
+    title: "Mah Pishoni",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Mah-Pishoni.mp3",
+    cover: "https://webahang.ir/wp-content/uploads/2019/12/Mohsen-Chavoshi-Mah-Pishooni.jpg",
+    featured: true
+   },
+   {
+    title: "Fandak Tab Dar",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Fandak-Tab-dar.mp3",
+    cover: "https://th.bing.com/th/id/OIP.B_HOR2AbPSGV-y7UUChdvgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Fandak Tab Dar",
+    artist: "Mohsen Chavoshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Fandak-Tab-dar.mp3",
+    cover: "https://th.bing.com/th/id/OIP.B_HOR2AbPSGV-y7UUChdvgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
 ];
