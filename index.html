@@ -4684,6 +4684,28 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 <script src="artists.js"></script>
 <script>
 
+/* SAFE LOCAL STORAGE — malformed or blocked storage must not stop the app. */
+function taninfySafeStorageGet(key) {
+  try { return window.localStorage.getItem(key); } catch (_) { return null; }
+}
+function taninfySafeStorageSet(key, value) {
+  try { window.localStorage.setItem(key, value); return true; } catch (_) { return false; }
+}
+function taninfySafeStorageRemove(key) {
+  try { window.localStorage.removeItem(key); return true; } catch (_) { return false; }
+}
+function taninfyReadJSON(key, fallback, validate) {
+  try {
+    const raw = taninfySafeStorageGet(key);
+    if (raw === null) return fallback;
+    const parsed = JSON.parse(raw);
+    return typeof validate === "function" && !validate(parsed) ? fallback : parsed;
+  } catch (_) {
+    return fallback;
+  }
+}
+
+
 /* PAGE NAVIGATION */
 const pages = document.querySelectorAll(".page");
 
@@ -4881,7 +4903,7 @@ function getExploreRecommendations() {
   try {
     const key = "taninfy_explore_last_order";
     const currentOrder = tracks.map(item => item.index);
-    const previousOrder = JSON.parse(localStorage.getItem(key) || "null");
+    const previousOrder = taninfyReadJSON(key, null, Array.isArray);
 
     if (
       Array.isArray(previousOrder) &&
@@ -4892,7 +4914,7 @@ function getExploreRecommendations() {
       tracks.push(tracks.shift());
     }
 
-    localStorage.setItem(key, JSON.stringify(tracks.map(item => item.index)));
+    taninfySafeStorageSet(key, JSON.stringify(tracks.map(item => item.index)));
   } catch (error) {
     // اگر ذخیره‌سازی مرورگر در دسترس نبود، همان ترتیب تصادفی استفاده می‌شود.
   }
@@ -5246,15 +5268,15 @@ function openTaninfyPlaylist(playlist) {
   if (favoriteButton) {
     const favoritePlaylistKey = `taninfy-playlist-favorite-${playlist.name || ""}`;
     const update = () => {
-      const active = localStorage.getItem(favoritePlaylistKey) === "1";
+      const active = taninfySafeStorageGet(favoritePlaylistKey) === "1";
       favoriteButton.classList.toggle("active", active);
       favoriteButton.textContent = active ? "♥" : "♡";
     };
 
     favoriteButton.onclick = () => {
-      const active = localStorage.getItem(favoritePlaylistKey) === "1";
-      if (active) localStorage.removeItem(favoritePlaylistKey);
-      else localStorage.setItem(favoritePlaylistKey, "1");
+      const active = taninfySafeStorageGet(favoritePlaylistKey) === "1";
+      if (active) taninfySafeStorageRemove(favoritePlaylistKey);
+      else taninfySafeStorageSet(favoritePlaylistKey, "1");
       update();
     };
 
@@ -5550,10 +5572,10 @@ function escapeHtml(value) {
 }
 
 const favoriteArtistKey = "taninfy-favorite-artists";
-let favoriteArtists = JSON.parse(localStorage.getItem(favoriteArtistKey) || "[]");
+let favoriteArtists = taninfyReadJSON(favoriteArtistKey, [], Array.isArray);
 
 function saveFavoriteArtists() {
-  localStorage.setItem(favoriteArtistKey, JSON.stringify(favoriteArtists));
+  taninfySafeStorageSet(favoriteArtistKey, JSON.stringify(favoriteArtists));
 }
 
 function isFavoriteArtist(name) {
@@ -6155,10 +6177,10 @@ audioPlayer.addEventListener("error", function() {
 
 /* FAVORITES */
 const favoriteKey = "taninfy-favorites";
-let favorites = JSON.parse(localStorage.getItem(favoriteKey) || "[]");
+let favorites = taninfyReadJSON(favoriteKey, [], Array.isArray);
 
 function saveFavorites() {
-  localStorage.setItem(favoriteKey, JSON.stringify(favorites));
+  taninfySafeStorageSet(favoriteKey, JSON.stringify(favorites));
 }
 
 function renderFavorites() {
@@ -6270,7 +6292,7 @@ function addCurrentSongToPlaylist(index) {
       artist: track.artist || "هنرمند نامشخص",
       cover: track.cover || ""
     });
-    localStorage.setItem(playlistKey, JSON.stringify(playlists));
+    taninfySafeStorageSet(playlistKey, JSON.stringify(playlists));
   }
 
   if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
@@ -6323,7 +6345,7 @@ playlistPickerNew?.addEventListener("click", function() {
   if (!name || !name.trim()) return;
   const mood = "My playlist";
   playlists.push({ name: name.trim(), mood, songs: [] });
-  localStorage.setItem(playlistKey, JSON.stringify(playlists));
+  taninfySafeStorageSet(playlistKey, JSON.stringify(playlists));
   addCurrentSongToPlaylist(playlists.length - 1);
 });
 
@@ -6339,15 +6361,20 @@ document.querySelectorAll("[data-curated-browse]").forEach(button => {
 
 /* PLAYLIST STORAGE — retained for the personal add-to-playlist picker */
 const playlistKey = "taninfy-playlists";
-// Clear old personal playlists so only the three curated playlists remain.
-localStorage.removeItem(playlistKey);
-let playlists = [];
+let playlists = taninfyReadJSON(playlistKey, [], Array.isArray)
+  .filter(playlist => playlist && typeof playlist === "object" && !Array.isArray(playlist) && typeof playlist.name === "string")
+  .map(playlist => ({
+    ...playlist,
+    name: playlist.name.trim(),
+    songs: Array.isArray(playlist.songs) ? playlist.songs.filter(song => song && typeof song === "object") : []
+  }))
+  .filter(playlist => playlist.name);
 
 /* PROFILE */
 const profileKey = "taninfy-profile";
 
 function getLocalProfile() {
-  return JSON.parse(localStorage.getItem(profileKey) || "{}");
+  return taninfyReadJSON(profileKey, {}, value => value && typeof value === "object" && !Array.isArray(value));
 }
 
 function updateMenuProfile(user, profile = {}) {
@@ -6444,10 +6471,10 @@ document.getElementById("profileForm").addEventListener("submit", async function
       await window.saveTaninfyProfile(profile);
     } else {
       // Local fallback only if Firebase profile storage is unavailable.
-      localStorage.setItem(profileKey, JSON.stringify(profile));
+      taninfySafeStorageSet(profileKey, JSON.stringify(profile));
     }
 
-    localStorage.setItem(profileKey, JSON.stringify(profile));
+    taninfySafeStorageSet(profileKey, JSON.stringify(profile));
     renderProfile(window.taninfyCurrentUser);
     document.getElementById("profileStatus").textContent = "پروفایل ذخیره شد.";
     showSuccessCheck("پروفایل با موفقیت ذخیره شد");
@@ -6939,7 +6966,7 @@ async function loadTaninfyProfile(user) {
 
     if (snap.exists()) {
       const remoteProfile = snap.data();
-      localStorage.setItem(profileKey, JSON.stringify({
+      taninfySafeStorageSet(profileKey, JSON.stringify({
         name: remoteProfile.name || user.displayName || "Taninfy User",
         nickname: remoteProfile.nickname || "",
         avatar: remoteProfile.avatar || user.photoURL || ""
@@ -7012,7 +7039,7 @@ document.getElementById("googleLoginBtn").addEventListener("click", async () => 
   btn.disabled = true;
   try {
     const result = await signInWithPopup(auth, provider);
-    const firstLogin = !localStorage.getItem("taninfy-profile");
+    const firstLogin = !taninfySafeStorageGet("taninfy-profile");
     renderProfile(result.user);
     status.textContent = "با موفقیت وارد شدی.";
     showSuccessCheck(firstLogin ? "ثبت‌نام با موفقیت انجام شد" : "ورود با موفقیت انجام شد");
@@ -7224,20 +7251,26 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
     theme: "dark", accent: "#d5a0ad", textScale: "1",
     publicProfile: true, showPlaylists: true
   };
-  let settings;
-  let storedSettings = null;
-  try { storedSettings = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (_) { storedSettings = null; }
-  settings = { ...defaults, ...(storedSettings && typeof storedSettings === "object" ? storedSettings : {}) };
-  if (!storedSettings || !["dark", "light"].includes(settings.theme)) settings.theme = "dark";
-  delete settings.autoplay; delete settings.shuffle; delete settings.repeat;
-  delete settings.volume; delete settings.newMusic; delete settings.artistNews;
+  const storedSettings = taninfyReadJSON(
+    storageKey,
+    null,
+    value => value && typeof value === "object" && !Array.isArray(value)
+  );
+  const settings = { ...defaults, ...(storedSettings || {}) };
+  if (!["dark", "light"].includes(settings.theme)) settings.theme = defaults.theme;
+  if (typeof settings.accent !== "string" || !/^#[0-9a-f]{6}$/i.test(settings.accent)) settings.accent = defaults.accent;
+  if (!["0.95", "1", "1.08"].includes(String(settings.textScale))) settings.textScale = defaults.textScale;
+  settings.publicProfile = settings.publicProfile !== false;
+  settings.showPlaylists = settings.showPlaylists !== false;
+  // Remove obsolete settings left by older versions of the page.
+  ["autoplay", "shuffle", "repeat", "volume", "newMusic", "artistNews"].forEach(key => delete settings[key]);
   window.taninfySettings = settings;
 
   const $ = id => document.getElementById(id);
   function save() {
-    localStorage.setItem(storageKey, JSON.stringify(settings));
+    const saved = taninfySafeStorageSet(storageKey, JSON.stringify(settings));
     const status = $("settingsStatus");
-    if (status) status.textContent = "تنظیمات ذخیره شد.";
+    if (status) status.textContent = saved ? "تنظیمات ذخیره شد." : "ذخیره‌سازی مرورگر در دسترس نیست.";
   }
   function applyTheme() {
     document.body.classList.toggle("light-theme", settings.theme === "light");
@@ -7328,24 +7361,10 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   };
   Object.entries(toggles).forEach(([id,key]) => $(id)?.addEventListener("change", e => {
     settings[key] = e.target.checked;
-    if (key === "shuffle" && typeof shuffleEnabled !== "undefined") {
-      shuffleEnabled = settings.shuffle;
-      if (typeof shuffleBtn !== "undefined" && shuffleBtn) shuffleBtn.classList.toggle("active", settings.shuffle);
-    }
-    if (key === "repeat" && typeof repeatEnabled !== "undefined") {
-      repeatEnabled = settings.repeat;
-      if (typeof repeatBtn !== "undefined" && repeatBtn) repeatBtn.classList.toggle("active", settings.repeat);
-    }
     save();
   }));
-  $("settingVolume")?.addEventListener("input", e => {
-    settings.volume = Number(e.target.value);
-    if (typeof audioPlayer !== "undefined") audioPlayer.volume = settings.volume / 100;
-    if ($("volumeValue")) $("volumeValue").textContent = settings.volume.toLocaleString("fa-IR") + "٪";
-    save();
-  });
   $("resetSettings")?.addEventListener("click", () => {
-    settings = { ...defaults }; window.taninfySettings = settings;
+    Object.assign(settings, defaults); Object.keys(settings).forEach(key => { if (!(key in defaults)) delete settings[key]; }); window.taninfySettings = settings;
     applyTheme(); syncControls(); save();
     if ($("settingsStatus")) $("settingsStatus").textContent = "تنظیمات به حالت پیش‌فرض برگشت.";
   });
