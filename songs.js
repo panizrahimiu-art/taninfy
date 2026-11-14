@@ -184,7 +184,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
-    src: "https://gaana.ir/music/all-i-ask/",
+    src: "https://download.bibis.ir/Music/English/Adele/Adele-All-I-Ask_bibis.ir.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
   },
@@ -244,10 +244,10 @@ window.TANINFY_SONGS = [
   },
   {
     title: "BAZIGAR",
-    artist: "Isam",
+    artist: "Behzad Leito & Isam",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://www.appahangx.com/s-dl/99807",
+    src: "https://dl.bandmusic.ir/files/mp3/s1/Isam%20,%20Behzad%20Leito%20&%20Tamara%20-%20Bazigar.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1405/05/82911786778180813017867781805243.webp",
     featured: true
   },
@@ -256,7 +256,7 @@ window.TANINFY_SONGS = [
     artist: "Isam & Koorosh",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://www.appahangx.com/s-dl/99807",
+    src: "https://solahangs.musitraf.com/Music/1405/07/I/320/Isam%20%26%20Koorosh%20-%20Hysteric%20%28320%29.mp3",
     cover: "https://csong.ir/dl/1507/dl320/",
     featured: true
   },
@@ -274,7 +274,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
-    src: "https://gaana.ir/music/send-my-love-to-your-new-lover/#download",
+    src: "https://download.bibis.ir/Music/English/Adele/Adele-send_my_love_to_your_new_lover-bibis.ir.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
   },
@@ -882,12 +882,12 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "The Night We Met",
-    artist: "Lord Huron",
+    title: "Kaj",
+    artist: "Mehrad Hidden",
     genre: "Pop",
-    album: "",
-    src: "https://dl.upsong.ir/tg/music/1403/01/14/Lord%20Huron%20-%20The%20Night%20We%20Met%20(320).mp3",
-    cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
+    album: "Zoozanaghe",
+    src: "https://dl.melonmusic.ir/Music/Mehrad%20Hidden%20-%20Kaj%20[320].mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.iB95qN2nyMcZyCUzVBH4bQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -990,12 +990,12 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Ghalat Kardam",
-    artist: "TM Bax",
+    title: "Drunk on Love",
+    artist: "Rihanna",
     genre: "Pop",
     album: "",
-    src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
-    cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
+    src: "https://download.bibis.ir/Music/English/Rihanna/Rihanna-Drunk-On-Love_bibis.ir.mp3",
+    cover: "https://bibis.ir/wp-content/uploads/2024/03/Rihanna-Drunk-on-Love_bibis.ir_.jpg",
     featured: true
    }, 
    {
