@@ -1547,4 +1547,49 @@ window.TANINFY_SONGS = [
     cover: "https://i.ytimg.com/vi/LVTNuFHtb0o/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AG2CIAC0AWKAgwIABABGD4gXShyMA8=&rs=AOn4CLB4qMNDdu8mmJq55O4hp7UiHXJDNQ",
     featured: true
    },
+   {
+    title: "Where Have You Been",
+    artist: "Rihanna",
+    genre: "Pop",
+    album: "",
+    src: "https://download.bibis.ir/Music/English/Rihanna/Rihanna-Where-Have-You-Been_bibis.ir.mp3",
+    cover: "https://th.bing.com/th/id/OIP.Uo1Mm7yRkVtkc4Mb31hGegHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Shab Ke Mishe",
+    artist: "Amir Tataloo",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1397/10/11/Amir%20Tataloo%20-%20Shab%20Ke%20Mishe.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2019/01/48-768x768.jpg",
+    featured: true
+   },
+   {
+    title: "Boom Naghashi",
+    artist: "Wantons",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.ememay.ir/2024/12/Wantons-Boome-Naghashi.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.OpsrsFBoTYx1ReNAZhmAkQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Hamkhone",
+    artist: "Wantons",
+    genre: "Pop",
+    album: "",
+    src: "https://dl3.rozhamusic.ir/music/w/wantons/Wantons-Shodim-Ye-Jame-Lashe-Hamkhone-320.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.sh-JxdYF1w0RGNU5ZgVGaAHaEK?r=0&w=1280&h=720&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
 ];
