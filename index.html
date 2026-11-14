@@ -5913,6 +5913,33 @@ if ('mediaSession' in navigator) {
   }
 }
 
+// Prevent a delayed image load from the previous track replacing the current cover.
+function updateTrackCoverImage(image, source, visibleClass = null, opacity = "1") {
+  if (!image) return;
+  const url = String(source || "").trim();
+  const requestId = String((Number(image.dataset.coverRequestId) || 0) + 1);
+  image.dataset.coverRequestId = requestId;
+  image.style.opacity = "0";
+  if (visibleClass) image.classList.remove(visibleClass);
+
+  if (!url || url.includes("DIRECT-COVER-IMAGE-URL")) {
+    image.removeAttribute("src");
+    return;
+  }
+
+  image.onload = function () {
+    if (image.dataset.coverRequestId !== requestId) return;
+    image.style.opacity = opacity;
+    if (visibleClass) image.classList.add(visibleClass);
+  };
+  image.onerror = function () {
+    if (image.dataset.coverRequestId !== requestId) return;
+    image.style.opacity = "0";
+    if (visibleClass) image.classList.remove(visibleClass);
+  };
+  image.src = url;
+}
+
 function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   if (!songCatalog.length || !songCatalog[index]) return;
 
@@ -5933,17 +5960,7 @@ function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   nowTitle.textContent = track.title || "بدون نام";
   nowArtist.textContent = track.artist || "هنرمند نامشخص";
 
-  if (miniPlayerCover) {
-    const cover = String(track.cover || "").trim();
-
-    if (cover) {
-      miniPlayerCover.src = cover;
-      miniPlayerCover.classList.add("has-cover");
-    } else {
-      miniPlayerCover.removeAttribute("src");
-      miniPlayerCover.classList.remove("has-cover");
-    }
-  }
+  updateTrackCoverImage(miniPlayerCover, track.cover, "has-cover");
 
   player.classList.add("visible");
 
@@ -6570,21 +6587,8 @@ function openFullPlayer(track) {
   fullArtist.textContent = track.artist || "Unknown Artist";
 
   const fullPlayerBackdrop = document.getElementById("fullPlayerBackdrop");
-  if (track.cover && !String(track.cover).includes("DIRECT-COVER-IMAGE-URL")) {
-    fullCover.src = track.cover;
-    fullCover.style.opacity = "1";
-    if (fullPlayerBackdrop) {
-      fullPlayerBackdrop.src = track.cover;
-      fullPlayerBackdrop.style.opacity = ".58";
-    }
-  } else {
-    fullCover.removeAttribute("src");
-    fullCover.style.opacity = "0";
-    if (fullPlayerBackdrop) {
-      fullPlayerBackdrop.removeAttribute("src");
-      fullPlayerBackdrop.style.opacity = "0";
-    }
-  }
+  updateTrackCoverImage(fullCover, track.cover);
+  updateTrackCoverImage(fullPlayerBackdrop, track.cover, null, ".58");
 
   fullPlayer.classList.add("active");
   syncFullFavoriteButton(track);
