@@ -1412,4 +1412,139 @@ window.TANINFY_SONGS = [
     cover: "https://sahand-music.ir/photos/2000/26/43549.webp",
     featured: true
    },
+   {
+    title: "VODKA BELUGA",
+    artist: "LVBEL C5",
+    genre: "Pop",
+    album: "",
+    src: "https://download.bibis.ir/Music/Turkish/LVBEL-C5/LVBEL-C5--ft.AKDO--VODKA-BELUGA_bibis.ir.mp3",
+    cover: "https://bibis.ir/wp-content/uploads/2026/02/LVBEL-C5-ft.AKDO-VODKA-BELUGA_bibis.ir_.webp",
+    featured: true
+   },
+   {
+    title: "Yok Yok",
+    artist: "Feride Hilal Akın",
+    genre: "Pop",
+    album: "",
+    src: "https://radiomusic.app/blog-media/%D9%85%D8%AA%D9%86-%D8%A2%D9%87%D9%86%DA%AF-feride-hilal-ak%C4%B1n-yok-yok-95098/download/original",
+    cover: "https://radiomusic.app/blog-image/v1/media/450/c523b74ebc4b49ff9f5c0cd5a61e3d20.jpg",
+    featured: true
+   },
+   {
+    title: "Sor Bana",
+    artist: "Feride Hilal Akın",
+    genre: "Pop",
+    album: "",
+    src: "https://download.bibis.ir/Music/Turkish/Feride-Hilal-Ak%C4%B1n/Feride-Hilal-Ak%C4%B1n--Sor-Bana_bibis.ir.mp3",
+    cover: "https://th.bing.com/th/id/OIP.bob35MtItC9fX94RicFkvAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Kasa Orijinal",
+    artist: "Lvbel C5",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.tinixmusic.ir/20260816/Kasa%20Orijinal%20-%20Lvbel%20C5%20Arem%20Ozguc%20Arman%20Aydin.mp3",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.azIIvaeho81p3LIBkvxqYQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "ÇÖZEMEZLER",
+    artist: "Lvbel C5",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.hitsound.ir/03-08/%C3%87%C3%96ZEMEZLER%20-%20Lvbel%20C5%20%20AKDO.mp3",
+    cover: "https://th.bing.com/th/id/OIP.NTj2iNx32GLKQuA0kT5HSwHaNK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Gimme More",
+    artist: "Britney Spears",
+    genre: "Pop",
+    album: "",
+    src: "https://dlmain.gandommusic.ir/mp3/1/Britney%20Spears%20-%20Gimme%20More%20%28%20GandomMusic.ir%20%29.mp3",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.xrIzt1cUNkwg9s0MtANYTwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Hileli",
+    artist: "Manifest & Ajda Pekkan",
+    genre: "Pop",
+    album: "",
+    src: "https://www.turkishfy.com/music/%D8%AA%DA%A9%20%D8%A2%D9%87%D9%86%DA%AF%20%D9%87%D8%A7/Ajda%20Pekkan%20g%20Manifest-Hileli.mp3.mp3",
+    cover: "https://www.turkishfy.com/wp-content/uploads/2026/08/ajda-pekkan-manifest-hileli.webp.jpg",
+    featured: true
+   },
+   {
+    title: "Yaşanacaksa",
+    artist: "Manifest",
+    genre: "Pop",
+    album: "",
+    src: "https://download.bibis.ir/Music/Turkish/manifest/manifest--Ya%C5%9Fanacaksa_bibis.ir.mp3",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.UshfJR-AduSw256bqMLDcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Yakuza",
+    artist: "Sepehr Khalse & Tassmoney",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1403/10/05/Sepehr%20Khalse%20Ft%20Tassmoney%20-%20Yakuza%20(Remix).mp3",
+    cover: "https://behtamusic.ir/wp-content/uploads/2021/09/Sepehr-Khalse-Yakuza.jpg",
+    featured: true
+   },
+   {
+    title: "Billie Jean",
+    artist: "Michael Jackson",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.tinixmusic.ir/202664/Billie%20Jean%20-%20Michael%20Jackson.mp3",
+    cover: "https://tinixmusic.ir/wp-content/uploads/2026/06/Billie-Jean-Michael-Jackson-1.webp",
+    featured: true
+   },
+   {
+    title: "Lan",
+    artist: "Zeynep Bastık",
+    genre: "Pop",
+    album: "",
+    src: "https://azturk.musitraf.ir/1402/12/18/Zeynep%20Bast%C4%B1k%20-%20Lan.mp3",
+    cover: "https://bedunim.ir/wp-content/uploads/2024/03/Lan-Zeynep-Bastik.jpg",
+    featured: true
+   },
+   {
+    title: "Küçük Bir Yol",
+    artist: "Hadise",
+    genre: "Pop",
+    album: "",
+    src: "https://irolive.ir/2020/9/320/Hadise%20-%20Kucuk%20Bir%20Yol%20%28320%29%20%28Iromusic%29.mp3",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.7k-6N0f892RW6XH4qUVVpQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Dead Inside",
+    artist: "Arta & Parsa",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1402/07/15/Arta%20ft%20Parsa%20-%20Dead%20Inside.mp3",
+    cover: "https://solahang.ir/wp-content/uploads/2023/10/Arta-Parsa-Dead-Inside-img.jpg",
+    featured: true
+   },
+   {
+    title: "Nesfe Raah",
+    artist: "Behzad Leito",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.my-ahangha.ir/up/2023/Behzad%20Leito%20-%20Nesfe%20Raah.mp3",
+    cover: "https://www.my-ahangha.ir/wp-content/uploads/2023/04/Behzad%20Leito%20-%20Nesfe%20Raah.jpg.webp",
+    featured: true
+   },
+   {
+    title: "Wake Up In The Sky",
+    artist: "Bruno Mars",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.tiktokmusics.ir/music/Wake%20Up%20In%20The%20Sky%20Bruno%20Mars.mp3",
+    cover: "https://i.ytimg.com/vi/LVTNuFHtb0o/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AG2CIAC0AWKAgwIABABGD4gXShyMA8=&rs=AOn4CLB4qMNDdu8mmJq55O4hp7UiHXJDNQ",
+    featured: true
+   },
 ];
