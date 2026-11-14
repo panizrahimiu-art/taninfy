@@ -1367,4 +1367,40 @@ window.TANINFY_SONGS = [
     cover: "https://comixmusic.ir/wp-content/uploads/2025/04/HA-HA-HA-HA-.jpg",
     featured: true
    },
+   {
+    title: "Bi Sarzamin Tar Az Baad",
+    artist: "Siavash Ghomayshi",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.hitseda.com//S/%D8%B1%DB%8C%D9%85%DB%8C%DA%A9%D8%B3/%D8%B3%DB%8C%D8%A7%D9%88%D8%B4_%D9%82%D9%85%DB%8C%D8%B4%DB%8C/Siavash%20Ghomayshi%20-%20Bi%20Sarzamin%20Tar%20Az%20Baad%20By%20Deejay%20Moein%20X%20Mishamusix%20%5B320%5D.mp3",
+    cover: "https://horadi.com/wp-content/uploads/2026/01/20260105190523.jpeg",
+    featured: true
+   },
+   {
+    title: "Hichvaght Naboodi",
+    artist: "Arianfar",
+    genre: "Pop",
+    album: "",
+    src: "https://irsv.upmusics.com/singletracks/2026/10/Arianfar%20-%20Hichvaght%20Naboodi%20UpMusics.mp3",
+    cover: "https://upmusics.com/wp-content/uploads/2026/10/Screenshot-2026-10-11-172234.webp",
+    featured: true
+   },
+   {
+    title: "Sen Hayatımın Anlamı",
+    artist: "Şaban Gedik",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.anarmusic.com/music/1405/08/22/%C5%9Eaban%20Gedik%20-%20Sen%20Hayat%C4%B1m%C4%B1n%20Anlam%C4%B1.mp3",
+    cover: "https://nex1music.com/img/1405/03/23/saban-gedik-sen-hayatimin-anlami-540.webp",
+    featured: true
+   },
+   {
+    title: "Explore",
+    artist: "Sepehr Khalse & Behzad Leito ",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.anarmusic.com/music/1404/05/23/Sepehr%20Khalse%20x%20Behzad%20Leito%20-%20Explore.mp3",
+    cover: "https://resanejavan.net/wp-content/uploads/2025/08/Leito-Khalse-Explore-Copy.jpg",
+    featured: true
+   },
 ];
