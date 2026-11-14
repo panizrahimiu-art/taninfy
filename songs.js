@@ -1349,4 +1349,22 @@ window.TANINFY_SONGS = [
     cover: "https://tse2.mm.bing.net/th/id/OIP.bL1FMfxfV-pJhqh_dgp9yAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
+   {
+    title: "TAK TAK TAK",
+    artist: "Lvbel C5",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.comixmusic.ir/FUNKK/Tak_Tak_Tak_-_Lvbel_C5.mp3",
+    cover: "https://th.bing.com/th/id/OIP.iwl39M3x7i1vXdsR3HxcPgHaEK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "HA HA HA HA",
+    artist: "Lvbel C5",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.comixmusic.ir/music/Ha_Ha_Ha_Ha_-_Lvbel_C5_Akdo-comixmusic.ir.mp3",
+    cover: "https://comixmusic.ir/wp-content/uploads/2025/04/HA-HA-HA-HA-.jpg",
+    featured: true
+   },
 ];
