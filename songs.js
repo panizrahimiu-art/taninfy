@@ -238,7 +238,7 @@ window.TANINFY_SONGS = [
     artist: "Raha",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://xx.sahand-music.ir/Archive/R/Raha/1405/Raha%20-%20Oh%20Nana.mp3",
+    src: "https://dl.mihanmusics.com/dl/05/07/Delamo-Bord%20-%20Delamo-Bord%20-%20320.mp3",
     cover: "https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F2c4b88ca11b1d5416b3fdb6eee2680c3.500x500x1.jpg",
     featured: true
   },
