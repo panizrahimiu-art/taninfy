@@ -3770,16 +3770,22 @@ body.light-theme .playlist-main-action{
   }
 
   .playlist-detail-song{
-    grid-template-columns:22px 48px minmax(0,1fr) 34px 34px;
-    gap:9px;
-    min-height:68px;
-    padding:8px 2px;
+    grid-template-columns:22px 54px minmax(0,1fr) 34px 34px;
+    column-gap:15px;
+    row-gap:8px;
+    min-height:74px;
+    padding:10px 3px;
   }
 
   .playlist-detail-song-cover-wrap,
   .playlist-detail-song-cover{
-    width:48px;
-    height:48px;
+    width:54px;
+    height:54px;
+  }
+
+  .playlist-detail-song-info{
+    min-width:0;
+    padding-inline:2px;
   }
 
   .playlist-detail-song-info strong{
@@ -4860,46 +4866,10 @@ function shuffleItems(items) {
 }
 
 function getExploreRecommendations() {
-  // آهنگ‌های ناقص و تکراری از پیشنهادها حذف می‌شوند؛ ایندکس اصلی برای پخش حفظ می‌شود.
-  const seen = new Set();
-  const all = songCatalog.map((song, index) => ({ song, index }))
-    .filter(({ song }) => song && song.title && song.artist && song.src && song.featured !== false)
-    .filter(({ song }) => {
-      const key = String(song.src || `${song.title}|${song.artist}`).trim().toLowerCase();
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-
-  const history = window.taninfyListeningStats || {};
-  const artistCounts = history.artistCounts || {};
-  let savedFavoriteArtists = [];
-  try { savedFavoriteArtists = JSON.parse(localStorage.getItem("taninfy-favorite-artists") || "[]"); } catch (_) {}
-  const favoriteNames = new Set(savedFavoriteArtists.map(item => artistKey(item.name)));
-  const topArtists = Object.entries(artistCounts)
-    .sort((a, b) => Number(b[1] || 0) - Number(a[1] || 0))
-    .slice(0, 8).map(([name]) => artistKey(name));
-
-  const listened = all.filter(({song}) => topArtists.includes(artistKey(song.artist)));
-  const favorites = all.filter(({song}) => favoriteNames.has(artistKey(song.artist)));
-  const now = Date.now();
-  const fresh = all.filter(({song}) => song.isNew === true ||
-    (song.uploadedAt && now - new Date(song.uploadedAt).getTime() <= 30 * 86400000));
-
-  const chosen = new Map();
-  const take = (items, limit) => {
-    shuffleItems(items).slice(0, limit).forEach(item => chosen.set(item.index, item));
-  };
-  take(listened, 15);
-  take(favorites.filter(item => !chosen.has(item.index)), 15);
-  take(fresh.filter(item => !chosen.has(item.index)), 10);
-  take(all.filter(item => !chosen.has(item.index)), 10);
-
-  // اگر یکی از دسته‌ها کم‌تعداد بود، ظرفیت خالی با آهنگ‌های یکتای دیگر پر می‌شود.
-  if (chosen.size < 50) {
-    take(all.filter(item => !chosen.has(item.index)), 50 - chosen.size);
-  }
-  return shuffleItems([...chosen.values()]).slice(0, 50);
+  // تمام آهنگ‌های ثبت‌شده در songs.js نمایش داده می‌شوند؛
+  // بدون محدودیت تعداد، انتخاب تصادفی یا فیلتر featured.
+  return songCatalog.map((song, index) => ({ song, index }))
+    .filter(({ song }) => song && typeof song === "object" && song.title);
 }
 
 function renderTrackCatalog() {
