@@ -1396,11 +1396,20 @@ window.TANINFY_SONGS = [
    },
    {
     title: "Explore",
-    artist: "Sepehr Khalse & Behzad Leito ",
+    artist: "Sepehr Khalse & Behzad Leito",
     genre: "Pop",
     album: "",
     src: "https://dl.anarmusic.com/music/1404/05/23/Sepehr%20Khalse%20x%20Behzad%20Leito%20-%20Explore.mp3",
     cover: "https://resanejavan.net/wp-content/uploads/2025/08/Leito-Khalse-Explore-Copy.jpg",
+    featured: true
+   },
+   {
+    title: "Ki",
+    artist: "Poobon & Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1403/03/13/Poobon%20&%20Arta%20-%20Ki%20Shab%20Toro.mp3",
+    cover: "https://sahand-music.ir/photos/2000/26/43549.webp",
     featured: true
    },
 ];
