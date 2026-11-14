@@ -238,8 +238,8 @@ window.TANINFY_SONGS = [
     artist: "Raha",
     genre: "Pop",
     album: "اسم آلبوم",
-    src: "https://www.appahangx.com/s-dl/100159",
-    cover: "https://xx.sahand-music.ir/Archive/R/Raha/1405/Raha%20-%20Oh%20Nana.mp3",
+    src: "https://xx.sahand-music.ir/Archive/R/Raha/1405/Raha%20-%20Oh%20Nana.mp3",
+    cover: "https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F2c4b88ca11b1d5416b3fdb6eee2680c3.500x500x1.jpg",
     featured: true
   },
   {
@@ -959,7 +959,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://dl5.download1music.ir/Music/2023/Unknown%20Artist/Unknown%20Artist%20-%20Palang.mp3",
-    cover: "https://www.google.com/search?client=ms-android-samsung-ss&hs=vAJW&sca_esv=26e1428ea9835dcb&sxsrf=AKL5yDgPEJudgZ1WgLIKX6m7-VIP6XGZpg:1794304376296&udm=2&fbs=ACAhTvwdifjn2dKXmjtOfBxVFl_koHVe5RLSnJlTH2QYaq_YVfnwA0k4pzZ9d-ZbRA0e6tx_bOCeM8fujsSep3JnvBLpsc0hOB26zURjrhjv9fCML0a-BnFeEzlQgT7ikn4jRD4_oSH_c8s0RDTzS3zSUULwNZdBuzjANj-n5HV8WSg3GABsMKL5Wyawg-aQGr4_RoZm7RWj&q=palang+zedbazi&sa=X&sqi=2&ved=2ahUKEwjO3t7XkP2XAxXKnP0HHSUxF7QQtKgLegQIFhAB&biw=384&bih=747&dpr=2.81#sv=CAMSWRoyKhBlLVFiRTNkd0N4aVNULVVNMg5RYkUzZHdDeGlTVC1VTToObmRLclZXSXc1Yi13Q00gBCoXCgFzEhBlLVFiRTNkd0N4aVNULVVNGAEwAUoECAEQAlABGAcgl4zShAtKCBACGAEgAigB",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.SDmQ39Bxhqb2oxvfQ4jnaAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
