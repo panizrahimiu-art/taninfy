@@ -4866,10 +4866,38 @@ function shuffleItems(items) {
 }
 
 function getExploreRecommendations() {
-  // تمام آهنگ‌های ثبت‌شده در songs.js نمایش داده می‌شوند؛
-  // بدون محدودیت تعداد، انتخاب تصادفی یا فیلتر featured.
-  return songCatalog.map((song, index) => ({ song, index }))
+  // همه آهنگ‌های معتبر songs.js را نگه می‌داریم و ترتیبشان را در هر بار بارگذاری تصادفی می‌کنیم.
+  const tracks = songCatalog
+    .map((song, index) => ({ song, index }))
     .filter(({ song }) => song && typeof song === "object" && song.title);
+
+  // Fisher–Yates shuffle
+  for (let i = tracks.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [tracks[i], tracks[j]] = [tracks[j], tracks[i]];
+  }
+
+  // اگر ترتیب تصادفی اتفاقاً دقیقاً مثل بار قبل شد، آن را کمی جابه‌جا می‌کنیم.
+  try {
+    const key = "taninfy_explore_last_order";
+    const currentOrder = tracks.map(item => item.index);
+    const previousOrder = JSON.parse(localStorage.getItem(key) || "null");
+
+    if (
+      Array.isArray(previousOrder) &&
+      previousOrder.length === currentOrder.length &&
+      currentOrder.length > 1 &&
+      currentOrder.every((value, index) => value === previousOrder[index])
+    ) {
+      tracks.push(tracks.shift());
+    }
+
+    localStorage.setItem(key, JSON.stringify(tracks.map(item => item.index)));
+  } catch (error) {
+    // اگر ذخیره‌سازی مرورگر در دسترس نبود، همان ترتیب تصادفی استفاده می‌شود.
+  }
+
+  return tracks;
 }
 
 function renderTrackCatalog() {
