@@ -1607,7 +1607,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://dl.mokhtalefmusic.com/music/1399/03/25/Yas%20-%20Lal.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    cover: "https://th.bing.com/th/id/OIP.OfmWHmfp9EnaAHsR6pp_3QAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1620,12 +1620,12 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Mano Bespar",
+    artist: "Mehrad Hidden",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://dl.mahtabmusic.ir/1403/12/single/Mehrad%20Hidden%20-%20Mano%20Bespar.mp3",
+    cover: "https://www.playmusic.ir/images/thumbnails/music/2025/02/19/117444_400.webp",
     featured: true
    },
    {
