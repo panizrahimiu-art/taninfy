@@ -1592,4 +1592,157 @@ window.TANINFY_SONGS = [
     cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
     featured: true
    },
+   {
+    title: "Shab Ke Mishe",
+    artist: "Amir Tataloo",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1397/10/11/Amir%20Tataloo%20-%20Shab%20Ke%20Mishe.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2019/01/48-768x768.jpg",
+    featured: true
+   },
+   {
+    title: "Lal",
+    artist: "Yas",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1399/03/25/Yas%20-%20Lal.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Del Yar",
+    artist: "Sara Naeini",
+    genre: "Pop",
+    album: "",
+    src: "https://dl.mokhtalefmusic.com/music/1404/01/10/Sara%20Naeini%20-%20Del%20Yar.mp3",
+    cover: "https://mokhtalefmusic.com/wp-content/uploads/2025/03/Sara-Naeini-Del-Yar.webp",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
+   {
+    title: "Soghati",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
+    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    featured: true
+   },
 ];
