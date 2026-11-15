@@ -7248,7 +7248,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
 (function () {
   const storageKey = "taninfy-settings";
   const defaults = {
-    theme: "dark", accent: "#d5a0ad", textScale: "1",
+    theme: "light", accent: "#D9541E", textScale: "1",
     publicProfile: true, showPlaylists: true
   };
   const storedSettings = taninfyReadJSON(
@@ -7519,445 +7519,6 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
 .playlist-detail-song{grid-template-columns:30px 52px minmax(0,1fr) auto !important;}
 .playlist-detail-song .playlist-detail-song-heart{display:none !important;}
 </style>
-
-<style id="taninfy-navy-white-hotpink-theme">
-/* ==========================================
-   TANINFY — NAVY / WHITE / HOT PINK THEME
-   Reference palette:
-   Navy   #0F1B3D
-   White  #FFFFFF
-   Hot Pink #FF3D8B
-========================================== */
-
-:root{
-  --bg:#0F1B3D !important;
-  --panel:#14244D !important;
-  --panel-2:#192B58 !important;
-  --wine:#0F1B3D !important;
-  --wine2:#FF3D8B !important;
-  --pink:#FF3D8B !important;
-  --text:#FFFFFF !important;
-  --muted:#B8C0D2 !important;
-  --line:rgba(255,255,255,.12) !important;
-}
-
-/* GLOBAL */
-html,body{
-  background:#0F1B3D !important;
-  color:#FFFFFF !important;
-}
-body{
-  background:
-    radial-gradient(ellipse at 72% 0%, rgba(255,61,139,.14) 0%, transparent 38%),
-    radial-gradient(ellipse at 0% 65%, rgba(30,54,105,.45) 0%, transparent 42%),
-    #0F1B3D !important;
-}
-a{color:inherit}
-
-/* HEADER */
-header{
-  background:rgba(15,27,61,.92) !important;
-  border-bottom:1px solid rgba(255,255,255,.12) !important;
-  box-shadow:0 10px 35px rgba(0,0,0,.18);
-}
-.brand-name,
-.brand-mark,
-.menu-toggle span,
-.menu-label,
-.menu-close{
-  color:#FF3D8B !important;
-}
-.brand-mark{
-  border-color:rgba(255,61,139,.55) !important;
-  background:rgba(255,61,139,.08) !important;
-  box-shadow:0 0 28px rgba(255,61,139,.12) !important;
-}
-.menu-toggle{
-  background:#14244D !important;
-  border-color:rgba(255,255,255,.14) !important;
-}
-.menu-toggle:hover{
-  background:#FF3D8B !important;
-  border-color:#FF3D8B !important;
-}
-.menu-toggle:hover span{background:#0F1B3D !important}
-
-/* SIDE MENU */
-.side-menu{
-  background:
-    linear-gradient(150deg,#14244D 0%,#0F1B3D 68%) !important;
-  border-left-color:rgba(255,61,139,.30) !important;
-  box-shadow:-25px 0 70px rgba(0,0,0,.30) !important;
-}
-.menu-profile{
-  background:linear-gradient(145deg,rgba(255,61,139,.12),rgba(255,255,255,.025)) !important;
-  border-color:rgba(255,255,255,.12) !important;
-}
-.menu-profile img{
-  border-color:rgba(255,61,139,.55) !important;
-}
-.menu-profile-info strong,
-.menu-links a{
-  color:#FFFFFF !important;
-}
-.menu-profile-info span{
-  color:#FF8FBD !important;
-}
-.menu-links a{
-  border-bottom-color:rgba(255,255,255,.09) !important;
-}
-.menu-links a:hover{
-  color:#FF3D8B !important;
-  background:rgba(255,61,139,.08) !important;
-}
-.menu-icon{color:#FF3D8B !important}
-.menu-footer{color:#8994AF !important}
-
-/* HERO */
-.hero{
-  background:
-    radial-gradient(circle at 70% 28%,rgba(255,61,139,.18),transparent 28%),
-    radial-gradient(circle at 25% 70%,rgba(255,255,255,.04),transparent 30%) !important;
-}
-.eyebrow,
-.hero h1 em,
-.visual-label{
-  color:#FF3D8B !important;
-}
-.hero p{color:#B8C0D2 !important}
-
-.btn-primary{
-  background:#FF3D8B !important;
-  border-color:#FF3D8B !important;
-  color:#0F1B3D !important;
-  box-shadow:0 10px 30px rgba(255,61,139,.22) !important;
-}
-.btn-primary:hover{
-  background:#FFFFFF !important;
-  border-color:#FFFFFF !important;
-  color:#0F1B3D !important;
-  filter:none !important;
-}
-.btn-secondary{
-  background:rgba(255,255,255,.05) !important;
-  border-color:rgba(255,255,255,.16) !important;
-  color:#FFFFFF !important;
-}
-.btn-secondary:hover{
-  background:rgba(255,61,139,.12) !important;
-  border-color:#FF3D8B !important;
-}
-
-/* HERO VISUAL */
-.orbit{
-  border-color:rgba(255,61,139,.30) !important;
-}
-.orbit::before{
-  border-color:rgba(255,255,255,.14) !important;
-}
-.disc{
-  background:
-    repeating-radial-gradient(circle,transparent 0,transparent 5px,rgba(255,255,255,.025) 6px,transparent 7px),
-    radial-gradient(circle at 40% 35%,#233A75,#121E43 60%,#0F1B3D) !important;
-  box-shadow:0 0 90px rgba(255,61,139,.16) !important;
-}
-.wave span{
-  background:linear-gradient(to top,#FF3D8B,#FFFFFF) !important;
-}
-.visual-label{
-  background:#14244D !important;
-  border-color:rgba(255,61,139,.28) !important;
-}
-
-/* SECTION HEADINGS */
-.section-title h2,
-.section-title h1,
-.page-heading h1,
-.mix h3,
-.track-info strong,
-.panel h2{
-  color:#FFFFFF !important;
-}
-.section-title p,
-.page-heading small,
-.panel p,
-.mix p,
-.track-info span,
-.form-note{
-  color:#B8C0D2 !important;
-}
-.page-heading small,
-.mix small{
-  color:#FF3D8B !important;
-}
-
-/* MIX CARDS */
-.mix{
-  background:
-    linear-gradient(145deg,#182A55,#0F1B3D 78%) !important;
-  border-color:rgba(255,255,255,.10) !important;
-}
-.mix::after{
-  background:rgba(255,61,139,.14) !important;
-}
-.mix:hover{
-  background:
-    linear-gradient(145deg,#203665,#0F1B3D 78%) !important;
-  border-color:rgba(255,61,139,.50) !important;
-  box-shadow:0 18px 45px rgba(0,0,0,.20) !important;
-}
-
-/* TRACKS */
-.track{
-  border-bottom-color:rgba(255,255,255,.09) !important;
-}
-.track:hover{
-  background:rgba(255,61,139,.07) !important;
-}
-.track-play,
-.heart-btn{
-  color:#FF3D8B !important;
-  border-color:rgba(255,255,255,.12) !important;
-}
-.track-play:hover,
-.heart-btn:hover{
-  background:rgba(255,61,139,.14) !important;
-  border-color:rgba(255,61,139,.45) !important;
-}
-.heart-btn.active{
-  color:#FF3D8B !important;
-}
-
-/* PANELS / FORMS */
-.panel{
-  background:linear-gradient(145deg,#172A55,#0F1B3D) !important;
-  border-color:rgba(255,255,255,.10) !important;
-}
-.field{
-  background:#0C1530 !important;
-  color:#FFFFFF !important;
-  border-color:rgba(255,255,255,.13) !important;
-}
-.field::placeholder{
-  color:#8F9AB2 !important;
-}
-.field:focus{
-  border-color:#FF3D8B !important;
-  box-shadow:0 0 0 3px rgba(255,61,139,.12) !important;
-}
-.form-status,
-.back-btn,
-.remove-btn{
-  color:#FF3D8B !important;
-}
-.back-btn{
-  border-color:rgba(255,61,139,.38) !important;
-}
-.back-btn:hover,
-.remove-btn:hover{
-  background:rgba(255,61,139,.10) !important;
-}
-
-/* SEARCH */
-.music-search{
-  background:rgba(12,21,48,.90) !important;
-  border-color:rgba(255,255,255,.13) !important;
-  box-shadow:0 16px 45px rgba(0,0,0,.22) !important;
-}
-.music-search-icon{
-  color:#FF3D8B !important;
-}
-.music-search input{
-  color:#FFFFFF !important;
-}
-.music-search input::placeholder{
-  color:#8994AF !important;
-}
-.search-suggestions{
-  background:#0F1B3D !important;
-  border-color:rgba(255,255,255,.12) !important;
-}
-.search-suggestions .search-item:hover{
-  background:rgba(255,61,139,.08) !important;
-}
-
-/* MINI PLAYER */
-.player{
-  background:rgba(15,27,61,.94) !important;
-  border-top-color:rgba(255,61,139,.30) !important;
-}
-.player-controls button{
-  color:#FF3D8B !important;
-}
-.player-controls .play-main{
-  background:#FF3D8B !important;
-  color:#0F1B3D !important;
-  box-shadow:0 0 25px rgba(255,61,139,.22) !important;
-}
-.mini-player-cover{
-  border-color:rgba(255,255,255,.14) !important;
-  background:#14244D !important;
-}
-
-/* FULL PLAYER */
-.full-player{
-  background:
-    radial-gradient(70% 55% at 82% 4%,rgba(255,61,139,.18) 0%,rgba(255,61,139,0) 62%),
-    radial-gradient(70% 55% at 0% 100%,rgba(25,49,100,.40) 0%,rgba(25,49,100,0) 64%),
-    #0F1B3D !important;
-}
-.full-player::before{
-  background:rgba(255,61,139,.12) !important;
-}
-.full-player::after{
-  background:rgba(28,48,93,.24) !important;
-}
-.full-song-info h1{
-  color:#FFFFFF !important;
-}
-.full-song-info p{
-  color:#FF3D8B !important;
-}
-#fullProgress{
-  background:linear-gradient(
-    to right,
-    #FF3D8B 0%,
-    #FF3D8B var(--progress,0%),
-    rgba(255,255,255,.18) var(--progress,0%),
-    rgba(255,255,255,.18) 100%
-  ) !important;
-}
-#fullProgress::-webkit-slider-thumb,
-#fullProgress::-moz-range-thumb{
-  background:#FFFFFF !important;
-}
-.full-control-btn{
-  color:#FFFFFF !important;
-}
-.full-control-btn.active{
-  color:#FF3D8B !important;
-  text-shadow:0 0 18px rgba(255,61,139,.55) !important;
-}
-.full-play-btn{
-  background:rgba(255,61,139,.16) !important;
-  border-color:rgba(255,61,139,.65) !important;
-  color:#FFFFFF !important;
-}
-.full-play-btn:hover{
-  background:rgba(255,61,139,.28) !important;
-}
-.full-player-actions .full-action-btn{
-  color:#FFFFFF !important;
-  border-color:rgba(255,255,255,.14) !important;
-}
-.full-player-actions .full-action-btn.active{
-  color:#FF3D8B !important;
-  border-color:rgba(255,61,139,.45) !important;
-}
-.playlist-picker{
-  background:linear-gradient(145deg,#172A55,#0F1B3D) !important;
-  border-color:rgba(255,255,255,.12) !important;
-}
-.playlist-picker-item:hover{
-  background:rgba(255,61,139,.10) !important;
-  border-color:rgba(255,61,139,.35) !important;
-}
-.playlist-picker-new{
-  color:#FF3D8B !important;
-  border-color:rgba(255,61,139,.40) !important;
-}
-
-/* AUTH / PROFILE */
-.auth-mark{
-  background:linear-gradient(145deg,#203665,#0F1B3D) !important;
-  border-color:rgba(255,61,139,.45) !important;
-  color:#FF3D8B !important;
-}
-.signed-user,
-.profile-card{
-  background:linear-gradient(145deg,#172A55,#0F1B3D) !important;
-  border-color:rgba(255,255,255,.10) !important;
-}
-.profile-avatar-wrap{
-  background:linear-gradient(135deg,#FF3D8B,#FFFFFF) !important;
-}
-.profile-avatar{
-  border-color:#0F1B3D !important;
-}
-.profile-kicker,
-.profile-main p{
-  color:#FF3D8B !important;
-}
-.profile-details span{
-  color:#8F9AB2 !important;
-}
-
-/* FAVORITE ARTISTS */
-.artist-favorite-btn{
-  border-color:rgba(255,255,255,.13) !important;
-  background:rgba(255,255,255,.03) !important;
-}
-.artist-favorite-btn:hover{
-  background:rgba(255,61,139,.10) !important;
-  border-color:rgba(255,61,139,.40) !important;
-}
-.artist-favorite-btn.active,
-.favorite-artist-remove{
-  color:#FF3D8B !important;
-}
-.favorite-artist-row{
-  border-bottom-color:rgba(255,255,255,.08) !important;
-}
-
-/* SUCCESS ANIMATION */
-.success-check-overlay{
-  background:rgba(7,13,30,.76) !important;
-}
-.success-ring-progress{
-  stroke:#FF3D8B !important;
-}
-.success-check{
-  stroke:#FFFFFF !important;
-}
-
-/* FOOTER */
-footer{
-  background:#0B1530 !important;
-  border-top-color:rgba(255,255,255,.10) !important;
-  color:#8F9AB2 !important;
-}
-
-/* MOBILE BOTTOM NAV — keep reference's white icons */
-@media(max-width:650px){
-  .sidebar-nav a,
-  .sidebar-nav a span,
-  .sidebar-nav a.active,
-  .sidebar-nav a.active span{
-    color:#FFFFFF !important;
-  }
-  .sidebar-nav a:hover,
-  .sidebar-nav a.active:hover{
-    color:#FF3D8B !important;
-  }
-}
-
-/* HOT PINK scrollbar */
-*{
-  scrollbar-color:#FF3D8B #0F1B3D;
-}
-*::-webkit-scrollbar{
-  width:8px;
-  height:8px;
-}
-*::-webkit-scrollbar-track{
-  background:#0F1B3D;
-}
-*::-webkit-scrollbar-thumb{
-  background:#FF3D8B;
-  border-radius:10px;
-}
-</style>
-
 </body>
 
 
@@ -8141,3 +7702,481 @@ footer{
   .search-page-input{width:100%!important;height:49px!important}
 }
 </style>
+
+
+
+<style id="taninfy-cream-ink-burnt-orange-theme">
+/* =========================================================
+   TANINFY — CREAM / INK BLACK / BURNT ORANGE EDITORIAL THEME
+   Inspired by the supplied reference palette:
+   Cream #F3EEE3 | Ink Black #111111 | Burnt Orange #D9541E
+   Keeps Taninfy as a music website; only the visual language changes.
+========================================================= */
+
+:root{
+  --cream:#F3EEE3;
+  --ink:#111111;
+  --orange:#D9541E;
+  --orange-dark:#B94217;
+  --orange-soft:#E9784B;
+  --cream-2:#EAE2D4;
+  --cream-3:#DCD2C1;
+  --muted-ink:#665F57;
+  --soft-ink:rgba(17,17,17,.10);
+  --line-ink:rgba(17,17,17,.13);
+
+  --bg:var(--cream) !important;
+  --panel:#F7F3EB !important;
+  --wine:var(--orange) !important;
+  --wine2:var(--orange) !important;
+  --pink:var(--orange) !important;
+  --text:var(--ink) !important;
+  --muted:var(--muted-ink) !important;
+  --line:var(--line-ink) !important;
+}
+
+html,body{
+  background:var(--cream) !important;
+  color:var(--ink) !important;
+}
+
+body{
+  font-family:"Vazirmatn",Tahoma,sans-serif !important;
+}
+
+/* ---------- global surfaces ---------- */
+header{
+  background:rgba(243,238,227,.92) !important;
+  border-bottom:1px solid rgba(17,17,17,.11) !important;
+  backdrop-filter:blur(18px) !important;
+  -webkit-backdrop-filter:blur(18px) !important;
+}
+
+.wrap{max-width:1180px !important;}
+
+.brand-name{color:var(--ink) !important;}
+.brand-mark{
+  color:var(--orange) !important;
+  border-color:rgba(217,84,30,.45) !important;
+  background:rgba(217,84,30,.08) !important;
+}
+
+.menu-toggle{
+  background:rgba(17,17,17,.055) !important;
+  border-color:rgba(17,17,17,.15) !important;
+}
+.menu-toggle span{background:var(--ink) !important;}
+
+/* ---------- top/search/account ---------- */
+.top-search input,
+.search-page-input,
+.search-page-input input{
+  background:rgba(255,255,255,.48) !important;
+  color:var(--ink) !important;
+  border-color:rgba(17,17,17,.13) !important;
+}
+.top-search input::placeholder,
+.search-page-input input::placeholder{color:#8A8178 !important;}
+
+.top-account{
+  color:var(--ink) !important;
+  background:rgba(255,255,255,.45) !important;
+  border-color:rgba(17,17,17,.13) !important;
+}
+.top-account:hover,.top-account[aria-expanded="true"]{
+  background:rgba(217,84,30,.10) !important;
+  border-color:rgba(217,84,30,.35) !important;
+}
+.account-chevron{color:var(--orange) !important;}
+
+.account-dropdown{
+  background:rgba(247,243,235,.98) !important;
+  border-color:rgba(17,17,17,.13) !important;
+  box-shadow:0 24px 70px rgba(17,17,17,.18) !important;
+}
+.account-dropdown-heading{color:var(--orange) !important;}
+.account-dropdown-item{color:var(--ink) !important;}
+.account-dropdown-item>span{color:var(--orange) !important;}
+.account-dropdown-item:hover{
+  background:rgba(217,84,30,.10) !important;
+  color:var(--ink) !important;
+}
+.account-dropdown-divider{background:rgba(17,17,17,.10) !important;}
+.account-logout{color:#B94217 !important;}
+
+/* ---------- side drawer ---------- */
+.menu-overlay{background:rgba(17,17,17,.45) !important;}
+.side-menu{
+  background:#F3EEE3 !important;
+  color:var(--ink) !important;
+  border-left:1px solid rgba(17,17,17,.12) !important;
+  box-shadow:-25px 0 70px rgba(17,17,17,.13) !important;
+}
+.menu-head{border-bottom-color:rgba(17,17,17,.11) !important;}
+.menu-label{color:var(--orange) !important;}
+.menu-close{
+  color:var(--ink) !important;
+  border-color:rgba(17,17,17,.14) !important;
+}
+.menu-profile{
+  background:linear-gradient(145deg,rgba(217,84,30,.10),rgba(255,255,255,.42)) !important;
+  border-color:rgba(17,17,17,.11) !important;
+}
+.menu-profile-info strong{color:var(--ink) !important;}
+.menu-profile-info span{color:var(--orange) !important;}
+.menu-links a{
+  color:#27231F !important;
+  border-bottom-color:rgba(17,17,17,.09) !important;
+}
+.menu-links a:hover{color:var(--orange) !important;}
+.menu-icon{color:var(--orange) !important;}
+.menu-footer{border-top-color:rgba(17,17,17,.10) !important;color:#8A8178 !important;}
+
+/* ---------- page headings ---------- */
+.page{background:var(--cream) !important;}
+.page-heading{
+  border-bottom-color:rgba(17,17,17,.11) !important;
+}
+.page-heading small,.eyebrow,.page-heading small{
+  color:var(--orange) !important;
+}
+.page-heading h1,
+.section-title h2,
+.explore-heading h1{
+  color:var(--ink) !important;
+}
+
+/* ---------- hero: premium editorial, not a generic app card ---------- */
+#page-home .hero{
+  background:
+    radial-gradient(70% 140% at 100% 0%,rgba(217,84,30,.13),transparent 62%),
+    linear-gradient(135deg,#F8F4EC 0%,#EEE7DB 100%) !important;
+  border:1px solid rgba(17,17,17,.10) !important;
+  box-shadow:0 20px 55px rgba(17,17,17,.08),inset 0 1px rgba(255,255,255,.7) !important;
+}
+#page-home .hero:before{
+  color:var(--orange) !important;
+}
+#page-home .hero:after{
+  color:var(--ink) !important;
+}
+
+/* ---------- buttons ---------- */
+.btn-primary,
+.top-login,
+.segmented-control button.active{
+  background:var(--orange) !important;
+  border-color:var(--orange) !important;
+  color:#fff !important;
+  box-shadow:0 8px 24px rgba(217,84,30,.18) !important;
+}
+.btn-primary:hover{
+  background:var(--orange-dark) !important;
+  filter:none !important;
+}
+.btn{
+  border-radius:8px !important;
+}
+
+/* ---------- explore / playlist cards ---------- */
+#page-home .section-title h2{color:var(--ink) !important;}
+#page-home .section-title p{color:#81776E !important;}
+#page-home .section-title:after{
+  color:var(--ink) !important;
+  background:rgba(255,255,255,.38) !important;
+  border-color:rgba(17,17,17,.10) !important;
+}
+
+#page-home .curated-info h2,
+#page-home .curated-info p{
+  color:var(--ink) !important;
+}
+#page-home .curated-info p{color:#756C64 !important;}
+
+#page-home .curated-info button{
+  color:var(--ink) !important;
+  background:rgba(17,17,17,.055) !important;
+  border-color:rgba(17,17,17,.12) !important;
+}
+#page-home .curated-info button:hover{
+  background:rgba(217,84,30,.11) !important;
+  border-color:rgba(217,84,30,.28) !important;
+  color:var(--orange) !important;
+}
+
+#page-home #trackList .track{
+  background:transparent !important;
+  color:var(--ink) !important;
+}
+#page-home #trackList .track-title{
+  color:var(--ink) !important;
+}
+#page-home #trackList .track-artist{
+  color:#756C64 !important;
+}
+#page-home #trackList .track:hover .track-cover-play,
+#page-home #trackList .track.is-playing .track-cover-play{
+  background:rgba(17,17,17,.30) !important;
+}
+#page-home #trackList .heart-btn{
+  background:rgba(255,255,255,.48) !important;
+  border-color:rgba(17,17,17,.12) !important;
+  color:var(--ink) !important;
+}
+#page-home #trackList .heart-btn.active{
+  color:var(--orange) !important;
+}
+
+/* ---------- general cards/panels ---------- */
+.panel,
+.settings-card,
+.curated-card,
+.playlist-picker,
+.modal,
+.auth-card,
+.profile-card,
+.artist-card,
+.playlist-card{
+  background:#F7F3EB !important;
+  color:var(--ink) !important;
+  border-color:rgba(17,17,17,.11) !important;
+  box-shadow:0 18px 50px rgba(17,17,17,.07) !important;
+}
+.panel h2,.panel h3,.settings-card h2,.settings-card h3,
+.profile-card h2,.profile-card h3,
+.artist-card h2,.artist-card h3,
+.playlist-card h2,.playlist-card h3{
+  color:var(--ink) !important;
+}
+.panel p,.settings-card p,.profile-card p,.artist-card p,.playlist-card p{
+  color:#756C64 !important;
+}
+
+/* ---------- form controls ---------- */
+input,textarea,select{
+  color:var(--ink) !important;
+  background:#FAF7F0 !important;
+  border-color:rgba(17,17,17,.14) !important;
+}
+input:focus,textarea:focus,select:focus{
+  border-color:rgba(217,84,30,.60) !important;
+  box-shadow:0 0 0 3px rgba(217,84,30,.10) !important;
+  outline:none !important;
+}
+label{color:#4B453F !important;}
+
+/* ---------- artist / favorite artist ---------- */
+.artist-favorite-btn,
+.full-action-btn{
+  color:var(--ink) !important;
+  background:rgba(255,255,255,.42) !important;
+  border-color:rgba(17,17,17,.13) !important;
+}
+.artist-favorite-btn:hover,
+.full-action-btn:hover{
+  background:rgba(217,84,30,.10) !important;
+  border-color:rgba(217,84,30,.30) !important;
+}
+.artist-favorite-btn.active,
+.full-action-btn.active{
+  color:var(--orange) !important;
+  text-shadow:0 0 14px rgba(217,84,30,.25) !important;
+}
+.favorite-artist-row{border-bottom-color:rgba(17,17,17,.09) !important;}
+.favorite-artist-row span{color:#756C64 !important;}
+.favorite-artist-open{color:var(--ink) !important;}
+.favorite-artist-remove{
+  color:var(--orange) !important;
+  border-color:rgba(17,17,17,.12) !important;
+}
+
+/* ---------- playlist detail ---------- */
+.playlist-detail-song{
+  border-bottom-color:rgba(17,17,17,.09) !important;
+  color:var(--ink) !important;
+}
+.playlist-detail-song-info strong,
+.playlist-detail-meta h2,
+.playlist-detail-list-head,
+.playlist-detail-kicker,
+.playlist-detail-back,
+.playlist-detail-actions button{
+  color:var(--ink) !important;
+}
+.playlist-detail-song-info span,
+.playlist-detail-list-head span:last-child{
+  color:#756C64 !important;
+}
+.playlist-detail-back:hover,
+.playlist-detail-actions button:hover{
+  color:var(--orange) !important;
+}
+
+/* ---------- search ---------- */
+.top-search-results{
+  background:rgba(247,243,235,.98) !important;
+  border-color:rgba(17,17,17,.12) !important;
+  box-shadow:0 22px 60px rgba(17,17,17,.16) !important;
+}
+.top-search-group-title{color:var(--orange) !important;}
+.top-search-result{color:var(--ink) !important;}
+.top-search-result:hover,
+.top-search-result:focus-visible{
+  background:rgba(217,84,30,.09) !important;
+}
+.top-search-result-copy span{color:#756C64 !important;}
+.top-search-result-type{color:var(--orange) !important;}
+.top-search-empty{color:#756C64 !important;}
+.search-page-wrap .section-title h1{color:var(--ink) !important;}
+.search-page-wrap .section-title p{color:#756C64 !important;}
+
+/* ---------- mobile navigation ---------- */
+@media(max-width:650px){
+  .app-sidebar{
+    background:transparent !important;
+  }
+  .app-sidebar::before{
+    background:linear-gradient(
+      to top,
+      rgba(243,238,227,1) 0%,
+      rgba(243,238,227,.96) 24%,
+      rgba(243,238,227,.72) 48%,
+      rgba(243,238,227,.24) 76%,
+      transparent 100%
+    ) !important;
+  }
+  .sidebar-nav a,
+  .sidebar-nav a.active,
+  .sidebar-nav a:hover{
+    color:var(--ink) !important;
+  }
+  .sidebar-nav a span,
+  .sidebar-nav a.active span{
+    color:var(--ink) !important;
+  }
+  .sidebar-nav a.active{
+    font-weight:800 !important;
+  }
+}
+
+/* ---------- mini player ---------- */
+.player{
+  background:rgba(247,243,235,.94) !important;
+  color:var(--ink) !important;
+  border:1px solid rgba(17,17,17,.12) !important;
+  box-shadow:0 16px 45px rgba(17,17,17,.18) !important;
+  backdrop-filter:blur(22px) !important;
+  -webkit-backdrop-filter:blur(22px) !important;
+}
+.player *{color:inherit;}
+.player .player-title,
+.player .song-title,
+.player .track-title{color:var(--ink) !important;}
+.player .player-artist,
+.player .song-artist,
+.player .track-artist{color:#756C64 !important;}
+.player button{
+  color:var(--ink) !important;
+}
+.player button:hover{color:var(--orange) !important;}
+
+/* ---------- full player: keep it cinematic, but use the same palette ---------- */
+.full-player{
+  background:
+    radial-gradient(70% 55% at 82% 4%,rgba(217,84,30,.20),transparent 62%),
+    radial-gradient(70% 55% at 0% 100%,rgba(217,84,30,.12),transparent 64%),
+    #111111 !important;
+}
+.full-player::before{background:rgba(217,84,30,.13) !important;}
+.full-player::after{background:rgba(217,84,30,.09) !important;}
+.full-song-info h1{color:#F3EEE3 !important;}
+.full-song-info p{color:#E9784B !important;}
+.full-progress-area{color:rgba(243,238,227,.78) !important;}
+#fullProgress{
+  background:linear-gradient(
+    to right,
+    var(--orange) 0%,
+    var(--orange) var(--progress,0%),
+    rgba(243,238,227,.18) var(--progress,0%),
+    rgba(243,238,227,.18) 100%
+  ) !important;
+}
+#fullProgress::-webkit-slider-thumb,
+#fullProgress::-moz-range-thumb{
+  background:#F3EEE3 !important;
+}
+.full-control-btn{color:#F3EEE3 !important;}
+.full-control-btn.active{color:#E9784B !important;}
+.full-play-btn{
+  color:#F3EEE3 !important;
+  background:transparent !important;
+  border-color:transparent !important;
+}
+.full-action-btn{
+  color:#F3EEE3 !important;
+  background:rgba(243,238,227,.07) !important;
+  border-color:rgba(243,238,227,.16) !important;
+}
+.full-action-btn.active{color:#E9784B !important;}
+
+/* ---------- success / auth feedback ---------- */
+.success-check-overlay{
+  background:rgba(17,17,17,.45) !important;
+}
+.success-check,
+.success-check-card{
+  background:#F3EEE3 !important;
+  color:var(--ink) !important;
+  border-color:rgba(217,84,30,.25) !important;
+}
+.success-check svg,
+.success-check-icon{color:var(--orange) !important;stroke:var(--orange) !important;}
+
+/* ---------- subtle luxury details ---------- */
+hr{border-color:rgba(17,17,17,.10) !important;}
+::selection{
+  background:rgba(217,84,30,.24) !important;
+  color:var(--ink) !important;
+}
+::-webkit-scrollbar{width:9px;height:9px;}
+::-webkit-scrollbar-track{background:#EAE2D4;}
+::-webkit-scrollbar-thumb{
+  background:#B9AD9D;
+  border-radius:999px;
+}
+::-webkit-scrollbar-thumb:hover{background:var(--orange);}
+
+/* Preserve readable light-theme settings while forcing the requested palette. */
+body.light-theme{
+  --bg:#F3EEE3 !important;
+  --panel:#F7F3EB !important;
+  --text:#111111 !important;
+  --muted:#665F57 !important;
+  --line:rgba(17,17,17,.13) !important;
+  background:#F3EEE3 !important;
+  color:#111111 !important;
+}
+body.light-theme .panel,
+body.light-theme .settings-card,
+body.light-theme .playlist-picker{
+  background:#F7F3EB !important;
+  color:#111111 !important;
+}
+
+/* Keep dark mode functional: it becomes an Ink Black + Burnt Orange night version. */
+body:not(.light-theme){
+  --bg:#111111 !important;
+  --panel:#181818 !important;
+  --text:#F3EEE3 !important;
+  --muted:#B8B0A5 !important;
+  --line:rgba(243,238,227,.13) !important;
+}
+body:not(.light-theme) header{background:rgba(17,17,17,.92) !important;}
+body:not(.light-theme) .side-menu{background:#111111 !important;color:#F3EEE3 !important;}
+body:not(.light-theme) .page{background:#111111 !important;}
+body:not(.light-theme) #page-home .hero{
+  background:linear-gradient(135deg,#181818,#111111) !important;
+  border-color:rgba(243,238,227,.10) !important;
+}
+</style>
+
