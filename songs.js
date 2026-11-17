@@ -1629,30 +1629,30 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Marde Tanha",
+    artist: "Farhad Mehrad",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://aod.musiciom.ir/golchin/farhad/Farhad.Merdad%20-%20Marde_Tanha.mp3?host=dibasmusic.com",
+    cover: "https://i.scdn.co/image/ab67616d0000b273c04fe47a3049ffc3ff36bed5",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Daro Va Nemikonam",
+    artist: "Fereydoun Farokhzad",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://jenabmusic.musitraf.com/music/2025/07/16/Fereydoun-Farokhzad-Daro-Va-Nemikonam.mp3",
+    cover: "https://www.jenab-music.com/wp-content/uploads/2025/07/Fereydoun-Farokhzad.jpg",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Abr Mibarad",
+    artist: "Homayoun Shajarian",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://dl.ahaang.com/mp3/fa/H/Homayoun%20Shajarian/Album/Rage%20Khab/320/Homayoun%20Shajarian%20-%2006%20Abr%20Mibarad.mp3",
+    cover: "https://th.bing.com/th/id/OIP.SthANQ4wUx5Zmuin-i6LDAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
