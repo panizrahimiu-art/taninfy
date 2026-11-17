@@ -1652,7 +1652,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://dl.ahaang.com/mp3/fa/H/Homayoun%20Shajarian/Album/Rage%20Khab/320/Homayoun%20Shajarian%20-%2006%20Abr%20Mibarad.mp3",
-    cover: "https://th.bing.com/th/id/OIP.X9BHThQ3vsA8ieInm8en9wHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://th.bing.com/th/id/OIP.yGd_GKkZhuScW7BcsCHsTgHaGs?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
