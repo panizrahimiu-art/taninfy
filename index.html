@@ -7702,3 +7702,241 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   .search-page-input{width:100%!important;height:49px!important}
 }
 </style>
+
+
+<!-- =====================================================================
+     TANINFY — SIGNATURE DESIGN LAYER  (additive; nothing above was edited)
+     To revert: delete everything from this comment to the END comment.
+     Accent-aware: uses --pink, so the accent swatches in Settings still work.
+     The artists section, player logic and data code are untouched.
+====================================================================== -->
+<style id="txSignatureLayer">
+:root{
+  --tx-glow:color-mix(in srgb,var(--pink,#d5a0ad) 34%,transparent);
+  --tx-hair:color-mix(in srgb,var(--pink,#d5a0ad) 22%,transparent);
+  --tx-ease:cubic-bezier(.2,.7,.2,1);
+}
+
+/* ---------- 1. Living background (aurora + film grain) ---------- */
+html{background:#080708;scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--pink,#d5a0ad) 35%,transparent) transparent}
+html:has(body.light-theme){background:#f4eff1}
+body,body.light-theme{background:transparent!important}
+
+#txAmbient,#txGrain{position:fixed;inset:0;pointer-events:none;z-index:-1}
+#txAmbient{overflow:hidden;opacity:.72;transition:opacity 1.4s ease}
+body.tx-playing #txAmbient{opacity:1}
+#txAmbient i{position:absolute;border-radius:50%;will-change:transform;
+  background:radial-gradient(closest-side,var(--tx-glow),transparent)}
+#txAmbient i:nth-child(1){width:72vmax;height:72vmax;right:-24vmax;top:-32vmax;animation:txDrift1 28s ease-in-out infinite alternate}
+#txAmbient i:nth-child(2){width:62vmax;height:62vmax;left:-22vmax;bottom:-30vmax;opacity:.8;animation:txDrift2 34s ease-in-out infinite alternate}
+#txAmbient i:nth-child(3){width:36vmax;height:36vmax;left:36%;top:30%;opacity:.4;animation:txDrift3 40s ease-in-out infinite alternate}
+@keyframes txDrift1{to{transform:translate3d(-10vmax,8vmax,0) scale(1.1)}}
+@keyframes txDrift2{to{transform:translate3d(12vmax,-9vmax,0) scale(1.12)}}
+@keyframes txDrift3{to{transform:translate3d(-8vmax,-6vmax,0) scale(1.25)}}
+#txGrain{opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body.light-theme #txAmbient{opacity:.5}
+body.light-theme #txGrain{opacity:.05;mix-blend-mode:multiply}
+
+/* ---------- 2. Chrome: topbar, sidebar, logo ---------- */
+body:not(.light-theme) .topbar{background:color-mix(in srgb,#0c090b 70%,transparent)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(140%);backdrop-filter:blur(22px) saturate(140%);border-bottom-color:transparent!important}
+body.light-theme .topbar{background:color-mix(in srgb,#faf7f8 78%,transparent)!important;
+  -webkit-backdrop-filter:blur(22px) saturate(140%);backdrop-filter:blur(22px) saturate(140%)}
+.topbar::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--tx-hair) 20%,color-mix(in srgb,var(--pink,#d5a0ad) 55%,transparent) 50%,var(--tx-hair) 80%,transparent)}
+
+@media(min-width:651px){
+  body:not(.light-theme) .app-sidebar{
+    background:linear-gradient(180deg,color-mix(in srgb,#100c0f 84%,transparent),color-mix(in srgb,#0a070a 92%,transparent))!important;
+    -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+}
+
+.sidebar-nav a{position:relative}
+.sidebar-nav a::before{content:"";position:absolute;right:-10px;top:24%;bottom:24%;width:3px;border-radius:3px 0 0 3px;
+  background:var(--pink,#d5a0ad);box-shadow:0 0 16px 1px var(--pink,#d5a0ad);
+  transform:scaleY(0);transition:transform .35s var(--tx-ease)}
+.sidebar-nav a.active::before{transform:scaleY(1)}
+body.light-theme .sidebar-nav a::before{background:#8c2843;box-shadow:none}
+@media(max-width:650px){
+  .sidebar-nav a::before{right:30%;left:30%;top:-2px;bottom:auto;width:auto;height:3px;border-radius:0 0 3px 3px;transform:scaleX(0)}
+  .sidebar-nav a.active::before{transform:scaleX(1)}
+}
+
+.sidebar-logo{position:relative}
+.sidebar-logo::after{content:"";position:absolute;inset:-6px;border-radius:50%;pointer-events:none;opacity:.28;
+  background:conic-gradient(from 0deg,transparent 0 58%,var(--pink,#d5a0ad) 100%);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+          mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));
+  animation:txSpin 3.4s linear infinite;animation-play-state:paused;transition:opacity .6s ease}
+body.tx-playing .sidebar-logo::after{opacity:1;animation-play-state:running}
+@keyframes txSpin{to{transform:rotate(360deg)}}
+
+/* ---------- 3. Explore: editorial heading + reactive equalizer ---------- */
+#page-home .explore-heading h1{
+  display:inline-flex;align-items:center;gap:18px;line-height:1.05;
+  font-size:clamp(34px,5.2vw,72px)!important;letter-spacing:-.045em!important;
+  background:linear-gradient(100deg,#fff 0%,#fff 36%,var(--pink,#d5a0ad) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+#page-home .explore-heading h1::after{content:"";flex:none;width:.62em;height:.5em;border-radius:2px;
+  background:
+    linear-gradient(var(--pink,#d5a0ad),var(--pink,#d5a0ad)) 0% 100%/.1em 38% no-repeat,
+    linear-gradient(var(--pink,#d5a0ad),var(--pink,#d5a0ad)) 25% 100%/.1em 78% no-repeat,
+    linear-gradient(var(--pink,#d5a0ad),var(--pink,#d5a0ad)) 50% 100%/.1em 52% no-repeat,
+    linear-gradient(var(--pink,#d5a0ad),var(--pink,#d5a0ad)) 75% 100%/.1em 92% no-repeat,
+    linear-gradient(var(--pink,#d5a0ad),var(--pink,#d5a0ad)) 100% 100%/.1em 44% no-repeat;
+  animation:txEq 1.15s ease-in-out infinite alternate;animation-play-state:paused}
+body.tx-playing #page-home .explore-heading h1::after{animation-play-state:running}
+@keyframes txEq{
+  0%{background-size:.1em 38%,.1em 78%,.1em 52%,.1em 92%,.1em 44%}
+  100%{background-size:.1em 90%,.1em 34%,.1em 88%,.1em 30%,.1em 82%}}
+body.light-theme #page-home .explore-heading h1{background-image:linear-gradient(100deg,#34232a 0%,#34232a 40%,#8c2843 100%)}
+
+/* numbered section kickers: 01 / 02 */
+#page-home .explore-wrap{counter-reset:txsec}
+#page-home .section-title{counter-increment:txsec}
+#page-home .section-title h2::before{content:"0" counter(txsec);display:block;direction:ltr;text-align:right;
+  margin-bottom:7px;font:700 10px/1 Arial,sans-serif;letter-spacing:.32em;color:var(--pink,#d5a0ad);opacity:.85}
+body.light-theme #page-home .section-title h2::before{color:#8c2843}
+
+/* small editorial rule on inner page headings (artists page left as-is) */
+.page:not(#page-artists) .page-heading small::before{content:"";display:inline-block;width:22px;height:1px;
+  margin-inline-end:10px;vertical-align:middle;background:currentColor;opacity:.7}
+
+/* ---------- 4. Cards: 3D tilt, glare, glow, playing state ---------- */
+.curated-cover,#trackList .track-cover-wrap{
+  transform:perspective(760px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--sc,1));
+  transition:transform .22s var(--tx-ease),box-shadow .35s ease}
+.curated-card .curated-cover.tx-tilt,#page-home .curated-card .curated-cover.tx-tilt,
+#trackList .track-cover-wrap.tx-tilt,#page-home #trackList .track-cover-wrap.tx-tilt{
+  --sc:1.03;
+  box-shadow:0 26px 60px -18px rgba(0,0,0,.75),0 0 0 1px var(--tx-hair),0 0 44px -6px var(--tx-glow)!important}
+.tx-glare{position:absolute;inset:0;z-index:3;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .3s ease;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.24),transparent 42%);
+  mix-blend-mode:soft-light}
+.tx-tilt>.tx-glare{opacity:1}
+
+#page-home #trackList .track.is-playing .track-cover-wrap{
+  box-shadow:0 0 0 2px var(--pink,#d5a0ad),0 18px 46px -14px var(--tx-glow)!important}
+#page-home #trackList .track.is-playing .track-title{color:var(--pink,#d5a0ad)!important}
+body.light-theme #page-home #trackList .track.is-playing .track-title{color:#8c2843!important}
+
+/* ---------- 5. Motion: page fade + staggered card entrance ---------- */
+.page.active:not(#page-artists){animation:txPage .5s ease both}
+@keyframes txPage{from{opacity:0}to{opacity:1}}
+.tx-pre:not(.tx-in){opacity:0}
+.tx-in{animation:txRise .75s var(--tx-ease) backwards;animation-delay:calc(var(--i,0)*55ms)}
+@keyframes txRise{from{opacity:0;translate:0 26px}to{opacity:1;translate:0 0}}
+
+/* ---------- 6. Buttons, mini-player, full player ---------- */
+.btn-primary,.top-login{background-size:180% 100%;background-position:0 0;
+  transition:background-position .6s var(--tx-ease),transform .2s ease,box-shadow .3s ease,filter .2s}
+.btn-primary:hover,.top-login:hover{background-position:100% 0;transform:translateY(-1px);box-shadow:0 12px 30px -10px var(--tx-glow)}
+
+.mini-player-cover{border-radius:50%!important;animation:txSpin 16s linear infinite;animation-play-state:paused}
+body.tx-playing .mini-player-cover{animation-play-state:running;box-shadow:0 0 0 3px var(--tx-hair),0 8px 30px var(--tx-glow)}
+body.tx-playing .player-controls .play-main{animation:txPulse 2.2s ease-out infinite}
+@keyframes txPulse{0%{box-shadow:0 0 0 0 var(--tx-glow)}70%,100%{box-shadow:0 0 0 14px transparent}}
+
+body.tx-playing .full-player.active .full-cover-wrap{
+  filter:drop-shadow(0 28px 48px var(--tx-glow));animation:txBreath 6s ease-in-out infinite}
+@keyframes txBreath{50%{transform:scale(1.025)}}
+
+/* ---------- 7. Details ---------- */
+::selection{background:color-mix(in srgb,var(--pink,#d5a0ad) 40%,transparent);color:#fff}
+:focus-visible{outline:2px solid var(--pink,#d5a0ad);outline-offset:3px}
+@media(max-width:650px){#txAmbient i:nth-child(3){display:none}}
+</style>
+
+<script id="txSignatureScript">
+(function(){
+  "use strict";
+  if(window.__txLayer||!document.body) return;
+  window.__txLayer=true;
+
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine=window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+  /* ambient background */
+  var amb=document.createElement("div");
+  amb.id="txAmbient";amb.setAttribute("aria-hidden","true");
+  amb.innerHTML="<i></i><i></i><i></i>";
+  var grain=document.createElement("div");
+  grain.id="txGrain";grain.setAttribute("aria-hidden","true");
+  document.body.insertBefore(grain,document.body.firstChild);
+  document.body.insertBefore(amb,document.body.firstChild);
+
+  /* playback state -> body.tx-playing (read-only listener, player code untouched) */
+  var audio=document.getElementById("audioPlayer");
+  if(audio){
+    var on=function(){document.body.classList.add("tx-playing")};
+    var off=function(){document.body.classList.remove("tx-playing")};
+    audio.addEventListener("play",on);
+    audio.addEventListener("playing",on);
+    audio.addEventListener("pause",off);
+    audio.addEventListener("ended",off);
+    if(!audio.paused) on();
+  }
+
+  /* 3D tilt + glare on playlist / track covers */
+  if(fine&&!reduce){
+    var COVER=".curated-cover,#trackList .track-cover-wrap";
+    var raf=0;
+    document.addEventListener("pointermove",function(e){
+      var el=e.target.closest&&e.target.closest(COVER);
+      if(!el||raf) return;
+      var cx=e.clientX,cy=e.clientY;
+      raf=requestAnimationFrame(function(){
+        raf=0;
+        var r=el.getBoundingClientRect();
+        if(!r.width||!r.height) return;
+        var x=(cx-r.left)/r.width,y=(cy-r.top)/r.height;
+        if(!el.querySelector(":scope>.tx-glare")){
+          var g=document.createElement("i");g.className="tx-glare";g.setAttribute("aria-hidden","true");
+          el.appendChild(g);
+        }
+        el.style.setProperty("--rx",((.5-y)*9).toFixed(2)+"deg");
+        el.style.setProperty("--ry",((x-.5)*11).toFixed(2)+"deg");
+        el.style.setProperty("--mx",(x*100).toFixed(1)+"%");
+        el.style.setProperty("--my",(y*100).toFixed(1)+"%");
+        el.classList.add("tx-tilt");
+      });
+    },{passive:true});
+    document.addEventListener("pointerout",function(e){
+      var el=e.target.closest&&e.target.closest(COVER);
+      if(!el||el.contains(e.relatedTarget)) return;
+      el.classList.remove("tx-tilt");
+      el.style.removeProperty("--rx");el.style.removeProperty("--ry");
+    });
+  }
+
+  /* staggered reveal for cards (hidden state is only ever set here, so no-JS = fully visible) */
+  if(!reduce&&"IntersectionObserver" in window){
+    var SEL=".curated-card,#trackList .track";
+    var io=new IntersectionObserver(function(entries){
+      var n=0;
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        en.target.style.setProperty("--i",Math.min(n++,8));
+        en.target.classList.add("tx-in");
+        io.unobserve(en.target);
+      });
+    },{threshold:.08,rootMargin:"0px 0px -4% 0px"});
+    var watch=function(el){
+      if(el.__tx) return;
+      el.__tx=1;el.classList.add("tx-pre");io.observe(el);
+    };
+    var scan=function(root){
+      if(root.matches&&root.matches(SEL)) watch(root);
+      if(root.querySelectorAll) root.querySelectorAll(SEL).forEach(watch);
+    };
+    scan(document);
+    new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        m.addedNodes.forEach(function(nd){if(nd.nodeType===1) scan(nd)});
+      });
+    }).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+<!-- ====================== END TANINFY SIGNATURE LAYER ====================== -->
