@@ -715,7 +715,7 @@ window.TANINFY_SONGS = [
     artist: "Behzad Leito & Chvrsi",
     genre: "Pop",
     album: "",
-    src: "https://dl.mokhtalefmusic.com/music/1404/01/24/Behzad%20Leito%20&%20Chvrsi%20-%20Fekr%20Nemikardam.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Behzad%20Leito%20&%20Chvrsi%20-%20Fekr%20Nemikardam.mp3?versionId=",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2025/04/Behzad-Leito-&-Chvrsi-Fekr-Nemikardam.webp",
     featured: true
    },
