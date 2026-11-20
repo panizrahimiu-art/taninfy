@@ -670,7 +670,7 @@ window.TANINFY_SONGS = [
     artist: "Behzad Leito & Cnjim",
     genre: "Pop",
     album: "",
-    src: "https://dl.kelmusic.ir/Rap/Behzad%20Leito%20-%20Mese%20Man%20Nashod%20(Cnjim).mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Behzad%20Leito%20Ft%20Cnjim%20-%20Mese%20Man%20Nashod.mp3?versionId=",
     cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
     featured: true
    },
