@@ -65,5 +65,33 @@ window.TANINFY_PLAYLISTS = [
       "Kayıp Kalb",
       "Bu Tepe Pullu Tepe"
     ]
+  },
+  {
+    id: "Lost",
+    name: "Lost",
+    cover: "https://marketplace.canva.com/EAFIP730ykc/1/0/800w/canva-black-photocentric-sad-playlist-cover-hMpYR9-oHwg.jpg",
+
+    songs: [
+      "Har Eshghi Mimirad",
+      "Ai",
+      "Havashi",
+      "Mi Amoore",
+      "Wind (Mwon Version)",
+      "Az Oonayi",
+      "HHRU",
+      "Mohem Ni",
+      "Dokhtare Man",
+      "Karma is a Bitch",
+      "Goor",
+      "Sargarmi",
+      "Penalty",
+      "Dele Man",
+      "BAZIGAR",
+      "Delam Az Donya Gerefte",
+      "Door Azin Shahr",
+      "Jigh",
+      "Fekr Nemikardam",
+      "Road 61"
+    ]
   }
 ];
