@@ -24,6 +24,7 @@ window.TANINFY_PLAYLISTS = [
       "Haminim Ke Hastim"
     ]
   },
+
   {
     id: "Highway",
     name: "Highway",
@@ -49,6 +50,7 @@ window.TANINFY_PLAYLISTS = [
       "Khaterate Bad"
     ]
   },
+
   {
     id: "Kalbimde Kaldın",
     name: "Kalbimde Kaldın",
@@ -66,6 +68,7 @@ window.TANINFY_PLAYLISTS = [
       "Bu Tepe Pullu Tepe"
     ]
   },
+
   {
     id: "Lost",
     name: "Lost",
@@ -87,7 +90,7 @@ window.TANINFY_PLAYLISTS = [
       "Penalty",
       "Dele Man",
       "BAZIGAR",
-      "Delam Az Donya Gerefte",
+      "Delm Az Donya Gerefte",
       "Door Azin Shahr",
       "Jigh",
       "Fekr Nemikardam",
