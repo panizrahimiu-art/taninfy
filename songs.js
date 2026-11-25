@@ -1692,21 +1692,21 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Khooneye Man Oonjast",
+    artist: "Arta And Korosh",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Arta%20And%20Korosh%20-%20Khooneye%20Man%20Oonjast%20Musics-Fa.mp3?versionId=",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.7uZxbc8ruRMXYgWU7KnfBAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Khoda Koshi",
+    artist: "Arta",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Arta%20-%20Khoda%20Koshi%20%28320%29.mp3?versionId=",
+    cover: "https://i1.sndcdn.com/artworks-r2psBbgYtUjZAn1A-eyhZGw-t500x500.jpg",
     featured: true
    },
    {
