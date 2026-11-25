@@ -1715,7 +1715,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20_%20Saaren%20-%20Dele%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.4N-CX8RoQUujzJDqZOoDagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1724,7 +1724,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F08.%20Sargarmi%20%28feat.%20AFX%29.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.nSljT220ViEPumg2rrIb2gAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1733,7 +1733,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20x%20Saaren%20-%20HHRU.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.HKz3z__oWDqfkUe2MzjExAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1742,7 +1742,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHooman%20-%20Goor%20UpMusics.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.pQqXJvOROP07EtN8x8gQDwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1751,7 +1751,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F01.Saaren%20&%20Arta%20-%20Karma%20is%20a%20Bitch%20%28320%29.mp3?versionId=",
-    cover: "",
+    cover: "https://melodu-audio.s3.ir-thr-at1.arvanstorage.ir/Rap/Saaren%20%26%20Arta%20-%20Karma%20is%20a%20Bitch/Saaren-Femmora.webp",
     featured: true
    },
    {
@@ -1760,7 +1760,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza-JJ-Sijal-Az-Oonayi-dibamusics.com-320.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.tsO78p_MSVjJf2HXE6ZSIgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1769,7 +1769,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mohem%20Ni%20%28Ft%20Poobon%29%20%5B320%5D.mp3?versionId=",
-    cover: "",
+    cover: "https://behmusics.com/wp-content/uploads/2026/09/Arta-&-Poobon-Mohem-Ni-1200x675.jpg",
     featured: true
    },
    {
@@ -1778,7 +1778,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoomaan%20-%20Dokhtare%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.pgoQTqqEHq3ALVav7zQUwgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1787,7 +1787,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDorcci%20-%20Wind%20%28Mwon%20Version%29.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.9rkXN6bUqYKiF1Y9_B6zCQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1796,7 +1796,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20-%20Penalty.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.LR1p32IZ9E7dWjj3g9LvrgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1805,7 +1805,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mi%20Amoore.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.z-NS6yc_m_WyX20g-jMqOAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1814,7 +1814,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Tamara%20-%20Havashi.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.IPl2goMMHN8-TtnjXPs_NgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1823,7 +1823,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20-%20Ai.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.ITqxyl_f_mzJyYsy-xQ9PAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -1832,7 +1832,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Har%20Eshghi%20Mimirad.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.ZaRT2vT6zUHHWUdR-AyqxQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
