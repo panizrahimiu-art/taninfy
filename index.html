@@ -5015,13 +5015,29 @@ function getPlaylistSong(songRef) {
   ) || null;
 }
 
+function validateTaninfyPlaylists() {
+  const playlists = Array.isArray(window.TANINFY_PLAYLISTS) ? window.TANINFY_PLAYLISTS : [];
+  const missing = [];
+  playlists.forEach(playlist => {
+    (Array.isArray(playlist?.songs) ? playlist.songs : []).forEach(ref => {
+      if (!getPlaylistSong(ref)) missing.push(`${playlist?.name || "Playlist"}: ${String(ref)}`);
+    });
+  });
+  if (missing.length) {
+    console.warn("Taninfy playlist references not found:", missing);
+  }
+  return missing;
+}
+
 function getTaninfyPlaylists() {
-  // Only the three curated playlists from playlist.js are shown.
+  // Only the curated playlists from playlist.js are shown.
   // Personal playlists saved by older versions are intentionally excluded.
   return Array.isArray(window.TANINFY_PLAYLISTS)
     ? window.TANINFY_PLAYLISTS
     : [];
 }
+
+validateTaninfyPlaylists();
 
 function playlistCover(playlist, songs) {
   if (playlist?.cover) return playlist.cover;
@@ -6391,7 +6407,7 @@ function updateMenuProfile(user, profile = {}) {
   }
 
   const name = profile.name || user.displayName || "Taninfy User";
-  const nickname = (profile.nickname || name.toLowerCase().replace(/\\s+/g, "").slice(0, 18))
+  const nickname = (profile.nickname || name.toLowerCase().replace(/\s+/g, "").slice(0, 18))
     .replace(/^@/, "");
 
   menuAvatar.src =
@@ -6906,7 +6922,7 @@ function normalizeUsername(value) {
     .trim()
     .replace(/^@/, "")
     .toLocaleLowerCase()
-    .replace(/\\s+/g, "");
+    .replace(/\s+/g, "");
 }
 
 window.saveTaninfyProfile = async function(profile) {
