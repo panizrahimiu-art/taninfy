@@ -1710,39 +1710,174 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Dele Man",
+    artist: "Arta & Saaren",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20_%20Saaren%20-%20Dele%20Man.mp3?versionId=",
+    cover: "",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Sargarmi",
+    artist: "Behzad Leito & AFX",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F08.%20Sargarmi%20%28feat.%20AFX%29.mp3?versionId=",
+    cover: "",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "HHRU",
+    artist: "Koroosh & Arta & Saaren",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20x%20Saaren%20-%20HHRU.mp3?versionId=",
+    cover: "",
     featured: true
    },
    {
-    title: "Soghati",
-    artist: "Hayedeh",
+    title: "Goor",
+    artist: "Hoomaan",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
-    cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHooman%20-%20Goor%20UpMusics.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Karma is a Bitch",
+    artist: "Saaren & Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F01.Saaren%20&%20Arta%20-%20Karma%20is%20a%20Bitch%20%28320%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Az Oonayi",
+    artist: "Alireza JJ & Sijal",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza-JJ-Sijal-Az-Oonayi-dibamusics.com-320.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Mohem Ni",
+    artist: "Arta & Poobon",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mohem%20Ni%20%28Ft%20Poobon%29%20%5B320%5D.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Dokhtare Man",
+    artist: "Hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoomaan%20-%20Dokhtare%20Man.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Wind (Mwon Version)",
+    artist: "Dorcci",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDorcci%20-%20Wind%20%28Mwon%20Version%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Penalty",
+    artist: "Behzad Leito",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20-%20Penalty.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Mi Amoore",
+    artist: "Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mi%20Amoore.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Havashi",
+    artist: "Behzad Leito & Tamara",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Tamara%20-%20Havashi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Ai",
+    artist: "Koroosh & Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20-%20Ai.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Har Eshghi Mimirad",
+    artist: "Arta",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Har%20Eshghi%20Mimirad.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
     featured: true
    },
 ];
