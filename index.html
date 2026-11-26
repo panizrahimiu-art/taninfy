@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   /* ================================
@@ -4694,17 +4695,11 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     <div class="full-controls">
 
-      <button id="fullPrevBtn" class="full-control-btn" title="Previous" aria-label="Previous">
-        ⏮
-      </button>
+      <button id="fullPrevBtn" class="full-control-btn" title="Previous" aria-label="Previous"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 5h2.3v14H5.2z"/><path d="M19.2 5.7v12.6a.65.65 0 0 1-1 .53l-8.9-6.3a.65.65 0 0 1 0-1.06l8.9-6.3a.65.65 0 0 1 1 .53z"/></svg></button>
 
-      <button id="fullPlayBtn" class="full-play-btn" aria-label="Play or pause">
-        ▶
-      </button>
+      <button id="fullPlayBtn" class="full-play-btn" aria-label="Play or pause"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.6v14.8a.7.7 0 0 0 1.07.6l11.6-7.4a.7.7 0 0 0 0-1.2L8.07 4a.7.7 0 0 0-1.07.6z"/></svg></button>
 
-      <button id="fullNextBtn" class="full-control-btn" title="Next" aria-label="Next">
-        ⏭
-      </button>
+      <button id="fullNextBtn" class="full-control-btn" title="Next" aria-label="Next"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="matrix(-1 0 0 1 24 0)"><path d="M5.2 5h2.3v14H5.2z"/><path d="M19.2 5.7v12.6a.65.65 0 0 1-1 .53l-8.9-6.3a.65.65 0 0 1 0-1.06l8.9-6.3a.65.65 0 0 1 1 .53z"/></g></svg></button>
 
       <button id="repeatBtn" class="full-control-btn" title="Repeat" aria-label="Repeat">
         ↻
@@ -4717,9 +4712,9 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
   </div>
 
   <div class="full-player-actions">
-    <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ"><img class="download-icon-image" src="data:image/png;base64,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" alt="" /></button>
-    <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite"><svg class="favorite-star-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 14.8 8.6 21.2 9.5 16.6 14 17.7 20.4 12 17.4 6.3 20.4 7.4 14 2.8 9.5 9.2 8.6Z"/></svg></button>
-    <button id="shuffleBtn" class="full-action-btn" type="button" aria-label="Shuffle" title="Shuffle">⤨</button>
+    <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ"><svg class="pl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v12"/><path d="M7.2 10.8 12 15.6l4.8-4.8"/><path d="M5 20.2h14"/></svg></button>
+    <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite"><svg class="favorite-star-svg pl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></button>
+    <button id="shuffleBtn" class="full-action-btn" type="button" aria-label="Shuffle" title="Shuffle"><svg class="pl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2 4 4-4 4"/><path d="M2 6h1.9c1.5 0 2.9.9 3.6 2.2"/><path d="M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14 4 4-4 4"/></svg></button>
   </div>
 </div>
 
@@ -6728,7 +6723,8 @@ fullPlayBtn.addEventListener("click", function() {
 });
 
 function updateFullPlayButton() {
-  fullPlayBtn.textContent = audioPlayer.paused ? "▶" : "❚❚";
+  fullPlayBtn.innerHTML = audioPlayer.paused ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.6v14.8a.7.7 0 0 0 1.07.6l11.6-7.4a.7.7 0 0 0 0-1.2L8.07 4a.7.7 0 0 0-1.07.6z"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="2.5" width="6.4" height="19" rx="1.1"/><rect x="13.6" y="2.5" width="6.4" height="19" rx="1.1"/></svg>';
+  fullPlayBtn.classList.toggle("is-playing", !audioPlayer.paused);
 }
 
 function formatFullTime(seconds) {
@@ -8152,3 +8148,173 @@ body.tx-playing .full-player.active .full-cover-wrap{
 })();
 </script>
 <!-- ====================== END TANINFY SIGNATURE LAYER ====================== -->
+
+<style id="playerScreenshotMatch">
+/* ============ TANINFY — FULL PLAYER (matches reference screenshot) ============ */
+#fullPlayer{
+  --pl-w:min(88vw,440px,calc((100dvh - 44px) / 1.84));
+  background:#09090d !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:calc(var(--pl-w)*.045) !important;
+  padding:max(14px,env(safe-area-inset-top)) 0 max(14px,env(safe-area-inset-bottom)) !important;
+  direction:ltr;
+  font-family:Roboto,"Vazirmatn",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+#fullPlayer .full-player-backdrop,
+#fullPlayer .full-player-topbar,
+#fullPlayer #repeatBtn{display:none !important}
+
+/* main card */
+#fullPlayer .full-player-content{
+  width:var(--pl-w) !important;max-width:none !important;height:auto !important;max-height:none !important;
+  box-sizing:border-box !important;overflow:visible !important;flex:0 0 auto !important;
+  padding:calc(var(--pl-w)*.057) calc(var(--pl-w)*.057) calc(var(--pl-w)*.085) !important;
+  justify-content:flex-start !important;text-align:left !important;
+  border-radius:calc(var(--pl-w)*.076) !important;
+  border:1px solid rgba(255,255,255,.11) !important;
+  background:
+    radial-gradient(130% 55% at 50% 66%,rgba(112,62,90,.58) 0%,rgba(72,38,58,.34) 42%,rgba(0,0,0,0) 78%),
+    linear-gradient(180deg,#15141a 0%,#191320 62%,#14101a 100%) !important;
+  -webkit-backdrop-filter:none !important;backdrop-filter:none !important;
+  box-shadow:0 30px 70px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07) !important;
+}
+#fullPlayer .full-cover-wrap{
+  width:100% !important;max-width:none !important;height:auto !important;aspect-ratio:1/1 !important;
+  margin:0 0 calc(var(--pl-w)*.07) !important;
+  border-radius:calc(var(--pl-w)*.052) !important;overflow:hidden;background:#241c2a !important;
+  border:0 !important;box-shadow:none !important;
+}
+#fullPlayer .full-cover{width:100% !important;height:100% !important;object-fit:cover !important;display:block;border-radius:0 !important}
+
+/* title + artist */
+#fullPlayer .full-song-info{text-align:start !important}
+#fullPlayer .full-song-info h1{
+  margin:0 !important;color:#f7eff4 !important;
+  font:600 calc(var(--pl-w)*.062)/1.25 Roboto,"Vazirmatn",system-ui,sans-serif !important;
+  letter-spacing:0 !important;unicode-bidi:plaintext;text-align:start !important;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+#fullPlayer .full-song-info p{
+  margin:calc(var(--pl-w)*.022) 0 0 !important;color:rgba(200,184,200,.78) !important;
+  font:400 calc(var(--pl-w)*.047)/1.3 Roboto,"Vazirmatn",system-ui,sans-serif !important;
+  letter-spacing:0 !important;text-transform:none !important;unicode-bidi:plaintext;text-align:start !important;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* progress */
+#fullPlayer .full-progress-area{
+  display:grid !important;grid-template-columns:auto minmax(0,1fr) auto !important;align-items:center !important;
+  gap:calc(var(--pl-w)*.042) !important;margin:calc(var(--pl-w)*.075) 0 0 !important;
+  color:rgba(236,228,236,.86) !important;direction:ltr;
+  font:400 calc(var(--pl-w)*.037)/1 Roboto,"Vazirmatn",system-ui,sans-serif !important;font-variant-numeric:tabular-nums;
+}
+#fullPlayer #fullProgress{
+  -webkit-appearance:none;appearance:none;width:100%;min-width:0;margin:0;padding:0;
+  height:calc(var(--pl-w)*.056) !important;background:transparent !important;outline:0 !important;cursor:pointer;border-radius:0 !important;
+}
+#fullPlayer #fullProgress::-webkit-slider-runnable-track{
+  height:5px;border-radius:99px;
+  background:linear-gradient(to right,rgba(255,255,255,.42) 0,rgba(255,255,255,.42) var(--progress,0%),rgba(255,255,255,.2) var(--progress,0%),rgba(255,255,255,.2) 100%);
+}
+#fullPlayer #fullProgress::-moz-range-track{height:5px;border-radius:99px;background:rgba(255,255,255,.2)}
+#fullPlayer #fullProgress::-moz-range-progress{height:5px;border-radius:99px;background:rgba(255,255,255,.42)}
+#fullPlayer #fullProgress::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:calc(var(--pl-w)*.056) !important;height:calc(var(--pl-w)*.056) !important;border-radius:50%;
+  background:#fff !important;border:0 !important;margin-top:calc((5px - var(--pl-w)*.056)/2);
+  box-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+#fullPlayer #fullProgress::-moz-range-thumb{
+  width:calc(var(--pl-w)*.056) !important;height:calc(var(--pl-w)*.056) !important;border-radius:50%;
+  background:#fff !important;border:0 !important;box-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+
+/* transport controls */
+#fullPlayer .full-controls{
+  display:grid !important;grid-template-columns:repeat(3,1fr) !important;justify-items:center !important;align-items:center !important;
+  width:100% !important;gap:0 !important;margin:calc(var(--pl-w)*.05) 0 0 !important;direction:ltr;
+}
+#fullPlayer #fullPrevBtn{grid-column:1}
+#fullPlayer #fullPlayBtn{grid-column:2}
+#fullPlayer #fullNextBtn{grid-column:3}
+#fullPlayer .full-control-btn,
+#fullPlayer .full-play-btn{
+  display:grid !important;place-items:center;padding:0 !important;margin:0;cursor:pointer;
+  width:calc(var(--pl-w)*.15) !important;height:calc(var(--pl-w)*.15) !important;min-width:0 !important;min-height:0 !important;
+  border:0 !important;border-radius:0 !important;background:transparent !important;box-shadow:none !important;outline:0 !important;
+  color:#fff !important;font-size:0 !important;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,opacity .15s ease;
+}
+#fullPlayer .full-control-btn:active,#fullPlayer .full-play-btn:active{transform:scale(.9)}
+#fullPlayer .full-control-btn svg{width:calc(var(--pl-w)*.082);height:calc(var(--pl-w)*.082);fill:currentColor;display:block}
+#fullPlayer .full-play-btn svg{width:calc(var(--pl-w)*.092);height:calc(var(--pl-w)*.092);fill:currentColor;display:block}
+
+/* separate pill bar */
+#fullPlayer .full-player-actions{
+  display:block !important;position:relative;flex:0 0 auto !important;
+  width:var(--pl-w) !important;height:calc(var(--pl-w)*.148) !important;min-height:0 !important;
+  margin:0 !important;padding:0 !important;box-sizing:border-box;direction:ltr;
+  border-radius:999px !important;
+  border:1px solid rgba(255,255,255,.1) !important;
+  background:linear-gradient(180deg,#1b1620 0%,#171219 100%) !important;
+  box-shadow:0 1px 0 rgba(205,72,112,.5),inset 0 -12px 20px -12px rgba(196,62,104,.32),0 16px 34px rgba(0,0,0,.45) !important;
+}
+#fullPlayer .full-player-actions::before{
+  content:"";position:absolute;left:60.6%;top:50%;transform:translateY(-50%);width:1px;height:42%;background:rgba(255,255,255,.2);
+}
+#fullPlayer .full-action-btn{
+  position:absolute;top:50%;transform:translate(-50%,-50%);
+  display:grid !important;place-items:center;padding:0 !important;margin:0 !important;cursor:pointer;
+  width:calc(var(--pl-w)*.13) !important;height:calc(var(--pl-w)*.13) !important;min-width:0 !important;
+  border:0 !important;border-radius:50% !important;background:transparent !important;box-shadow:none !important;
+  color:#fff !important;font-size:0 !important;text-shadow:none !important;outline:0;-webkit-tap-highlight-color:transparent;
+  transition:transform .15s ease,background .2s ease,border-color .2s ease;
+}
+#fullPlayer .full-action-btn:hover{transform:translate(-50%,-50%) scale(1.06);background:transparent !important}
+#fullPlayer .full-action-btn:active{transform:translate(-50%,-50%) scale(.92)}
+#fullPlayer #fullDownloadBtn{left:16.5%}
+#fullPlayer #fullFavoriteBtn{left:43.3%}
+#fullPlayer #shuffleBtn{
+  left:81.3%;width:20.4% !important;height:66% !important;border-radius:999px !important;
+  border:1px solid transparent !important;
+}
+#fullPlayer #shuffleBtn.active{
+  background:linear-gradient(180deg,rgba(128,44,76,.62),rgba(92,28,54,.66)) !important;
+  border-color:rgba(214,96,134,.38) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 22px rgba(170,50,92,.22) !important;
+}
+#fullPlayer .full-action-btn .pl-ic{
+  width:calc(var(--pl-w)*.062);height:calc(var(--pl-w)*.062);display:block;overflow:visible;
+  fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
+}
+#fullPlayer #fullFavoriteBtn .pl-ic path{fill:transparent;stroke:#fff;stroke-width:1.9;filter:none;transition:fill .18s ease,stroke .18s ease}
+#fullPlayer #fullFavoriteBtn.is-favorited .pl-ic path,
+#fullPlayer #fullFavoriteBtn.active .pl-ic path{fill:#ff7ea6;stroke:#ff7ea6;filter:drop-shadow(0 0 6px rgba(255,126,166,.45))}
+
+/* keep the dark look in light theme too */
+body.light-theme #fullPlayer{background:#09090d !important}
+body.light-theme #fullPlayer .full-player-content{
+  background:
+    radial-gradient(130% 55% at 50% 66%,rgba(112,62,90,.58) 0%,rgba(72,38,58,.34) 42%,rgba(0,0,0,0) 78%),
+    linear-gradient(180deg,#15141a 0%,#191320 62%,#14101a 100%) !important;
+  color:#fff !important;
+}
+body.light-theme #fullPlayer .full-song-info h1,
+body.light-theme #fullPlayer .full-control-btn,
+body.light-theme #fullPlayer .full-play-btn,
+body.light-theme #fullPlayer .full-action-btn{color:#fff !important}
+body.light-theme #fullPlayer .full-song-info p{color:rgba(200,184,200,.78) !important}
+body.light-theme #fullPlayer .full-progress-area{color:rgba(236,228,236,.86) !important}
+body.light-theme #fullPlayer .full-player-actions{border-color:rgba(255,255,255,.1) !important}
+</style>
+<script id="playerProgressFill">
+(function(){
+  var inp=document.getElementById('fullProgress'); if(!inp) return;
+  function sync(){ inp.style.setProperty('--progress',(parseFloat(inp.value)||0)+'%'); }
+  var a=document.getElementById('audioPlayer');
+  if(a){ ['timeupdate','loadedmetadata','durationchange','seeked','emptied'].forEach(function(e){ a.addEventListener(e,sync); }); }
+  inp.addEventListener('input',sync);
+  sync();
+})();
+</script>
