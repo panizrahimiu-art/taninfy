@@ -2856,3 +2856,349 @@ body.light-theme .full-progress-area { color: rgba(245,239,250,.78) !important; 
     font-size: 24px;
   }
 }
+
+
+/* =========================================================
+   TANINFY — REFERENCE MATCH
+   Exact mobile proportions based on the supplied reference
+   Keep all existing functionality; visual/layout override only.
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  /* The whole player stack */
+  .full-player-layout {
+    width: 100% !important;
+    min-height: 100dvh !important;
+    height: 100dvh !important;
+    padding: 55px 0 50px !important;
+    gap: 34px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* MAIN PLAYER CARD
+     88vw = the same outer proportion as the reference */
+  .full-player-layout .full-player-content {
+    width: 88vw !important;
+    max-width: 800px !important;
+    flex: 0 0 auto !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 44px 5vw 78px !important;
+    border-radius: 48px !important;
+    border: 1px solid rgba(238,225,255,.23) !important;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(76,68,82,.46) 0%,
+        rgba(28,25,34,.78) 46%,
+        rgba(14,13,19,.88) 100%
+      ) !important;
+    box-shadow:
+      0 28px 85px rgba(0,0,0,.48),
+      inset 0 1px 0 rgba(255,255,255,.10) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(120%) !important;
+    backdrop-filter: blur(30px) saturate(120%) !important;
+    text-align: left !important;
+    overflow: visible !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Reference has no top controls inside the card */
+  .full-player-topbar {
+    display: none !important;
+  }
+
+  /* COVER
+     100% of the card's inner width = roughly 78vw */
+  .full-player-layout .full-cover-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    margin: 0 auto 42px !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+  }
+
+  .full-player-layout .full-cover {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    object-fit: cover !important;
+  }
+
+  /* SONG INFO */
+  .full-song-info {
+    width: 100% !important;
+    text-align: left !important;
+    position: relative !important;
+  }
+
+  .full-song-info h1 {
+    color: #fff !important;
+    font-family: "Vazirmatn", Tahoma, Arial, sans-serif !important;
+    font-size: clamp(27px, 7vw, 38px) !important;
+    line-height: 1.18 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+    margin: 0 0 8px !important;
+  }
+
+  .full-song-info p {
+    color: rgba(245,239,250,.72) !important;
+    font-family: "Vazirmatn", Tahoma, Arial, sans-serif !important;
+    font-size: clamp(17px, 4.8vw, 25px) !important;
+    line-height: 1.35 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+    margin: 0 0 43px !important;
+  }
+
+  /* PROGRESS */
+  .full-progress-area {
+    width: 100% !important;
+    grid-template-columns: auto minmax(0,1fr) auto !important;
+    gap: 13px !important;
+    align-items: center !important;
+    font-size: clamp(13px, 3.7vw, 17px) !important;
+    color: rgba(255,255,255,.78) !important;
+  }
+
+  #fullProgress {
+    width: 100% !important;
+    height: 5px !important;
+    border-radius: 999px !important;
+    background:
+      linear-gradient(
+        to right,
+        #f4eff8 0%,
+        #f4eff8 var(--progress,0%),
+        rgba(255,255,255,.25) var(--progress,0%),
+        rgba(255,255,255,.25) 100%
+      ) !important;
+  }
+
+  #fullProgress::-webkit-slider-thumb {
+    width: 23px !important;
+    height: 23px !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.08) !important;
+  }
+
+  #fullProgress::-moz-range-thumb {
+    width: 23px !important;
+    height: 23px !important;
+    background: #fff !important;
+  }
+
+  /* PREVIOUS / PLAY / NEXT
+     Exactly three controls, spread like the reference */
+  .full-controls {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    align-items: center !important;
+    justify-items: center !important;
+    gap: 0 !important;
+    margin-top: 75px !important;
+  }
+
+  #shuffleBtn,
+  #repeatBtn {
+    display: none !important;
+  }
+
+  #fullPrevBtn {
+    grid-column: 1 !important;
+  }
+
+  #fullPlayBtn {
+    grid-column: 2 !important;
+  }
+
+  #fullNextBtn {
+    grid-column: 3 !important;
+  }
+
+  .full-control-btn {
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-size: 35px !important;
+    padding: 0 !important;
+  }
+
+  .full-play-btn {
+    width: 62px !important;
+    height: 62px !important;
+    min-width: 62px !important;
+    min-height: 62px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    font-size: 37px !important;
+    padding: 0 !important;
+  }
+
+  .full-control-btn:hover,
+  .full-play-btn:hover {
+    background: transparent !important;
+    transform: none !important;
+  }
+
+  /* SEPARATE ACTION BAR
+     Reference: wide rounded capsule below the main card */
+  .full-player-layout .full-player-actions {
+    width: 86vw !important;
+    max-width: 800px !important;
+    height: 120px !important;
+    min-height: 120px !important;
+    padding: 0 24px !important;
+    margin: 0 !important;
+    border-radius: 60px !important;
+    border: 1px solid rgba(238,225,255,.20) !important;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(31,25,33,.84),
+        rgba(13,11,16,.92)
+      ) !important;
+    box-shadow:
+      0 20px 55px rgba(0,0,0,.34),
+      inset 0 1px 0 rgba(255,255,255,.06) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    gap: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .full-player-layout .full-action-btn {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    min-height: 58px !important;
+    flex: 0 0 58px !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #fff !important;
+    font-size: 34px !important;
+    box-shadow: none !important;
+  }
+
+  .full-player-layout .full-action-btn:hover {
+    background: transparent !important;
+    transform: none !important;
+  }
+
+  /* Thin divider before Shuffle, like the reference */
+  .full-player-layout .full-action-btn:nth-child(3) {
+    position: relative !important;
+  }
+
+  .full-player-layout .full-action-btn:nth-child(3)::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -36px !important;
+    top: 5px !important;
+    width: 1px !important;
+    height: 48px !important;
+    background: rgba(255,255,255,.22) !important;
+  }
+
+  /* Active shuffle pill */
+  .full-player-layout .full-action-btn.active {
+    color: #fff !important;
+    text-shadow: none !important;
+  }
+
+  /* Keep the reference's burgundy active capsule if the action
+     button is the active shuffle control */
+  .full-player-layout .full-action-btn.active:nth-child(3) {
+    width: 162px !important;
+    min-width: 162px !important;
+    border-radius: 40px !important;
+    background: linear-gradient(135deg,#6d1d3b,#421322) !important;
+    border: 1px solid rgba(214,102,139,.38) !important;
+    box-shadow:
+      0 8px 28px rgba(104,23,55,.30),
+      inset 0 1px 0 rgba(255,255,255,.08) !important;
+  }
+
+  .full-player-layout .full-action-btn.active:nth-child(3)::before {
+    display: none !important;
+  }
+}
+
+/* Very small phones: preserve the same proportions without overflow */
+@media (max-width: 420px) {
+  .full-player-layout {
+    padding-top: 32px !important;
+    padding-bottom: 28px !important;
+    gap: 20px !important;
+  }
+
+  .full-player-layout .full-player-content {
+    width: 88vw !important;
+    padding: 28px 5vw 48px !important;
+    border-radius: 38px !important;
+  }
+
+  .full-player-layout .full-cover-wrap {
+    margin-bottom: 30px !important;
+    border-radius: 22px !important;
+  }
+
+  .full-song-info p {
+    margin-bottom: 30px !important;
+  }
+
+  .full-controls {
+    margin-top: 48px !important;
+  }
+
+  .full-player-layout .full-player-actions {
+    width: 86vw !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    border-radius: 46px !important;
+  }
+
+  .full-player-layout .full-action-btn {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    flex-basis: 50px !important;
+    font-size: 29px !important;
+  }
+
+  .full-player-layout .full-action-btn.active:nth-child(3) {
+    width: 126px !important;
+    min-width: 126px !important;
+  }
+
+  .full-player-layout .full-action-btn:nth-child(3)::before {
+    left: -26px !important;
+    height: 40px !important;
+  }
+}
+
+/* END OF FILE */
