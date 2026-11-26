@@ -4675,8 +4675,19 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
     </div>
 
     <div class="full-song-info">
-      <h1 id="fullTitle">Song Title</h1>
-      <p id="fullArtist">Artist Name</p>
+      <div class="full-song-text">
+        <h1 id="fullTitle">Song Title</h1>
+        <p id="fullArtist">Artist Name</p>
+      </div>
+      <div class="full-song-btns">
+        <button id="fullAddBtn" class="full-mini-btn" type="button" aria-label="افزودن به پلی لیست" title="افزودن به پلی لیست">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button id="fullMoreBtn" class="full-mini-btn" type="button" aria-label="گزینه‌های بیشتر" aria-haspopup="true" aria-expanded="false" title="گزینه‌های بیشتر">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="18.5" cy="12" r="1.6"/></svg>
+        </button>
+        <div class="full-more-menu" id="fullMoreMenu" role="menu" aria-hidden="true"></div>
+      </div>
     </div>
 
     <div class="full-progress-area">
@@ -5067,11 +5078,15 @@ function validateTaninfyPlaylists() {
 }
 
 function getTaninfyPlaylists() {
-  // Only the curated playlists from playlist.js are shown.
-  // Personal playlists saved by older versions are intentionally excluded.
-  return Array.isArray(window.TANINFY_PLAYLISTS)
-    ? window.TANINFY_PLAYLISTS
-    : [];
+  // Curated playlists from playlist.js + the user's personal playlists
+  // (created through the "+" button in the full player).
+  const curated = Array.isArray(window.TANINFY_PLAYLISTS) ? window.TANINFY_PLAYLISTS : [];
+  let personal = [];
+  try {
+    // `playlists` is declared later in the script; before that point it is not readable yet.
+    personal = Array.isArray(playlists) ? playlists : [];
+  } catch (_) {}
+  return [...curated, ...personal];
 }
 
 validateTaninfyPlaylists();
@@ -6345,7 +6360,7 @@ function addCurrentSongToPlaylist(index) {
       artist: track.artist || "هنرمند نامشخص",
       cover: track.cover || ""
     });
-    taninfySafeStorageSet(playlistKey, JSON.stringify(playlists));
+    persistPlaylists();
   }
 
   if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
@@ -6398,7 +6413,7 @@ playlistPickerNew?.addEventListener("click", function() {
   if (!name || !name.trim()) return;
   const mood = "My playlist";
   playlists.push({ name: name.trim(), mood, songs: [] });
-  taninfySafeStorageSet(playlistKey, JSON.stringify(playlists));
+  persistPlaylists();
   addCurrentSongToPlaylist(playlists.length - 1);
 });
 
@@ -6414,14 +6429,32 @@ document.querySelectorAll("[data-curated-browse]").forEach(button => {
 
 /* PLAYLIST STORAGE — retained for the personal add-to-playlist picker */
 const playlistKey = "taninfy-playlists";
-let playlists = taninfyReadJSON(playlistKey, [], Array.isArray)
-  .filter(playlist => playlist && typeof playlist === "object" && !Array.isArray(playlist) && typeof playlist.name === "string")
-  .map(playlist => ({
-    ...playlist,
-    name: playlist.name.trim(),
-    songs: Array.isArray(playlist.songs) ? playlist.songs.filter(song => song && typeof song === "object") : []
-  }))
-  .filter(playlist => playlist.name);
+// Personal playlists belong to the signed-in account (stored in Firestore),
+// so they start empty and are filled in when the account is loaded.
+taninfySafeStorageRemove(playlistKey); // drop the old device-wide copy
+let playlists = [];
+
+window.setTaninfyPlaylists = function(list) {
+  playlists = (Array.isArray(list) ? list : [])
+    .filter(playlist => playlist && typeof playlist === "object" && typeof playlist.name === "string" && playlist.name.trim())
+    .map(playlist => ({
+      ...playlist,
+      name: playlist.name.trim(),
+      songs: Array.isArray(playlist.songs) ? playlist.songs.filter(song => song && typeof song === "object") : []
+    }));
+  if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
+};
+
+function persistPlaylists() {
+  if (typeof window.saveTaninfyUserPlaylists !== "function") return Promise.resolve();
+  return window.saveTaninfyUserPlaylists(playlists).catch(error => {
+    console.warn("Playlists could not be saved to the account.", error);
+    alert("ذخیره پلی لیست در حساب انجام نشد. اتصال اینترنت یا دسترسی دیتابیس را بررسی کن.");
+  });
+}
+
+/* Personal playlists are now loaded: refresh the playlist grids. */
+if (typeof renderTaninfyPlaylists === "function") renderTaninfyPlaylists();
 
 /* PROFILE */
 const profileKey = "taninfy-profile";
@@ -6899,6 +6932,7 @@ import {
   getFirestore,
   doc,
   getDoc,
+  setDoc,
   runTransaction
 } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
@@ -7031,6 +7065,29 @@ async function loadTaninfyProfile(user) {
     console.warn("Taninfy profile could not be loaded from Firestore.", error);
   }
 }
+window.saveTaninfyUserPlaylists = async function(list) {
+  const user = window.taninfyCurrentUser;
+  if (!user) throw new Error("not-authenticated");
+  await setDoc(doc(db, "userPlaylists", user.uid), {
+    uid: user.uid,
+    playlists: JSON.parse(JSON.stringify(list || [])),
+    updatedAt: Date.now()
+  });
+};
+
+window.loadTaninfyUserPlaylists = async function(user) {
+  if (typeof window.setTaninfyPlaylists !== "function") return;
+  if (!user) { window.setTaninfyPlaylists([]); return; }
+  try {
+    const snap = await getDoc(doc(db, "userPlaylists", user.uid));
+    const data = snap.exists() ? snap.data() : {};
+    window.setTaninfyPlaylists(Array.isArray(data.playlists) ? data.playlists : []);
+  } catch (error) {
+    console.warn("User playlists could not be loaded.", error);
+    window.setTaninfyPlaylists([]);
+  }
+};
+
 window.taninfyAuthReady = new Promise(resolve => {
   onAuthStateChanged(auth, async user => {
     window.taninfyCurrentUser = user || null;
@@ -7041,6 +7098,7 @@ window.taninfyAuthReady = new Promise(resolve => {
     } else {
       await window.loadTaninfyListeningStats(null);
     }
+    await window.loadTaninfyUserPlaylists(user || null);
 
     const accountBox = document.getElementById("userAccountBox");
     const loginBtn = document.getElementById("googleLoginBtn");
@@ -8316,5 +8374,169 @@ body.light-theme #fullPlayer .full-player-actions{border-color:rgba(255,255,255,
   if(a){ ['timeupdate','loadedmetadata','durationchange','seeked','emptied'].forEach(function(e){ a.addEventListener(e,sync); }); }
   inp.addEventListener('input',sync);
   sync();
+})();
+</script>
+
+<style id="fullPlayerSongActions">
+#fullPlayer .full-song-info{display:flex !important;align-items:flex-start;justify-content:space-between;gap:calc(var(--pl-w)*.03)}
+#fullPlayer .full-song-text{flex:1 1 auto;min-width:0}
+#fullPlayer .full-song-btns{position:relative;flex:0 0 auto;display:flex;align-items:center;gap:calc(var(--pl-w)*.025);direction:ltr}
+#fullPlayer .full-mini-btn{
+  display:grid;place-items:center;padding:0;cursor:pointer;
+  width:calc(var(--pl-w)*.105);height:calc(var(--pl-w)*.105);
+  border-radius:50%;border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.07);color:#fff;
+  transition:transform .15s ease,background .2s ease;-webkit-tap-highlight-color:transparent}
+#fullPlayer .full-mini-btn:hover{background:rgba(255,255,255,.14)}
+#fullPlayer .full-mini-btn:active{transform:scale(.92)}
+#fullPlayer .full-mini-btn svg{width:56%;height:56%;display:block;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round}
+#fullPlayer #fullMoreBtn svg{fill:currentColor;stroke:none}
+#fullPlayer .full-more-menu{
+  position:absolute;right:0;top:calc(100% + 10px);z-index:20;min-width:210px;padding:6px;
+  direction:rtl;border-radius:16px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(28,22,34,.97);box-shadow:0 18px 44px rgba(0,0,0,.55);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-6px) scale(.97);transform-origin:top right;
+  transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+#fullPlayer .full-more-menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+#fullPlayer .full-more-item{
+  display:flex;align-items:center;gap:12px;width:100%;padding:12px 12px;border:0;border-radius:11px;
+  background:transparent;color:#f4edf0;cursor:pointer;text-align:right;
+  font:500 13px "Vazirmatn",Tahoma,sans-serif;transition:background .15s ease}
+#fullPlayer .full-more-item:hover{background:rgba(255,255,255,.09)}
+#fullPlayer .full-more-item svg{width:19px;height:19px;flex:0 0 19px;stroke:#d5a0ad;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+</style>
+<script id="fullPlayerSongActionsScript">
+(function(){
+  var addBtn=document.getElementById('fullAddBtn');
+  var moreBtn=document.getElementById('fullMoreBtn');
+  var menu=document.getElementById('fullMoreMenu');
+  if(!addBtn||!moreBtn||!menu) return;
+
+  var ICON={
+    link:'<svg viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>',
+    user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>',
+    share:'<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="m8.3 10.8 7.4-4.4M8.3 13.2l7.4 4.4"/></svg>'
+  };
+
+  function track(){ return (typeof songCatalog!=='undefined') ? songCatalog[currentTrackIndex] : null; }
+
+  function songLink(t){
+    var u=new URL(window.location.href);
+    u.hash=''; u.search='';
+    u.searchParams.set('song', t.id!=null ? t.id : currentTrackIndex);
+    return u.toString();
+  }
+
+  function toast(msg){
+    if(typeof window.showSuccessCheck==='function') window.showSuccessCheck(msg);
+  }
+
+  function closeMenu(){
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden','true');
+    moreBtn.setAttribute('aria-expanded','false');
+  }
+
+  async function copyText(text){
+    try{
+      if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return true; }
+    }catch(e){}
+    try{
+      var ta=document.createElement('textarea');
+      ta.value=text; ta.setAttribute('readonly','');
+      ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
+      document.body.appendChild(ta); ta.select();
+      var ok=document.execCommand('copy'); ta.remove(); return ok;
+    }catch(e){ return false; }
+  }
+
+  async function doCopy(){
+    var t=track(); if(!t) return;
+    closeMenu();
+    var ok=await copyText(songLink(t));
+    if(ok) toast('لینک کپی شد');
+    else window.prompt('لینک آهنگ را کپی کن:', songLink(t));
+  }
+
+  async function doShare(){
+    var t=track(); if(!t) return;
+    closeMenu();
+    var url=songLink(t);
+    if(navigator.share){
+      try{
+        await navigator.share({title:t.title||'Taninfy', text:(t.title||'')+' — '+(t.artist||''), url:url});
+      }catch(e){ /* user cancelled */ }
+    }else{
+      var ok=await copyText(url);
+      if(ok) toast('لینک کپی شد');
+    }
+  }
+
+  function doArtist(name){
+    closeMenu();
+    if(typeof closeFullMusicPlayer==='function') closeFullMusicPlayer();
+    if(typeof openArtistProfile==='function') openArtistProfile(name,true);
+  }
+
+  function item(icon,label,handler){
+    var b=document.createElement('button');
+    b.type='button'; b.className='full-more-item'; b.setAttribute('role','menuitem');
+    b.innerHTML=icon+'<span></span>';
+    b.lastChild.textContent=label;
+    b.addEventListener('click',function(e){ e.stopPropagation(); handler(); });
+    return b;
+  }
+
+  function buildMenu(){
+    var t=track(); if(!t) return false;
+    menu.innerHTML='';
+    menu.appendChild(item(ICON.link,'کپی لینک',doCopy));
+    var names=(typeof splitArtistNames==='function') ? splitArtistNames(t.artist) : [t.artist];
+    names.filter(Boolean).forEach(function(n){
+      var label=names.length>1 ? 'پروفایل '+n : 'رفتن به پروفایل هنرمند';
+      menu.appendChild(item(ICON.user,label,function(){ doArtist(n); }));
+    });
+    menu.appendChild(item(ICON.share,'اشتراک‌گذاری',doShare));
+    return true;
+  }
+
+  moreBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(menu.classList.contains('open')){ closeMenu(); return; }
+    if(!buildMenu()) return;
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden','false');
+    moreBtn.setAttribute('aria-expanded','true');
+  });
+
+  addBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    closeMenu();
+    if(typeof openPlaylistPicker==='function') openPlaylistPicker();
+  });
+
+  document.addEventListener('click',function(e){
+    if(!menu.contains(e.target) && e.target!==moreBtn) closeMenu();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeMenu(); });
+  var fp=document.getElementById('fullPlayer');
+  if(fp) new MutationObserver(function(){ if(!fp.classList.contains('active')) closeMenu(); })
+    .observe(fp,{attributes:true,attributeFilter:['class']});
+  // changing track closes an open menu
+  var au=document.getElementById('audioPlayer');
+  if(au) au.addEventListener('loadstart',closeMenu);
+
+  // Opening a shared link (?song=ID) loads that song in the full player (no autoplay: browsers block it)
+  try{
+    var id=new URLSearchParams(window.location.search).get('song');
+    if(id!==null && typeof songCatalog!=='undefined'){
+      var idx=songCatalog.findIndex(function(s,i){ return String(s.id!=null?s.id:i)===id; });
+      if(idx>=0){
+        setPlayerTrack(idx,false,null);
+        if(typeof openFullPlayer==='function') openFullPlayer(songCatalog[idx]);
+      }
+    }
+  }catch(e){}
 })();
 </script>
