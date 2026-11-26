@@ -1841,7 +1841,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Octave%20-%20Daste%20Ma%20Nist.mp3?versionId=",
-    cover: "",
+    cover: "https://rozup.ir/view/2608233/060.jpg",
     featured: true
    },
    {
@@ -1850,7 +1850,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour%20%28Acoustic%20Version%29.mp3?versionId=",
-    cover: "",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwg4kZmXb94CurOkSXfc2jzgXWKwwF2GXA5jrdWRxDE2qqa1ZAVxeRcuc&s=10",
     featured: true
    },
    {
@@ -1859,7 +1859,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour.mp3?versionId=",
-    cover: "",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwg4kZmXb94CurOkSXfc2jzgXWKwwF2GXA5jrdWRxDE2qqa1ZAVxeRcuc&s=10",
     featured: true
    },
    {
@@ -1868,16 +1868,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dekamond%20-%20Nemidunam%20%28320%29.mp3?versionId=",
-    cover: "",
-    featured: true
-   },
-   {
-    title: "Male Man Nemishi",
-    artist: "Mani",
-    genre: "Pop",
-    album: "",
-    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mani%20-%20Male%20Man%20Nemishi.mp3?versionId=",
-    cover: "",
+    cover: "https://musicpusic.com/wp-content/uploads/2024/12/%D9%86%D9%85%DB%8C%D8%AF%D9%88%D9%86%D9%85-768x768-1-350x350.jpg",
     featured: true
    },
     {
@@ -1886,7 +1877,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Alireza%20JJ%20&%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://i.scdn.co/image/ab67616d0000b2739d6ea31c684557e7a6db1c77",
     featured: true
    },
     {
@@ -1895,7 +1886,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mert%20Demir%20-%2014%20Bahar%20%28Live%29.mp3?versionId=",
-    cover: "",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdE2ueRRR82-_WAqCuT_bh7kRmcwak--9Wi9J4Kp8M7Znp4TNo8lmESJr&s=10",
     featured: true
    },
     {
@@ -1904,7 +1895,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/mp3indirdur-Hande-Yener-Don-Bana.mp3?versionId=",
-    cover: "",
+    cover: "https://static.aparatmusic.com/amc/AM-YWxidW0tNWVXbm5CRjEzMTZhQXdiQ2Z4NzVJQg-300-1786398610.jpg",
     featured: true
    },
     {
@@ -1913,7 +1904,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/ONEDAM-Payiz-musicdel.ir.mp3?versionId=",
-    cover: "",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3kcTKu9onhMIRd54lwq9wlOuAyC5K979xo5Jf7L6wJtMFmF_Dsvw0JRKl&s=10",
     featured: true
    },
     {
@@ -1922,7 +1913,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Sijal%2520&%2520Sami%2520Beigi%2520&%2520Behzad%2520Leito%2520-%2520Bargard.mp3?versionId=",
-    cover: "",
+    cover: "https://i1.sndcdn.com/artworks-XyhpYxI3a6VAYJJ7-QEiOqw-t500x500.jpg",
     featured: true
    },
     {
@@ -1931,7 +1922,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20-%20Male%20Man%20Nemishi%20%28320%29.mp3?versionId=",
-    cover: "",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRwiUtdP3I4X37iakGal1rQwCDDEy35oKB-f7sIOC6Silswkln36LxGnu6&s=10",
     featured: true
    },
     {
@@ -1940,7 +1931,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza%20JJ%20Va%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://i.scdn.co/image/ab67616d0000b27319260b5292b4c6ebac112239",
     featured: true
    },
     {
@@ -1949,10 +1940,73 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Hoomaan%20-%20Faghat%20Ba%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://i.scdn.co/image/ab67616d0000b2733ed0fe5136b71f44db4d2c57",
     featured: true
    },
     {
+    title: "oghyanus",
+    artist: "hoomaan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2Fhoomaan_oghyanus.mp3?versionId=",
+    cover: "https://i.scdn.co/image/ab67616d0000b273984a2abceccdd92f9cd822a7",
+    featured: true
+   },
+    {
+    title: "Addi",
+    artist: "Dorcci",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dorcci-Addi%20-musicdel.ir.mp3?versionId=",
+    cover: "https://biamusic.ir/wp-content/uploads/2026/10/Dorcci-Addi-1024x1024.webp",
+    featured: true
+   },
+   {
+    title: "Be Koja Residi",
+    artist: "Dorcci",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dorcci%20-%20Be%20Koja%20Residi%20%28320%29.mp3?versionId=",
+    cover: "https://i1.sndcdn.com/artworks-UILFlfgEIjEpHF02-pzR51Q-t1080x1080.png",
+    featured: true
+   },
+   {
+    title: "Baby",
+    artist: "Eljaan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2FEljaan%20-%20Baby%20%5BSevilMusic%5D.mp3?versionId=",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGUIHqpYPzo-zEhU85_TSrwkrIYGd5nqU3WBgiQqbecBvB02v7rYgL-n0&s=10",
+    featured: true
+   },
+   {
+    title: "Be To Name Minevisam",
+    artist: "Tahas",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Tahas%20-%20Be%20To%20Name%20Minevisam%20%28320%29.mp3?versionId=",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5zBe11OJvhupNqgtvIMt7ymfJ2Vcon7rN3x-mEPNRfgJs8gr0gWFn7M&s=10",
+    featured: true
+   },
+   {
+    title: "Nesfe Rah",
+    artist: "The Don",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2FThe%20Don%20-%20Nesfe%20Rah%20%5BSevilMusic%5D.mp3?versionId=",
+    cover: "https://i1.sndcdn.com/artworks-0F5l7dOzyB6ZZ5Bw-zGJrsA-t1080x1080.jpg",
+    featured: true
+   },
+   {
+    title: "Ghalbe Banafsh",
+    artist: "Sepehr Khalse",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ghalbe%20Banafsh%20%28320%29.mp3?versionId=",
+    cover: "https://i.scdn.co/image/ab67616d0000b27309115f7c4e8c1a644d16409f",
+    featured: true
+   },
+   {
     title: "",
     artist: "",
     genre: "Pop",
@@ -1961,7 +2015,61 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-    {
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
     title: "",
     artist: "",
     genre: "Pop",
