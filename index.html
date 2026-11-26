@@ -6860,13 +6860,29 @@ fullNextBtn.addEventListener("click", function() {
   setPlayerTrack(playbackIndices[nextPosition], true, activePlaybackIndices);
 });
 
-shuffleBtn.addEventListener("click", function() {
-  shuffleEnabled = !shuffleEnabled;
+/* One button, three modes: normal -> shuffle -> repeat current song -> normal */
+const SHUFFLE_ICON_HTML = shuffleBtn.innerHTML;
+const REPEAT_ONE_ICON_HTML = '<svg class="pl-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/><path d="M11 10h1v4"/></svg>';
+let playbackMode = 0; // 0 = normal, 1 = shuffle, 2 = repeat one
+
+function applyPlaybackMode() {
+  shuffleEnabled = playbackMode === 1;
+  repeatEnabled = playbackMode === 2;
   shuffleQueue = [];
   shuffleHistory = [];
   if (shuffleEnabled) rebuildShuffleQueue();
-  shuffleBtn.classList.toggle("active", shuffleEnabled);
-  shuffleBtn.title = shuffleEnabled ? "Shuffle on" : "Shuffle";
+
+  const labels = ["پخش ترتیبی", "پخش تصادفی", "تکرار آهنگ"];
+  shuffleBtn.innerHTML = playbackMode === 2 ? REPEAT_ONE_ICON_HTML : SHUFFLE_ICON_HTML;
+  shuffleBtn.classList.toggle("active", playbackMode !== 0);
+  shuffleBtn.title = labels[playbackMode];
+  shuffleBtn.setAttribute("aria-label", labels[playbackMode]);
+  repeatBtn.classList.toggle("active", repeatEnabled);
+}
+
+shuffleBtn.addEventListener("click", function() {
+  playbackMode = (playbackMode + 1) % 3;
+  applyPlaybackMode();
 });
 
 repeatBtn.addEventListener("click", function() {
