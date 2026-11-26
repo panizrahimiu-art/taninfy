@@ -4694,10 +4694,6 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     <div class="full-controls">
 
-      <button id="shuffleBtn" class="full-control-btn" title="Shuffle" aria-label="Shuffle">
-        ⤨
-      </button>
-
       <button id="fullPrevBtn" class="full-control-btn" title="Previous" aria-label="Previous">
         ⏮
       </button>
@@ -4716,12 +4712,14 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     </div>
 
-    <div class="full-player-actions">
-      <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite">♡</button>
-      <button id="fullPlaylistBtn" class="full-action-btn" type="button" aria-label="Add to playlist" title="Add to playlist">＋</button>
-      <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ">↓</button>
-    </div>
 
+
+  </div>
+
+  <div class="full-player-actions">
+    <button id="fullDownloadBtn" class="full-action-btn" type="button" aria-label="دانلود آهنگ" title="دانلود آهنگ">↓</button>
+    <button id="fullFavoriteBtn" class="full-action-btn" type="button" aria-label="Favorite" title="Favorite">♡</button>
+    <button id="shuffleBtn" class="full-action-btn" type="button" aria-label="Shuffle" title="Shuffle">⤨</button>
   </div>
 </div>
 
@@ -7689,6 +7687,93 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   .top-account{padding:3px;border-radius:50%;gap:0}
   .top-account img{width:34px;height:34px}
   .top-account span:not(.account-chevron),.account-chevron{display:none}
+}
+</style>
+
+
+<style>
+/* TANINFY — player reference layout: mobile action dock below, desktop beside */
+.full-player {
+  flex-direction: row !important;
+  gap: clamp(18px, 2.5vw, 30px) !important;
+  padding: 24px !important;
+}
+.full-player-topbar { display: none !important; }
+
+.full-player-content {
+  width: min(440px, 42vw) !important;
+  height: auto !important;
+  max-height: calc(100dvh - 48px) !important;
+  padding: 28px !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  flex: 0 1 auto !important;
+  border: 1px solid rgba(220,205,230,.22) !important;
+  border-radius: 34px !important;
+  background: linear-gradient(145deg, rgba(65,55,72,.48), rgba(22,18,29,.76)) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.42) !important;
+}
+.full-player-content::-webkit-scrollbar { display:none !important; }
+.full-cover-wrap {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto clamp(18px, 3vh, 28px) !important;
+  border-radius: 22px !important;
+}
+.full-song-info { text-align: left !important; }
+.full-song-info h1 { text-align:left !important; }
+.full-song-info p { text-align:left !important; }
+.full-progress-area { margin-top: 4px !important; }
+.full-controls { margin-top: clamp(20px, 3vh, 30px) !important; }
+.full-player-actions {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  width: min(210px, 20vw) !important;
+  height: 82px !important;
+  align-self: center !important;
+  margin: 0 !important;
+  padding: 8px 12px !important;
+  gap: 0 !important;
+  justify-content: space-around !important;
+  border: 1px solid rgba(220,205,230,.2) !important;
+  border-radius: 50px !important;
+  background: linear-gradient(145deg, rgba(42,34,48,.68), rgba(16,13,20,.72)) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,.35), inset 0 0 20px rgba(255,255,255,.025) !important;
+}
+.full-action-btn {
+  width: 52px !important; height: 52px !important;
+  border: 0 !important; background: transparent !important;
+  border-radius: 50% !important; font-size: 27px !important;
+}
+.full-action-btn:last-child {
+  background: linear-gradient(135deg, rgba(111,20,48,.85), rgba(61,12,31,.88)) !important;
+  box-shadow: 0 0 22px rgba(130,25,56,.22) !important;
+}
+@media (max-width: 700px) {
+  .full-player {
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    padding: 18px 0 !important;
+  }
+  .full-player-content {
+    width: min(88vw, 540px) !important;
+    max-height: calc(100dvh - 160px) !important;
+    padding: clamp(18px, 4.5vw, 28px) !important;
+    border-radius: 30px !important;
+  }
+  .full-cover-wrap { border-radius: 22px !important; margin-bottom: 20px !important; }
+  .full-song-info h1 { font-size: clamp(24px, 6vw, 34px) !important; }
+  .full-song-info p { font-size: clamp(14px, 3.8vw, 19px) !important; margin-bottom: 22px !important; }
+  .full-progress-area { gap: 10px !important; font-size: 13px !important; }
+  .full-controls { margin-top: 22px !important; gap: 4px !important; }
+  .full-player-actions {
+    width: min(88vw, 520px) !important;
+    height: 74px !important;
+    min-height: 74px !important;
+    align-self: center !important;
+    border-radius: 50px !important;
+  }
 }
 </style>
 </html>
