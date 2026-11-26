@@ -4385,7 +4385,7 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     <div class="page-heading">
       <small>TANINFY / PLAYLISTS</small>
-      <h1>پلی لیست‌های من ♫</h1>
+      <h1>پلی لیست‌ها ♫</h1>
     </div>
 
     <p class="curated-intro">
@@ -8601,3 +8601,174 @@ body.light-theme #fullPlayer .full-player-actions{border-color:rgba(255,255,255,
 .playlist-cover-empty{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(34px,5vw,54px);color:rgba(255,255,255,.34);background:linear-gradient(145deg,#3a1523,#160c11)}
 body.light-theme .playlist-section-title{color:#34232a}
 </style>
+
+<!-- =====================================================================
+     TANINFY — DESIGN POLISH LAYER (additive; nothing above was edited)
+     To revert: delete everything from this comment to the END comment.
+====================================================================== -->
+<style id="txDesignPass">
+/* ---------- Layout: consistent, compact card grids ---------- */
+#page-home #trackList.track-list,
+#page-home .curated-playlists,
+#page-playlist .curated-playlists{
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr)) !important;
+  gap:34px 24px !important;
+}
+#page-home .tracks{margin-top:58px !important}
+
+/* ---------- Headings ---------- */
+#page-home .explore-heading{margin-bottom:22px !important}
+#page-home .explore-heading h1{font-size:clamp(30px,4vw,52px) !important}
+#page-home .section-title::after,.section-title::after{content:none !important;display:none !important}
+#page-home .section-title h2{font-size:clamp(19px,1.8vw,24px) !important}
+.tx-seeall{
+  border:1px solid var(--tx-hair,rgba(213,160,173,.22));background:rgba(255,255,255,.04);color:inherit;
+  border-radius:999px;padding:8px 18px;cursor:pointer;white-space:nowrap;
+  font:600 12px "Vazirmatn",Tahoma,sans-serif;transition:background .2s,border-color .2s,transform .2s}
+.tx-seeall:hover{background:color-mix(in srgb,var(--pink,#d5a0ad) 18%,transparent);border-color:var(--pink,#d5a0ad);transform:translateY(-1px)}
+body.light-theme .tx-seeall{color:#34232a;background:rgba(255,255,255,.7)}
+
+/* ---------- Cards: clean text, mixed Persian/English aligns naturally ---------- */
+#page-home #trackList .track-info{padding:12px 2px 0 !important}
+#page-home #trackList .track-title,
+#page-home #trackList .track-artist,
+.curated-card .curated-info h2,
+.curated-card .playlist-song-count{unicode-bidi:plaintext;text-align:start !important}
+#page-home #trackList .track-title{font-size:14px !important;font-weight:650 !important;min-height:0 !important;line-height:1.55 !important;-webkit-line-clamp:1 !important}
+#page-home #trackList .track-artist{font-size:12px !important;margin-top:3px !important}
+.curated-card .curated-info h2{font-size:15px !important;font-weight:700 !important}
+.curated-card .playlist-song-count{font-size:11.5px !important;margin-top:3px !important}
+#trackList .track-cover-wrap,.curated-card .curated-cover{
+  border-radius:16px !important;
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.05) !important}
+.curated-card .curated-cover::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(to top,rgba(0,0,0,.34),transparent 46%);opacity:0;transition:opacity .3s ease}
+.curated-card:hover .curated-cover::after{opacity:1}
+
+/* ---------- Hero banner ---------- */
+.tx-hero{
+  position:relative;overflow:hidden;isolation:isolate;color:#fff;
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);align-items:center;gap:36px;
+  margin:0 0 56px;padding:clamp(26px,4.2vw,52px);border-radius:30px;
+  border:1px solid rgba(255,255,255,.09);background:#120c10;
+  box-shadow:0 34px 80px -34px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.06)}
+.tx-hero-bg{position:absolute;inset:-40px;z-index:-2;background-size:cover;background-position:center;
+  filter:blur(40px) saturate(1.35) brightness(.6);transform:scale(1.15);transition:background-image .6s ease}
+.tx-hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to left,rgba(8,6,8,.86) 0%,rgba(8,6,8,.55) 55%,rgba(8,6,8,.22) 100%)}
+.tx-hero-kicker{display:block;direction:ltr;text-align:right;margin-bottom:14px;
+  font:700 11px/1 Arial,sans-serif;letter-spacing:.3em;color:var(--pink,#d5a0ad)}
+.tx-hero-title{margin:0 0 12px;font-size:clamp(36px,5.4vw,66px);line-height:1.12;font-weight:800;letter-spacing:-.02em;color:#fff}
+.tx-hero-title em{font-style:normal;background:linear-gradient(100deg,#fff,var(--pink,#d5a0ad));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tx-hero-text{margin:0;max-width:470px;color:rgba(255,255,255,.74);font-size:clamp(13px,1.3vw,15px);line-height:2}
+.tx-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.tx-hero-actions .btn{padding:13px 26px;font-size:14px;font-weight:600;border-radius:999px;cursor:pointer}
+.tx-hero-actions .btn-secondary{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#fff;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.tx-hero-actions .btn-secondary:hover{background:rgba(255,255,255,.18)}
+.tx-hero-feature{
+  justify-self:center;width:min(220px,100%);padding:0;border:0;background:transparent;color:inherit;
+  cursor:pointer;text-align:start;font:inherit;transform:rotate(-3deg);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.tx-hero-feature:hover{transform:rotate(0) scale(1.03)}
+.tx-hero-cover{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px;background:#241820;
+  box-shadow:0 30px 60px -18px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.12)}
+.tx-hero-meta{display:block;margin-top:14px;unicode-bidi:plaintext}
+.tx-hero-meta small{display:block;font:700 10px/1 Arial,sans-serif;letter-spacing:.22em;color:var(--pink,#d5a0ad);margin-bottom:7px}
+.tx-hero-meta small,.tx-hero-meta strong,.tx-hero-meta span{unicode-bidi:plaintext;text-align:start}
+.tx-hero-meta strong{display:block;font-size:15px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tx-hero-meta span{display:block;font-size:12px;color:rgba(255,255,255,.62);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:760px){
+  .tx-hero{grid-template-columns:1fr;gap:22px;border-radius:24px;margin-bottom:42px}
+  .tx-hero-feature{display:flex;align-items:center;gap:14px;width:100%;transform:none;
+    padding:10px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+  .tx-hero-feature:hover{transform:none}
+  .tx-hero-cover{width:62px;flex:0 0 62px;border-radius:12px;box-shadow:none}
+  .tx-hero-meta{margin:0;min-width:0}
+  .tx-hero-actions .btn{padding:12px 22px}
+}
+
+/* ---------- Mini player progress ---------- */
+.tx-mini-progress{position:absolute;left:0;top:0;height:2px;width:calc(var(--p,0)*1%);z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,var(--pink,#d5a0ad),#fff);box-shadow:0 0 10px var(--tx-glow,rgba(213,160,173,.4));transition:width .25s linear}
+
+@media(max-width:650px){
+  #page-home #trackList.track-list,
+  #page-home .curated-playlists,
+  #page-playlist .curated-playlists{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:24px 14px !important}
+  #page-home #trackList .track-title,.curated-card .curated-info h2{font-size:13px !important}
+}
+</style>
+
+<script id="txDesignPassScript">
+(function(){
+  "use strict";
+  if(window.__txDesign) return; window.__txDesign=true;
+
+  /* 1) Functional "see all" button on the playlists section (replaces the old decorative chip) */
+  var mixTitle=document.querySelector('#mixes .section-title');
+  if(mixTitle && !mixTitle.querySelector('.tx-seeall')){
+    var more=document.createElement('button');
+    more.type='button'; more.className='tx-seeall'; more.textContent='مشاهده همه ‹';
+    more.addEventListener('click',function(){ if(typeof closeTaninfyPlaylist==='function') closeTaninfyPlaylist(); if(typeof showPage==='function') showPage('playlist',true); });
+    mixTitle.appendChild(more);
+  }
+
+  /* 2) Hero banner on Explore */
+  var anchor=document.querySelector('#page-home .hero');
+  var songs=(typeof songCatalog!=='undefined' && Array.isArray(songCatalog))?songCatalog:[];
+  var withCover=[]; songs.forEach(function(s,i){ if(s && s.cover) withCover.push(i); });
+  if(anchor && withCover.length && !document.getElementById('txHero')){
+    var pickIdx=withCover[Math.floor(Math.random()*withCover.length)];
+    var pick=songs[pickIdx];
+    var h=new Date().getHours();
+    var greet = h>=5&&h<12 ? ['صبح بخیر','MORNING'] : h>=12&&h<17 ? ['روز بخیر','AFTERNOON'] : h>=17&&h<21 ? ['عصر بخیر','EVENING'] : ['شب بخیر','NIGHT'];
+
+    var hero=document.createElement('section');
+    hero.className='tx-hero'; hero.id='txHero';
+    hero.innerHTML=
+      '<div class="tx-hero-bg" aria-hidden="true"></div>'+
+      '<div class="tx-hero-copy">'+
+        '<span class="tx-hero-kicker">TANINFY · '+greet[1]+'</span>'+
+        '<h2 class="tx-hero-title"><em></em></h2>'+
+        '<p class="tx-hero-text">هر حال‌وهوایی که داری، یک موسیقی مناسبش اینجا هست. یک آهنگ انتخاب کن یا بذار Taninfy برات پخش کنه.</p>'+
+        '<div class="tx-hero-actions">'+
+          '<button type="button" class="btn btn-primary" id="txHeroShuffle">▶ پخش تصادفی</button>'+
+          '<button type="button" class="btn btn-secondary" id="txHeroBrowse">آهنگ‌های منتخب</button>'+
+        '</div>'+
+      '</div>'+
+      '<button type="button" class="tx-hero-feature" id="txHeroFeature">'+
+        '<img class="tx-hero-cover" alt="">'+
+        '<span class="tx-hero-meta"><small>PICK FOR YOU</small><strong></strong><span></span></span>'+
+      '</button>';
+    hero.querySelector('.tx-hero-title em').textContent=greet[0];
+    hero.querySelector('.tx-hero-bg').style.backgroundImage='url("'+String(pick.cover).replace(/"/g,'%22')+'")';
+    var img=hero.querySelector('.tx-hero-cover'); img.src=pick.cover; img.alt=pick.title||'';
+    hero.querySelector('.tx-hero-meta strong').textContent=pick.title||'بدون نام';
+    hero.querySelector('.tx-hero-meta span').textContent=pick.artist||'';
+    anchor.insertAdjacentElement('afterend',hero);
+
+    hero.querySelector('#txHeroFeature').addEventListener('click',function(){ setPlayerTrack(pickIdx,true,null); });
+    hero.querySelector('#txHeroShuffle').addEventListener('click',function(){
+      var r=Math.floor(Math.random()*songs.length); setPlayerTrack(r,true,null);
+    });
+    hero.querySelector('#txHeroBrowse').addEventListener('click',function(){
+      var t=document.getElementById('tracks'); if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
+  /* 3) Thin progress line on the mini player */
+  var player=document.querySelector('.player'), audio=document.getElementById('audioPlayer');
+  if(player && audio && !player.querySelector('.tx-mini-progress')){
+    var bar=document.createElement('div'); bar.className='tx-mini-progress'; bar.setAttribute('aria-hidden','true');
+    player.appendChild(bar);
+    var upd=function(){
+      var d=audio.duration; var p=(d&&isFinite(d))?(audio.currentTime/d*100):0;
+      bar.style.setProperty('--p',p.toFixed(2));
+    };
+    ['timeupdate','loadedmetadata','emptied','seeked'].forEach(function(e){ audio.addEventListener(e,upd); });
+  }
+})();
+</script>
+<!-- ====================== END TANINFY DESIGN POLISH LAYER ====================== -->
