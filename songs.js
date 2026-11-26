@@ -1836,6 +1836,96 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
+    title: "Daste Ma Nist",
+    artist: "Octave",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Octave%20-%20Daste%20Ma%20Nist.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Maghrour (Acoustic Version)",
+    artist: "Ashvan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour%20%28Acoustic%20Version%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Maghrour",
+    artist: "Ashvan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Nemidunam",
+    artist: "Dekamond",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dekamond%20-%20Nemidunam%20%28320%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Male Man Nemishi",
+    artist: "Mani",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mani%20-%20Male%20Man%20Nemishi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
+    title: "Ghesmate Man",
+    artist: "Alireza JJ & Shayan Eshraghi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Alireza%20JJ%20&%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
+    title: "14 Bahar",
+    artist: "Mert Demir",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mert%20Demir%20-%2014%20Bahar%20%28Live%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
+    title: "Don Bana",
+    artist: "Hande Yener",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/mp3indirdur-Hande-Yener-Don-Bana.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
+    title: "Payiz musicdel",
+    artist: "ONEDAM",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/ONEDAM-Payiz-musicdel.ir.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
+    title: "Bargard",
+    artist: "Sijal & Sami Beigi & Behzad Leito",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Sijal%2520&%2520Sami%2520Beigi%2520&%2520Behzad%2520Leito%2520-%2520Bargard.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+    {
     title: "",
     artist: "",
     genre: "Pop",
@@ -1844,7 +1934,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
+    {
     title: "",
     artist: "",
     genre: "Pop",
@@ -1853,7 +1943,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
+    {
     title: "",
     artist: "",
     genre: "Pop",
@@ -1862,7 +1952,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
+    {
     title: "",
     artist: "",
     genre: "Pop",
@@ -1871,7 +1961,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
+    {
     title: "",
     artist: "",
     genre: "Pop",
