@@ -1926,29 +1926,29 @@ window.TANINFY_SONGS = [
     featured: true
    },
     {
-    title: "",
-    artist: "",
+    title: "Male Man Nemishi",
+    artist: "Mani",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20-%20Male%20Man%20Nemishi%20%28320%29.mp3?versionId=",
     cover: "",
     featured: true
    },
     {
-    title: "",
-    artist: "",
+    title: "Ghesmate Man",
+    artist: "Alireza JJ & Shayan Eshraghi",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza%20JJ%20Va%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
     cover: "",
     featured: true
    },
     {
-    title: "",
-    artist: "",
+    title: "Faghat Ba Man",
+    artist: "Behzad Leito & Hoomaan",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Hoomaan%20-%20Faghat%20Ba%20Man.mp3?versionId=",
     cover: "",
     featured: true
    },
