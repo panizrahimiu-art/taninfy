@@ -396,15 +396,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    title: "Fou",
-    artist: "Shahin Najafi",
-    genre: "Pop",
-    album: "",
-    src: "https://dl.musicdrum.ir/uploads/2022/10/Shahin-Najafi-Fou-Album-Radikal.mp3",
-    cover: "https://th.bing.com/th/id/OIP.bQArh4U4WDG_RPuCqZWu8QHaHa?w=108&h=108&c=1&bgcl=6d3831&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
-    featured: true
-  },
-  {
     title: "Corteiz",
     artist: "Chvrsi",
     genre: "Pop",
@@ -2186,48 +2177,48 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-      {
-    title: "",
-    artist: "",
+   {
+    title: "Engar",
+    artist: "Xaniar Khosravi",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEngar%20-%20Xaniar%20Khosravi.mp3?versionId=",
     cover: "",
     featured: true
    },
    {
-    title: "",
-    artist: "",
+    title: "Man O To",
+    artist: "Arta",
     genre: "Pop",
     album: "",
-    src: "",
-    cover: "",
-    featured: true
-   },
-      {
-    title: "",
-    artist: "",
-    genre: "Pop",
-    album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMan%20O%20To%20-%20Arta.mp3?versionId=",
     cover: "",
     featured: true
    },
    {
-    title: "",
-    artist: "",
+    title: "Del",
+    artist: "Sami Low & Raha & The Don",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDel%20-%20Sami%20Low%20&%20Raha%20&%20The%20Don.mp3?versionId=",
     cover: "",
     featured: true
    },
-      {
-    title: "",
-    artist: "",
+   {
+    title: "Fou",
+    artist: "Shahin Najafi",
     genre: "Pop",
     album: "",
-    src: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFou%20-%20Shahin%20Najafi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "I Cant Get You Out Of My Head",
+    artist: "Glimmer Of Blooms",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Get%20You%20Out%20Of%20My%20Head%20-%20Glimmer%20Of%20Blooms.mp3?versionId=",
     cover: "",
     featured: true
    },
