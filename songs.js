@@ -2231,4 +2231,94 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
 ];
