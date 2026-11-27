@@ -4074,6 +4074,9 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 .playlist-detail-cover-wrap { border-radius:18px !important; }
 .playlist-detail-song-cover,
 .playlist-detail-song-cover-wrap { border-radius:10px !important; }
+
+.favorite-play-bar{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 14px}
+.favorite-play-bar .btn{padding:9px 18px;font-size:12px}
 </style>
 
 </head>
@@ -4359,6 +4362,10 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 
     <div class="panel">
       <h2>آهنگ‌های موردعلاقه</h2>
+      <div class="favorite-play-bar" id="favoritePlayBar" style="display:none;">
+        <button class="btn btn-primary" type="button" id="favoritePlayAll">▶ پخش همه</button>
+        <button class="btn btn-secondary" type="button" id="favoriteShuffleAll">⤨ پخش تصادفی</button>
+      </div>
       <div id="favoriteList"></div>
     </div>
 
@@ -5695,7 +5702,25 @@ let favoriteArtists = taninfyReadJSON(favoriteArtistKey, [], Array.isArray);
 
 function saveFavoriteArtists() {
   taninfySafeStorageSet(favoriteArtistKey, JSON.stringify(favoriteArtists));
+  persistFavorites();
 }
+
+/* Favorites (songs + artists) belong to the signed-in account. */
+function persistFavorites() {
+  if (!window.taninfyCurrentUser || typeof window.saveTaninfyUserFavorites !== "function") return;
+  window.saveTaninfyUserFavorites({ songs: favorites, artists: favoriteArtists }).catch(error => {
+    console.warn("Favorites could not be saved to the account.", error);
+  });
+}
+window.getTaninfyFavorites = () => ({ songs: favorites, artists: favoriteArtists });
+window.setTaninfyFavorites = function(data) {
+  favorites = (Array.isArray(data?.songs) ? data.songs : []).filter(x => x && typeof x === "object");
+  favoriteArtists = (Array.isArray(data?.artists) ? data.artists : []).filter(x => x && typeof x === "object" && x.name);
+  renderFavorites();
+  renderFavoriteArtists();
+  renderArtistDirectory();
+  syncHearts();
+};
 
 function isFavoriteArtist(name) {
   return favoriteArtists.some(item => artistKey(item.name) === artistKey(name));
@@ -5914,6 +5939,17 @@ let trackedPlayRecorded = false;
 
 /* Active playback context: null = global library, array = current playlist. */
 let activePlaybackIndices = null;
+let activeContextIsGlobal = false;
+
+/* Random queue of the whole library; the chosen song always plays first. */
+function buildShuffledLibraryQueue(firstIndex) {
+  const rest = songCatalog.map((_, i) => i).filter(i => i !== firstIndex);
+  for (let i = rest.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [rest[i], rest[j]] = [rest[j], rest[i]];
+  }
+  return [firstIndex, ...rest];
+}
 
 function getActivePlaybackIndices() {
   if (Array.isArray(activePlaybackIndices) && activePlaybackIndices.length) {
@@ -6084,12 +6120,22 @@ function updateTrackCoverImage(image, source, visibleClass = null, opacity = "1"
 function setPlayerTrack(index, autoplay = true, playbackContext = null) {
   if (!songCatalog.length || !songCatalog[index]) return;
 
+  const keepGlobalQueue = activeContextIsGlobal && Array.isArray(playbackContext) && playbackContext === activePlaybackIndices;
+
   activePlaybackIndices = Array.isArray(playbackContext) && playbackContext.length
     ? [...new Set(playbackContext.filter(i => Number.isInteger(i) && i >= 0 && i < songCatalog.length))]
     : null;
 
   if (Array.isArray(activePlaybackIndices) && !activePlaybackIndices.includes(index)) {
     activePlaybackIndices = null;
+  }
+
+  if (activePlaybackIndices) {
+    activeContextIsGlobal = keepGlobalQueue;
+  } else {
+    // No playlist/favorites context: play the whole library in random order.
+    activePlaybackIndices = buildShuffledLibraryQueue(index);
+    activeContextIsGlobal = true;
   }
 
   currentTrackIndex = index;
@@ -6277,8 +6323,15 @@ audioPlayer.addEventListener("ended", function() {
   if (position >= 0 && position < playbackIndices.length - 1) {
     setPlayerTrack(playbackIndices[position + 1], true, activePlaybackIndices);
   } else if (position === playbackIndices.length - 1 && Array.isArray(activePlaybackIndices)) {
-    // Playlist playback stays inside the playlist and loops to its first song.
-    setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
+    if (activeContextIsGlobal) {
+      // Library queue finished: start a fresh random round.
+      const pool = songCatalog.map((_, i) => i).filter(i => i !== currentTrackIndex);
+      const pick = pool.length ? pool[Math.floor(Math.random() * pool.length)] : currentTrackIndex;
+      setPlayerTrack(pick, true, null);
+    } else {
+      // Playlist playback stays inside the playlist and loops to its first song.
+      setPlayerTrack(playbackIndices[0], true, activePlaybackIndices);
+    }
   } else {
     setLoadingState(false);
     playIcon.textContent = "▶";
@@ -6300,11 +6353,26 @@ let favorites = taninfyReadJSON(favoriteKey, [], Array.isArray);
 
 function saveFavorites() {
   taninfySafeStorageSet(favoriteKey, JSON.stringify(favorites));
+  persistFavorites();
+}
+
+/* Favorites behave like a folder: they play only among themselves. */
+function getFavoriteSongIndices() {
+  const out = [];
+  favorites.forEach(item => {
+    const song = getPlaylistSong({ songId: item.songId, title: item.title, artist: item.artist });
+    const idx = song ? songCatalog.indexOf(song) : -1;
+    if (idx >= 0 && !out.includes(idx)) out.push(idx);
+  });
+  return out;
 }
 
 function renderFavorites() {
   const box = document.getElementById("favoriteList");
   box.innerHTML = "";
+
+  const playBar = document.getElementById("favoritePlayBar");
+  if (playBar) playBar.style.display = getFavoriteSongIndices().length ? "flex" : "none";
 
   if (favorites.length === 0) {
     box.innerHTML = '<p class="form-note">هنوز آهنگی به علاقه‌مندی‌ها اضافه نکردی.</p>';
@@ -6342,10 +6410,27 @@ function renderFavorites() {
       syncHearts();
     });
 
+    const favIndex = favoriteSong ? songCatalog.indexOf(favoriteSong) : -1;
+    if (favIndex >= 0) {
+      [cover, info].forEach(el => {
+        el.style.cursor = "pointer";
+        el.addEventListener("click", () => setPlayerTrack(favIndex, true, getFavoriteSongIndices()));
+      });
+    }
+
     row.append(cover, info, remove);
     box.appendChild(row);
   });
 }
+
+document.getElementById("favoritePlayAll")?.addEventListener("click", () => {
+  const list = getFavoriteSongIndices();
+  if (list.length) setPlayerTrack(list[0], true, list);
+});
+document.getElementById("favoriteShuffleAll")?.addEventListener("click", () => {
+  const list = shuffleItems(getFavoriteSongIndices());
+  if (list.length) setPlayerTrack(list[0], true, list);
+});
 
 function syncHearts() {
   document.querySelectorAll(".track").forEach(row => {
@@ -6500,7 +6585,7 @@ function persistPlaylists() {
   if (typeof window.saveTaninfyUserPlaylists !== "function") return Promise.resolve();
   return window.saveTaninfyUserPlaylists(playlists).catch(error => {
     console.warn("Playlists could not be saved to the account.", error);
-    alert("ذخیره پلی لیست در حساب انجام نشد. اتصال اینترنت یا دسترسی دیتابیس را بررسی کن.");
+    alert("پلی لیست روی این دستگاه ذخیره شد، اما در حساب ذخیره نشد. قوانین (Rules) دیتابیس Firebase را برای userPlaylists بررسی کن.");
   });
 }
 
@@ -7135,23 +7220,74 @@ async function loadTaninfyProfile(user) {
 window.saveTaninfyUserPlaylists = async function(list) {
   const user = window.taninfyCurrentUser;
   if (!user) throw new Error("not-authenticated");
-  await setDoc(doc(db, "userPlaylists", user.uid), {
-    uid: user.uid,
-    playlists: JSON.parse(JSON.stringify(list || [])),
-    updatedAt: Date.now()
-  });
+  const clean = JSON.parse(JSON.stringify(list || []));
+  const updatedAt = Date.now();
+  // Local backup first, so playlists survive a refresh even if the database refuses the write.
+  taninfySafeStorageSet("taninfy-playlists-" + user.uid, JSON.stringify({ updatedAt, playlists: clean }));
+  await setDoc(doc(db, "userPlaylists", user.uid), { uid: user.uid, playlists: clean, updatedAt });
 };
 
 window.loadTaninfyUserPlaylists = async function(user) {
   if (typeof window.setTaninfyPlaylists !== "function") return;
   if (!user) { window.setTaninfyPlaylists([]); return; }
+  const cacheKey = "taninfy-playlists-" + user.uid;
+  const cached = taninfyReadJSON(cacheKey, null, v => v && Array.isArray(v.playlists));
+  let remote = null;
   try {
     const snap = await getDoc(doc(db, "userPlaylists", user.uid));
-    const data = snap.exists() ? snap.data() : {};
-    window.setTaninfyPlaylists(Array.isArray(data.playlists) ? data.playlists : []);
+    if (snap.exists()) {
+      const data = snap.data();
+      remote = { updatedAt: Number(data.updatedAt) || 0, playlists: Array.isArray(data.playlists) ? data.playlists : [] };
+    }
   } catch (error) {
-    console.warn("User playlists could not be loaded.", error);
-    window.setTaninfyPlaylists([]);
+    console.warn("User playlists could not be loaded from the account.", error);
+  }
+  let chosen = remote;
+  if (cached && (!remote || (Number(cached.updatedAt) || 0) > remote.updatedAt)) {
+    chosen = cached;
+    window.saveTaninfyUserPlaylists(cached.playlists).catch(() => {});
+  } else if (remote) {
+    taninfySafeStorageSet(cacheKey, JSON.stringify(remote));
+  }
+  window.setTaninfyPlaylists(chosen ? chosen.playlists : []);
+};
+
+window.saveTaninfyUserFavorites = async function(data) {
+  const user = window.taninfyCurrentUser;
+  if (!user) throw new Error("not-authenticated");
+  const clean = JSON.parse(JSON.stringify({ songs: data?.songs || [], artists: data?.artists || [] }));
+  const updatedAt = Date.now();
+  taninfySafeStorageSet("taninfy-favs-" + user.uid, JSON.stringify({ updatedAt, ...clean }));
+  await setDoc(doc(db, "userFavorites", user.uid), { uid: user.uid, ...clean, updatedAt });
+};
+
+window.loadTaninfyUserFavorites = async function(user) {
+  if (typeof window.setTaninfyFavorites !== "function") return;
+  if (!user) { window.setTaninfyFavorites({ songs: [], artists: [] }); return; }
+  const cacheKey = "taninfy-favs-" + user.uid;
+  const cached = taninfyReadJSON(cacheKey, null, v => v && Array.isArray(v.songs));
+  let remote = null;
+  try {
+    const snap = await getDoc(doc(db, "userFavorites", user.uid));
+    if (snap.exists()) {
+      const d = snap.data();
+      remote = { updatedAt: Number(d.updatedAt) || 0, songs: Array.isArray(d.songs) ? d.songs : [], artists: Array.isArray(d.artists) ? d.artists : [] };
+    }
+  } catch (error) {
+    console.warn("Favorites could not be loaded from the account.", error);
+  }
+  let chosen = remote;
+  if (cached && (!remote || (Number(cached.updatedAt) || 0) > remote.updatedAt)) chosen = cached;
+  if (!chosen) {
+    // First login with account sync: adopt favorites previously kept in this browser.
+    const legacy = window.getTaninfyFavorites();
+    if (legacy.songs.length || legacy.artists.length) chosen = legacy;
+  }
+  window.setTaninfyFavorites(chosen || { songs: [], artists: [] });
+  if (chosen && chosen !== remote) {
+    window.saveTaninfyUserFavorites({ songs: chosen.songs, artists: chosen.artists }).catch(() => {});
+  } else if (remote) {
+    taninfySafeStorageSet(cacheKey, JSON.stringify(remote));
   }
 };
 
@@ -7166,6 +7302,7 @@ window.taninfyAuthReady = new Promise(resolve => {
       await window.loadTaninfyListeningStats(null);
     }
     await window.loadTaninfyUserPlaylists(user || null);
+    await window.loadTaninfyUserFavorites(user || null);
 
     const accountBox = document.getElementById("userAccountBox");
     const loginBtn = document.getElementById("googleLoginBtn");
