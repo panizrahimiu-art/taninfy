@@ -2223,6 +2223,186 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
+    title: "Pezzo In Forma Di Sonatina [Serenade For Strings]",
+    artist: "Pyotr Ilyich Tchaikovsky",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPezzo%20In%20Forma%20Di%20Sonatina%20%5BSerenade%20For%20Strings%5D%20-%20Pyotr%20Ilyich%20Tchaikovsky.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Messy",
+    artist: "Lola Young",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMessy%20-%20Lola%20Young%20.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "He Wont Go",
+    artist: "Adele",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHe%20Wont%20Go%20-%20Adele.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Nesfe Raah",
+    artist: "Behzad Leito & The Don",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNesfe%20Raah%20-%20Behzad%20Leito%20&%20The%20Don.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Shahzadeh Roya",
+    artist: "Golshifteh Farahani & Shahab Hosseini",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShahzadeh%20Roya%20-%20Golshifteh%20Farahani.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Gole Sangam",
+    artist: "Eljaan",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGole%20Sangam%20-%20Eljaan.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Tabestoon Kootahe",
+    artist: "Zedbazi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTabestoon%20Kootahe%20-%20Zedbazi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Hay Hay",
+    artist: "Hadise",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHay%20Hay%20-%20Hadise.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "What Was I Made",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWhat%20Was%20I%20Made%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Hotline Bling",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHotline%20Bling%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Skinny",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSkinny%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Bache Mahal",
+    artist: "Zedbazi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBache%20Mahal%20-%20Zedbazi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Dar Miane Setaregan",
+    artist: "Arad Aria",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDar%20Miane%20Setaregan%20-%20Arad%20Aria.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "End Of A Journey",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEnd%20Of%20A%20Journey%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Beat It",
+    artist: "Michael Jackson",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBeat%20It%20-%20Michael%20Jackson.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
+    featured: true
+   },
+   {
     title: "",
     artist: "",
     genre: "Pop",
