@@ -1870,7 +1870,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dekamond%20-%20Nemidunam%20%28320%29.mp3?versionId=",
     cover: "https://musicpusic.com/wp-content/uploads/2024/12/%D9%86%D9%85%DB%8C%D8%AF%D9%88%D9%86%D9%85-768x768-1-350x350.jpg",
     featured: true
-   },
+    },
     {
     title: "Ghesmate Man",
     artist: "Alireza JJ & Shayan Eshraghi",
@@ -1879,7 +1879,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Alireza%20JJ%20&%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b2739d6ea31c684557e7a6db1c77",
     featured: true
-   },
+    },
     {
     title: "14 Bahar",
     artist: "Mert Demir",
@@ -1888,7 +1888,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mert%20Demir%20-%2014%20Bahar%20%28Live%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdE2ueRRR82-_WAqCuT_bh7kRmcwak--9Wi9J4Kp8M7Znp4TNo8lmESJr&s=10",
     featured: true
-   },
+    },
     {
     title: "Don Bana",
     artist: "Hande Yener",
@@ -1897,7 +1897,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/mp3indirdur-Hande-Yener-Don-Bana.mp3?versionId=",
     cover: "https://static.aparatmusic.com/amc/AM-YWxidW0tNWVXbm5CRjEzMTZhQXdiQ2Z4NzVJQg-300-1786398610.jpg",
     featured: true
-   },
+    },
     {
     title: "Payiz musicdel",
     artist: "ONEDAM",
@@ -1906,7 +1906,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/ONEDAM-Payiz-musicdel.ir.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3kcTKu9onhMIRd54lwq9wlOuAyC5K979xo5Jf7L6wJtMFmF_Dsvw0JRKl&s=10",
     featured: true
-   },
+    },
     {
     title: "Bargard",
     artist: "Sijal & Sami Beigi & Behzad Leito",
@@ -1915,7 +1915,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Sijal%2520&%2520Sami%2520Beigi%2520&%2520Behzad%2520Leito%2520-%2520Bargard.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-XyhpYxI3a6VAYJJ7-QEiOqw-t500x500.jpg",
     featured: true
-   },
+    },
     {
     title: "Male Man Nemishi",
     artist: "Mani",
@@ -1924,7 +1924,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20-%20Male%20Man%20Nemishi%20%28320%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRwiUtdP3I4X37iakGal1rQwCDDEy35oKB-f7sIOC6Silswkln36LxGnu6&s=10",
     featured: true
-   },
+    },
     {
     title: "Ghesmate Man",
     artist: "Alireza JJ & Shayan Eshraghi",
@@ -1933,7 +1933,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza%20JJ%20Va%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b27319260b5292b4c6ebac112239",
     featured: true
-   },
+    },
     {
     title: "Faghat Ba Man",
     artist: "Behzad Leito & Hoomaan",
@@ -1942,7 +1942,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Hoomaan%20-%20Faghat%20Ba%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b2733ed0fe5136b71f44db4d2c57",
     featured: true
-   },
+    },
     {
     title: "oghyanus",
     artist: "hoomaan",
@@ -1951,7 +1951,7 @@ window.TANINFY_SONGS = [
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2Fhoomaan_oghyanus.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b273984a2abceccdd92f9cd822a7",
     featured: true
-   },
+    },
     {
     title: "Addi",
     artist: "Dorcci",
@@ -2007,6 +2007,186 @@ window.TANINFY_SONGS = [
     featured: true
    },
    {
+    title: "L Amour De Ma Vie",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FL%20Amour%20De%20Ma%20Vie%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "To Bezar Boro Mano",
+    artist: "Amir Tataloo",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTo%20Bezar%20Boro%20Mano%20-%20Amir%20Tataloo.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "I Love You",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Love%20You%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "I Mean It",
+    artist: "GEazy",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Mean%20It%20-%20GEazy.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Gangsta",
+    artist: "Kehlani",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGangsta%20-%20Kehlani.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Diet Mountain Dew",
+    artist: "Lana Del Rey",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiet%20Mountain%20Dew%20-%20Lana%20Del%20Rey.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Hoveyda",
+    artist: "Manoto",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoveyda%20-%20Manoto.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Experience",
+    artist: "Ludovico Einaudi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExperience%20-%20Ludovico%20Einaudi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Hymn to Hope",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHymn%20to%20Hope%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Tum Bir Yasam",
+    artist: "Erol Evgin",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTum%20Bir%20Yasam%20-%20Erol%20Evgin.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "That Way",
+    artist: "Tate McRae",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThat%20Way%20-%20Tate%20McRae.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Ojos Tristes",
+    artist: "Selena Gomez",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOjos%20Tristes%20-%20Selena%20Gomez.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Dele Divaneh",
+    artist: "Vigen",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVigen%20-%20Dele%20Divaneh.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Degmesin Ellerimiz",
+    artist: "model",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDegmesin%20Ellerimiz%20-%20model.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "I Cant Believe We Never Went Out Dancing",
+    artist: "Sebastian Schub",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Believe%20We%20Never%20Went%20Out%20Dancing%20-%20Sebastian%20Schub.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Just A Lil Bit [Remix]",
+    artist: "50Cent",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FJust%20A%20Lil%20Bit%20%5BRemix%5D-%2050Cent.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Begoo Yadete",
+    artist: "Wantons",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBegoo%20Yadete%20-%20Wantons.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Qabil",
+    artist: "Reza Pishro",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FQabil%20-%20Reza%20Pishro.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "In The Closet",
+    artist: "Michael Jackson",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20The%20Closet%20-%20Michael%20Jackson.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Sarnevesht",
+    artist: "Homayoun Shajarian",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSarnevesht%20-%20Homayoun%20Shajarian.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+      {
     title: "",
     artist: "",
     genre: "Pop",
@@ -2024,7 +2204,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
+      {
     title: "",
     artist: "",
     genre: "Pop",
@@ -2042,25 +2222,7 @@ window.TANINFY_SONGS = [
     cover: "",
     featured: true
    },
-   {
-    title: "",
-    artist: "",
-    genre: "Pop",
-    album: "",
-    src: "",
-    cover: "",
-    featured: true
-   },
-   {
-    title: "",
-    artist: "",
-    genre: "Pop",
-    album: "",
-    src: "",
-    cover: "",
-    featured: true
-   },
-   {
+      {
     title: "",
     artist: "",
     genre: "Pop",
