@@ -2001,9 +2001,9 @@ window.TANINFY_SONGS = [
     title: "L Amour De Ma Vie",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "HIT ME HARD AND SOFT",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FL%20Amour%20De%20Ma%20Vie%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://www.picclickimg.com/UwoAAOSwvAJmTKz~/Billie-Eilish-Hit-Me-Hard-And-Soft.webp",
     featured: true
    },
    {
@@ -2012,16 +2012,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTo%20Bezar%20Boro%20Mano%20-%20Amir%20Tataloo.mp3?versionId=",
-    cover: "",
+    cover: "https://static.qobuz.com/images/covers/nb/sb/itljffq7ssbnb_600.jpg",
     featured: true
    },
    {
     title: "I Love You",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "When We All Fall Asleep, Where Do We Go?",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Love%20You%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th?id=OIF.2%2fmrOQb%2bgpa5%2byAHFZHSgQ&r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2030,7 +2030,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Mean%20It%20-%20GEazy.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.Cz6yZlKuKJ15QVu0GhbVagHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2039,7 +2039,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGangsta%20-%20Kehlani.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.GbkVMay451-YMg2gZG0OdgHaEU?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2048,14 +2048,14 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiet%20Mountain%20Dew%20-%20Lana%20Del%20Rey.mp3?versionId=",
-    cover: "",
+    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c5/df/dd/c5dfdd9c-24f2-de01-246c-fcc5e028f705/12UMGIM53864.rgb.jpg/640x640bb.jpg",
     featured: true
    },
    {
     title: "Hoveyda",
     artist: "Manoto",
     genre: "Pop",
-    album: "",
+    album: "https://th.bing.com/th/id/OIP.jvVHBWAJeF2Y9wkXxKoo7wHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoveyda%20-%20Manoto.mp3?versionId=",
     cover: "",
     featured: true
@@ -2066,7 +2066,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExperience%20-%20Ludovico%20Einaudi.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.Bt3sKcPcVqhAtpW6xibZ9gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2075,7 +2075,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHymn%20to%20Hope%20-%20Secret%20Garden.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.nOPgKI5GMdb_DpBRPqKWkAHaHY?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2084,7 +2084,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTum%20Bir%20Yasam%20-%20Erol%20Evgin.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.MvSK47EqBvQw984avJALSwHaHR?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2093,7 +2093,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThat%20Way%20-%20Tate%20McRae.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.kMYwXZWh7sJ4VVrztO4L2AAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2102,7 +2102,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOjos%20Tristes%20-%20Selena%20Gomez.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.1GxNM3IMgWEdw_kG1eZysQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2111,7 +2111,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVigen%20-%20Dele%20Divaneh.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.Da_26sltglINfbUkEYkDywAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2120,7 +2120,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDegmesin%20Ellerimiz%20-%20model.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.XRD4-5bQVsa7_blpn-ydeAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2129,7 +2129,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Believe%20We%20Never%20Went%20Out%20Dancing%20-%20Sebastian%20Schub.mp3?versionId=",
-    cover: "",
+    cover: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0a/60/10/0a60105a-71b6-1a72-3ca9-5bf85ef75877/24UM1IM20693.rgb.jpg/1200x1200bf-60.jpg",
     featured: true
    },
    {
