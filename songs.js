@@ -2075,7 +2075,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHymn%20to%20Hope%20-%20Secret%20Garden.mp3?versionId=",
-    cover: "https://th.bing.com/th/id/OIP.nOPgKI5GMdb_DpBRPqKWkAHaHY?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.N-6pcB6NW_xxtyEvnq6hDwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2138,7 +2138,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FJust%20A%20Lil%20Bit%20%5BRemix%5D-%2050Cent.mp3?versionId=",
-    cover: "",
+    cover: "https://i.discogs.com/_cnWcod72nGIUrQ8niiXjLabKgAHGNvXfdF9hG3luXg/rs:fit/g:sm/q:90/h:582/w:584/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc5ODc0/NC0xMTY1ODA0NzM4/LmpwZWc.jpeg",
     featured: true
    },
    {
@@ -2147,7 +2147,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBegoo%20Yadete%20-%20Wantons.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.oCXam3sY8iVWnMr7f4gxDQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2156,16 +2156,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FQabil%20-%20Reza%20Pishro.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.QzPBBzZT1eZ-sLRZM-VzdwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
     title: "In The Closet",
     artist: "Michael Jackson",
     genre: "Pop",
-    album: "",
+    album: "Dangerous",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20The%20Closet%20-%20Michael%20Jackson.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.-dxJRz3eTEAA4q59oB7SHQHaHa?r=0&w=2500&h=2500&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2174,16 +2174,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSarnevesht%20-%20Homayoun%20Shajarian.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.FguOyddvzVm7NnZkyGR8-wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
     title: "Engar",
-    artist: "Xaniar Khosravi",
+    artist: "Dekamond & Xaniar Khosravi",
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEngar%20-%20Xaniar%20Khosravi.mp3?versionId=",
-    cover: "",
+    cover: "https://lh3.googleusercontent.com/OymBZadE0XG7_G_HgxY4_VqH1AN69HR9EX0yRhzXn-jobpwhn3TfH2_gOArspMH5_3LcHUfq49p5x0wK",
     featured: true
    },
    {
@@ -2192,7 +2192,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMan%20O%20To%20-%20Arta.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.z8Buj7mqUOTF88BNmDdAcwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2201,7 +2201,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDel%20-%20Sami%20Low%20&%20Raha%20&%20The%20Don.mp3?versionId=",
-    cover: "",
+    cover: "https://i1.sndcdn.com/artworks-jiqVONlOjIl0RMx6-FMaPhA-t500x500.jpg",
     featured: true
    },
    {
@@ -2210,7 +2210,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFou%20-%20Shahin%20Najafi.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.FrgTeORAO6Vl-aRnapMZagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2219,7 +2219,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Get%20You%20Out%20Of%20My%20Head%20-%20Glimmer%20Of%20Blooms.mp3?versionId=",
-    cover: "",
+    cover: "https://i1.sndcdn.com/artworks-bsVAha9oljmANoMD-XJsxOA-t1080x1080.jpg",
     featured: true
    },
    {
@@ -2228,7 +2228,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPezzo%20In%20Forma%20Di%20Sonatina%20%5BSerenade%20For%20Strings%5D%20-%20Pyotr%20Ilyich%20Tchaikovsky.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.-VarYl6ffXrRThoptqnqcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2237,16 +2237,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMessy%20-%20Lola%20Young%20.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.IUMGGxV6ipaDDcU4ZRfWhwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
     title: "He Wont Go",
     artist: "Adele",
     genre: "Pop",
-    album: "",
+    album: "21",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHe%20Wont%20Go%20-%20Adele.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.UiprkSWacpbJLrw6U-Y7wwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2255,7 +2255,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNesfe%20Raah%20-%20Behzad%20Leito%20&%20The%20Don.mp3?versionId=",
-    cover: "",
+    cover: "https://i1.sndcdn.com/artworks-wI6AutZFveRIYL4c-leHsMQ-t500x500.jpg",
     featured: true
    },
    {
@@ -2264,7 +2264,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShahzadeh%20Roya%20-%20Golshifteh%20Farahani.mp3?versionId=",
-    cover: "",
+    cover: "https://d.ibtimes.co.uk/en/full/1807120/golshifteh-farahani.png?w=400&h=268&f=1b8d1c0a011d2fe52bf083b3f1598799",
     featured: true
    },
    {
@@ -2273,7 +2273,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGole%20Sangam%20-%20Eljaan.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.y1J5Unv0k8a-u5Z6DmCteAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2282,7 +2282,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTabestoon%20Kootahe%20-%20Zedbazi.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.rOKGkHFgQoN3lVswB21AzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2291,7 +2291,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHay%20Hay%20-%20Hadise.mp3?versionId=",
-    cover: "",
+    cover: "https://e.snmc.io/i/1200/s/6365fc703e6efca1ecb100a94c82f990/12161816",
     featured: true
    },
    {
@@ -2300,7 +2300,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWhat%20Was%20I%20Made%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://i.pinimg.com/736x/5b/35/b4/5b35b4cf3abac9f2ba8f0a82651fe348.jpg",
     featured: true
    },
    {
@@ -2309,7 +2309,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHotline%20Bling%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.zigiuOImv23ohTPpMvlLIgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2318,7 +2318,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSkinny%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.MpmKnc59Cp5c5M-4QbwgOAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2327,7 +2327,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBache%20Mahal%20-%20Zedbazi.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.rOKGkHFgQoN3lVswB21AzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2336,7 +2336,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDar%20Miane%20Setaregan%20-%20Arad%20Aria.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.AGWXUkGtsYuepB42_lSz6AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2345,16 +2345,16 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEnd%20Of%20A%20Journey%20-%20Secret%20Garden.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.N-6pcB6NW_xxtyEvnq6hDwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
     title: "Beat It",
     artist: "Michael Jackson",
     genre: "Pop",
-    album: "",
+    album: "Thriller",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBeat%20It%20-%20Michael%20Jackson.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th?id=OIF.6cI3XmxfF%2fbbKAOXo5Wobw&r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
