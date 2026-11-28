@@ -4079,6 +4079,28 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
 .favorite-play-bar .btn{padding:9px 18px;font-size:12px}
 </style>
 
+<style id="homeArtistStripCSS">
+/* Explore: one-line, swipeable random artists row */
+.home-artists{margin-top:34px}
+.home-artist-strip{display:flex;flex-wrap:nowrap;gap:18px;overflow-x:auto;overflow-y:hidden;margin-top:18px;padding:6px 2px 14px;
+  scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;touch-action:pan-x pan-y;overscroll-behavior-x:contain}
+.home-artist-strip::-webkit-scrollbar{display:none}
+.home-artist-strip.dragging{cursor:grabbing;scroll-snap-type:none}
+.home-artist-strip.dragging *{pointer-events:none}
+.home-artist-item{flex:0 0 auto;width:118px;border:0;background:transparent;padding:0;color:#f8f1f3;font:inherit;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:8px;scroll-snap-align:start;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.home-artist-photo{width:104px;height:104px;border-radius:50%;overflow:hidden;position:relative;background:linear-gradient(145deg,#3a1f2a,#1a1015);
+  border:2px solid rgba(213,160,173,.28);box-shadow:0 8px 22px rgba(0,0,0,.32);transition:transform .22s,border-color .22s;
+  display:grid;place-items:center;font-size:36px;font-weight:800;color:#e9c6cf}
+.home-artist-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.home-artist-item:hover .home-artist-photo,.home-artist-item:focus-visible .home-artist-photo{transform:translateY(-4px);border-color:rgba(213,160,173,.6)}
+.home-artist-item strong{display:block;max-width:100%;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.home-artist-item span.home-artist-count{font-size:11px;color:#a99ba1;margin-top:-4px}
+body.light-theme .home-artist-item{color:#34232a}
+body.light-theme .home-artist-item span.home-artist-count{color:#7a6870}
+body.light-theme .home-artist-photo{border-color:rgba(140,40,67,.22);background:linear-gradient(145deg,#f3dfe5,#e8cbd4);color:#8c2843}
+@media(max-width:650px){.home-artist-strip{gap:14px}.home-artist-item{width:96px}.home-artist-photo{width:84px;height:84px;font-size:30px}}
+</style>
 </head>
 
 <body>
@@ -4258,6 +4280,19 @@ body.light-theme .curated-card .playlist-song-count { color:#3f3539 !important; 
       </div>
 
       <div class="curated-playlists" id="homePlaylistGrid"></div>
+
+    </section>
+
+    <section id="homeArtists" class="home-artists">
+
+      <div class="section-title">
+        <div>
+          <h2>هنرمندان منتخب</h2>
+          <p>هر بار یه سری متفاوت؛ بکش و بقیه رو ببین.</p>
+        </div>
+      </div>
+
+      <div class="home-artist-strip" id="homeArtistStrip" aria-label="هنرمندان منتخب"></div>
 
     </section>
 
@@ -7896,6 +7931,70 @@ body.light-theme #page-home #trackList .track-artist{color:#796b71!important}
   }
 }
 </style>
+<script id="homeArtistStripScript">
+/* Explore: random artists in a single swipeable line (re-shuffled on every page load) */
+(function(){
+  const strip=document.getElementById("homeArtistStrip");
+  if(!strip||typeof getArtists!=="function")return;
+  const MAX=30;
+  function render(){
+    let artists=[];
+    try{artists=getArtists();}catch(e){return;}
+    artists=artists.filter(a=>a&&a.name&&a.name!=="هنرمند نامشخص"&&a.songs&&a.songs.length);
+    if(!artists.length){strip.parentElement.style.display="none";return;}
+    const picked=(typeof shuffleItems==="function"?shuffleItems(artists):artists).slice(0,MAX);
+    strip.innerHTML="";
+    picked.forEach(artist=>{
+      const btn=document.createElement("button");
+      btn.type="button";
+      btn.className="home-artist-item";
+      btn.setAttribute("aria-label","مشاهده پروفایل "+artist.name);
+      const photo=document.createElement("div");
+      photo.className="home-artist-photo";
+      const imgSrc=artist.image||((artist.songs.find(x=>x.song&&x.song.cover)||{}).song||{}).cover||"";
+      if(imgSrc){
+        const img=document.createElement("img");
+        img.src=imgSrc;img.alt=artist.name;img.loading="lazy";img.draggable=false;
+        img.addEventListener("error",()=>{img.remove();photo.textContent=artist.name.charAt(0).toUpperCase();});
+        photo.appendChild(img);
+      }else{
+        photo.textContent=artist.name.charAt(0).toUpperCase();
+      }
+      const name=document.createElement("strong");
+      name.textContent=artist.name;
+      const count=document.createElement("span");
+      count.className="home-artist-count";
+      count.textContent=artist.songs.length+" آهنگ";
+      btn.append(photo,name,count);
+      btn.addEventListener("click",()=>{
+        if(strip.dataset.moved==="1")return;
+        if(typeof openArtistProfile==="function")openArtistProfile(artist.name,true);
+      });
+      strip.appendChild(btn);
+    });
+    strip.scrollLeft=0;
+  }
+  render();
+
+  /* mouse drag-to-scroll (touch already scrolls natively) */
+  let down=false,startX=0,startLeft=0;
+  strip.addEventListener("pointerdown",e=>{
+    if(e.pointerType!=="mouse")return;
+    down=true;startX=e.clientX;startLeft=strip.scrollLeft;strip.dataset.moved="0";
+  });
+  window.addEventListener("pointermove",e=>{
+    if(!down)return;
+    const dx=e.clientX-startX;
+    if(Math.abs(dx)>5){strip.dataset.moved="1";strip.classList.add("dragging");}
+    if(strip.classList.contains("dragging"))strip.scrollLeft=startLeft-dx;
+  });
+  window.addEventListener("pointerup",()=>{
+    if(!down)return;
+    down=false;strip.classList.remove("dragging");
+    setTimeout(()=>{strip.dataset.moved="0";},0);
+  });
+})();
+</script>
 </body>
 
 
