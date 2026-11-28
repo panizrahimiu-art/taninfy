@@ -103,7 +103,7 @@ window.TANINFY_SONGS = [
     artist: "BLOK3",
     genre: "Pop",
     album: "KAYIP PERSONA",
-    src: "https://dl.myavangmusic.com/downloads/BLOK3/Kirginim/BLOK3%20-%20Kirginim.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKrgnm%20-%20BLOK3.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
   },
@@ -337,7 +337,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
-    src: "https://dl.melod.ir/Musics/A/Adele/Adele--Million-Years-Ago-melod.ir.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMillion%20Years%20Ago%20-%20Adele.mp3?versionId=",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
   },
@@ -364,7 +364,7 @@ window.TANINFY_SONGS = [
     artist: "Behzad Leito & Anita",
     genre: "Pop",
     album: "",
-    src: "https://sv.jenab-music.com/96/bahman/24/Behzad%20Leito%20-%20Hamintori.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHamintori%20-%20Behzad%20Leito.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.Khrq3AuD5tWL4rV4tgXoVAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
@@ -778,7 +778,7 @@ window.TANINFY_SONGS = [
     artist: "Mert Demir",
     genre: "Pop",
     album: "",
-    src: "https://dl.upsong.ir/song/1402/03/mert_demir_atese_dustum.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMert%20Demir%20Ate%C5%9Fe%20D%C3%BC%C5%9Ft%C3%BCm.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.E2-EF1fzjKqMRJCaCqHWVgAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
@@ -877,7 +877,7 @@ window.TANINFY_SONGS = [
     artist: "Mehrad Hidden",
     genre: "Pop",
     album: "Zoozanaghe",
-    src: "https://dl.melonmusic.ir/Music/Mehrad%20Hidden%20-%20Kaj%20[320].mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKaj%20-%20Mehrad%20Hidden%20.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.iB95qN2nyMcZyCUzVBH4bQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
@@ -922,7 +922,7 @@ window.TANINFY_SONGS = [
     artist: "The Marías",
     genre: "Pop",
     album: "",
-    src: "https://download.bibis.ir/Music/English/The-Mar%C3%ADas/The-Mar%C3%ADas-No-One-Noticed_bibis.ir.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNo%20One%20Noticed%20-%20The%20Marias.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.iaeM_0sMNFOGUcu-cDyXYgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
@@ -1165,7 +1165,7 @@ window.TANINFY_SONGS = [
     artist: "Mohsen Chavoshi",
     genre: "Pop",
     album: "",
-    src: "https://dl.mifa-music.ir/Music1/1403/11/Mohsen%20Chavoshi%20-%20Saate%20Divari.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSaate%20Divari%20-%20Mohsen%20Chavoshi.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
     featured: true
    },
@@ -1183,7 +1183,7 @@ window.TANINFY_SONGS = [
     artist: "Mohsen Chavoshi",
     genre: "Pop",
     album: "",
-    src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Kojaie.mp3",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMohsen%20Chavoshi%20-%20Kojaei.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.8uKPNorKPPXpu3ZvlNW2ZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
@@ -2355,6 +2355,582 @@ window.TANINFY_SONGS = [
     album: "Thriller",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBeat%20It%20-%20Michael%20Jackson.mp3?versionId=",
     cover: "https://th.bing.com/th?id=OIF.6cI3XmxfF%2fbbKAOXo5Wobw&r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    featured: true
+   },
+   {
+    title: "Only Time",
+    artist: "Enya",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOnly%20Time%20-%20Enya.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Olsun",
+    artist: "Hadise",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOlsun%20-%20Hadise.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Dige Dire",
+    artist: "Taher Ghoreyshi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDige%20Dire%20-%20Taher%20Ghoreyshi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Nafas",
+    artist: "Googoosh & Dariush",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNafas%20-%20googoosh%20and%20dariush.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Snow Is Falling",
+    artist: "Chris de Burgh",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Love In The Dark",
+    artist: "Adele",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Kusub Getdi",
+    artist: "Sara Qadimova",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKusub%20Getdi%20-%20Sara%20Qadimova.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Aşk Mühürü",
+    artist: "Toygar Işıklı",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FA%C5%9Fk%20M%C3%BCh%C3%BCr%C3%BC%20-%20Toygar%20I%C5%9F%C4%B1kl%C4%B1.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Exile",
+    artist: "Taylor Swift",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExile%20-%20Taylor%20Swift.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Unutursun",
+    artist: "Sertab Erener",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20Our%20Tears%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "In Our Tears",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20Our%20Tears%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Mani Axtar Darixanda",
+    artist: "Masoud Amir Sepehr",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20Axtar%20Darixanda%20-%20Masoud%20Amir%20Sepehr.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Heaven",
+    artist: "Julia Michaels",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHeaven%20-%20Julia%20Michaels.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Poshte Yek Divar Sangi",
+    artist: "Googoosh",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPoshte%20Yek%20Divar%20Sangi%20-%20Googoosh.pdf?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Kısaca",
+    artist: "Simge",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FK%C4%B1saca%20-%20Simge.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Tether Me",
+    artist: "Galleaux",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTether%20Me%20-%20Galleaux%20.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Serenade To Spring",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSerenade%20To%20Spring%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "The Moody Blues",
+    artist: "Melancholy Man",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Moody%20Blues%20-%20Melancholy%20Man.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Visal [Akustik]",
+    artist: "Hadise",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVisal%20%5BAkustik%5D%20-%20Hadise.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Six Feet Under",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSix%20Feet%20Under%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Bellyache",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBellyache%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Muhtemel Ask",
+    artist: "Yirmi7",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMuhtemel%20Ask%20-%20yirmi7.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Waltz No II",
+    artist: "Cihat Aşkın",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWaltz%20No%20II%20-%20Cihat%20A%C5%9Fk%C4%B1n.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Adagio",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSecret%20Garden%20-%20Adagio.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Kırık Kalp",
+    artist: "Güldiyar Tanrıdağlı",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FK%C4%B1r%C4%B1k%20Kalp%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Khoobe Hamechi",
+    artist: "Behzad Leito",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhoobe%20Hamechi%20-%20Leito.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "камин",
+    artist: "Emin",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%20emin%20%28320%29.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Pastorale",
+    artist: "Secret Garden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPastorale%20-%20Secret%20Garden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "How Do I Stop Loving You",
+    artist: "Engelbert Humperdinck",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHow%20Do%20I%20Stop%20Loving%20You%20-%20Engelbert%20Humperdinck.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "You Broke Me First",
+    artist: "Conor Maynard",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FYou%20Broke%20Me%20First%20-%20Conor%20Maynard.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Blue",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBlue%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Shah Beyt",
+    artist: "Masih & Arash",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShah%20Beyt%20-%20Masih%20&%20Arash.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "ADHD",
+    artist: "Shahin Najafi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FADHD%20-%20Shahin%20Najafi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Someone Like You",
+    artist: "Adele",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSomeone%20Like%20You%20-%20Adele.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Chikar Kardi",
+    artist: "Leito & Sijal & Khalse & Heliyom",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FChikar%20Kardi%20-%20Leito%20x%20Sijal%20x%20Khalse%20x%20Heliyom.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Bring Me To Life",
+    artist: "Evanescence",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBring%20Me%20To%20Life%20-%20Evanescence.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Bella Ciao",
+    artist: "Fonola Band",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBella%20Ciao%20-%20Fonola%20Band.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Son Perde",
+    artist: "Nilufer",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSon%20Perde%20-%20Nilufer.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Psycho",
+    artist: "Zedbazi",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPsycho%20-%20Zedbazi.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Shayad",
+    artist: "Mehyad & Lenna",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShayad%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Ey Khoda",
+    artist: "Hayedeh",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEy%20Khoda%20-%20Hayedeh.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "One And Only",
+    artist: "Adele",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOne%20And%20Only%20-%20Adele.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Walking On A Dream",
+    artist: "Empire of the Sun",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEmpire%20of%20the%20Sun%20-%20Walking%20On%20A%20Dream.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Way Down We Go",
+    artist: "KALEO",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWay%20Down%20We%20Go%20-%20KALEO.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Can’t Help Falling In Love",
+    artist: "Elvis Presley",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FCan%E2%80%99t%20Help%20Falling%20In%20Love%20-%20Elvis%20Presley.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Giso Parishan",
+    artist: "AiVA",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGiso%20Parishan%20-%20AiVA.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Older",
+    artist: "Isabel LaRosa",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIsabel%20LaRosa%20-%20Older.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Ask Dedigin",
+    artist: "Hadise",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAsk%20Dedigin%20-%20Hadise.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Sleeping Beauty [Adagio]",
+    artist: "Pyotr Ilyich Tchaikovsky",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSleeping%20Beauty%20%5BAdagio%5D%20-%20Pyotr%20Ilyich%20Tchaikovsky.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Khodaye Binahayat",
+    artist: "Mehrad Hidden",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhodaye%20Binahayat%20-%20Hidden.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Diamonds [Acoustic]",
+    artist: "Rihanna",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiamonds%20%5BAcoustic%5D-%20Rihanna.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Umutsuz Aşk",
+    artist: "Güldiyar Tanrıdağlı",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FUmutsuz%20A%C5%9Fk%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Faryade Entezar",
+    artist: "Viguen",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFaryade%20Entezar%20-%20Viguen.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Time",
+    artist: "Hans Zimmer",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTime%20-%20Hans%20Zimmer.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Engin Yalnızlık",
+    artist: "Güldiyar Tanrıdağlı",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEngin%20Yaln%C4%B1zl%C4%B1k%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Eshghe To Nemimirad",
+    artist: "Aref Arefkia",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEshghe%20To%20Nemimirad%20-%20Aref%20Arefkia.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Anla",
+    artist: "Güldiyar Tanrıdağlı",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAnla%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Happier Than Ever",
+    artist: "Billie Eilish",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHappier%20Than%20Ever%20-%20Billie%20Eilish.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "My Immortal",
+    artist: "Evanescence",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMy%20Immortal%20-%20Evanescence.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Perleramonpere",
+    artist: "Celine Dion",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPerleramonpere%20-%20Celine%20Dion.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Spank",
+    artist: "Mehyad & Lenna",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSpank%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "The Last of Us",
+    artist: "Gustavo Santaolalla",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Last%20of%20Us%20-%20Gustavo%20Santaolalla.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "Niye Cattin Kaslarini",
+    artist: "Harun Gumus",
+    genre: "Pop",
+    album: "",
+    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNiye%20Cattin%20Kaslarini%20-%20Harun%20Gumus.mp3?versionId=",
+    cover: "",
+    featured: true
+   },
+   {
+    title: "",
+    artist: "",
+    genre: "Pop",
+    album: "",
+    src: "",
+    cover: "",
     featured: true
    },
    {
