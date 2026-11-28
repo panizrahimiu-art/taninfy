@@ -1720,16 +1720,6 @@ window.TANINFY_SONGS = [
     featured: true
   },
   {
-    title: "Shab Ke Mishe",
-    artist: "Amir Tataloo",
-    genre: "Pop",
-    album: "",
-    language: "فارسی",
-    src: "https://dl.mokhtalefmusic.com/music/1397/10/11/Amir%20Tataloo%20-%20Shab%20Ke%20Mishe.mp3",
-    cover: "https://mokhtalefmusic.com/wp-content/uploads/2019/01/48-768x768.jpg",
-    featured: true
-  },
-  {
     title: "Boom Naghashi",
     artist: "Wantons",
     genre: "Hip-Hop",
