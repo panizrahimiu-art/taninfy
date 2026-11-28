@@ -136,7 +136,7 @@ window.TANINFY_SONGS = [
     album: "HIT ME HARD AND SOFT",
     language: "انگلیسی",
     src: "https://dl.behmelody.in/1403/08/02/Billie%20Eilish%20-%20Blue.mp3",
-    cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
+    cover: "https://images.genius.com/c0c7c4996f3587da3a9a39b6518e9001.1000x1000x1.png",
     featured: true
   },
   {
@@ -146,7 +146,7 @@ window.TANINFY_SONGS = [
     album: "HIT ME HARD AND SOFT",
     language: "انگلیسی",
     src: "https://behmelody.musitraf.ir/1404/04/23/Billie%20Eilish%20-%20WILDFLOWER.mp3",
-    cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
+    cover: "https://images.genius.com/c0c7c4996f3587da3a9a39b6518e9001.1000x1000x1.png",
     featured: true
   },
   {
@@ -187,16 +187,6 @@ window.TANINFY_SONGS = [
     language: "انگلیسی",
     src: "https://behmelody.musitraf.ir/1399/Shahrivar/Thriller/Thriller.mp3?_=7",
     cover: "https://behmelody.in/wp-content/uploads/2020/09/Thriller.jpg",
-    featured: true
-  },
-  {
-    title: "We Are the People",
-    artist: "Empire of the Sun",
-    genre: "Synth-pop",
-    album: "Walking on a Dream",
-    language: "انگلیسی",
-    src: "https://bedunim.ir/wp-content/uploads/2025/03/We-Are-The-People.mp3",
-    cover: "https://i.scdn.co/image/ab67616d0000b273fffbc6bb8f405c2dacf8d64b",
     featured: true
   },
   {
@@ -356,16 +346,6 @@ window.TANINFY_SONGS = [
     album: "25",
     language: "انگلیسی",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--river-lea_melod.ir.mp3",
-    cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
-    featured: true
-  },
-  {
-    title: "Love in the Dark",
-    artist: "Adele",
-    genre: "Pop",
-    album: "25",
-    language: "انگلیسی",
-    src: "https://dl.melod.ir/Musics/A/Adele/Adele--Love-in-the-dark_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
   },
@@ -2216,7 +2196,7 @@ window.TANINFY_SONGS = [
     album: "HIT ME HARD AND SOFT",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FL%20Amour%20De%20Ma%20Vie%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "https://www.picclickimg.com/UwoAAOSwvAJmTKz~/Billie-Eilish-Hit-Me-Hard-And-Soft.webp",
+    cover: "https://images.genius.com/c0c7c4996f3587da3a9a39b6518e9001.1000x1000x1.png",
     featured: true
   },
   {
@@ -2666,7 +2646,7 @@ window.TANINFY_SONGS = [
     album: "25",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.OUXYBGSHSS5iZDxBZ6ql1QHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2676,7 +2656,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی آذربایجانی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKusub%20Getdi%20-%20Sara%20Qadimova.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.Kj23qQaT6H932H40-mvrhwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2686,7 +2666,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FA%C5%9Fk%20M%C3%BCh%C3%BCr%C3%BC%20-%20Toygar%20I%C5%9F%C4%B1kl%C4%B1.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.cJw_BC3HQX0TPmpXFpLkYAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2696,7 +2676,7 @@ window.TANINFY_SONGS = [
     album: "Folklore",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExile%20-%20Taylor%20Swift.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.1K-N54hYRe2g2DEn4e0VhAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2706,7 +2686,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20Our%20Tears%20-%20Secret%20Garden.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.5id_VaU795nNAFw2CjTwGwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2726,7 +2706,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی آذربایجانی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20Axtar%20Darixanda%20-%20Masoud%20Amir%20Sepehr.mp3?versionId=",
-    cover: "",
+    cover: "https://ahaang.com/wp-content/uploads/2019/02/masoud-amir-sepehr-gel-gel-ey-pari.jpg",
     featured: true
   },
   {
@@ -2736,7 +2716,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHeaven%20-%20Julia%20Michaels.mp3?versionId=",
-    cover: "",
+    cover: "https://i1.sndcdn.com/artworks-000503936196-3ecgbn-t1080x1080.jpg",
     featured: true
   },
   {
@@ -2746,7 +2726,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPoshte%20Yek%20Divar%20Sangi%20-%20Googoosh.pdf?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.rCuCsgrV26CAARR0zyJocgHaI8?r=0&w=736&h=889&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2756,7 +2736,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FK%C4%B1saca%20-%20Simge.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.LEDdCKY4GCqUt8ZP8MydPQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2766,7 +2746,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTether%20Me%20-%20Galleaux%20.mp3?versionId=",
-    cover: "",
+    cover: "https://i.pinimg.com/736x/5a/da/34/5ada3479a5b0ebf5cedb5078cb589ea7.jpg",
     featured: true
   },
   {
@@ -2786,7 +2766,7 @@ window.TANINFY_SONGS = [
     album: "A Question of Balance",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Moody%20Blues%20-%20Melancholy%20Man.mp3?versionId=",
-    cover: "",
+    cover: "https://m.media-amazon.com/images/I/51BHi85zsLL.jpg",
     featured: true
   },
   {
@@ -2796,7 +2776,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVisal%20%5BAkustik%5D%20-%20Hadise.mp3?versionId=",
-    cover: "",
+    cover: "https://viberate-upload.ams3.cdn.digitaloceanspaces.com/prod/entity/artist/hadise-9OZ0u",
     featured: true
   },
   {
@@ -2806,7 +2786,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSix%20Feet%20Under%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.f4OZXYE6lK2BPshIRX6h9AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2816,7 +2796,7 @@ window.TANINFY_SONGS = [
     album: "Don't Smile at Me",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBellyache%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://tse4.mm.bing.net/th/id/OIP.HlmW1HJ2ro1I4X9Q5-oVEgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2826,7 +2806,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMuhtemel%20Ask%20-%20yirmi7.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.qnXWwMZX8LRkWR7SM9KblgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2836,7 +2816,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWaltz%20No%20II%20-%20Cihat%20A%C5%9Fk%C4%B1n.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.rZYbZQl5wgcN64grGLsydQHaEK?r=0&w=1200&h=674&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2866,7 +2846,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhoobe%20Hamechi%20-%20Leito.mp3?versionId=",
-    cover: "",
+    cover: "https://farsiplayer.com/wp-content/uploads/2017/05/behzad-leito-anita-khoobe-hamechi.jpg",
     featured: true
   },
   {
@@ -2876,7 +2856,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "روسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%20emin%20%28320%29.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.aV3l4zdK3imvDJLl3DuwOQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2896,7 +2876,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHow%20Do%20I%20Stop%20Loving%20You%20-%20Engelbert%20Humperdinck.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.eUBu8UcR00qvCValI57YbgHaEc?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2906,17 +2886,17 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FYou%20Broke%20Me%20First%20-%20Conor%20Maynard.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.F5WFN-m9Yk9cZ5v7IzfEXQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
-    title: "Blue",
+    title: "BLUE",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "HIT ME HARD AND SOFT",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBlue%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://images.genius.com/c0c7c4996f3587da3a9a39b6518e9001.1000x1000x1.png",
     featured: true
   },
   {
@@ -2926,7 +2906,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShah%20Beyt%20-%20Masih%20&%20Arash.mp3?versionId=",
-    cover: "",
+    cover: "https://bir-music.com/wp-content/uploads/2021/05/Masih%20&%20Arash%20-%20Shah%20Beyt.jpg",
     featured: true
   },
   {
@@ -2936,17 +2916,17 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FADHD%20-%20Shahin%20Najafi.mp3?versionId=",
-    cover: "",
+    cover: "https://images.genius.com/39f08892e4bc01e0d1ee44ddccc2f15e.500x500x1.png",
     featured: true
   },
   {
     title: "Someone Like You",
     artist: "Adele",
     genre: "Pop",
-    album: "",
+    album: "21",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSomeone%20Like%20You%20-%20Adele.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.UiprkSWacpbJLrw6U-Y7wwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2956,7 +2936,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FChikar%20Kardi%20-%20Leito%20x%20Sijal%20x%20Khalse%20x%20Heliyom.mp3?versionId=",
-    cover: "",
+    cover: "https://image-cdn-ak.spotifycdn.com/image/ab67616d00001e02ea372771c0a8dc6d500c0b2a",
     featured: true
   },
   {
@@ -2966,7 +2946,7 @@ window.TANINFY_SONGS = [
     album: "Fallen",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBring%20Me%20To%20Life%20-%20Evanescence.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.k6yvCACi9DkDlJQVRxDc4gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2976,7 +2956,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ایتالیایی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBella%20Ciao%20-%20Fonola%20Band.mp3?versionId=",
-    cover: "",
+    cover: "https://tse2.mm.bing.net/th/id/OIP.9AwgJwmcTwey8Sb7tMdoRQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -2986,7 +2966,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSon%20Perde%20-%20Nilufer.mp3?versionId=",
-    cover: "",
+    cover: "https://i.ytimg.com/vi/d9QQCQJYfbo/sddefault.jpg",
     featured: true
   },
   {
@@ -2996,17 +2976,17 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPsycho%20-%20Zedbazi.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.lgL2Wgu5IuxkdaJoC4i64gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
     title: "Shayad",
     artist: "Mehyad & Lenna",
     genre: "Pop",
-    album: "",
+    album: "Wanted",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShayad%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.2uo1XQfOYZKCBa2hBtOyMwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3016,14 +2996,14 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEy%20Khoda%20-%20Hayedeh.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.WLEcclm0T2Wez-jiKxCJ1AHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
     title: "One And Only",
     artist: "Adele",
     genre: "Pop",
-    album: "",
+    album: "21",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOne%20And%20Only%20-%20Adele.mp3?versionId=",
     cover: "",
@@ -3036,7 +3016,7 @@ window.TANINFY_SONGS = [
     album: "Walking on a Dream",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEmpire%20of%20the%20Sun%20-%20Walking%20On%20A%20Dream.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.RvlCamXvwp7orznPgGGyTAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3046,7 +3026,7 @@ window.TANINFY_SONGS = [
     album: "A/B",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWay%20Down%20We%20Go%20-%20KALEO.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.JiyD0VCn9w7Yxw8SfJMWXwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3056,7 +3036,7 @@ window.TANINFY_SONGS = [
     album: "Blue Hawaii",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FCan%E2%80%99t%20Help%20Falling%20In%20Love%20-%20Elvis%20Presley.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.m_W9rwwyrvsUZBfkIru4nAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3066,7 +3046,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGiso%20Parishan%20-%20AiVA.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.M-oAtmM3Ls6fuzXdNNdZ-QHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3076,7 +3056,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIsabel%20LaRosa%20-%20Older.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.gLn5yQVZ-X0qjgUK-XL9SwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3086,7 +3066,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAsk%20Dedigin%20-%20Hadise.mp3?versionId=",
-    cover: "",
+    cover: "https://m.media-amazon.com/images/M/MV5BNjRjZWRkY2YtMjdlYy00MTNhLTliNzUtNzdjZGExYzBmNjU0XkEyXkFqcGc@._V1_.jpg",
     featured: true
   },
   {
@@ -3106,7 +3086,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhodaye%20Binahayat%20-%20Hidden.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.VnwInWHqmDUyryibBqEL2AHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3116,7 +3096,7 @@ window.TANINFY_SONGS = [
     album: "Unapologetic",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiamonds%20%5BAcoustic%5D-%20Rihanna.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.AIdkF9h8kRYhcpcABX-t9AHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3136,7 +3116,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFaryade%20Entezar%20-%20Viguen.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.qNIot0YQgXYo8G08Bz6zFwHaHu?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3146,7 +3126,7 @@ window.TANINFY_SONGS = [
     album: "Inception (Music from the Motion Picture)",
     language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTime%20-%20Hans%20Zimmer.mp3?versionId=",
-    cover: "",
+    cover: "https://i.ytimg.com/vi/c56t7upa8Bk/maxresdefault.jpg",
     featured: true
   },
   {
@@ -3166,7 +3146,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEshghe%20To%20Nemimirad%20-%20Aref%20Arefkia.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.YthSLv1Q_Fut8vBjNf1ibwHaHk?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3175,7 +3155,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     language: "ترکی استانبولی",
-    src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAnla%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
+    src: "https://tani",
     cover: "",
     featured: true
   },
@@ -3186,7 +3166,7 @@ window.TANINFY_SONGS = [
     album: "Happier Than Ever",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHappier%20Than%20Ever%20-%20Billie%20Eilish.mp3?versionId=",
-    cover: "",
+    cover: "https://www.iamfy.co/cdn/shop/files/m_2Fx1000_2Fbc11e8b1-3096-4331-8387-b3a697f92222.jpg?v=1760820523",
     featured: true
   },
   {
@@ -3196,7 +3176,7 @@ window.TANINFY_SONGS = [
     album: "Fallen",
     language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMy%20Immortal%20-%20Evanescence.mp3?versionId=",
-    cover: "",
+    cover: "https://images.eil.com/large_image/EVANESCENCE_MY%2BIMMORTAL-265806.jpg",
     featured: true
   },
   {
@@ -3206,7 +3186,7 @@ window.TANINFY_SONGS = [
     album: "S'il suffisait d'aimer",
     language: "فرانسوی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPerleramonpere%20-%20Celine%20Dion.mp3?versionId=",
-    cover: "",
+    cover: "https://3.bp.blogspot.com/-609wl8FY5Gg/UIJkyrUSnSI/AAAAAAAAC2E/Ufl2HhsUKBQ/s1600/Captura+de+pantalla+2012-10-19+a+las+22.17.15.jpg",
     featured: true
   },
   {
@@ -3216,7 +3196,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSpank%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
-    cover: "",
+    cover: "https://th.bing.com/th/id/OIP.epzu079skPtrRVPQaWXM_gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3226,7 +3206,7 @@ window.TANINFY_SONGS = [
     album: "The Last of Us (Video Game Soundtrack)",
     language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Last%20of%20Us%20-%20Gustavo%20Santaolalla.mp3?versionId=",
-    cover: "",
+    cover: "https://tse3.mm.bing.net/th/id/OIP.EuRCp3h4c58uYrC7_JLEUAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
   },
   {
@@ -3236,7 +3216,7 @@ window.TANINFY_SONGS = [
     album: "",
     language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNiye%20Cattin%20Kaslarini%20-%20Harun%20Gumus.mp3?versionId=",
-    cover: "",
+    cover: "https://i.ytimg.com/vi/F3ZFKpurMzY/maxresdefault.jpg",
     featured: true
   },
   {
