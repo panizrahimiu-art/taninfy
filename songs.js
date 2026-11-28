@@ -2363,7 +2363,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOnly%20Time%20-%20Enya.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.vTqZQ-ISzG_UysHFdsH3AAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
@@ -2372,7 +2372,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOlsun%20-%20Hadise.mp3?versionId=",
-    cover: "",
+    cover: "https://i.scdn.co/image/ab67616d0000b2730d901dd7c499185448deaced",
     featured: true
    },
    {
@@ -2381,7 +2381,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDige%20Dire%20-%20Taher%20Ghoreyshi.mp3?versionId=",
-    cover: "",
+    cover: "https://i.ytimg.com/vi/NBLuuo2LudY/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AG8A4ACvgOKAgwIABABGGUgZShlMA8=&rs=AOn4CLADnxF-_9RNBNnESRwhsSHUMrH_2g",
     featured: true
    },
    {
@@ -2390,7 +2390,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNafas%20-%20googoosh%20and%20dariush.mp3?versionId=",
-    cover: "",
+    cover: "https://i.pinimg.com/736x/9f/44/8f/9f448f9578daa6aeb8a376af0a5e1a65.jpg",
     featured: true
    },
    {
@@ -2399,7 +2399,7 @@ window.TANINFY_SONGS = [
     genre: "Pop",
     album: "",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
-    cover: "",
+    cover: "https://tse1.mm.bing.net/th/id/OIP.AsjmVMqUec3Q2sjKglfLfgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
    },
    {
