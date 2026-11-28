@@ -3,7 +3,8 @@ window.TANINFY_SONGS = [
     title: "I Don't Care to Dance",
     artist: "J. E. Sunde",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "انگلیسی",
     src: "https://dl.musicdel.ir/Music/1403/01/j_e_sunde_i_dont_care_to_dance.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.2g-4xKAHtsd0SrcuhJXPRQHaFy?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -12,7 +13,8 @@ window.TANINFY_SONGS = [
     title: "Nafas",
     artist: "Morteza Pashayi",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "فارسی",
     src: "https://dl.sevilmusics.com/cdn/music/sva/Morteza%20Pashaei%20-%20Nafas%20[320].mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.Fwi3wysT42U2TTQq8DoPzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -20,8 +22,9 @@ window.TANINFY_SONGS = [
   {
     title: "Extasy",
     artist: "Koorosh & Sijal & Samilow & Raha",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://dl.cactusmusic.ir/2022/07/Extasy.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.-nugC40B-lnZ4DJQuQ_kegHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -29,8 +32,9 @@ window.TANINFY_SONGS = [
   {
     title: "Un-Break My Heart",
     artist: "Toni Braxton",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "R&B",
+    album: "Secrets",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Toni-Braxton/Toni-Braxton-Un-Break-My-Heart_bibis.ir.mp3",
     cover: "https://th.bing.com/th/id/OIP.XFJ-dx4eO4VqFIoY3kITjAHaGk?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -39,7 +43,8 @@ window.TANINFY_SONGS = [
     title: "Another Love",
     artist: "Tom Odell",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "Long Way Down",
+    language: "انگلیسی",
     src: "https://dl.melovy.ir/2022/02/Tom-Odell-another-love1.mp3",
     cover: "https://th.bing.com/th/id/OIP.rjgFCDnYsVu5E8CPY3QoqAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -48,7 +53,8 @@ window.TANINFY_SONGS = [
     title: "Stars",
     artist: "Aemia",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "انگلیسی",
     src: "https://bedunim.ir/wp-content/uploads/2024/11/AEMIA-Stars.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.Nxd7f427w9FpTwnY-9C6CQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -56,8 +62,9 @@ window.TANINFY_SONGS = [
   {
     title: "Delm Az Donya Gerefte",
     artist: "Hoomaan & Khalse",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Delm%20Az%20Donya%20Gerefte%20(320).mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.fANlpRrZyB9doGqV7mCLvQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -65,8 +72,9 @@ window.TANINFY_SONGS = [
   {
     title: "Haminim Ke Hastim",
     artist: "Wantons",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Wantons%20%E2%80%93%20Haminim%20Ke%20Hastim.mp3",
     cover: "https://images.genius.com/c5953392e63863b32aadac824b845ff3.600x600x1.jpg",
     featured: true
@@ -74,8 +82,9 @@ window.TANINFY_SONGS = [
   {
     title: "Sebebi Yar",
     artist: "BLOK3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "KAYIP PERSONA",
+    language: "ترکی استانبولی",
     src: "https://dl.upsong.ir/song/1405/05/blok3_sebebi_yar.mp3",
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
@@ -83,8 +92,9 @@ window.TANINFY_SONGS = [
   {
     title: "Allah Allah",
     artist: "BLOK3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "KAYIP PERSONA",
+    language: "ترکی استانبولی",
     src: "https://dl.anarmusic.com/music/1405/06/02/Blok3%20-%20Allah%20Allah.mp3",
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
@@ -94,6 +104,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://dl.behmelody.in/1400/Dey/Adele%20-%20Hello%20%282%29.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
@@ -101,8 +112,9 @@ window.TANINFY_SONGS = [
   {
     title: "Kirginim",
     artist: "BLOK3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "KAYIP PERSONA",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKrgnm%20-%20BLOK3.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
@@ -110,8 +122,9 @@ window.TANINFY_SONGS = [
   {
     title: "Kusura Bakma",
     artist: "BLOK3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "Virtüöz",
+    language: "ترکی استانبولی",
     src: "https://dl.anarmusic.com/music/1404/09/06/Blok3%20-%20Kusura%20Bakma.mp3",
     cover: "https://cdn-images.dzcdn.net/images/cover/2d3c663ad58b594ad3f00d403b3e2b76/1000x1000-000000-80-0-0.jpg",
     featured: true
@@ -121,6 +134,7 @@ window.TANINFY_SONGS = [
     artist: "Billie Eilish",
     genre: "Pop",
     album: "HIT ME HARD AND SOFT",
+    language: "انگلیسی",
     src: "https://dl.behmelody.in/1403/08/02/Billie%20Eilish%20-%20Blue.mp3",
     cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
     featured: true
@@ -130,6 +144,7 @@ window.TANINFY_SONGS = [
     artist: "Billie Eilish",
     genre: "Pop",
     album: "HIT ME HARD AND SOFT",
+    language: "انگلیسی",
     src: "https://behmelody.musitraf.ir/1404/04/23/Billie%20Eilish%20-%20WILDFLOWER.mp3",
     cover: "https://behmelody.in/wp-content/uploads/2024/10/Billie-Eilish-Blue.jpg",
     featured: true
@@ -137,8 +152,9 @@ window.TANINFY_SONGS = [
   {
     title: "Creep",
     artist: "Radiohead",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Rock",
+    album: "Pablo Honey",
+    language: "انگلیسی",
     src: "https://dl.arasmusic.com/05/07/Radiohead%20-%20Creep.mp3",
     cover: "https://rytmzendegy.ir/_next/image?url=https%3A%2F%2Fdl.rytmzendegy.ir%2Fcover%2Fcover-creep-by-radiohead.jpg&w=768&q=80",
     featured: true
@@ -146,8 +162,9 @@ window.TANINFY_SONGS = [
   {
     title: "M.",
     artist: "Anil Emre Daldal",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Alternative",
+    album: "",
+    language: "بی‌کلام",
     src: "https://irsv.upmusics.com/dlw/anil%20emre%20daldal%20(320).mp3",
     cover: "https://is3-ssl.mzstatic.com/image/thumb/Music124/v4/b4/b4/30/b4b43018-8b29-ae0b-de41-7c35093c29d6/cover.jpg/1200x1200bf-60.jpg",
     featured: true
@@ -155,8 +172,9 @@ window.TANINFY_SONGS = [
   {
     title: "Baby Blue Movie",
     artist: "Cigarettes After Sex",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Dream Pop",
+    album: "X's",
+    language: "انگلیسی",
     src: "https://bedunim.ir/wp-content/uploads/2024/06/Cigarettes_After_Sex_Baby_Blue_Movie_fkp8jLNJEpU_140.mp3",
     cover: "https://persianmoozek.ir/_next/image?url=https%3A%2F%2Fdlpersianmoozek.476978.ir.cdn.ir%2Fgallery%2FCigarettes%20After%20Sex%2FX%27s.jpg&w=640&q=75",
     featured: true
@@ -166,6 +184,7 @@ window.TANINFY_SONGS = [
     artist: "Michael Jackson",
     genre: "Pop",
     album: "Thriller",
+    language: "انگلیسی",
     src: "https://behmelody.musitraf.ir/1399/Shahrivar/Thriller/Thriller.mp3?_=7",
     cover: "https://behmelody.in/wp-content/uploads/2020/09/Thriller.jpg",
     featured: true
@@ -173,8 +192,9 @@ window.TANINFY_SONGS = [
   {
     title: "We Are the People",
     artist: "Empire of the Sun",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Synth-pop",
+    album: "Walking on a Dream",
+    language: "انگلیسی",
     src: "https://bedunim.ir/wp-content/uploads/2025/03/We-Are-The-People.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273fffbc6bb8f405c2dacf8d64b",
     featured: true
@@ -184,6 +204,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Adele/Adele-All-I-Ask_bibis.ir.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
@@ -192,7 +213,8 @@ window.TANINFY_SONGS = [
     title: "Be Man Nago Doset Daram",
     artist: "Dariush",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "فارسی",
     src: "https://musicstaj.musitraf.com/song404/paeiz/Be%20Man%20Nago%20Doset%20Daram.mp3",
     cover: "https://gitarmuzic.com/wp-content/uploads/2025/07/dariush-be-man-nago-doset-daram.jpg",
     featured: true
@@ -201,7 +223,8 @@ window.TANINFY_SONGS = [
     title: "Ağlama Ben Ağlarım",
     artist: "Canozan",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "ترکی استانبولی",
     src: "https://azturk.musitraf.ir/1402/09/08/Canozan%20-%20A%C4%9Flama%20ben%20a%C4%9Flar%C4%B1m.mp3",
     cover: "https://azturk.ir/wp-content/uploads/2023/11/Canozan-A%C4%9Flama-ben-a%C4%9Flar%C4%B1m.jpg",
     featured: true
@@ -210,7 +233,8 @@ window.TANINFY_SONGS = [
     title: "Emshab Shabe Mahtabe",
     artist: "Mehran Modiri",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/Tracks/Songs/Mehran%20Modiri%20-%20Emshab%20Shabe%20Mahtabe%20(UpMusic).mp3",
     cover: "https://i.etsystatic.com/49133137/r/il/71c7ce/5724223684/il_fullxfull.5724223684_aq82.jpg",
     featured: true
@@ -218,8 +242,9 @@ window.TANINFY_SONGS = [
   {
     title: "Ex",
     artist: "Hiphopologist",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://dl.anarmusic.com/music/1404/08/21/Hiphopologist%20-%20Ex.mp3",
     cover: "https://anarmusic.com/wp-content/uploads/2025/11/Hiphopologist-Ex.jpg",
     featured: true
@@ -228,7 +253,8 @@ window.TANINFY_SONGS = [
     title: "Bagdat",
     artist: "Ayla celik",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "ترکی استانبولی",
     src: "https://kk.soonami.ir/Ayla%20Celik%20ft.%20Beyazit%20Ozturk%20-%20Bagdat.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.A5zTH91NSfxx60H1W0UbKwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -236,8 +262,9 @@ window.TANINFY_SONGS = [
   {
     title: "Oh Nana",
     artist: "Raha",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://dl.mihanmusics.com/dl/05/07/Delamo-Bord%20-%20Delamo-Bord%20-%20320.mp3",
     cover: "https://t2.genius.com/unsafe/430x430/https%3A%2F%2Fimages.genius.com%2F2c4b88ca11b1d5416b3fdb6eee2680c3.500x500x1.jpg",
     featured: true
@@ -245,8 +272,9 @@ window.TANINFY_SONGS = [
   {
     title: "BAZIGAR",
     artist: "Behzad Leito & Isam",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Isam%20,%20Behzad%20Leito%20&%20Tamara%20-%20Bazigar.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1405/05/82911786778180813017867781805243.webp",
     featured: true
@@ -254,8 +282,9 @@ window.TANINFY_SONGS = [
   {
     title: "Hysteric",
     artist: "Isam & Koorosh",
-    genre: "Pop",
-    album: "اسم آلبوم",
+    genre: "Hip-Hop",
+    album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Music/1405/07/I/320/Isam%20%26%20Koorosh%20-%20Hysteric%20%28320%29.mp3",
     cover: "https://csong.ir/dl/1507/dl320/",
     featured: true
@@ -264,7 +293,8 @@ window.TANINFY_SONGS = [
     title: "Shodi Nooram",
     artist: "Novan",
     genre: "Pop",
-    album: "اسم آلبوم",
+    album: "",
+    language: "فارسی",
     src: "https://dl.playmusic.ir/Music/N/Novan/Single/Novan%20-%20Shodi%20Nooram.mp3",
     cover: "https://www.playmusic.ir/images/thumbnails/music/2026/09/25/123146_400.webp",
     featured: true
@@ -274,6 +304,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Adele/Adele-send_my_love_to_your_new_lover-bibis.ir.mp3",
     cover: "https://hanimusic.ir/api/cover/Adele/When%20We%20Were%20Young.jpg",
     featured: true
@@ -283,6 +314,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Adele/Adele-I-miss-you_bibis.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -292,6 +324,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--When-We-Were-Young_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -301,6 +334,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Adele/Adele-Remedy_bibis.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -310,6 +344,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Water-Under-the-Bridge_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -319,6 +354,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--river-lea_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -328,6 +364,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://dl.melod.ir/Musics/A/Adele/Adele--Love-in-the-dark_melod.ir.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -337,6 +374,7 @@ window.TANINFY_SONGS = [
     artist: "Adele",
     genre: "Pop",
     album: "25",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMillion%20Years%20Ago%20-%20Adele.mp3?versionId=",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/7426172494888629641724948886606217249488863186.jpg",
     featured: true
@@ -344,8 +382,9 @@ window.TANINFY_SONGS = [
   {
     title: "Napıyosun Mesela?",
     artist: "BLOK3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "Virtüöz",
+    language: "ترکی استانبولی",
     src: "https://dl.musicdel.ir/Music/1404/06/BLOK3-nap%C4%B1yosun%20mesela%20-musicdel.ir.mp3",
     cover: "https://cdn-images.dzcdn.net/images/cover/2d3c663ad58b594ad3f00d403b3e2b76/1000x1000-000000-80-0-0.jpg",
     featured: true
@@ -353,8 +392,9 @@ window.TANINFY_SONGS = [
   {
     title: "Penceresiz Kaldim Anne",
     artist: "Ahmet Kaya",
-    genre: "Pop",
+    genre: "Arabesk",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.navazmusics.com/Singers/A/Ahmet%20Kaya/320/Penceresiz%20Kaldim%20Anne%28navazmusic%29.mp3",
     cover: "https://th.bing.com/th/id/OIP.tfmGGPsK3un74ZcaSr16ugHaHP?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -362,8 +402,9 @@ window.TANINFY_SONGS = [
   {
     title: "Hamintori",
     artist: "Behzad Leito & Anita",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHamintori%20-%20Behzad%20Leito.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.Khrq3AuD5tWL4rV4tgXoVAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -373,6 +414,7 @@ window.TANINFY_SONGS = [
     artist: "Tate McRae",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://files.cvaultx.com/wp-content/uploads/music/2023/03/Tate_McRae_-_Go_Away_CeeNaija.com_.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.x0aBg3zvphodQ6ld-oGHwwHaJ4?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -380,8 +422,9 @@ window.TANINFY_SONGS = [
   {
     title: "Ta Bahare Delneshin",
     artist: "Gholam Hossein Banan",
-    genre: "Pop",
+    genre: "Traditional",
     album: "",
+    language: "فارسی",
     src: "https://dl.ahangirani.ir/Music/1403/08/Gholam%20Hossein%20Banan-Ta%20Bahare%20Delneshin-ahangirani.ir.mp3",
     cover: "https://ahangirani.ir/wp-content/uploads/2024/11/Gholam%20Hossein%20Banan-Mastaneh-ahangirani.ir.jpg",
     featured: true
@@ -391,6 +434,7 @@ window.TANINFY_SONGS = [
     artist: "Burak Bulut",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.myavangmusic.com/downloads/Burak%20Bulut/Ama%20Basaramadim/Burak%20Bulut%20-%20Ama%20Basaramadim.mp3",
     cover: "https://th.bing.com/th/id/OIP.z1lWyBgqUi-JjLXHeTPZAAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -398,8 +442,9 @@ window.TANINFY_SONGS = [
   {
     title: "Corteiz",
     artist: "Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Corteiz.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F3134f94e3225e48c81067453f186fc8c.563x1000x1.png",
     featured: true
@@ -407,8 +452,9 @@ window.TANINFY_SONGS = [
   {
     title: "Dobare",
     artist: "Saaren",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.melozika.com/music/0027/01.%20Saaren%20-%20Dobare.mp3",
     cover: "https://echomusic.app/cdn/1579779b98ce9edb98dd85606f2c119d/71633514/echomusic-img6a735b91c0324-500-27893.jpg",
     featured: true
@@ -416,8 +462,9 @@ window.TANINFY_SONGS = [
   {
     title: "Farsanga",
     artist: "Koorosh & Hooman",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Koorosh%20,%20Hoomaan%20&%20Arman%20Miladi%20-%20Farsanga.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.M-eXef2S7NLi75tG1JIH7gHaHa?r=0&w=1080&h=1080&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -425,8 +472,9 @@ window.TANINFY_SONGS = [
   {
     title: "Jigh",
     artist: "Chvrsi & Hoomaan",
-    genre: "Pop",
-    album: "",
+    genre: "Hip-Hop",
+    album: "Zaar",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1403/08/Album/Chvrsi%20-%20Zaar/Chvrsi%20-%20Zaar%20%5B320%5D/10.Chvrsi%20&%20Hoomaan%20-%20Jigh.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.Ok0p6oAVpSol28BvVAR2tAHaHa?r=0&w=600&h=600&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -434,8 +482,9 @@ window.TANINFY_SONGS = [
   {
     title: "Fess",
     artist: "Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1403/08/Irani/Hoomaan%20-%20Fess.mp3",
     cover: "https://th.bing.com/th/id/OIP.itJMWjwvQkdIdjfq6BXPvQAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
@@ -443,8 +492,9 @@ window.TANINFY_SONGS = [
   {
     title: "Dare Mire",
     artist: "Hoomaan & Sijal",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.iran-music.com/music/2021/12/25/2021hoomaan-ft-sijal-dare.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b2737c0fcabee5519352ebb22407",
     featured: true
@@ -452,8 +502,9 @@ window.TANINFY_SONGS = [
   {
     title: "OnlyFans",
     artist: "Isam & Koorosh",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1401/12/Irani/Isam%20&%20Koorosh%20-%20OnlyFans.mp3",
     cover: "https://www.appahangx.com/cdn/tracks-cover/1403/06/5265172480263753921724802637708517248026379763.webp",
     featured: true
@@ -461,8 +512,9 @@ window.TANINFY_SONGS = [
   {
     title: "Marize Ham",
     artist: "Hiphopologist & Sogand",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1403/09/Irani/Hiphopologist%20&%20Sogand%20-%20Marize%20Ham.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2024/11/Hiphopologist-Sogand-Marize-Ham-img.jpg.webp",
     featured: true
@@ -470,8 +522,9 @@ window.TANINFY_SONGS = [
   {
     title: "Harchiam Beshe",
     artist: "Wantons",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "http://dl.mahtabmusic.ir/1396/06/single/Wantons%20-%20Harchiam%20Beshe%20(Ft%20Nassim%20&%20AFX).mp3",
     cover: "https://dl.mahtabmusic.ir/1396/06/cover/Wantons_Harchiam-Beshe-(Ft-Nassim-&-AFX).jpg",
     featured: true
@@ -479,8 +532,9 @@ window.TANINFY_SONGS = [
   {
     title: "Road 61",
     artist: "PapaBoyz & heliyom",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/26/Tamara%20ft%20Papa%20Boys%20-%20Road%2061.mp3",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2023/11/Tamara-ft-Papa-Boys-Road-61-MokhtalefMusic.jpg",
     featured: true
@@ -488,8 +542,9 @@ window.TANINFY_SONGS = [
   {
     title: "Yebaram Man",
     artist: "Koorosh & Arta & Behzad Leito & Raha",
-    genre: "Pop",
-    album: "",
+    genre: "Hip-Hop",
+    album: "420",
+    language: "فارسی",
     src: "https://xx.sahand-music.ir/Archive/K/Koorosh/Koorosh%20-%20420/Koorosh%20-%20420/Koorosh%20-%20Yebaram%20Man%20(Ft%20Arta,%20Behzad%20Leito,%20&%20Raha).mp3",
     cover: "https://c.saavncdn.com/177/420-English-2019-20190607173225-500x500.jpg",
     featured: true
@@ -497,2584 +552,2871 @@ window.TANINFY_SONGS = [
   {
     title: "Yadet Nist",
     artist: "Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1402/11/Irani/Arta%20-%20Yadet%20Nist.mp3",
     cover: "https://bedunim.ir/wp-content/uploads/2024/01/Arta-Yadet-Nist-320-mp3-image.jpg",
     featured: true
-   },  
-   {
+  },
+  {
     title: "Zemestoon",
     artist: "Hoomaan & Arown",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1401/12/Irani/Hoomaan%20&%20Arown%20-%20Zemestoon.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.0WLxkCOhojSCIUmJ7VQQbgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Age Bere",
     artist: "Arta & Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1403/10/Irani/Arta%20&%20Hoomaan%20-%20Age%20Bere.mp3",
     cover: "https://i.ytimg.com/vi/gJWBwRkpiqg/maxresdefault.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Vekalat",
     artist: "Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Sepehr%20Khalse%20-%20Vekalat.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Qol",
     artist: "Chvrsi & Mahsa Dehdari",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Mahsa%20Dehdari%20-%20Qol.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mastane",
     artist: "Chvrsi & Canis",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Canis%20-%20Mastane.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Daam",
     artist: "Chvrsi & Saeed Dehghan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Daam.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Salwatt",
     artist: "Chvrsi & Catchybeatz & Putak",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20CatchyBeatz%20ft%20Putak%20-%20Salwatt.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Boro Boro",
     artist: "Chvrsi & Shayan Eshraghi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Shayan%20Eshraghi%20-%20Boro%20Boro.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Fight Club",
     artist: "Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Fight%20Club.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Skiki",
     artist: "Chvrsi & Young Sudden",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Young%20Sudden%20-%20Skiki.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Araftey",
     artist: "Chvrsi & Hossein Bashiri",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20ft%20Hossein%20Bashiri%20-%20Araftey.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Outro",
     artist: "Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "DAAM",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/09/Chvrsi%20-%20Outro%20Daam.mp3",
     cover: "https://t2.genius.com/unsafe/788x0/https%3A%2F%2Fimages.genius.com%2F53caeefe2b8af1fffc49c74f889b00d4.1000x1000x1.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Busy Body",
     artist: "Isam x Koorosh",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1404/01/30/Isam%20x%20Koorosh%20-%20Busy%20Body.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.jGhoTMnqoqKJXBrGK5CRagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Delam Tang Mishe",
     artist: "Armond",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Music/1403/02/A/320/Armond%20-%20Delam%20Tang%20Mishe%20%28320%29.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2024/05/Armond-Delam-Tang-Mishe-img.jpg.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Chera Rafti",
     artist: "Behzad Leito & Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.kelmusic.ir/Rap/Behzad%20Leito,%20Chvrsi%20-%20Chera%20Rafti.mp3",
     cover: "https://resanejavan.net/wp-content/uploads/2025/09/Behzad-Leito-Chvrsi-Chera-Rafti.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Lvrs",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://www.limusic.org/wp-content/uploads/2024/01/hs-Isam-Lvrs.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.uY-2WbrpgmdhvOUqcg0H3gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "HeyBato",
     artist: "PapaBoyz & Cnjim",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.anarmusic.com//music/1403/04/05/Papaboyz%20&%20Cnjim%20-%20HeyBato.mp3",
     cover: "https://anarmusic.com/wp-content/uploads/2024/06/Papaboyz-&-Cnjim-HeyBato.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mese Man Nashod",
     artist: "Behzad Leito & Cnjim",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Behzad%20Leito%20Ft%20Cnjim%20-%20Mese%20Man%20Nashod.mp3?versionId=",
     cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Tiffany",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.behmusics.com/music/1404/06/Irani/Isam%20-%20Tiffany.mp3",
     cover: "https://th.bing.com/th/id/OIP.sWJDyAOyWgXl8WKZSQbdxwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Highway",
     artist: "Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Album/1403/05/Behzad%20Leito/320/08.Behzad%20Leito%20%26%20Arown%20-%20Highway%20%28320%29.mp3",
     cover: "https://images.genius.com/393b6a8f788b0d03d33159a03bc2c653.1000x1000x1.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Pas Man Chi",
     artist: "Wantons",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.sakhamusic.ir/94/bahman/07/Wantons%20-%20Pas%20Man%20Chi.mp3",
     cover: "https://systemmusic.ir/wp-content/uploads/2023/03/wantons-pas-man-chi.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Boro",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Music/1402/07/I/320/Isam%20-%20Boro%20%28320%29.mp3",
     cover: "https://th.bing.com/th/id/OIP.1mLgAJ3n71dWXD9dp7SnlwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Fekr Nemikardam",
     artist: "Behzad Leito & Chvrsi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Behzad%20Leito%20&%20Chvrsi%20-%20Fekr%20Nemikardam.mp3?versionId=",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2025/04/Behzad-Leito-&-Chvrsi-Fekr-Nemikardam.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Akharin Shab",
     artist: "Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/AliBZ/Hoomaan%20-%20Akharin%20Shab%20%20(320).mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.fANlpRrZyB9doGqV7mCLvQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Euphoria",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1404/01/30/Isam%20-%20Euphoria.mp3",
     cover: "https://th.bing.com/th/id/OIP.XFnRe2aapABhYKw3wbzesQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shayad Nashe",
     artist: "Sami Low & Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Sami%20Low%20-%20Shayad%20Nashe%20(Ft%20Raha%20,%20Arown%20&%20Hoomaan)%20(BandMusic).mp3",
     cover: "https://th.bing.com/th/id/OIP.PmAK5b0nANB9SPtpcIGjbwHaHa?w=108&h=108&c=1&bgcl=9cbedb&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Door Azin Shahr",
     artist: "Alipasha & Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://svd.delsamusic.com/music/ds401/dsf/Alipasha%20-%20Door%20Azin%20Shahr%20(Feat.%20PDC%20&%20Hoomaan)%20(320).mp3",
     cover: "https://delsamusic.com/wp-content/uploads/2023/09/alipasha-door-azin-shahr-feat-pdc-hoomaan.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kavire Del",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Music/1404/09/I/320/Isam%20-%20Kavire%20Del%20%28320%29.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2025/12/Isam-Kavire-Del-img.jpg.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Miss U Baby",
     artist: "Isam",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://solahangs.musitraf.com/Music/1404/02/I/320/Isam%20-%20Miss%20U%20Baby%20%28Still%20Do%29%20%28320%29.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2025/04/Isam-Miss-U-Baby-img.jpg.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Khaterate Bad",
     artist: "Parsalip & Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.bandmusic.ir/files/mp3/s1/Parsalip%20Ft%20Arta%20%E2%80%93%20Khaterate%20Bad.mp3",
     cover: "https://www.playmusic.ir/images/thumbnails/music/2024/11/05/76776_400.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ateşe Düştüm",
     artist: "Mert Demir",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMert%20Demir%20Ate%C5%9Fe%20D%C3%BC%C5%9Ft%C3%BCm.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.E2-EF1fzjKqMRJCaCqHWVgAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Gitme Kal Diyemedim",
     artist: "Sırdaş",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Gitme%20Kal%20Diyemedim%20-%20S%C4%B1rda%C5%9F.mp3",
     cover: "https://i.scdn.co/image/ab67616d0000b273c4c163456b9d8a4fd393cc85",
     featured: true
-   },
-   {
+  },
+  {
     title: "Derinlerde",
     artist: "Cem Adrian",
-    genre: "Pop",
+    genre: "Alternative",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://opxmusic.ir/wp-content/uploads/2023/04/01-Derinlerde.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.4ZSW85_Pu61ELMcTIesVPwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Belki",
     artist: "Dedublüman",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.upsong.ir/tg/music/1402/12/13/Dedubl%C3%BCman%20-%20belki%20(320).mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.D9lqhF6-mPfPDsz_tcp0dQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kayıp Kalb",
     artist: "Blok3",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "KAYIP PERSONA",
+    language: "ترکی استانبولی",
     src: "https://download.bibis.ir/Music/Turkish/BLOK3/BLOK3--Kay%C4%B1p-Kalp_bibis.ir.mp3",
     cover: "https://i.scdn.co/image/ab67616d00001e0229728fe23025da14d5695ddb",
     featured: true
-   },
-   {
+  },
+  {
     title: "505(slowed)",
     artist: "Arctic Monkeys",
-    genre: "Pop",
-    album: "",
+    genre: "Indie Rock",
+    album: "Favourite Worst Nightmare",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/400048773.mp3",
     cover: "https://th.bing.com/th/id/OIP.Boz42MkxQ4Y904fyzRnH2AHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Wishing Well",
     artist: "Juice WRLD",
-    genre: "Pop",
-    album: "",
+    genre: "Hip-Hop",
+    album: "Legends Never Die",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/855251083.mp3",
     cover: "https://th.bing.com/th/id/OIP.48pGomoOSX5AP0ha3knueQHaK4?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "First Day Out",
     artist: "Tee Grizzley",
-    genre: "Pop",
-    album: "",
+    genre: "Hip-Hop",
+    album: "My Moment",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/306555098.mp3",
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/19/e4/9b/19e49b40-706b-058d-20e8-f7580dde6f26/814908022596.jpg/1200x630bf-60.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Crazy Story",
     artist: "King Von",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/1302516706.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.otNFVHcAhETPf2XPcfTrKQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Zadam Biroon",
     artist: "Xaniar Khosravi & Dekamond",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://musicstaj.musitraf.com/song402/do/Xaniar%20&%20Dekamond%20-%20Zadam-Biroon.mp3",
     cover: "https://th.bing.com/th/id/OIP.OJ5558V6iQunwTuLkBeUOQHaHa?w=108&h=108&c=1&bgcl=3b6e29&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "The Night We Met",
     artist: "Lord Huron",
-    genre: "Pop",
-    album: "",
+    genre: "Indie Folk",
+    album: "Strange Trails",
+    language: "انگلیسی",
     src: "https://dl.upsong.ir/tg/music/1403/01/14/Lord%20Huron%20-%20The%20Night%20We%20Met%20(320).mp3",
     cover: "https://vipremix.ir/wp-content/uploads/2023/12/ezgif-1-84483a9cbd.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kaj",
     artist: "Mehrad Hidden",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "Zoozanaghe",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKaj%20-%20Mehrad%20Hidden%20.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.iB95qN2nyMcZyCUzVBH4bQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kabotar",
     artist: "Behzad Leito & Khalse",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dll.biamusic.ir/Tak/Behzad%20Leito/Behzad%20Leito%20-%20Kabootar.mp3",
     cover: "https://th.bing.com/th/id/OIP.cLj4kAaJneEt3Mqo-9eS7AAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Çok Güzel Gülüyorsun",
     artist: "BLOK3 & Poizi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.myavangmusic.com/downloads/BLOK3%20Poizi/Cok%20Guzel%20Guluyorsun/BLOK3%20Poizi%20-%20Cok%20Guzel%20Guluyorsun.mp3",
     cover: "https://th.bing.com/th/id/OIP.48zNdlF0HCr4zoMUp3FoMwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Fogholade",
     artist: "Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/singletracks/2026/09/Bein%20Ma%20Fogholade%20Bood%20UpMusics.mp3",
     cover: "https://th.bing.com/th/id/OIP.oTis5m6x1Ohh0mkSKebtWAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Manoto",
     artist: "Behzad Leito & Pobon",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://sv.darvishmusic.com/music/96/shahrivar/1/Behzad%20Leito%20-%20Manoto%20(ft%20Poobon).mp3",
     cover: "https://www.google.com/search?client=ms-android-samsung-ss&hs=mYdB&sca_esv=98bdd051a2fad891&sxsrf=AKL5yDhQtwOa1wwt3nghQndZwmmTAsB2Fw:1794239240516&udm=2&fbs=ACAhTvwdifjn2dKXmjtOfBxVFl_k7xB_bJXhWBZp-REbIUHBWKGndqFlgzepAGz9MF-iY4K-cg8yWQs0wMXX_Wi62NyQSAhjNYLsRH4QlbWbUkOdlMuJnfOkxQl9enJwc-vBexcV4H1i6sBFa-NN0BwSGoCExpCZbPcA8R6WWP-YPvlgTJW3egY&q=%D8%A7%D9%87%D9%86%DA%AF+%D9%BE%D9%88%D8%A8%D9%88%D9%86+%D9%85%D9%86%D9%88+%D8%AA%D9%88+%D8%A8%D8%A7%D9%87%D9%85+%D9%85%DB%8C%D8%B1%DB%8C%D9%85+%D8%AF%D8%B3%D8%AA%D8%A7%D8%AA+%D9%85%D8%A7%D9%84+%D9%85%D9%86&sa=X&sqi=2&ved=2ahUKEwiEjMqEnvuXAxUtUqQEHQivETsQtKgLegQIIBAB&biw=384&bih=747&dpr=2.81#sv=CAMSWxoyKhBlLXNXUUsxc2s3aWF2NklNMg5zV1FLMXNrN2lhdjZJTToOZUpjNkdoMF80dy05dk0gBCoXCgFzEhBlLXNXUUsxc2s3aWF2NklNGAEwATgASgQIARACUAEYByDaobniBjoASggQAhgBIAIoAQ",
     featured: true
-   },
-   {
+  },
+  {
     title: "No One Noticed",
     artist: "The Marías",
-    genre: "Pop",
-    album: "",
+    genre: "Dream Pop",
+    album: "CINEMA",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNo%20One%20Noticed%20-%20The%20Marias.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.iaeM_0sMNFOGUcu-cDyXYgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Boro Boro",
     artist: "Mani",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/dlw/Mani%20%E2%80%93%20Boro%20Boro%20(320).mp3",
     cover: "https://upmusics.com/wp-content/uploads/2025/11/Mani-Boro-Boro.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hamdast",
     artist: "Ashvan",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.artment.ir/Musics/1404/09/05/Hamdast_Ashvan-Mahyar.mp3",
     cover: "https://www.playmusic.ir/images/thumbnails/music/2025/11/29/119717_400.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Palang",
     artist: "Behzad Leito & Alireza JJ & Sijal",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl5.download1music.ir/Music/2023/Unknown%20Artist/Unknown%20Artist%20-%20Palang.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.SDmQ39Bxhqb2oxvfQ4jnaAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "To Hamishe Bekhand",
     artist: "Mehrad Hidden",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://static0.7sobh.com/mediav2/rKo9NxjyM8aF/YXVkaW8tbWVkaXVtLm1wMw,,/Mehrad+Hidden+-+To+Hamishe+Bekhand+%5B320%5D.mp3",
     cover: "https://cdn.7sobh.com/thumbnail/frJnWryhxMFi/AZRsMzHCdXcG-GIG8aaBfyJvsssTOLOpx9x_idp5q_0uj_HzaupoiavoOSSHa7QCpY-w8JTCWu61tUEVYxUejrjAJAmq0Zd22YcY5DGoOXnZ3IzN6RlZzBv8WmkSANkjBTlBjGE9w0P_W2zF-rQT5SXbJPyYQqWrEus7uw-NbD6Xp9Jl0l1pwXAftoMSmkqB/Mehrad-Hidden-To-Hamishe-Bekhand.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kenaret Moondam",
     artist: "Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl5.download1music.ir/Music/2020/Hoomaan/Hoomaan%20-%20Kenaret%20Moondam.mp3",
     cover: "https://www.sabalanmusic.ir/wp-content/uploads/2019/01/Hoomaan-Kenaret-Moondam.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ghalat Kardam",
     artist: "TM Bax",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "http://dl.mahtabmusic.ir/1394/10/single/TM%20Bax%20-%20Ghalat%20Kardam.mp3",
     cover: "https://musicdrum.ir/wp-content/uploads/2023/10/TM-Bax-got-cheated-on.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Drunk on Love",
     artist: "Rihanna",
     genre: "Pop",
-    album: "",
+    album: "Talk That Talk",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Rihanna/Rihanna-Drunk-On-Love_bibis.ir.mp3",
     cover: "https://bibis.ir/wp-content/uploads/2024/03/Rihanna-Drunk-on-Love_bibis.ir_.jpg",
     featured: true
-   }, 
-   {
+  },
+  {
     title: "Starboy",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238376/01.%20Starboy.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Party Monster",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238380/02.%20Party%20Monster.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "False Alarm",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238372/03.%20False%20Alarm.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Reminder",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238371/04.%20Reminder.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Rockin’",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238378/05.%20Rockin%E2%80%99.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Secrets",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238382/06.%20Secrets.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "True Colors",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238370/07.%20True%20Colors.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Stargirl Interlude",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238364/08.%20Stargirl%20Interlude.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sidewalks",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238377/09.%20Sidewalks.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Six Feet Under",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238379/10.%20Six%20Feet%20Under.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Love To Lay",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238375/11.%20Love%20To%20Lay.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "A Lonely Night",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238373/12.%20A%20Lonely%20Night.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Attention",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238368/13.%20Attention.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ordinary Life",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238374/14.%20Ordinary%20Life.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nothing Without You",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238369/15.%20Nothing%20Without%20You.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "All I Know",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238384/16.%20All%20I%20Know.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Die For You",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238381/17.%20Die%20For%20You.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Feel It Coming",
     artist: "The Weeknd",
-    genre: "Pop",
+    genre: "R&B",
     album: "Starboy",
+    language: "انگلیسی",
     src: "https://rozup.ir/download/4238383/18.%20I%20Feel%20It%20Coming.mp3",
     cover: "https://rozup.ir/view/4238386/%DA%A9%D8%A7%D9%88%D8%B1%20%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%A8%D9%88%DB%8C.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bu Tepe Pullu Tepe",
     artist: "Dilşah Çelik",
     genre: "Pop",
-    album: "Starboy",
+    album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.tinixmusic.ir/20260816/Bu%20Tepe%20Pullu%20Tepe%20-%20Dil%C5%9Fah%20%C3%87elik.mp3",
     cover: "https://th.bing.com/th/id/OIP.BMpqjVJyB2EYkX9DJ7S-RQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Saat Divari",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSaate%20Divari%20-%20Mohsen%20Chavoshi.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b273cf3d6810b91004cbded07f22",
     featured: true
-   },
-   {
+  },
+  {
     title: "Man Bayad Miraftam",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Man-Bayad-Miraftam.mp3",
     cover: "https://i.ytimg.com/vi/v8MbHq5mCwM/maxresdefault.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kojaie",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMohsen%20Chavoshi%20-%20Kojaei.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.8uKPNorKPPXpu3ZvlNW2ZwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Afsar",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Afsar.mp3",
     cover: "https://th.bing.com/th/id/OIP.t-8AfAbD9V_-tjc3tusU_gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bi Badan",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Bi-Badan.mp3",
     cover: "https://th.bing.com/th/id/OIP.sgqYyN966ZayzzgajLPkpgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mah Pishoni",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Mah-Pishoni.mp3",
     cover: "https://webahang.ir/wp-content/uploads/2019/12/Mohsen-Chavoshi-Mah-Pishooni.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Fandak Tab Dar",
     artist: "Mohsen Chavoshi",
-    genre: "Pop",
+    genre: "Pop Rock",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/10/Mohsen-Chavoshi-Fandak-Tab-dar.mp3",
     cover: "https://th.bing.com/th/id/OIP.B_HOR2AbPSGV-y7UUChdvgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Marghoob",
     artist: "Shahrokh Shahid",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/09/12/Shahrokh%20-%20Marghoob.mp3",
     cover: "https://sakhamusic.ir/wp-content/uploads/2025/04/Shahrokh.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dokhtar",
     artist: "Poobon",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1403/06/30/Poobon%20-%20Dokhtar.mp3",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2024/09/Poobon-Dokhtar.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bemoon Ta Bemoonam",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/19-Bemoon%20Ta%20Bemoonam.mp3",
     cover: "https://th.bing.com/th/id/OIP.nzo5xLc1f_pR1Egz6-fUXAHaJF?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nemiyad",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/18-Nemiyad.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.C6QDjGUrv2tucre4c57zMQAAAA?r=0&w=320&h=320&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kaj Kolah Khan",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/17-Kaj%20Kolah%20Khan.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.V4H1s2D0GyiRCYkaiy0WfwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Makhloogh",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/14-Makhloogh.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.ycpHol_4klFZB--TA0-N4QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Man Aamadeh Am",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/13-Man%20Aamadeh-am.mp3",
     cover: "https://i.pinimg.com/originals/fe/d7/f9/fed7f961319fa1f4ed40b61a40cbb39c.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Pol",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/02-Pol.mp3",
     cover: "https://th.bing.com/th/id/OIP.eT2G3DKhLTSG-dgbVKuAxwAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mordab",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/05-Mordab.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.dpxGvtpP2Oa2NMGBqr3efgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hamsafar",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/06-Hamsafar.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.muic3BIu4eA4rbtKK_SOmwHaK-?r=0&w=735&h=1090&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Gharibe Aashena",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/03-Gharibe%20Aashena.mp3",
     cover: "https://i.pinimg.com/236x/b6/b2/cc/b6b2cc7bd83ed862d1c2c5b2c44ab631.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Do Panjererh",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%DA%AF%D9%88%DA%AF%D9%88%D8%B4/04-Do%20Panjererh.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.JcmQMTlGWgwS1ynnHirGUQHaHa?r=0&w=480&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Easy",
     artist: "Sepehr Khalse & Behzad Leito & Catchybeatz",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl3.data-music.ir/music/s/sepehr-khalse/Sepehr-KhalseNadarimam-Difficult-320.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.bL1FMfxfV-pJhqh_dgp9yAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "TAK TAK TAK",
     artist: "Lvbel C5",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.comixmusic.ir/FUNKK/Tak_Tak_Tak_-_Lvbel_C5.mp3",
     cover: "https://th.bing.com/th/id/OIP.iwl39M3x7i1vXdsR3HxcPgHaEK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "HA HA HA HA",
     artist: "Lvbel C5",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.comixmusic.ir/music/Ha_Ha_Ha_Ha_-_Lvbel_C5_Akdo-comixmusic.ir.mp3",
     cover: "https://comixmusic.ir/wp-content/uploads/2025/04/HA-HA-HA-HA-.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bi Sarzamin Tar Az Baad",
     artist: "Siavash Ghomayshi",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.hitseda.com//S/%D8%B1%DB%8C%D9%85%DB%8C%DA%A9%D8%B3/%D8%B3%DB%8C%D8%A7%D9%88%D8%B4_%D9%82%D9%85%DB%8C%D8%B4%DB%8C/Siavash%20Ghomayshi%20-%20Bi%20Sarzamin%20Tar%20Az%20Baad%20By%20Deejay%20Moein%20X%20Mishamusix%20%5B320%5D.mp3",
     cover: "https://horadi.com/wp-content/uploads/2026/01/20260105190523.jpeg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hichvaght Naboodi",
     artist: "Arianfar",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://irsv.upmusics.com/singletracks/2026/10/Arianfar%20-%20Hichvaght%20Naboodi%20UpMusics.mp3",
     cover: "https://upmusics.com/wp-content/uploads/2026/10/Screenshot-2026-10-11-172234.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sen Hayatımın Anlamı",
     artist: "Şaban Gedik",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.anarmusic.com/music/1405/08/22/%C5%9Eaban%20Gedik%20-%20Sen%20Hayat%C4%B1m%C4%B1n%20Anlam%C4%B1.mp3",
     cover: "https://nex1music.com/img/1405/03/23/saban-gedik-sen-hayatimin-anlami-540.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Explore",
     artist: "Sepehr Khalse & Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.anarmusic.com/music/1404/05/23/Sepehr%20Khalse%20x%20Behzad%20Leito%20-%20Explore.mp3",
     cover: "https://resanejavan.net/wp-content/uploads/2025/08/Leito-Khalse-Explore-Copy.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ki",
     artist: "Poobon & Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1403/03/13/Poobon%20&%20Arta%20-%20Ki%20Shab%20Toro.mp3",
     cover: "https://sahand-music.ir/photos/2000/26/43549.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "VODKA BELUGA",
     artist: "LVBEL C5",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://download.bibis.ir/Music/Turkish/LVBEL-C5/LVBEL-C5--ft.AKDO--VODKA-BELUGA_bibis.ir.mp3",
     cover: "https://bibis.ir/wp-content/uploads/2026/02/LVBEL-C5-ft.AKDO-VODKA-BELUGA_bibis.ir_.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Yok Yok",
     artist: "Feride Hilal Akın",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://radiomusic.app/blog-media/%D9%85%D8%AA%D9%86-%D8%A2%D9%87%D9%86%DA%AF-feride-hilal-ak%C4%B1n-yok-yok-95098/download/original",
     cover: "https://radiomusic.app/blog-image/v1/media/450/c523b74ebc4b49ff9f5c0cd5a61e3d20.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sor Bana",
     artist: "Feride Hilal Akın",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://download.bibis.ir/Music/Turkish/Feride-Hilal-Ak%C4%B1n/Feride-Hilal-Ak%C4%B1n--Sor-Bana_bibis.ir.mp3",
     cover: "https://th.bing.com/th/id/OIP.bob35MtItC9fX94RicFkvAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kasa Orijinal",
     artist: "Lvbel C5",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.tinixmusic.ir/20260816/Kasa%20Orijinal%20-%20Lvbel%20C5%20Arem%20Ozguc%20Arman%20Aydin.mp3",
     cover: "https://tse2.mm.bing.net/th/id/OIP.azIIvaeho81p3LIBkvxqYQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "ÇÖZEMEZLER",
     artist: "Lvbel C5",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://dl.hitsound.ir/03-08/%C3%87%C3%96ZEMEZLER%20-%20Lvbel%20C5%20%20AKDO.mp3",
     cover: "https://th.bing.com/th/id/OIP.NTj2iNx32GLKQuA0kT5HSwHaNK?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Gimme More",
     artist: "Britney Spears",
     genre: "Pop",
-    album: "",
+    album: "Blackout",
+    language: "انگلیسی",
     src: "https://dlmain.gandommusic.ir/mp3/1/Britney%20Spears%20-%20Gimme%20More%20%28%20GandomMusic.ir%20%29.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.xrIzt1cUNkwg9s0MtANYTwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hileli",
     artist: "Manifest & Ajda Pekkan",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://www.turkishfy.com/music/%D8%AA%DA%A9%20%D8%A2%D9%87%D9%86%DA%AF%20%D9%87%D8%A7/Ajda%20Pekkan%20g%20Manifest-Hileli.mp3.mp3",
     cover: "https://www.turkishfy.com/wp-content/uploads/2026/08/ajda-pekkan-manifest-hileli.webp.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Yaşanacaksa",
     artist: "Manifest",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://download.bibis.ir/Music/Turkish/manifest/manifest--Ya%C5%9Fanacaksa_bibis.ir.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.UshfJR-AduSw256bqMLDcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Yakuza",
     artist: "Sepehr Khalse & Tassmoney",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1403/10/05/Sepehr%20Khalse%20Ft%20Tassmoney%20-%20Yakuza%20(Remix).mp3",
     cover: "https://behtamusic.ir/wp-content/uploads/2021/09/Sepehr-Khalse-Yakuza.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Billie Jean",
     artist: "Michael Jackson",
     genre: "Pop",
-    album: "",
+    album: "Thriller",
+    language: "انگلیسی",
     src: "https://dl.tinixmusic.ir/202664/Billie%20Jean%20-%20Michael%20Jackson.mp3",
     cover: "https://tinixmusic.ir/wp-content/uploads/2026/06/Billie-Jean-Michael-Jackson-1.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Lan",
     artist: "Zeynep Bastık",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://azturk.musitraf.ir/1402/12/18/Zeynep%20Bast%C4%B1k%20-%20Lan.mp3",
     cover: "https://bedunim.ir/wp-content/uploads/2024/03/Lan-Zeynep-Bastik.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Küçük Bir Yol",
     artist: "Hadise",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://irolive.ir/2020/9/320/Hadise%20-%20Kucuk%20Bir%20Yol%20%28320%29%20%28Iromusic%29.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP.7k-6N0f892RW6XH4qUVVpQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dead Inside",
     artist: "Arta & Parsa",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1402/07/15/Arta%20ft%20Parsa%20-%20Dead%20Inside.mp3",
     cover: "https://solahang.ir/wp-content/uploads/2023/10/Arta-Parsa-Dead-Inside-img.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nesfe Raah",
     artist: "Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.my-ahangha.ir/up/2023/Behzad%20Leito%20-%20Nesfe%20Raah.mp3",
     cover: "https://www.my-ahangha.ir/wp-content/uploads/2023/04/Behzad%20Leito%20-%20Nesfe%20Raah.jpg.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Wake Up In The Sky",
     artist: "Bruno Mars",
     genre: "Pop",
-    album: "",
+    album: "Evil Genius",
+    language: "انگلیسی",
     src: "https://dl.tiktokmusics.ir/music/Wake%20Up%20In%20The%20Sky%20Bruno%20Mars.mp3",
     cover: "https://i.ytimg.com/vi/LVTNuFHtb0o/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AG2CIAC0AWKAgwIABABGD4gXShyMA8=&rs=AOn4CLB4qMNDdu8mmJq55O4hp7UiHXJDNQ",
     featured: true
-   },
-   {
+  },
+  {
     title: "Where Have You Been",
     artist: "Rihanna",
     genre: "Pop",
-    album: "",
+    album: "Talk That Talk",
+    language: "انگلیسی",
     src: "https://download.bibis.ir/Music/English/Rihanna/Rihanna-Where-Have-You-Been_bibis.ir.mp3",
     cover: "https://th.bing.com/th/id/OIP.Uo1Mm7yRkVtkc4Mb31hGegHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shab Ke Mishe",
     artist: "Amir Tataloo",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1397/10/11/Amir%20Tataloo%20-%20Shab%20Ke%20Mishe.mp3",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2019/01/48-768x768.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Boom Naghashi",
     artist: "Wantons",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.ememay.ir/2024/12/Wantons-Boome-Naghashi.mp3",
     cover: "https://tse1.mm.bing.net/th/id/OIP.OpsrsFBoTYx1ReNAZhmAkQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hamkhone",
     artist: "Wantons",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl3.rozhamusic.ir/music/w/wantons/Wantons-Shodim-Ye-Jame-Lashe-Hamkhone-320.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.sh-JxdYF1w0RGNU5ZgVGaAHaEK?r=0&w=1280&h=720&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Soghati",
     artist: "Hayedeh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://sv.jenab-music.com/music/2025/11/22/Soghati.mp3",
     cover: "https://th.bing.com/th/id/OIP.28oHDiRo62C82DOBE21-9wHaHb?bgcl=9a2050&r=0&o=7&dpr=2&pid=ImgRC&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shab Ke Mishe",
     artist: "Amir Tataloo",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1397/10/11/Amir%20Tataloo%20-%20Shab%20Ke%20Mishe.mp3",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2019/01/48-768x768.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Lal",
     artist: "Yas",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1399/03/25/Yas%20-%20Lal.mp3",
     cover: "https://th.bing.com/th/id/OIP.OfmWHmfp9EnaAHsR6pp_3QAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Del Yar",
     artist: "Sara Naeini",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mokhtalefmusic.com/music/1404/01/10/Sara%20Naeini%20-%20Del%20Yar.mp3",
     cover: "https://mokhtalefmusic.com/wp-content/uploads/2025/03/Sara-Naeini-Del-Yar.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mano Bespar",
     artist: "Mehrad Hidden",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://dl.mahtabmusic.ir/1403/12/single/Mehrad%20Hidden%20-%20Mano%20Bespar.mp3",
     cover: "https://www.playmusic.ir/images/thumbnails/music/2025/02/19/117444_400.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Marde Tanha",
     artist: "Farhad Mehrad",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://aod.musiciom.ir/golchin/farhad/Farhad.Merdad%20-%20Marde_Tanha.mp3?host=dibasmusic.com",
     cover: "https://i.scdn.co/image/ab67616d0000b273c04fe47a3049ffc3ff36bed5",
     featured: true
-   },
-   {
+  },
+  {
     title: "Daro Va Nemikonam",
     artist: "Fereydoun Farokhzad",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://jenabmusic.musitraf.com/music/2025/07/16/Fereydoun-Farokhzad-Daro-Va-Nemikonam.mp3",
     cover: "https://www.jenab-music.com/wp-content/uploads/2025/07/Fereydoun-Farokhzad.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Abr Mibarad",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
-    album: "",
+    genre: "Traditional",
+    album: "Rage Khab",
+    language: "فارسی",
     src: "https://dl.ahaang.com/mp3/fa/H/Homayoun%20Shajarian/Album/Rage%20Khab/320/Homayoun%20Shajarian%20-%2006%20Abr%20Mibarad.mp3",
     cover: "https://th.bing.com/th/id/OIP.yGd_GKkZhuScW7BcsCHsTgHaGs?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Chera Rafti",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
-    album: "",
+    genre: "Traditional",
+    album: "Na Fereshteam Na Sheitan",
+    language: "فارسی",
     src: "https://dl.ahaang.com/mp3/fa/H/Homayoun%20Shajarian/Album/Na%20Fereshteam%20Na%20Sheitan/320/Homayoun%20Shajarian%20-%2001%20Chera%20Rafti.mp3",
     cover: "https://i.scdn.co/image/ab6761610000e5ebbba22d25abdcfdde889ed7f2",
     featured: true
-   },
-   {
+  },
+  {
     title: "Yek Nafas Arezooye To",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
+    genre: "Traditional",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%D9%87%D9%85%D8%A7%DB%8C%D9%88%D9%86-%D8%B4%D8%AC%D8%B1%DB%8C%D8%A7%D9%86/Homayoun%20Shajarian%20_%20Yek%20Nafas%20Arezooye%20To%20%28320%29.mp3",
     cover: "https://tse4.mm.bing.net/th/id/OIP.hjZkz9bol6hmMSDxRvFX4QHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Irane Man",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
+    genre: "Traditional",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%D9%87%D9%85%D8%A7%DB%8C%D9%88%D9%86-%D8%B4%D8%AC%D8%B1%DB%8C%D8%A7%D9%86/Homayoun%20Shajarian%20-%20Irane%20Man.mp3",
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/33/ec/23/33ec23c8-6474-9100-19cb-5f9e6ce6368c/4f02ac0c-7905-4783-b6cc-b2789a42c6d2.jpg/1200x630bf-60.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ahay Khabarda",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
+    genre: "Traditional",
     album: "",
+    language: "فارسی",
     src: "https://dl2.hitseda.com/1403/%D9%BE%D9%84%DB%8C-%D9%84%DB%8C%D8%B3%D8%AA/%D9%87%D9%85%D8%A7%DB%8C%D9%88%D9%86-%D8%B4%D8%AC%D8%B1%DB%8C%D8%A7%D9%86/Homayoun%20Shajaryan%20-%20Ahay%20Khabardar%20%28320%29.mp3",
     cover: "https://tse3.mm.bing.net/th/id/OIP._zFaemaxLdwyRcMa_XTAQgHaHa?r=0&w=736&h=736&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Khooneye Man Oonjast",
     artist: "Arta And Korosh",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Arta%20And%20Korosh%20-%20Khooneye%20Man%20Oonjast%20Musics-Fa.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.7uZxbc8ruRMXYgWU7KnfBAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Khoda Koshi",
     artist: "Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Arta%20-%20Khoda%20Koshi%20%28320%29.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-r2psBbgYtUjZAn1A-eyhZGw-t500x500.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dele Man",
     artist: "Arta & Saaren",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20_%20Saaren%20-%20Dele%20Man.mp3?versionId=",
     cover: "https://tse2.mm.bing.net/th/id/OIP.4N-CX8RoQUujzJDqZOoDagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sargarmi",
     artist: "Behzad Leito & AFX",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F08.%20Sargarmi%20%28feat.%20AFX%29.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.nSljT220ViEPumg2rrIb2gAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "HHRU",
     artist: "Koroosh & Arta & Saaren",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20x%20Saaren%20-%20HHRU.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.HKz3z__oWDqfkUe2MzjExAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Goor",
     artist: "Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHooman%20-%20Goor%20UpMusics.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.pQqXJvOROP07EtN8x8gQDwHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Karma is a Bitch",
     artist: "Saaren & Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F01.Saaren%20&%20Arta%20-%20Karma%20is%20a%20Bitch%20%28320%29.mp3?versionId=",
     cover: "https://melodu-audio.s3.ir-thr-at1.arvanstorage.ir/Rap/Saaren%20%26%20Arta%20-%20Karma%20is%20a%20Bitch/Saaren-Femmora.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Az Oonayi",
     artist: "Alireza JJ & Sijal",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza-JJ-Sijal-Az-Oonayi-dibamusics.com-320.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.tsO78p_MSVjJf2HXE6ZSIgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mohem Ni",
     artist: "Arta & Poobon",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mohem%20Ni%20%28Ft%20Poobon%29%20%5B320%5D.mp3?versionId=",
     cover: "https://behmusics.com/wp-content/uploads/2026/09/Arta-&-Poobon-Mohem-Ni-1200x675.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dokhtare Man",
     artist: "Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoomaan%20-%20Dokhtare%20Man.mp3?versionId=",
     cover: "https://tse2.mm.bing.net/th/id/OIP.pgoQTqqEHq3ALVav7zQUwgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Wind (Mwon Version)",
     artist: "Dorcci",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDorcci%20-%20Wind%20%28Mwon%20Version%29.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.9rkXN6bUqYKiF1Y9_B6zCQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Penalty",
     artist: "Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20-%20Penalty.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.LR1p32IZ9E7dWjj3g9LvrgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mi Amoore",
     artist: "Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Mi%20Amoore.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.z-NS6yc_m_WyX20g-jMqOAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Havashi",
     artist: "Behzad Leito & Tamara",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Tamara%20-%20Havashi.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.IPl2goMMHN8-TtnjXPs_NgHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ai",
     artist: "Koroosh & Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKoroosh%20x%20Arta%20-%20Ai.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.ITqxyl_f_mzJyYsy-xQ9PAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Har Eshghi Mimirad",
     artist: "Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FArta%20-%20Har%20Eshghi%20Mimirad.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.ZaRT2vT6zUHHWUdR-AyqxQHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Daste Ma Nist",
     artist: "Octave",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Octave%20-%20Daste%20Ma%20Nist.mp3?versionId=",
     cover: "https://rozup.ir/view/2608233/060.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Maghrour (Acoustic Version)",
     artist: "Ashvan",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour%20%28Acoustic%20Version%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwg4kZmXb94CurOkSXfc2jzgXWKwwF2GXA5jrdWRxDE2qqa1ZAVxeRcuc&s=10",
     featured: true
-   },
-   {
+  },
+  {
     title: "Maghrour",
     artist: "Ashvan",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ashvan%20-%20Maghrour.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwg4kZmXb94CurOkSXfc2jzgXWKwwF2GXA5jrdWRxDE2qqa1ZAVxeRcuc&s=10",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nemidunam",
     artist: "Dekamond",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dekamond%20-%20Nemidunam%20%28320%29.mp3?versionId=",
     cover: "https://musicpusic.com/wp-content/uploads/2024/12/%D9%86%D9%85%DB%8C%D8%AF%D9%88%D9%86%D9%85-768x768-1-350x350.jpg",
     featured: true
-    },
-    {
+  },
+  {
     title: "Ghesmate Man",
     artist: "Alireza JJ & Shayan Eshraghi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Alireza%20JJ%20&%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b2739d6ea31c684557e7a6db1c77",
     featured: true
-    },
-    {
+  },
+  {
     title: "14 Bahar",
     artist: "Mert Demir",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Mert%20Demir%20-%2014%20Bahar%20%28Live%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHdE2ueRRR82-_WAqCuT_bh7kRmcwak--9Wi9J4Kp8M7Znp4TNo8lmESJr&s=10",
     featured: true
-    },
-    {
+  },
+  {
     title: "Don Bana",
     artist: "Hande Yener",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/mp3indirdur-Hande-Yener-Don-Bana.mp3?versionId=",
     cover: "https://static.aparatmusic.com/amc/AM-YWxidW0tNWVXbm5CRjEzMTZhQXdiQ2Z4NzVJQg-300-1786398610.jpg",
     featured: true
-    },
-    {
+  },
+  {
     title: "Payiz musicdel",
     artist: "ONEDAM",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/ONEDAM-Payiz-musicdel.ir.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3kcTKu9onhMIRd54lwq9wlOuAyC5K979xo5Jf7L6wJtMFmF_Dsvw0JRKl&s=10",
     featured: true
-    },
-    {
+  },
+  {
     title: "Bargard",
     artist: "Sijal & Sami Beigi & Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Sijal%2520&%2520Sami%2520Beigi%2520&%2520Behzad%2520Leito%2520-%2520Bargard.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-XyhpYxI3a6VAYJJ7-QEiOqw-t500x500.jpg",
     featured: true
-    },
-    {
+  },
+  {
     title: "Male Man Nemishi",
     artist: "Mani",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20-%20Male%20Man%20Nemishi%20%28320%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRwiUtdP3I4X37iakGal1rQwCDDEy35oKB-f7sIOC6Silswkln36LxGnu6&s=10",
     featured: true
-    },
-    {
+  },
+  {
     title: "Ghesmate Man",
     artist: "Alireza JJ & Shayan Eshraghi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAlireza%20JJ%20Va%20Shayan%20Eshraghi%20-%20Ghesmate%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b27319260b5292b4c6ebac112239",
     featured: true
-    },
-    {
+  },
+  {
     title: "Faghat Ba Man",
     artist: "Behzad Leito & Hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBehzad%20Leito%20Ft%20Hoomaan%20-%20Faghat%20Ba%20Man.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b2733ed0fe5136b71f44db4d2c57",
     featured: true
-    },
-    {
+  },
+  {
     title: "oghyanus",
     artist: "hoomaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2Fhoomaan_oghyanus.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b273984a2abceccdd92f9cd822a7",
     featured: true
-    },
-    {
+  },
+  {
     title: "Addi",
     artist: "Dorcci",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dorcci-Addi%20-musicdel.ir.mp3?versionId=",
     cover: "https://biamusic.ir/wp-content/uploads/2026/10/Dorcci-Addi-1024x1024.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "Be Koja Residi",
     artist: "Dorcci",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Dorcci%20-%20Be%20Koja%20Residi%20%28320%29.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-UILFlfgEIjEpHF02-pzR51Q-t1080x1080.png",
     featured: true
-   },
-   {
+  },
+  {
     title: "Baby",
     artist: "Eljaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2FEljaan%20-%20Baby%20%5BSevilMusic%5D.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGUIHqpYPzo-zEhU85_TSrwkrIYGd5nqU3WBgiQqbecBvB02v7rYgL-n0&s=10",
     featured: true
-   },
-   {
+  },
+  {
     title: "Be To Name Minevisam",
     artist: "Tahas",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Tahas%20-%20Be%20To%20Name%20Minevisam%20%28320%29.mp3?versionId=",
     cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5zBe11OJvhupNqgtvIMt7ymfJ2Vcon7rN3x-mEPNRfgJs8gr0gWFn7M&s=10",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nesfe Rah",
     artist: "The Don",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/sana%2FThe%20Don%20-%20Nesfe%20Rah%20%5BSevilMusic%5D.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-0F5l7dOzyB6ZZ5Bw-zGJrsA-t1080x1080.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ghalbe Banafsh",
     artist: "Sepehr Khalse",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/Ghalbe%20Banafsh%20%28320%29.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b27309115f7c4e8c1a644d16409f",
     featured: true
-   },
-   {
+  },
+  {
     title: "L Amour De Ma Vie",
     artist: "Billie Eilish",
     genre: "Pop",
     album: "HIT ME HARD AND SOFT",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FL%20Amour%20De%20Ma%20Vie%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "https://www.picclickimg.com/UwoAAOSwvAJmTKz~/Billie-Eilish-Hit-Me-Hard-And-Soft.webp",
     featured: true
-   },
-   {
+  },
+  {
     title: "To Bezar Boro Mano",
     artist: "Amir Tataloo",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTo%20Bezar%20Boro%20Mano%20-%20Amir%20Tataloo.mp3?versionId=",
     cover: "https://static.qobuz.com/images/covers/nb/sb/itljffq7ssbnb_600.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Love You",
     artist: "Billie Eilish",
     genre: "Pop",
     album: "When We All Fall Asleep, Where Do We Go?",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Love%20You%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "https://th.bing.com/th?id=OIF.2%2fmrOQb%2bgpa5%2byAHFZHSgQ&r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Mean It",
     artist: "GEazy",
-    genre: "Pop",
-    album: "",
+    genre: "Hip-Hop",
+    album: "When It's Dark Out",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Mean%20It%20-%20GEazy.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.Cz6yZlKuKJ15QVu0GhbVagHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Gangsta",
     artist: "Kehlani",
-    genre: "Pop",
-    album: "",
+    genre: "R&B",
+    album: "Suicide Squad: The Album",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGangsta%20-%20Kehlani.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.GbkVMay451-YMg2gZG0OdgHaEU?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Diet Mountain Dew",
     artist: "Lana Del Rey",
     genre: "Pop",
-    album: "",
+    album: "Born to Die",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiet%20Mountain%20Dew%20-%20Lana%20Del%20Rey.mp3?versionId=",
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c5/df/dd/c5dfdd9c-24f2-de01-246c-fcc5e028f705/12UMGIM53864.rgb.jpg/640x640bb.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hoveyda",
     artist: "Manoto",
     genre: "Pop",
     album: "https://th.bing.com/th/id/OIP.jvVHBWAJeF2Y9wkXxKoo7wHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHoveyda%20-%20Manoto.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Experience",
     artist: "Ludovico Einaudi",
-    genre: "Pop",
-    album: "",
+    genre: "Classical",
+    album: "In a Time Lapse",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExperience%20-%20Ludovico%20Einaudi.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.Bt3sKcPcVqhAtpW6xibZ9gHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hymn to Hope",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHymn%20to%20Hope%20-%20Secret%20Garden.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.N-6pcB6NW_xxtyEvnq6hDwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Tum Bir Yasam",
     artist: "Erol Evgin",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTum%20Bir%20Yasam%20-%20Erol%20Evgin.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.MvSK47EqBvQw984avJALSwHaHR?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "That Way",
     artist: "Tate McRae",
     genre: "Pop",
-    album: "",
+    album: "i used to think i could fly",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThat%20Way%20-%20Tate%20McRae.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.kMYwXZWh7sJ4VVrztO4L2AAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ojos Tristes",
     artist: "Selena Gomez",
     genre: "Pop",
-    album: "",
+    album: "Revelación",
+    language: "اسپانیایی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOjos%20Tristes%20-%20Selena%20Gomez.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.1GxNM3IMgWEdw_kG1eZysQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dele Divaneh",
     artist: "Vigen",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVigen%20-%20Dele%20Divaneh.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.Da_26sltglINfbUkEYkDywAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Degmesin Ellerimiz",
     artist: "model",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDegmesin%20Ellerimiz%20-%20model.mp3?versionId=",
     cover: "https://th.bing.com/th/id/OIP.XRD4-5bQVsa7_blpn-ydeAHaHa?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Cant Believe We Never Went Out Dancing",
     artist: "Sebastian Schub",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Believe%20We%20Never%20Went%20Out%20Dancing%20-%20Sebastian%20Schub.mp3?versionId=",
     cover: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0a/60/10/0a60105a-71b6-1a72-3ca9-5bf85ef75877/24UM1IM20693.rgb.jpg/1200x1200bf-60.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Just A Lil Bit [Remix]",
     artist: "50Cent",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FJust%20A%20Lil%20Bit%20%5BRemix%5D-%2050Cent.mp3?versionId=",
     cover: "https://i.discogs.com/_cnWcod72nGIUrQ8niiXjLabKgAHGNvXfdF9hG3luXg/rs:fit/g:sm/q:90/h:582/w:584/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc5ODc0/NC0xMTY1ODA0NzM4/LmpwZWc.jpeg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Begoo Yadete",
     artist: "Wantons",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBegoo%20Yadete%20-%20Wantons.mp3?versionId=",
     cover: "https://tse2.mm.bing.net/th/id/OIP.oCXam3sY8iVWnMr7f4gxDQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Qabil",
     artist: "Reza Pishro",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FQabil%20-%20Reza%20Pishro.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.QzPBBzZT1eZ-sLRZM-VzdwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "In The Closet",
     artist: "Michael Jackson",
     genre: "Pop",
     album: "Dangerous",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20The%20Closet%20-%20Michael%20Jackson.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.-dxJRz3eTEAA4q59oB7SHQHaHa?r=0&w=2500&h=2500&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sarnevesht",
     artist: "Homayoun Shajarian",
-    genre: "Pop",
+    genre: "Traditional",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSarnevesht%20-%20Homayoun%20Shajarian.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.FguOyddvzVm7NnZkyGR8-wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Engar",
     artist: "Dekamond & Xaniar Khosravi",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEngar%20-%20Xaniar%20Khosravi.mp3?versionId=",
     cover: "https://lh3.googleusercontent.com/OymBZadE0XG7_G_HgxY4_VqH1AN69HR9EX0yRhzXn-jobpwhn3TfH2_gOArspMH5_3LcHUfq49p5x0wK",
     featured: true
-   },
-   {
+  },
+  {
     title: "Man O To",
     artist: "Arta",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMan%20O%20To%20-%20Arta.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.z8Buj7mqUOTF88BNmDdAcwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Del",
     artist: "Sami Low & Raha & The Don",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDel%20-%20Sami%20Low%20&%20Raha%20&%20The%20Don.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-jiqVONlOjIl0RMx6-FMaPhA-t500x500.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Fou",
     artist: "Shahin Najafi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFou%20-%20Shahin%20Najafi.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.FrgTeORAO6Vl-aRnapMZagHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "I Cant Get You Out Of My Head",
     artist: "Glimmer Of Blooms",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FI%20Cant%20Get%20You%20Out%20Of%20My%20Head%20-%20Glimmer%20Of%20Blooms.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-bsVAha9oljmANoMD-XJsxOA-t1080x1080.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Pezzo In Forma Di Sonatina [Serenade For Strings]",
     artist: "Pyotr Ilyich Tchaikovsky",
-    genre: "Pop",
-    album: "",
+    genre: "Classical",
+    album: "Serenade for Strings in C major, Op. 48",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPezzo%20In%20Forma%20Di%20Sonatina%20%5BSerenade%20For%20Strings%5D%20-%20Pyotr%20Ilyich%20Tchaikovsky.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.-VarYl6ffXrRThoptqnqcgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Messy",
     artist: "Lola Young",
     genre: "Pop",
-    album: "",
+    album: "I'm Only F**king Myself",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMessy%20-%20Lola%20Young%20.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.IUMGGxV6ipaDDcU4ZRfWhwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "He Wont Go",
     artist: "Adele",
     genre: "Pop",
     album: "21",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHe%20Wont%20Go%20-%20Adele.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.UiprkSWacpbJLrw6U-Y7wwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nesfe Raah",
     artist: "Behzad Leito & The Don",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNesfe%20Raah%20-%20Behzad%20Leito%20&%20The%20Don.mp3?versionId=",
     cover: "https://i1.sndcdn.com/artworks-wI6AutZFveRIYL4c-leHsMQ-t500x500.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shahzadeh Roya",
     artist: "Golshifteh Farahani & Shahab Hosseini",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShahzadeh%20Roya%20-%20Golshifteh%20Farahani.mp3?versionId=",
     cover: "https://d.ibtimes.co.uk/en/full/1807120/golshifteh-farahani.png?w=400&h=268&f=1b8d1c0a011d2fe52bf083b3f1598799",
     featured: true
-   },
-   {
+  },
+  {
     title: "Gole Sangam",
     artist: "Eljaan",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGole%20Sangam%20-%20Eljaan.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.y1J5Unv0k8a-u5Z6DmCteAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Tabestoon Kootahe",
     artist: "Zedbazi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTabestoon%20Kootahe%20-%20Zedbazi.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.rOKGkHFgQoN3lVswB21AzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hay Hay",
     artist: "Hadise",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHay%20Hay%20-%20Hadise.mp3?versionId=",
     cover: "https://e.snmc.io/i/1200/s/6365fc703e6efca1ecb100a94c82f990/12161816",
     featured: true
-   },
-   {
+  },
+  {
     title: "What Was I Made",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "Barbie The Album",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWhat%20Was%20I%20Made%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "https://i.pinimg.com/736x/5b/35/b4/5b35b4cf3abac9f2ba8f0a82651fe348.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Hotline Bling",
     artist: "Billie Eilish",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHotline%20Bling%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.zigiuOImv23ohTPpMvlLIgHaE7?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Skinny",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "HIT ME HARD AND SOFT",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSkinny%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.MpmKnc59Cp5c5M-4QbwgOAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bache Mahal",
     artist: "Zedbazi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBache%20Mahal%20-%20Zedbazi.mp3?versionId=",
     cover: "https://tse4.mm.bing.net/th/id/OIP.rOKGkHFgQoN3lVswB21AzQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dar Miane Setaregan",
     artist: "Arad Aria",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDar%20Miane%20Setaregan%20-%20Arad%20Aria.mp3?versionId=",
     cover: "https://tse2.mm.bing.net/th/id/OIP.AGWXUkGtsYuepB42_lSz6AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "End Of A Journey",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEnd%20Of%20A%20Journey%20-%20Secret%20Garden.mp3?versionId=",
     cover: "https://tse3.mm.bing.net/th/id/OIP.N-6pcB6NW_xxtyEvnq6hDwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Beat It",
     artist: "Michael Jackson",
     genre: "Pop",
     album: "Thriller",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBeat%20It%20-%20Michael%20Jackson.mp3?versionId=",
     cover: "https://th.bing.com/th?id=OIF.6cI3XmxfF%2fbbKAOXo5Wobw&r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Only Time",
     artist: "Enya",
-    genre: "Pop",
-    album: "",
+    genre: "New Age",
+    album: "A Day Without Rain",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOnly%20Time%20-%20Enya.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.vTqZQ-ISzG_UysHFdsH3AAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Olsun",
     artist: "Hadise",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOlsun%20-%20Hadise.mp3?versionId=",
     cover: "https://i.scdn.co/image/ab67616d0000b2730d901dd7c499185448deaced",
     featured: true
-   },
-   {
+  },
+  {
     title: "Dige Dire",
     artist: "Taher Ghoreyshi",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDige%20Dire%20-%20Taher%20Ghoreyshi.mp3?versionId=",
     cover: "https://i.ytimg.com/vi/NBLuuo2LudY/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AG8A4ACvgOKAgwIABABGGUgZShlMA8=&rs=AOn4CLADnxF-_9RNBNnESRwhsSHUMrH_2g",
     featured: true
-   },
-   {
+  },
+  {
     title: "Nafas",
     artist: "Googoosh & Dariush",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNafas%20-%20googoosh%20and%20dariush.mp3?versionId=",
     cover: "https://i.pinimg.com/736x/9f/44/8f/9f448f9578daa6aeb8a376af0a5e1a65.jpg",
     featured: true
-   },
-   {
+  },
+  {
     title: "Snow Is Falling",
     artist: "Chris de Burgh",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
     cover: "https://tse1.mm.bing.net/th/id/OIP.AsjmVMqUec3Q2sjKglfLfgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
     featured: true
-   },
-   {
+  },
+  {
     title: "Love In The Dark",
     artist: "Adele",
     genre: "Pop",
-    album: "",
+    album: "25",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FLove%20In%20The%20Dark%20-%20Adele.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kusub Getdi",
     artist: "Sara Qadimova",
     genre: "Pop",
     album: "",
+    language: "ترکی آذربایجانی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKusub%20Getdi%20-%20Sara%20Qadimova.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Aşk Mühürü",
     artist: "Toygar Işıklı",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FA%C5%9Fk%20M%C3%BCh%C3%BCr%C3%BC%20-%20Toygar%20I%C5%9F%C4%B1kl%C4%B1.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Exile",
     artist: "Taylor Swift",
-    genre: "Pop",
-    album: "",
+    genre: "Indie Folk",
+    album: "Folklore",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FExile%20-%20Taylor%20Swift.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Unutursun",
     artist: "Sertab Erener",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20Our%20Tears%20-%20Secret%20Garden.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "In Our Tears",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIn%20Our%20Tears%20-%20Secret%20Garden.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Mani Axtar Darixanda",
     artist: "Masoud Amir Sepehr",
     genre: "Pop",
     album: "",
+    language: "ترکی آذربایجانی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMani%20Axtar%20Darixanda%20-%20Masoud%20Amir%20Sepehr.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Heaven",
     artist: "Julia Michaels",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHeaven%20-%20Julia%20Michaels.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Poshte Yek Divar Sangi",
     artist: "Googoosh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPoshte%20Yek%20Divar%20Sangi%20-%20Googoosh.pdf?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kısaca",
     artist: "Simge",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FK%C4%B1saca%20-%20Simge.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Tether Me",
     artist: "Galleaux",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTether%20Me%20-%20Galleaux%20.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Serenade To Spring",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSerenade%20To%20Spring%20-%20Secret%20Garden.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "The Moody Blues",
     artist: "Melancholy Man",
-    genre: "Pop",
-    album: "",
+    genre: "Progressive Rock",
+    album: "A Question of Balance",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Moody%20Blues%20-%20Melancholy%20Man.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Visal [Akustik]",
     artist: "Hadise",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FVisal%20%5BAkustik%5D%20-%20Hadise.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Six Feet Under",
     artist: "Billie Eilish",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSix%20Feet%20Under%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bellyache",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "Don't Smile at Me",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBellyache%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Muhtemel Ask",
     artist: "Yirmi7",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMuhtemel%20Ask%20-%20yirmi7.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Waltz No II",
     artist: "Cihat Aşkın",
-    genre: "Pop",
+    genre: "Classical",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWaltz%20No%20II%20-%20Cihat%20A%C5%9Fk%C4%B1n.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Adagio",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSecret%20Garden%20-%20Adagio.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Kırık Kalp",
     artist: "Güldiyar Tanrıdağlı",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FK%C4%B1r%C4%B1k%20Kalp%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Khoobe Hamechi",
     artist: "Behzad Leito",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhoobe%20Hamechi%20-%20Leito.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "камин",
     artist: "Emin",
     genre: "Pop",
     album: "",
+    language: "روسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2F%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD%20emin%20%28320%29.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Pastorale",
     artist: "Secret Garden",
-    genre: "Pop",
+    genre: "New Age",
     album: "",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPastorale%20-%20Secret%20Garden.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "How Do I Stop Loving You",
     artist: "Engelbert Humperdinck",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHow%20Do%20I%20Stop%20Loving%20You%20-%20Engelbert%20Humperdinck.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "You Broke Me First",
     artist: "Conor Maynard",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FYou%20Broke%20Me%20First%20-%20Conor%20Maynard.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Blue",
     artist: "Billie Eilish",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBlue%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shah Beyt",
     artist: "Masih & Arash",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShah%20Beyt%20-%20Masih%20&%20Arash.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "ADHD",
     artist: "Shahin Najafi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FADHD%20-%20Shahin%20Najafi.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Someone Like You",
     artist: "Adele",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSomeone%20Like%20You%20-%20Adele.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Chikar Kardi",
     artist: "Leito & Sijal & Khalse & Heliyom",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FChikar%20Kardi%20-%20Leito%20x%20Sijal%20x%20Khalse%20x%20Heliyom.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bring Me To Life",
     artist: "Evanescence",
-    genre: "Pop",
-    album: "",
+    genre: "Rock",
+    album: "Fallen",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBring%20Me%20To%20Life%20-%20Evanescence.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Bella Ciao",
     artist: "Fonola Band",
-    genre: "Pop",
+    genre: "Folk",
     album: "",
+    language: "ایتالیایی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FBella%20Ciao%20-%20Fonola%20Band.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Son Perde",
     artist: "Nilufer",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSon%20Perde%20-%20Nilufer.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Psycho",
     artist: "Zedbazi",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPsycho%20-%20Zedbazi.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Shayad",
     artist: "Mehyad & Lenna",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FShayad%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ey Khoda",
     artist: "Hayedeh",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEy%20Khoda%20-%20Hayedeh.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "One And Only",
     artist: "Adele",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FOne%20And%20Only%20-%20Adele.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Walking On A Dream",
     artist: "Empire of the Sun",
-    genre: "Pop",
-    album: "",
+    genre: "Synth-pop",
+    album: "Walking on a Dream",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEmpire%20of%20the%20Sun%20-%20Walking%20On%20A%20Dream.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Way Down We Go",
     artist: "KALEO",
-    genre: "Pop",
-    album: "",
+    genre: "Blues Rock",
+    album: "A/B",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FWay%20Down%20We%20Go%20-%20KALEO.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Can’t Help Falling In Love",
     artist: "Elvis Presley",
-    genre: "Pop",
-    album: "",
+    genre: "Rock & Roll",
+    album: "Blue Hawaii",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FCan%E2%80%99t%20Help%20Falling%20In%20Love%20-%20Elvis%20Presley.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Giso Parishan",
     artist: "AiVA",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FGiso%20Parishan%20-%20AiVA.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Older",
     artist: "Isabel LaRosa",
     genre: "Pop",
     album: "",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FIsabel%20LaRosa%20-%20Older.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Ask Dedigin",
     artist: "Hadise",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAsk%20Dedigin%20-%20Hadise.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Sleeping Beauty [Adagio]",
     artist: "Pyotr Ilyich Tchaikovsky",
-    genre: "Pop",
-    album: "",
+    genre: "Classical",
+    album: "The Sleeping Beauty, Op. 66",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSleeping%20Beauty%20%5BAdagio%5D%20-%20Pyotr%20Ilyich%20Tchaikovsky.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Khodaye Binahayat",
     artist: "Mehrad Hidden",
-    genre: "Pop",
+    genre: "Hip-Hop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FKhodaye%20Binahayat%20-%20Hidden.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Diamonds [Acoustic]",
     artist: "Rihanna",
     genre: "Pop",
-    album: "",
+    album: "Unapologetic",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FDiamonds%20%5BAcoustic%5D-%20Rihanna.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Umutsuz Aşk",
     artist: "Güldiyar Tanrıdağlı",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FUmutsuz%20A%C5%9Fk%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Faryade Entezar",
     artist: "Viguen",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FFaryade%20Entezar%20-%20Viguen.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Time",
     artist: "Hans Zimmer",
-    genre: "Pop",
-    album: "",
+    genre: "Soundtrack",
+    album: "Inception (Music from the Motion Picture)",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FTime%20-%20Hans%20Zimmer.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Engin Yalnızlık",
     artist: "Güldiyar Tanrıdağlı",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEngin%20Yaln%C4%B1zl%C4%B1k%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Eshghe To Nemimirad",
     artist: "Aref Arefkia",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FEshghe%20To%20Nemimirad%20-%20Aref%20Arefkia.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Anla",
     artist: "Güldiyar Tanrıdağlı",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FAnla%20-%20G%C3%BCldiyar%20Tanr%C4%B1da%C4%9Fl%C4%B1.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Happier Than Ever",
     artist: "Billie Eilish",
     genre: "Pop",
-    album: "",
+    album: "Happier Than Ever",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FHappier%20Than%20Ever%20-%20Billie%20Eilish.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "My Immortal",
     artist: "Evanescence",
-    genre: "Pop",
-    album: "",
+    genre: "Rock",
+    album: "Fallen",
+    language: "انگلیسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FMy%20Immortal%20-%20Evanescence.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Perleramonpere",
     artist: "Celine Dion",
     genre: "Pop",
-    album: "",
+    album: "S'il suffisait d'aimer",
+    language: "فرانسوی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FPerleramonpere%20-%20Celine%20Dion.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Spank",
     artist: "Mehyad & Lenna",
     genre: "Pop",
     album: "",
+    language: "فارسی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FSpank%20-%20Mehyad%20&%20Lenna.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "The Last of Us",
     artist: "Gustavo Santaolalla",
-    genre: "Pop",
-    album: "",
+    genre: "Soundtrack",
+    album: "The Last of Us (Video Game Soundtrack)",
+    language: "بی‌کلام",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FThe%20Last%20of%20Us%20-%20Gustavo%20Santaolalla.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "Niye Cattin Kaslarini",
     artist: "Harun Gumus",
     genre: "Pop",
     album: "",
+    language: "ترکی استانبولی",
     src: "https://taninfy-music.s3.ir-central1.arvanstorage.ir/already%2FNiye%20Cattin%20Kaslarini%20-%20Harun%20Gumus.mp3?versionId=",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
-   {
+  },
+  {
     title: "",
     artist: "",
     genre: "Pop",
     album: "",
+    language: "",
     src: "",
     cover: "",
     featured: true
-   },
+  }
 ];
